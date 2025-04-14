@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Star } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 interface TestimonialProps {
   name: string;
@@ -8,34 +9,31 @@ interface TestimonialProps {
   image: string;
   quote: string;
   project: string;
-  delay: number;
 }
 
-const TestimonialCard = ({ name, role, image, quote, project, delay }: TestimonialProps) => {
+const TestimonialCard = ({ name, role, image, quote, project }: TestimonialProps) => {
   return (
-    <div 
-      className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 testimonial-card animate-fade-in-up relative overflow-hidden"
-      style={{ animationDelay: `${delay * 100}ms` }}
-    >
-      <div className="flex items-center gap-1 mb-4 text-labora-red">
-        <Star className="h-4 w-4 fill-current" />
-        <Star className="h-4 w-4 fill-current" />
-        <Star className="h-4 w-4 fill-current" />
-        <Star className="h-4 w-4 fill-current" />
-        <Star className="h-4 w-4 fill-current" />
-      </div>
-      <p className="text-gray-700 mb-8 italic">"{quote}"</p>
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white to-transparent h-24"></div>
-      <div className="flex items-center gap-4 relative z-10 mt-4">
-        <img 
-          src={image} 
-          alt={name} 
-          className="w-16 h-16 rounded-full object-cover border-2 border-labora-red/20"
-        />
-        <div>
-          <h4 className="font-semibold text-labora-dark text-lg">{name}</h4>
-          <p className="text-gray-500">{role}</p>
-          <p className="text-sm text-labora-red mt-1">Proyecto: {project}</p>
+    <div className="bg-white rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex items-center gap-1 mb-4 text-labora-red">
+          <Star className="h-4 w-4 fill-current" />
+          <Star className="h-4 w-4 fill-current" />
+          <Star className="h-4 w-4 fill-current" />
+          <Star className="h-4 w-4 fill-current" />
+          <Star className="h-4 w-4 fill-current" />
+        </div>
+        <p className="text-gray-700 mb-6 flex-grow italic text-sm">"{quote}"</p>
+        <div className="flex items-center gap-4">
+          <img 
+            src={image} 
+            alt={name} 
+            className="w-14 h-14 rounded-full object-cover border-2 border-labora-red/20"
+          />
+          <div>
+            <h4 className="font-semibold text-labora-dark">{name}</h4>
+            <p className="text-gray-500 text-sm">{role}</p>
+            <p className="text-sm text-labora-red mt-1">Proyecto: {project}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -50,7 +48,6 @@ const TestimonialsSection = () => {
       image: "https://randomuser.me/api/portraits/men/32.jpg",
       quote: "Llegué sin saber nada de tecnología y en tres meses desarrollé una plataforma para mi emprendimiento que me permitió automatizar procesos y escalar mi negocio. El acompañamiento durante todo el programa fue clave para superar los desafíos técnicos.",
       project: "App de reservas para restaurantes",
-      delay: 1
     },
     {
       name: "María González",
@@ -58,7 +55,6 @@ const TestimonialsSection = () => {
       image: "https://randomuser.me/api/portraits/women/44.jpg",
       quote: "La metodología de Labora es fantástica. Aprendí a utilizar IA para crear aplicaciones completas sin escribir código. Ahora puedo materializar mis diseños y ofrecer soluciones completas a mis clientes sin depender de programadores externos.",
       project: "Plataforma de portfolios digitales",
-      delay: 2
     },
     {
       name: "Javier Rodríguez",
@@ -66,7 +62,6 @@ const TestimonialsSection = () => {
       image: "https://randomuser.me/api/portraits/men/62.jpg",
       quote: "Como consultor, ahora puedo ofrecer soluciones tecnológicas a mis clientes sin depender de un equipo técnico. Aprendí a crear flujos de trabajo automatizados con n8n y bases de datos eficientes con Supabase, lo que ha transformado mi servicio.",
       project: "Sistema de gestión para consultoras",
-      delay: 3
     },
     {
       name: "Ana Martínez",
@@ -74,7 +69,6 @@ const TestimonialsSection = () => {
       image: "https://randomuser.me/api/portraits/women/68.jpg",
       quote: "Gracias a Labora pude lanzar mi MVP en tiempo récord utilizando herramientas No-Code y atraer mi primera inversión. Los entrenadores son excelentes y la comunidad de estudiantes proporciona un apoyo invaluable durante todo el proceso de creación.",
       project: "Marketplace de productos artesanales",
-      delay: 4
     },
   ];
 
@@ -90,18 +84,61 @@ const TestimonialsSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
-            <TestimonialCard 
-              key={index}
-              name={testimonial.name}
-              role={testimonial.role}
-              image={testimonial.image}
-              quote={testimonial.quote}
-              project={testimonial.project}
-              delay={testimonial.delay}
-            />
+            <div key={index} className="flex flex-col h-full">
+              <img 
+                src={testimonial.image} 
+                alt={testimonial.name} 
+                className="w-full aspect-square object-cover rounded-lg mb-4"
+              />
+              <div className="bg-white p-6 rounded-lg flex-grow">
+                <h4 className="font-semibold text-labora-dark text-lg mb-2">{testimonial.name}</h4>
+                <p className="text-gray-500 text-sm mb-3">{testimonial.role}</p>
+                <div className="flex items-center gap-1 mb-4 text-labora-red">
+                  <Star className="h-3 w-3 fill-current" />
+                  <Star className="h-3 w-3 fill-current" />
+                  <Star className="h-3 w-3 fill-current" />
+                  <Star className="h-3 w-3 fill-current" />
+                  <Star className="h-3 w-3 fill-current" />
+                </div>
+                <p className="text-gray-700 text-sm italic mb-4">"{testimonial.quote.substring(0, 120)}..."</p>
+                <p className="text-sm text-labora-red font-medium">Proyecto: {testimonial.project}</p>
+              </div>
+            </div>
           ))}
+        </div>
+        
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <TestimonialCard 
+                      name={testimonial.name}
+                      role={testimonial.role}
+                      image={testimonial.image}
+                      quote={testimonial.quote}
+                      project={testimonial.project}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-8 gap-2">
+              <CarouselPrevious className="relative left-0 right-auto bg-white text-labora-dark hover:bg-labora-neon hover:text-labora-dark" />
+              <CarouselNext className="relative right-0 left-auto bg-white text-labora-dark hover:bg-labora-neon hover:text-labora-dark" />
+            </div>
+          </Carousel>
         </div>
       </div>
     </section>

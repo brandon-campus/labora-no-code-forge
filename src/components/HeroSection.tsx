@@ -22,9 +22,9 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contacto">
+              <a href="https://tally.so/r/w49bBo" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base font-medium">
-                  Inscríbete ahora
+                  Aplicar ahora
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
@@ -47,15 +47,15 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="relative h-[400px] w-full animate-fade-in rounded-2xl overflow-hidden hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-labora-dark/90 to-labora-dark/70 rounded-2xl"></div>
+          <div className="relative h-[450px] w-full animate-fade-in rounded-2xl overflow-hidden hidden lg:block">
+            <div className="absolute inset-0 bg-gradient-to-br from-labora-dark/80 to-labora-dark/60 rounded-2xl"></div>
             <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
-              alt="Estudiantes aprendiendo tecnología" 
+              src="/lovable-uploads/dcef2b8e-f8f8-478d-874b-019b18671f8d.png"
+              alt="Personas creando productos con IA y No-Code" 
               className="w-full h-full object-cover rounded-2xl"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-              <p className="text-white font-medium">Aprende creando proyectos reales con IA y No-Code</p>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <p className="text-white font-medium text-lg">Programa intensivo de 4 semanas con clases en vivo</p>
             </div>
           </div>
         </div>

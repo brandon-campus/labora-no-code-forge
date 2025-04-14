@@ -89,7 +89,7 @@ const MiniHeader = () => {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="px-4 py-3 text-gray-300 hover:text-labora-neon text-center"
+                className="px-4 py-3 text-gray-300 hover:text-labora-neon hover:bg-labora-dark/80 text-sm font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {section.label}

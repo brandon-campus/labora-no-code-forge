@@ -26,7 +26,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-white">Duración</h3>
-                  <p className="text-gray-300">Programa intensivo de 12 semanas</p>
+                  <p className="text-gray-300">Programa intensivo de 4 semanas</p>
                 </div>
               </div>
               
@@ -36,7 +36,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-white">Metodología</h3>
-                  <p className="text-gray-300">Aprendizaje basado en un proyecto real</p>
+                  <p className="text-gray-300">Clases 100% en vivo, 3 veces por semana</p>
                 </div>
               </div>
               
@@ -63,43 +63,25 @@ const ContactSection = () => {
           </div>
           
           <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 animate-fade-in-up">
-            <h3 className="text-2xl font-bold mb-6 text-labora-dark">Inscríbete ahora</h3>
+            <h3 className="text-2xl font-bold mb-6 text-labora-dark">Aplica ahora</h3>
             
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">Nombre</Label>
-                  <Input id="firstName" placeholder="Tu nombre" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Apellido</Label>
-                  <Input id="lastName" placeholder="Tu apellido" required />
-                </div>
-              </div>
+            <div className="space-y-6">
+              <a href="https://tally.so/r/w49bBo" target="_blank" rel="noopener noreferrer" className="block">
+                <Button className="w-full bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base">
+                  Aplicar ahora
+                </Button>
+              </a>
               
-              <div className="space-y-2">
-                <Label htmlFor="email">Correo electrónico</Label>
-                <Input id="email" type="email" placeholder="tucorreo@ejemplo.com" required />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="phone">Teléfono</Label>
-                <Input id="phone" placeholder="+1 234 567 890" />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="projectIdea">Cuéntanos sobre tu idea o proyecto (opcional)</Label>
-                <Textarea id="projectIdea" placeholder="Describe brevemente tu idea..." className="h-24" />
-              </div>
-              
-              <Button className="w-full bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base">
-                Reservar mi lugar
-              </Button>
-              
-              <p className="text-sm text-gray-500 text-center">
-                También puedes contactarnos directamente a <a href="mailto:info@labora.tech" className="text-labora-red hover:underline">info@labora.tech</a>
+              <p className="text-gray-500 text-center">
+                Fecha límite de inscripción: <span className="font-semibold">25 de Abril, 2025</span>
               </p>
-            </form>
+              
+              <div className="border-t border-gray-100 pt-6 mt-6">
+                <p className="text-gray-500 text-center">
+                  También puedes contactarnos directamente a <a href="mailto:info@labora.tech" className="text-labora-red hover:underline">info@labora.tech</a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

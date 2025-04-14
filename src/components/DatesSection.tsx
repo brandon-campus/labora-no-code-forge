@@ -41,7 +41,7 @@ const DatesSection = () => {
                   </li>
                   <li className="flex justify-between">
                     <span>Demo Day:</span>
-                    <span className="font-medium">28 de Julio</span>
+                    <span className="font-medium">28 de Mayo</span>
                   </li>
                 </ul>
               </div>
@@ -56,11 +56,11 @@ const DatesSection = () => {
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
                     <span>Total del programa:</span>
-                    <span className="font-medium">12 semanas</span>
+                    <span className="font-medium">4 semanas</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Sesiones en vivo:</span>
-                    <span className="font-medium">2 por semana</span>
+                    <span className="font-medium">3 por semana</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Dedicación estimada:</span>
@@ -79,7 +79,7 @@ const DatesSection = () => {
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
                     <span>Formato:</span>
-                    <span className="font-medium">100% online</span>
+                    <span className="font-medium">100% online en vivo</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Plazas disponibles:</span>
