@@ -2,8 +2,11 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import BenefitsSection from '@/components/BenefitsSection';
-import ProcessSection from '@/components/ProcessSection';
+import MiniHeader from '@/components/MiniHeader';
+import AboutSection from '@/components/AboutSection';
+import DatesSection from '@/components/DatesSection';
+import CurriculumSection from '@/components/CurriculumSection';
+import MethodologySection from '@/components/ProcessSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import DemoSection from '@/components/DemoSection';
 import ContactSection from '@/components/ContactSection';
@@ -14,8 +17,11 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       <HeroSection />
-      <BenefitsSection />
-      <ProcessSection />
+      <MiniHeader />
+      <AboutSection />
+      <DatesSection />
+      <CurriculumSection />
+      <MethodologySection />
       <TestimonialsSection />
       <DemoSection />
       <ContactSection />

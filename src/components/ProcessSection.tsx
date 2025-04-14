@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Check, FileSearch, Layout, Lightbulb, Rocket, Megaphone } from 'lucide-react';
+import { Lightbulb, Layout, FileSearch, Rocket, Megaphone, Users } from 'lucide-react';
 
 interface ProcessStepProps {
   icon: React.ReactNode;
@@ -36,38 +36,45 @@ const ProcessSection = () => {
   const steps = [
     {
       icon: <Lightbulb className="h-4 w-4 text-labora-red" />,
-      title: "Validación de la idea",
-      description: "Analizamos tu idea de negocio o proyecto, identificamos su potencial y definimos objetivos claros.",
+      title: "Idea y validación",
+      description: "Definirás tu idea de producto y la validarás con técnicas de Design Thinking y métodos ágiles, identificando su potencial de mercado.",
       number: 1,
       delay: 1
     },
     {
       icon: <Layout className="h-4 w-4 text-labora-red" />,
-      title: "Diseño",
-      description: "Creamos la arquitectura y prototipo de tu aplicación, definiendo funcionalidades y experiencia de usuario.",
+      title: "Arquitectura",
+      description: "Diseñarás la estructura de tu producto, sus funcionalidades y experiencia de usuario, creando prototipos y mapas de navegación.",
       number: 2,
       delay: 2
     },
     {
       icon: <FileSearch className="h-4 w-4 text-labora-red" />,
-      title: "Desarrollo",
-      description: "Implementamos tu producto utilizando herramientas de IA y No-Code como Lovable, Cursor AI y Supabase.",
+      title: "Desarrollo No-Code",
+      description: "Implementarás tu producto utilizando herramientas de IA y No-Code como Lovable, Cursor AI y Supabase, con apoyo constante de entrenadores.",
       number: 3,
       delay: 3
     },
     {
       icon: <Rocket className="h-4 w-4 text-labora-red" />,
       title: "Lanzamiento",
-      description: "Preparamos tu producto para salir al mercado, con todas las configuraciones necesarias para su funcionamiento.",
+      description: "Prepararás tu producto para salir al mercado, con todas las configuraciones necesarias para su funcionamiento óptimo.",
       number: 4,
       delay: 4
     },
     {
       icon: <Megaphone className="h-4 w-4 text-labora-red" />,
-      title: "Marketing",
-      description: "Estrategias para promocionar tu producto y conseguir tus primeros usuarios o clientes.",
+      title: "Adquisición de usuarios",
+      description: "Aprenderás estrategias para promocionar tu producto y conseguir tus primeros usuarios o clientes, aplicando técnicas de growth hacking.",
       number: 5,
       delay: 5
+    },
+    {
+      icon: <Users className="h-4 w-4 text-labora-red" />,
+      title: "Acompañamiento",
+      description: "Durante todo el proceso contarás con el apoyo de entrenadores especializados que te guiarán y ayudarán a superar los desafíos.",
+      number: 6,
+      delay: 6
     }
   ];
 
@@ -76,7 +83,7 @@ const ProcessSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-labora-dark">
-            Un proceso <span className="text-labora-red">paso a paso</span>
+            <span className="text-labora-red">Metodología</span> del programa
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Te acompañamos desde la idea hasta el lanzamiento de tu producto, siguiendo una metodología clara y efectiva.
