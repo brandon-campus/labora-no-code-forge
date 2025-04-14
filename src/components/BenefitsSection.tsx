@@ -15,10 +15,10 @@ const BenefitCard = ({ icon, title, description, delay }: BenefitCardProps) => {
       className="p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow animate-fade-in-up testimonial-card"
       style={{ animationDelay: `${delay * 100}ms` }}
     >
-      <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-labora-purple to-labora-blue rounded-lg mb-4 text-white">
+      <div className="w-12 h-12 flex items-center justify-center bg-labora-red rounded-lg mb-4 text-white">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <h3 className="text-xl font-semibold mb-2 text-labora-dark">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
   );
@@ -68,8 +68,8 @@ const BenefitsSection = () => {
     <section id="beneficios" className="benefits-gradient py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Beneficios del <span className="gradient-text">Bootcamp IA & No-Code</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-labora-dark">
+            Beneficios del <span className="text-labora-red">Bootcamp IA & No-Code</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Aprende mientras creas. No necesitas conocimientos técnicos previos para desarrollar productos de calidad.

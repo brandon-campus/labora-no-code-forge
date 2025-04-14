@@ -57,9 +57,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				labora: {
-					purple: '#8B5CF6',
-					orange: '#F97316',
-					blue: '#60A5FA',
+					red: '#e54b5c',
+					white: '#ffffff',
+					dark: '#0a0b0d',
+					neon: '#cbff00',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

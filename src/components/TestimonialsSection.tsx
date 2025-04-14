@@ -16,7 +16,7 @@ const TestimonialCard = ({ name, role, image, quote, delay }: TestimonialProps) 
       className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 testimonial-card animate-fade-in-up"
       style={{ animationDelay: `${delay * 100}ms` }}
     >
-      <div className="flex items-center gap-1 mb-4 text-yellow-400">
+      <div className="flex items-center gap-1 mb-4 text-labora-red">
         <Star className="h-4 w-4 fill-current" />
         <Star className="h-4 w-4 fill-current" />
         <Star className="h-4 w-4 fill-current" />
@@ -31,7 +31,7 @@ const TestimonialCard = ({ name, role, image, quote, delay }: TestimonialProps) 
           className="w-12 h-12 rounded-full object-cover"
         />
         <div>
-          <h4 className="font-semibold">{name}</h4>
+          <h4 className="font-semibold text-labora-dark">{name}</h4>
           <p className="text-gray-500 text-sm">{role}</p>
         </div>
       </div>
@@ -72,13 +72,13 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section id="testimonios" className="py-20 bg-gray-50">
+    <section id="testimonios" className="py-20 bg-labora-dark text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Lo que dicen nuestros <span className="gradient-text">estudiantes</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Lo que dicen nuestros <span className="text-labora-neon">estudiantes</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Historias reales de personas que transformaron sus ideas en productos tecnológicos.
           </p>
         </div>

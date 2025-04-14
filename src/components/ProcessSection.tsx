@@ -17,7 +17,7 @@ const ProcessStep = ({ icon, title, description, number, delay }: ProcessStepPro
       style={{ animationDelay: `${delay * 100}ms` }}
     >
       <div className="flex-shrink-0">
-        <div className="w-16 h-16 bg-gradient-to-br from-labora-blue to-labora-purple rounded-full flex items-center justify-center text-white font-bold text-xl relative">
+        <div className="w-16 h-16 bg-labora-neon rounded-full flex items-center justify-center text-labora-dark font-bold text-xl relative">
           {number}
           <div className="absolute -right-1 -bottom-1 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
             {icon}
@@ -25,7 +25,7 @@ const ProcessStep = ({ icon, title, description, number, delay }: ProcessStepPro
         </div>
       </div>
       <div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold mb-2 text-labora-dark">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </div>
     </div>
@@ -35,35 +35,35 @@ const ProcessStep = ({ icon, title, description, number, delay }: ProcessStepPro
 const ProcessSection = () => {
   const steps = [
     {
-      icon: <Lightbulb className="h-4 w-4 text-labora-orange" />,
+      icon: <Lightbulb className="h-4 w-4 text-labora-red" />,
       title: "Validación de la idea",
       description: "Analizamos tu idea de negocio o proyecto, identificamos su potencial y definimos objetivos claros.",
       number: 1,
       delay: 1
     },
     {
-      icon: <Layout className="h-4 w-4 text-labora-orange" />,
+      icon: <Layout className="h-4 w-4 text-labora-red" />,
       title: "Diseño",
       description: "Creamos la arquitectura y prototipo de tu aplicación, definiendo funcionalidades y experiencia de usuario.",
       number: 2,
       delay: 2
     },
     {
-      icon: <FileSearch className="h-4 w-4 text-labora-orange" />,
+      icon: <FileSearch className="h-4 w-4 text-labora-red" />,
       title: "Desarrollo",
       description: "Implementamos tu producto utilizando herramientas de IA y No-Code como Lovable, Cursor AI y Supabase.",
       number: 3,
       delay: 3
     },
     {
-      icon: <Rocket className="h-4 w-4 text-labora-orange" />,
+      icon: <Rocket className="h-4 w-4 text-labora-red" />,
       title: "Lanzamiento",
       description: "Preparamos tu producto para salir al mercado, con todas las configuraciones necesarias para su funcionamiento.",
       number: 4,
       delay: 4
     },
     {
-      icon: <Megaphone className="h-4 w-4 text-labora-orange" />,
+      icon: <Megaphone className="h-4 w-4 text-labora-red" />,
       title: "Marketing",
       description: "Estrategias para promocionar tu producto y conseguir tus primeros usuarios o clientes.",
       number: 5,
@@ -75,8 +75,8 @@ const ProcessSection = () => {
     <section id="proceso" className="process-gradient py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Un proceso <span className="gradient-text">paso a paso</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-labora-dark">
+            Un proceso <span className="text-labora-red">paso a paso</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Te acompañamos desde la idea hasta el lanzamiento de tu producto, siguiendo una metodología clara y efectiva.
