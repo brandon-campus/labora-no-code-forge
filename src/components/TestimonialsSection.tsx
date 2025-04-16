@@ -1,144 +1,187 @@
+import React, { useState, useEffect } from 'react';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { cn } from "@/lib/utils";
 
-import React from 'react';
-import { Star } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-
-interface TestimonialProps {
+interface Testimonial {
   name: string;
-  role: string;
+  country: string;
+  flag: string;
   image: string;
   quote: string;
-  project: string;
 }
 
-const TestimonialCard = ({ name, role, image, quote, project }: TestimonialProps) => {
-  return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="flex items-center gap-1 mb-4 text-labora-red">
-          <Star className="h-4 w-4 fill-current" />
-          <Star className="h-4 w-4 fill-current" />
-          <Star className="h-4 w-4 fill-current" />
-          <Star className="h-4 w-4 fill-current" />
-          <Star className="h-4 w-4 fill-current" />
-        </div>
-        <p className="text-gray-700 mb-6 flex-grow italic text-sm">"{quote}"</p>
-        <div className="flex items-center gap-4">
-          <img 
-            src={image} 
-            alt={name} 
-            className="w-14 h-14 rounded-full object-cover border-2 border-labora-red/20"
-          />
-          <div>
-            <h4 className="font-semibold text-labora-dark">{name}</h4>
-            <p className="text-gray-500 text-sm">{role}</p>
-            <p className="text-sm text-labora-red mt-1">Proyecto: {project}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const testimonials: Testimonial[] = [
+  {
+    name: "Sebastián Acuña",
+    country: "Argentina",
+    flag: "🇦🇷",
+    image: "/lovable-uploads/sebasacuna.png",
+    quote: "Hoy me di cuenta de lo importante que fue todo lo que aprendimos: me ayudó a desbloquearme, a entender, y sobre todo, a creer que ya estoy listo para empezar a crear por mi cuenta. Me siento muy agradecido."
+  },
+  {
+    name: "Alirio Aguirre",
+    country: "Colombia",
+    flag: "🇨🇴",
+    image: "/lovable-uploads/alirioaguirre.png",
+    quote: "Ya hice cinco aplicaciones y estoy enamorado de cómo las construí gracias al bootcamp. Logré hacer cosas que nunca pensé posibles. Ahora solo me queda montarlas y darles los últimos detalles. Estoy feliz porque incluso pude aplicar lo que sé sobre juegos de azar, donde soy experto."
+  },
+  {
+    name: "German Dominguez",
+    country: "Chile",
+    flag: "🇨🇱",
+    image: "/lovable-uploads/german1.png",
+    quote: "Me emociona todo lo que puedo llegar a aprender después de escuchar cada clase. Cada encuentro me deja con más ganas de seguir creciendo."
+  },
+  {
+    name: "Lucas Parolini",
+    country: "Argentina",
+    flag: "🇦🇷",
+    image: "/lovable-uploads/lucas.png",
+    quote: "Estoy emocionado con el comienzo del bootcamp. Quiero aprender a fondo cómo utilizar herramientas de inteligencia artificial."
+  },
+  {
+    name: "Mauricio Madelat",
+    country: "México",
+    flag: "🇲🇽",
+    image: "/lovable-uploads/mauricio.png",
+    quote: "Tenía un proyecto que venía planeando durante años. He podido crear mi Plataforma completa en este bootcamp y realmente me he desafiado a no solo a hacer un MVP sino un producto completo. Está increíble."
+  }
+];
 
 const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      name: "Carlos Méndez",
-      role: "Emprendedor",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      quote: "Llegué sin saber nada de tecnología y en tres meses desarrollé una plataforma para mi emprendimiento que me permitió automatizar procesos y escalar mi negocio. El acompañamiento durante todo el programa fue clave para superar los desafíos técnicos.",
-      project: "App de reservas para restaurantes",
-    },
-    {
-      name: "María González",
-      role: "Diseñadora UX",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
-      quote: "La metodología de Labora es fantástica. Aprendí a utilizar IA para crear aplicaciones completas sin escribir código. Ahora puedo materializar mis diseños y ofrecer soluciones completas a mis clientes sin depender de programadores externos.",
-      project: "Plataforma de portfolios digitales",
-    },
-    {
-      name: "Javier Rodríguez",
-      role: "Consultor de Negocios",
-      image: "https://randomuser.me/api/portraits/men/62.jpg",
-      quote: "Como consultor, ahora puedo ofrecer soluciones tecnológicas a mis clientes sin depender de un equipo técnico. Aprendí a crear flujos de trabajo automatizados con n8n y bases de datos eficientes con Supabase, lo que ha transformado mi servicio.",
-      project: "Sistema de gestión para consultoras",
-    },
-    {
-      name: "Ana Martínez",
-      role: "Fundadora de Startup",
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
-      quote: "Gracias a Labora pude lanzar mi MVP en tiempo récord utilizando herramientas No-Code y atraer mi primera inversión. Los entrenadores son excelentes y la comunidad de estudiantes proporciona un apoyo invaluable durante todo el proceso de creación.",
-      project: "Marketplace de productos artesanales",
-    },
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => 
+      (prevIndex + 1) % testimonials.length
+    );
+  };
 
   return (
-    <section id="testimonios" className="py-20 bg-labora-dark text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="relative py-20 bg-gray-950 overflow-hidden">
+      {/* Tech Grid Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/tech-grid.svg')] bg-repeat opacity-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950 to-gray-950"></div>
+      </div>
+      
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Lo que dicen nuestros <span className="text-labora-neon">estudiantes</span>
+          <div className={cn(
+            "inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full",
+            "bg-gray-900/80 backdrop-blur-sm",
+            "border border-labora-neon/20",
+            "shadow-[0_0_20px_rgba(0,255,170,0.1)]"
+          )}>
+            <Quote className="h-5 w-5 text-labora-neon" />
+            <span className="text-gray-200 text-sm font-medium">Historias de éxito</span>
+          </div>
+          <h2 className={cn(
+            "text-4xl md:text-5xl font-bold mb-6",
+            "bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent",
+            "tracking-tight"
+          )}>
+            Lo que dicen nuestros estudiantes
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Historias reales de personas que transformaron sus ideas en productos tecnológicos exitosos.
+          <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+            Descubrí cómo nuestros estudiantes están transformando sus carreras y creando productos increíbles.
           </p>
         </div>
         
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="max-w-4xl mx-auto relative">
+          <div className="relative h-[400px]">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="flex flex-col h-full">
+              <div
+                key={index}
+                className={cn(
+                  "absolute inset-0 transition-all duration-500",
+                  "flex flex-col items-center text-center",
+                  "bg-gray-900/80 backdrop-blur-sm rounded-xl p-8",
+                  "border border-gray-800/50",
+                  "shadow-[0_0_30px_rgba(0,0,0,0.3)]",
+                  index === currentIndex ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full"
+                )}
+              >
+                <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-2 border-labora-neon/30">
               <img 
                 src={testimonial.image} 
                 alt={testimonial.name} 
-                className="w-full aspect-square object-cover rounded-lg mb-4"
-              />
-              <div className="bg-white p-6 rounded-lg flex-grow">
-                <h4 className="font-semibold text-labora-dark text-lg mb-2">{testimonial.name}</h4>
-                <p className="text-gray-500 text-sm mb-3">{testimonial.role}</p>
-                <div className="flex items-center gap-1 mb-4 text-labora-red">
-                  <Star className="h-3 w-3 fill-current" />
-                  <Star className="h-3 w-3 fill-current" />
-                  <Star className="h-3 w-3 fill-current" />
-                  <Star className="h-3 w-3 fill-current" />
-                  <Star className="h-3 w-3 fill-current" />
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <p className="text-gray-700 text-sm italic mb-4">"{testimonial.quote.substring(0, 120)}..."</p>
-                <p className="text-sm text-labora-red font-medium">Proyecto: {testimonial.project}</p>
+                <div className="flex items-center gap-2 mb-4">
+                  <h3 className="text-xl font-semibold text-white">{testimonial.name}</h3>
+                  <span className="text-2xl">{testimonial.flag}</span>
               </div>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
             </div>
           ))}
         </div>
         
-        {/* Mobile Carousel */}
-        <div className="md:hidden">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
+          {/* Navigation Buttons */}
+          <button
+            onClick={goToPrevious}
+            className={cn(
+              "absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12",
+              "p-3 rounded-full",
+              "bg-gray-900/80 backdrop-blur-sm",
+              "border border-labora-neon/20",
+              "shadow-[0_0_20px_rgba(0,255,170,0.1)]",
+              "transition-all duration-300",
+              "hover:bg-labora-neon/20 hover:border-labora-neon/50",
+              "focus:outline-none focus:ring-2 focus:ring-labora-neon/50",
+              "group"
+            )}
           >
-            <CarouselContent>
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index}>
-                  <div className="p-1">
-                    <TestimonialCard 
-                      name={testimonial.name}
-                      role={testimonial.role}
-                      image={testimonial.image}
-                      quote={testimonial.quote}
-                      project={testimonial.project}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-center mt-8 gap-2">
-              <CarouselPrevious className="relative left-0 right-auto bg-white text-labora-dark hover:bg-labora-neon hover:text-labora-dark" />
-              <CarouselNext className="relative right-0 left-auto bg-white text-labora-dark hover:bg-labora-neon hover:text-labora-dark" />
+            <ChevronLeft className="w-6 h-6 text-white group-hover:text-labora-neon" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            className={cn(
+              "absolute right-0 top-1/2 -translate-y-1/2 translate-x-12",
+              "p-3 rounded-full",
+              "bg-gray-900/80 backdrop-blur-sm",
+              "border border-labora-neon/20",
+              "shadow-[0_0_20px_rgba(0,255,170,0.1)]",
+              "transition-all duration-300",
+              "hover:bg-labora-neon/20 hover:border-labora-neon/50",
+              "focus:outline-none focus:ring-2 focus:ring-labora-neon/50",
+              "group"
+            )}
+          >
+            <ChevronRight className="w-6 h-6 text-white group-hover:text-labora-neon" />
+          </button>
+
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={cn(
+                  "w-3 h-3 rounded-full transition-all duration-300",
+                  index === currentIndex ? "bg-labora-neon" : "bg-gray-700",
+                  "hover:bg-labora-neon/50"
+                )}
+              />
+            ))}
             </div>
-          </Carousel>
         </div>
       </div>
     </section>
