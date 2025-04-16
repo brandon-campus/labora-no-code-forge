@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -63,7 +62,7 @@ const ContactSection = () => {
           </div>
           
           <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 animate-fade-in-up">
-            <h3 className="text-2xl font-bold mb-6 text-labora-dark">Aplica ahora</h3>
+            <h3 className="text-2xl font-bold mb-6 text-labora-dark">¿Listo para iniciar con IA y No Code?</h3>
             
             <div className="space-y-6">
               <a href="https://tally.so/r/w49bBo" target="_blank" rel="noopener noreferrer" className="block">
@@ -78,7 +77,7 @@ const ContactSection = () => {
               
               <div className="border-t border-gray-100 pt-6 mt-6">
                 <p className="text-gray-500 text-center">
-                  También puedes contactarnos directamente a <a href="mailto:info@labora.tech" className="text-labora-red hover:underline">info@labora.tech</a>
+                  También puedes contactarnos directamente a <a href="mailto:info@cohorte.labora.ar" className="text-labora-red hover:underline">info@cohorte.labora.ar</a>
                 </p>
               </div>
             </div>

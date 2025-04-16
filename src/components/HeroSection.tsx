@@ -28,7 +28,7 @@ const HeroSection = () => {
                 </Button>
               </a>
               <a href="#beneficios">
-                <Button variant="outline" className="border-labora-neon text-labora-neon hover:bg-labora-neon/10 px-8 py-6 text-base font-medium">
+                <Button variant="outline" className="border-white text-black hover:bg-white/10 px-8 py-6 text-base font-medium">
                   Conoce más
                 </Button>
               </a>
