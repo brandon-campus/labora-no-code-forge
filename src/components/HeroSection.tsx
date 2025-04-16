@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Rocket } from 'lucide-react';
+import { ArrowRight, Code, Rocket, Video } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -44,19 +43,19 @@ const HeroSection = () => {
                 <Rocket className="h-5 w-5 text-labora-red" />
                 <span className="text-sm text-gray-300">Proyectos reales</span>
               </div>
+              <div className="flex items-center gap-2">
+                <Video className="h-5 w-5 text-labora-neon" />
+                <span className="text-sm text-gray-300">100% en vivo</span>
+              </div>
             </div>
           </div>
           
           <div className="relative h-[450px] w-full animate-fade-in rounded-2xl overflow-hidden hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-labora-dark/80 to-labora-dark/60 rounded-2xl"></div>
             <img 
-              src="/lovable-uploads/dcef2b8e-f8f8-478d-874b-019b18671f8d.png"
+              src="/lovable-uploads/portada.png"
               alt="Personas creando productos con IA y No-Code" 
               className="w-full h-full object-cover rounded-2xl"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              <p className="text-white font-medium text-lg">Programa intensivo de 4 semanas con clases en vivo</p>
-            </div>
           </div>
         </div>
       </div>

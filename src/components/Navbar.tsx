@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
@@ -25,10 +24,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <a href="#" className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-white">
-                <span className="text-labora-red">Labor</span>
-                <span className="text-labora-neon">a</span>
-              </h1>
+              <img 
+                src="/lovable-uploads/logolabora.webp" 
+                alt="Labora" 
+                className="h-8"
+              />
             </a>
           </div>
           

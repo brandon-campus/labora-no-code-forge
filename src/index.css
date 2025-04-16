@@ -1,5 +1,5 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -84,6 +84,30 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-montserrat uppercase;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl xl:text-7xl font-black tracking-tight leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl xl:text-6xl font-extrabold tracking-normal leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-4xl xl:text-5xl font-bold tracking-normal leading-tight;
+  }
+
+  h4 {
+    @apply text-xl md:text-3xl font-bold tracking-normal;
+  }
+
+  h5 {
+    @apply text-lg md:text-2xl font-semibold tracking-normal;
+  }
 }
 
 @layer base {
@@ -118,4 +142,103 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.title-hero {
+  @apply font-montserrat text-4xl md:text-6xl xl:text-7xl font-black uppercase tracking-tighter text-white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.title-accent {
+  @apply text-[#c1ff72] font-black;
+}
+
+.title-accent-red {
+  @apply text-[#e54b5c] font-black;
+}
+
+.title-container {
+  @apply relative z-10 mb-8;
+}
+
+.title-modern {
+  @apply font-montserrat text-3xl md:text-5xl xl:text-6xl font-extrabold uppercase tracking-tight text-white;
+  letter-spacing: -0.02em;
+}
+
+.title-secondary {
+  @apply font-montserrat text-2xl md:text-4xl xl:text-5xl font-bold uppercase tracking-tight text-white;
+  letter-spacing: -0.01em;
+}
+
+.subtitle-modern {
+  @apply font-montserrat text-xl md:text-2xl font-semibold uppercase tracking-wide text-gray-400;
+}
+
+.highlight-text {
+  @apply relative inline-block;
+  &::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[0.2em] bg-[#c1ff72] opacity-30;
+  }
+}
+
+/* Botones base */
+.btn {
+  @apply inline-flex items-center justify-center font-montserrat font-bold text-base 
+         rounded-lg transition-all duration-300 ease-out
+         disabled:opacity-50 disabled:cursor-not-allowed
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+/* Botón primario (Aplicar ahora) */
+.btn-primary {
+  @apply font-montserrat font-semibold text-white text-base
+         bg-[#e54b5c] hover:bg-[#ff5a76]
+         px-6 py-3 rounded-lg
+         inline-flex items-center justify-center
+         transition-all duration-300 ease-out;
+}
+
+/* Botón secundario (Conoce más) */
+.btn-secondary {
+  @apply font-montserrat font-semibold text-[#c1ff72] text-base
+         bg-transparent border-2 border-[#c1ff72]
+         px-6 py-3 rounded-lg
+         inline-flex items-center justify-center
+         transition-all duration-300 ease-out
+         hover:bg-[#c1ff72]/10;
+}
+
+/* Botón pequeño */
+.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+/* Botón grande */
+.btn-lg {
+  @apply px-8 py-4 text-lg;
+}
+
+/* Contenedor de icono */
+.btn-icon {
+  @apply ml-2 transition-transform duration-300 group-hover:translate-x-1;
+}
+
+/* Efecto de brillo en hover */
+.btn-glow {
+  @apply relative overflow-hidden;
+  &::before {
+    content: '';
+    @apply absolute top-0 left-[-100%] w-full h-full bg-white/20
+           transform skew-x-[-20deg] transition-all duration-700;
+  }
+  &:hover::before {
+    @apply left-[100%];
+  }
+}
+
+/* Icono de flecha */
+.btn-arrow {
+  @apply ml-2 w-5 h-5;
 }

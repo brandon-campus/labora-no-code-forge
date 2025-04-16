@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Calendar, Clock, Users } from 'lucide-react';
 
@@ -28,7 +27,7 @@ const DatesSection = () => {
                   <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center mr-3">
                     <Calendar className="h-5 w-5 text-labora-red" />
                   </div>
-                  <h4 className="font-semibold text-labora-dark">Fechas clave</h4>
+                  <h4 className="font-semibold text-labora-dark text-base md:text-sm">Fechas clave</h4>
                 </div>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
@@ -51,7 +50,7 @@ const DatesSection = () => {
                   <div className="w-10 h-10 bg-labora-neon/10 rounded-full flex items-center justify-center mr-3">
                     <Clock className="h-5 w-5 text-labora-neon" />
                   </div>
-                  <h4 className="font-semibold text-labora-dark">Duración</h4>
+                  <h4 className="font-semibold text-labora-dark text-base md:text-sm">Duración</h4>
                 </div>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
@@ -74,7 +73,7 @@ const DatesSection = () => {
                   <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center mr-3">
                     <Users className="h-5 w-5 text-labora-red" />
                   </div>
-                  <h4 className="font-semibold text-labora-dark">Modalidad</h4>
+                  <h4 className="font-semibold text-labora-dark text-base md:text-sm">Modalidad</h4>
                 </div>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">

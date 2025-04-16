@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -21,6 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				montserrat: ['Montserrat', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -57,10 +57,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				labora: {
-					red: '#e54b5c',
+					red: '#e94964',
+					'red-hover': '#ff5a76',
 					white: '#ffffff',
 					dark: '#0a0b0d',
-					neon: '#cbff00',
+					neon: '#c1ff72',
+					'neon-hover': '#d4ff96',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -77,6 +79,10 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				'glow-primary': '0 0 20px rgba(233, 73, 100, 0.3)',
+				'glow-secondary': '0 0 20px rgba(193, 255, 114, 0.2)',
 			},
 			keyframes: {
 				'accordion-down': {
