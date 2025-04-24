@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   NavigationMenu,
@@ -11,6 +10,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { MenuIcon, X } from 'lucide-react';
+
+const masterclassSections = [
+  { id: "about", label: "¿Qué aprenderás?" },
+  { id: "agenda", label: "Agenda" },
+  { id: "instructor", label: "Instructor" },
+  { id: "registro", label: "Reservar lugar" },
+];
 
 const sections = [
   { id: "about", label: "Acerca del programa" },
@@ -25,6 +31,16 @@ const sections = [
 const MiniHeader = () => {
   const [visible, setVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMasterclass = window.location.pathname === '/masterclass';
+  const sections = isMasterclass ? masterclassSections : [
+    { id: "about", label: "Acerca del programa" },
+    { id: "dates", label: "Fechas del programa" },
+    { id: "curriculum", label: "Plan de estudios" },
+    { id: "proceso", label: "Metodología" },
+    { id: "testimonios", label: "Testimonios" },
+    { id: "demo", label: "Proyectos" },
+    { id: "contacto", label: "Unirse" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
