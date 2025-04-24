@@ -6,6 +6,7 @@ import MasterclassHero from '@/components/masterclass/MasterclassHero';
 import MasterclassAbout from '@/components/masterclass/MasterclassAbout';
 import MasterclassAgenda from '@/components/masterclass/MasterclassAgenda';
 import MasterclassInstructor from '@/components/masterclass/MasterclassInstructor';
+import DemoSection from '@/components/DemoSection';
 import MasterclassRegistration from '@/components/masterclass/MasterclassRegistration';
 import Footer from '@/components/Footer';
 
@@ -18,6 +19,7 @@ const Masterclass = () => {
       <MasterclassAbout />
       <MasterclassAgenda />
       <MasterclassInstructor />
+      <DemoSection />
       <MasterclassRegistration />
       <Footer />
     </div>

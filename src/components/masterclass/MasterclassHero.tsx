@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Code, BrainCircuit, Rocket } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const MasterclassHero = () => {
@@ -30,11 +30,26 @@ const MasterclassHero = () => {
             <Button 
               size="lg"
               className="bg-labora-red hover:bg-labora-red/90 text-white font-semibold"
-              onClick={() => window.location.href = "#registro"}
+              onClick={() => window.location.href = "https://tally.so/r/w49bBo"}
             >
               Reservar mi lugar
               <ArrowRight className="ml-2" />
             </Button>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+            <div className="flex items-center gap-2">
+              <Code className="h-5 w-5 text-labora-neon" />
+              <span className="text-sm text-gray-300">29 de abril - 20:00hs (ARG)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <BrainCircuit className="h-5 w-5 text-labora-red" />
+              <span className="text-sm text-gray-300">90 minutos en vivo</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Rocket className="h-5 w-5 text-labora-neon" />
+              <span className="text-sm text-gray-300">Google Meet</span>
+            </div>
           </div>
         </div>
       </div>
