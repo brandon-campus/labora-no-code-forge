@@ -8,7 +8,6 @@ import MasterclassAgenda from '@/components/masterclass/MasterclassAgenda';
 import MasterclassInstructor from '@/components/masterclass/MasterclassInstructor';
 import DemoSection from '@/components/DemoSection';
 import MasterclassRegistration from '@/components/masterclass/MasterclassRegistration';
-import Footer from '@/components/Footer';
 
 const Masterclass = () => {
   return (
@@ -21,7 +20,6 @@ const Masterclass = () => {
       <MasterclassInstructor />
       <DemoSection />
       <MasterclassRegistration />
-      <Footer />
     </div>
   );
 };
