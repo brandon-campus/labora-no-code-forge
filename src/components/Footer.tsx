@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+  return <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
@@ -55,7 +52,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contacto</h4>
             <address className="text-gray-400 not-italic">
-              <p>Ciudad de México, México</p>
+              <p>Ciudad Autónoma de Buenos Aires</p>
               <p className="mt-2"><a href="mailto:info@labora.tech" className="hover:text-white transition-colors">info@labora.tech</a></p>
               <p className="mt-2"><a href="tel:+525512345678" className="hover:text-white transition-colors">+52 55 1234 5678</a></p>
             </address>
@@ -68,8 +65,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
