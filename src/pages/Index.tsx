@@ -12,10 +12,12 @@ import DemoSection from '@/components/DemoSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import PersuasiveHeader from '@/components/PersuasiveHeader';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
+      <PersuasiveHeader />
       <Navbar />
       <HeroSection />
       <MiniHeader />

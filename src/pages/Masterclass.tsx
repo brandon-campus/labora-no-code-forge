@@ -9,10 +9,12 @@ import MasterclassInstructor from '@/components/masterclass/MasterclassInstructo
 import MasterclassRegistration from '@/components/masterclass/MasterclassRegistration';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import PersuasiveHeader from '@/components/PersuasiveHeader';
 
 const Masterclass = () => {
   return (
     <div className="min-h-screen bg-white">
+      <PersuasiveHeader />
       <Navbar />
       <MiniHeader />
       <MasterclassHero />
