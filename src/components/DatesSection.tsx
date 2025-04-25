@@ -1,9 +1,7 @@
 import React from 'react';
 import { Calendar, Clock, Users } from 'lucide-react';
-
 const DatesSection = () => {
-  return (
-    <section id="dates" className="py-20 bg-gray-50">
+  return <section id="dates" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-labora-dark">
@@ -32,15 +30,15 @@ const DatesSection = () => {
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
                     <span>Inscripciones:</span>
-                    <span className="font-medium">1 Abr - 25 Abr</span>
+                    <span className="font-medium">20 Abr - 08 May</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Inicio del programa:</span>
-                    <span className="font-medium">2 de Mayo</span>
+                    <span className="font-medium">22 de Mayo</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Demo Day:</span>
-                    <span className="font-medium">28 de Mayo</span>
+                    <span className="font-medium">19 de Junio</span>
                   </li>
                 </ul>
               </div>
@@ -63,7 +61,7 @@ const DatesSection = () => {
                   </li>
                   <li className="flex justify-between">
                     <span>Dedicación estimada:</span>
-                    <span className="font-medium">10h semanales</span>
+                    <span className="font-medium">6h semanales</span>
                   </li>
                 </ul>
               </div>
@@ -100,8 +98,6 @@ const DatesSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DatesSection;
