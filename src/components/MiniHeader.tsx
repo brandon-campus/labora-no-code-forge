@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { 
   NavigationMenu,
@@ -85,10 +86,11 @@ const MiniHeader = () => {
 
       {/* Mobile Menu */}
       <div className="md:hidden flex items-center justify-between h-14 px-4">
-        <h3 className="text-lg font-bold">
-          <span className="text-labora-red">Labor</span>
-          <span className="text-labora-neon">a</span>
-        </h3>
+        <img 
+          src="/lovable-uploads/logolabora.webp" 
+          alt="Labora" 
+          className="h-8"
+        />
         <button 
           onClick={toggleMobileMenu}
           className="p-2 rounded-md text-gray-300 hover:text-white focus:outline-none"
