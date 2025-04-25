@@ -13,7 +13,7 @@ import PersuasiveHeader from '@/components/PersuasiveHeader';
 
 const Masterclass = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-12">
       <PersuasiveHeader />
       <Navbar />
       <MiniHeader />
