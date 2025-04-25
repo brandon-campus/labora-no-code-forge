@@ -19,7 +19,8 @@ const MasterclassRegistration = () => {
           </h2>
           
           <p className="text-gray-300 mb-8">
-            Los cupos son limitados. Reservá tu lugar para esta clase única y gratuita.
+            Reservá tu lugar gratis en esta masterclass única y comenzá tu viaje en el mundo 
+            del desarrollo No-Code + IA.
           </p>
           
           <Button 
@@ -27,12 +28,12 @@ const MasterclassRegistration = () => {
             className="bg-labora-neon hover:bg-labora-neon/90 text-gray-900 font-semibold"
             onClick={() => window.location.href = "https://tally.so/r/w49bBo"}
           >
-            Aplicá ahora
+            Reservar mi lugar gratis
             <ArrowRight className="ml-2" />
           </Button>
           
           <p className="mt-6 text-gray-400 text-sm">
-            Las grabaciones solo estarán disponibles para los asistentes en vivo.
+            Cupos limitados. Las grabaciones solo estarán disponibles para los asistentes en vivo.
           </p>
         </div>
       </div>
