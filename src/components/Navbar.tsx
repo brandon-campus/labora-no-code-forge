@@ -17,8 +17,7 @@ const Navbar = () => {
     { label: "Plan de estudios", href: "#curriculum" },
     { label: "Metodología", href: "#proceso" },
     { label: "Testimonios", href: "#testimonios" },
-    { label: "Proyectos", href: "#demo" },
-    { label: "Masterclass", href: "/masterclass", isExternal: false }, // New navigation item
+    { label: "Proyectos", href: "#demo" }
   ];
 
   return (
@@ -38,27 +37,17 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-2">
               {navItems.map((item, index) => (
-                item.isExternal === false || item.isExternal === undefined ? (
-                  <Link 
-                    key={index}
-                    to={item.href} 
-                    className="text-gray-300 hover:text-labora-neon px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <a 
-                    key={index}
-                    href={item.href} 
-                    className="text-gray-300 hover:text-labora-neon px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                )
+                <a 
+                  key={index}
+                  href={item.href} 
+                  className="text-gray-300 hover:text-labora-neon px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  {item.label}
+                </a>
               ))}
-              <a href="#contacto">
+              <a href="#about">
                 <Button className="bg-labora-red hover:bg-labora-red/90">
-                  Inscríbete
+                  Conoce más
                 </Button>
               </a>
             </div>
@@ -80,32 +69,21 @@ const Navbar = () => {
         <div className="md:hidden bg-labora-dark border-b border-gray-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item, index) => (
-              item.isExternal === false || item.isExternal === undefined ? (
-                <Link
-                  key={index}
-                  to={item.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-labora-neon"
-                  onClick={toggleMenu}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-labora-neon"
-                  onClick={toggleMenu}
-                >
-                  {item.label}
-                </a>
-              )
+              <a
+                key={index}
+                href={item.href}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-labora-neon"
+                onClick={toggleMenu}
+              >
+                {item.label}
+              </a>
             ))}
             <a
-              href="#contacto"
+              href="#about"
               onClick={toggleMenu}
             >
               <Button className="w-full bg-labora-red hover:bg-labora-red/90 mt-2">
-                Inscríbete
+                Conoce más
               </Button>
             </a>
           </div>
@@ -116,4 +94,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
