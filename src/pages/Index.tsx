@@ -16,7 +16,7 @@ import PersuasiveHeader from '@/components/PersuasiveHeader';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white pt-12">
+    <div className="min-h-screen bg-white">
       <PersuasiveHeader />
       <Navbar />
       <HeroSection />
