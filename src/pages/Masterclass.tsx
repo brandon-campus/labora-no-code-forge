@@ -8,6 +8,7 @@ import MasterclassAgenda from '@/components/masterclass/MasterclassAgenda';
 import MasterclassInstructor from '@/components/masterclass/MasterclassInstructor';
 import MasterclassRegistration from '@/components/masterclass/MasterclassRegistration';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Masterclass = () => {
   return (
@@ -20,6 +21,7 @@ const Masterclass = () => {
       <MasterclassInstructor />
       <MasterclassRegistration />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
