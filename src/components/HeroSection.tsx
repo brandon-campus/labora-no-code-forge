@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Rocket, Video } from 'lucide-react';
@@ -27,7 +28,7 @@ const HeroSection = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
-              <a href="#beneficios">
+              <a href="#about">
                 <Button variant="outline" className="border-white text-black hover:bg-white/10 px-8 py-6 text-base font-medium">
                   Conoce más
                 </Button>
