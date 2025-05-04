@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
@@ -40,7 +41,7 @@ const Navbar = () => {
               {navItems.map((item, index) => <a key={index} href={item.href} className="text-gray-300 hover:text-labora-neon px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   {item.label}
                 </a>)}
-              <a href="#about">
+              <a href="https://tally.so/r/w49bBo" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-labora-red hover:bg-labora-red/90">Aplica ahora</Button>
               </a>
             </div>
@@ -60,7 +61,7 @@ const Navbar = () => {
             {navItems.map((item, index) => <a key={index} href={item.href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-labora-neon" onClick={toggleMenu}>
                 {item.label}
               </a>)}
-            <a href="#about" onClick={toggleMenu}>
+            <a href="https://tally.so/r/w49bBo" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
               <Button className="w-full bg-labora-red hover:bg-labora-red/90 mt-2">
                 Conoce más
               </Button>
