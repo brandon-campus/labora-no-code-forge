@@ -30,7 +30,7 @@ const DatesSection = () => {
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
                     <span>Inscripciones:</span>
-                    <span className="font-medium">20 Abr - 08 May</span>
+                    <span className="font-medium">20 Abr - 12 May</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Inicio del programa:</span>
