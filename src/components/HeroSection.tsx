@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Rocket, Video } from 'lucide-react';
+import { fbqTrack } from "@/lib/fbqTrack";
 
 const HeroSection = () => {
   return (
@@ -22,7 +23,12 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="https://tally.so/r/w49bBo" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://tally.so/r/w49bBo"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => fbqTrack('AplicaAhoraClick')}
+              >
                 <Button className="bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base font-medium">
                   Aplicar ahora
                   <ArrowRight className="ml-2 h-5 w-5" />

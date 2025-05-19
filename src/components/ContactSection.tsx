@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { BookOpen, Calendar, MessageSquare, Rocket, Users } from 'lucide-react';
+import { fbqTrack } from "@/lib/fbqTrack";
 
 const ContactSection = () => {
   return (
@@ -65,7 +67,13 @@ const ContactSection = () => {
             <h3 className="text-2xl font-bold mb-6 text-labora-dark">¿Listo para iniciar con IA y No Code?</h3>
             
             <div className="space-y-6">
-              <a href="https://tally.so/r/w49bBo" target="_blank" rel="noopener noreferrer" className="block">
+              <a
+                href="https://tally.so/r/w49bBo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+                onClick={() => fbqTrack('ContactoAplicaAhoraClick')}
+              >
                 <Button className="w-full bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base">
                   Aplicar ahora
                 </Button>
