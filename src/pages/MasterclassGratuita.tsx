@@ -42,28 +42,31 @@ const MasterclassGratuita = () => {
           </div>
           
           {/* Call to Action */}
-          <div className="max-w-2xl mx-auto text-center px-4">
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-800">
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 md:mb-4">
+          <div className="max-w-2xl mx-auto px-4">
+            <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-800">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 md:mb-4">
                 ¿Te gustó el video?
               </h3>
-              <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 md:mb-8 leading-relaxed">
                 Únete gratis a nuestra comunidad para seguir creando proyectos y conectar con otros builders de Latinoamérica
               </p>
               
-              <a
-                href="https://chat.whatsapp.com/KhkuUsiCgYk62tfGgPLnjD"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => fbqTrack('MasterclassGratuitaCommunityClick')}
-              >
-                <Button className="bg-labora-red hover:bg-labora-red/90 px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-medium w-full sm:w-auto">
-                  Unirme a la Comunidad de Labora
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                </Button>
-              </a>
+              <div className="flex flex-col sm:flex-row sm:justify-center">
+                <a
+                  href="https://chat.whatsapp.com/KhkuUsiCgYk62tfGgPLnjD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => fbqTrack('MasterclassGratuitaCommunityClick')}
+                  className="w-full sm:w-auto"
+                >
+                  <Button className="bg-labora-red hover:bg-labora-red/90 px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg font-medium w-full sm:w-auto min-h-[48px] flex items-center justify-center">
+                    <span className="text-center">Unirme a la Comunidad de Labora</span>
+                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
+                  </Button>
+                </a>
+              </div>
               
-              <p className="text-xs md:text-sm text-gray-400 mt-3 md:mt-4">
+              <p className="text-xs md:text-sm text-gray-400 mt-4 md:mt-6 text-center">
                 Acceso gratuito • Más de 500+ builders activos
               </p>
             </div>
