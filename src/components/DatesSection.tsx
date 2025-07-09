@@ -15,7 +15,7 @@ const DatesSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 animate-fade-in">
             <div className="bg-labora-dark text-white p-6">
-              <h3 className="text-2xl font-bold mb-2">Próxima cohorte: Mayo 2025</h3>
+              <h3 className="text-2xl font-bold mb-2">Próxima cohorte: Julio 2025</h3>
               <p className="text-gray-300">¡Las inscripciones ya están abiertas!</p>
             </div>
             
@@ -30,15 +30,15 @@ const DatesSection = () => {
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
                     <span>Inscripciones:</span>
-                    <span className="font-medium">20 Abr - 12 May</span>
+                    <span className="font-medium">7 Jul - 16 Jul</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Inicio del programa:</span>
-                    <span className="font-medium">22 de Mayo</span>
+                    <span className="font-medium">17 de Julio</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Demo Day:</span>
-                    <span className="font-medium">19 de Junio</span>
+                    <span className="font-medium">13 de Agosto</span>
                   </li>
                 </ul>
               </div>

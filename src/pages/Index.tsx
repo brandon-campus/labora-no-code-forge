@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -67,8 +67,8 @@ const Index = () => {
     {
       id: 'hackatones',
       title: 'Hackatones Mensuales',
-      subtitle: 'Colaborativo',
-      price: '25 USD',
+      subtitle: 'Presencial',
+      price: '35 USD',
       duration: 'Fin de semana',
       frequency: 'Cada mes',
       students: 'Equipos',
@@ -83,28 +83,30 @@ const Index = () => {
       color: 'bg-purple-600',
       link: '/hackatones',
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80' // Hackathon
-    },
-    {
-      id: 'estudio',
-      title: 'Estudio Labora',
-      subtitle: 'Servicios',
-      price: '500-2000 USD',
-      duration: '2-8 semanas',
-      frequency: 'Por proyecto',
-      students: 'Empresas',
-      description: 'Soluciones ágiles de desarrollo para empresas usando IA, No-Code y automatizaciones.',
-      features: [
-        'Equipo de egresados y mentores',
-        'Soluciones empresariales ágiles',
-        'IA, No-Code y automatizaciones',
-        'Soporte post-lanzamiento'
-      ],
-      badge: 'Empresas',
-      color: 'bg-gray-700',
-      link: '/estudio-labora',
-      image: 'https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80' // Teamwork
     }
   ];
+
+  // Definir el producto de Estudio Labora aparte
+  const estudioLabora = {
+    id: 'estudio',
+    title: 'Estudio Labora',
+    subtitle: 'Servicios para empresas',
+    price: '500-2000 USD',
+    duration: '2-8 semanas',
+    frequency: 'Por proyecto',
+    students: 'Empresas',
+    description: 'Soluciones ágiles de desarrollo para empresas usando IA, No-Code y automatizaciones.',
+    features: [
+      'Equipo de egresados y mentores',
+      'Soluciones empresariales ágiles',
+      'IA, No-Code y automatizaciones',
+      'Soporte post-lanzamiento'
+    ],
+    badge: 'Empresas',
+    color: 'bg-gray-700',
+    link: '/estudio-labora',
+    image: 'https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80' // Teamwork
+  };
 
   const testimonials = [
     {
@@ -127,29 +129,64 @@ const Index = () => {
     }
   ];
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-gray-950 text-gray-100" role="main">
       {/* Navigation */}
       <nav className="bg-gray-900/90 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <img src="/lovable-uploads/logolabora.webp" alt="Labora AI" className="h-8" />
+              <Link to="/">
+                <img src="/lovable-uploads/logolabora.webp" alt="Logo Labora AI" className="h-8" />
+              </Link>
             </div>
             <div className="hidden md:flex items-center space-x-6">
-              <a href="#productos" className="text-gray-300 hover:text-labora-neon transition-colors">Productos</a>
-              <a href="#testimonios" className="text-gray-300 hover:text-labora-neon transition-colors">Testimonios</a>
-              <a href="#nosotros" className="text-gray-300 hover:text-labora-neon transition-colors">Nosotros</a>
-              <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
-                Comenzar Ahora
-              </Button>
+              <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon transition-colors">Bootcamp</Link>
+              <Link to="/curso-inicia" className="text-gray-300 hover:text-labora-neon transition-colors">Curso Inicia</Link>
+              <Link to="/hackatones" className="text-gray-300 hover:text-labora-neon transition-colors">Hackatones</Link>
+              <Link to="/estudio-labora" className="text-gray-300 hover:text-labora-neon transition-colors">Empresas</Link>
+              <Link to="/campus" className="text-gray-300 hover:text-labora-neon transition-colors">Campus</Link>
+              <Link to="/bootcamp">
+                <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
+                  Comenzar Ahora
+                </Button>
+              </Link>
+            </div>
+            {/* Botón menú hamburguesa para mobile */}
+            <div className="md:hidden">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white focus:outline-none">
+                {isMenuOpen ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+                )}
+              </button>
             </div>
           </div>
         </div>
+        {/* Menú móvil */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-gray-900 border-b border-gray-800">
+            <div className="px-4 py-4 flex flex-col space-y-4">
+              <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Bootcamp</Link>
+              <Link to="/curso-inicia" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Curso Inicia</Link>
+              <Link to="/hackatones" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Hackatones</Link>
+              <Link to="/estudio-labora" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Empresas</Link>
+              <Link to="/campus" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Campus</Link>
+              <Link to="/bootcamp" onClick={() => setIsMenuOpen(false)}>
+                <Button className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow mt-2">
+                  Comenzar Ahora
+                </Button>
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950" data-aos="fade-up">
         <div className="absolute inset-0 bg-[url('/tech-grid.svg')] bg-repeat opacity-10 pointer-events-none"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
@@ -172,7 +209,7 @@ const Index = () => {
                   Ver Bootcamp
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-labora-neon text-labora-neon hover:bg-labora-neon/10">
+              <Button size="lg" variant="outline" className="border-labora-neon text-gray-900 hover:bg-labora-neon/10 font-bold">
                 <BookOpen className="mr-2 h-5 w-5" />
                 Explorar Cursos
               </Button>
@@ -182,71 +219,87 @@ const Index = () => {
       </section>
 
       {/* Products Section */}
-      <section id="productos" className="py-20 bg-gray-900/80 backdrop-blur-md">
+      <section id="productos" className="py-20 bg-gray-900/80 backdrop-blur-md" data-aos="fade-up">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestros Productos
+              Elige el programa que se adapte a ti
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Desde principiante hasta experto, tenemos el programa perfecto para tu nivel y objetivos
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {products.map((product) => (
-              <Card key={product.id} className="relative overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-white/10 backdrop-blur-md border border-labora-neon/10">
-                {product.badge && (
-                  <Badge className={`absolute top-4 right-4 ${product.color} text-white shadow-neon-glow`}>
-                    {product.badge}
-                  </Badge>
-                )}
-                {/* Imagen representativa */}
-                <div className="w-full h-40 bg-gray-800/60 flex items-center justify-center overflow-hidden mb-4 rounded-t-xl">
-                  <img src={product.image} alt={`${product.title} - ${product.description}`} className="object-cover w-full h-full" />
-                </div>
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-2xl mb-2 text-white">{product.title}</CardTitle>
-                  <CardDescription className="text-base mb-4 text-gray-300">{product.description}</CardDescription>
-                  <div className="flex items-center gap-4 text-sm text-gray-400">
-                    <div className="flex items-center gap-1">
-                      <DollarSign className="h-4 w-4" />
-                      {product.price}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {product.duration}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="h-4 w-4" />
-                      {product.students}
-                    </div>
+          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            {(() => {
+              // Ordenar productos para que el bootcamp esté en el centro
+              const bootcampIndex = products.findIndex(p => p.id === 'bootcamp');
+              let ordered = [...products];
+              if (bootcampIndex !== -1 && products.length === 3) {
+                // Si hay 3 productos, poner bootcamp en el centro
+                ordered = [products[1], products[0], products[2]];
+                if (products[1].id === 'bootcamp') {
+                  ordered = [products[0], products[1], products[2]];
+                } else if (products[2].id === 'bootcamp') {
+                  ordered = [products[0], products[2], products[1]];
+                }
+              }
+              return ordered.map((product, idx) => (
+                <div
+                  key={product.id}
+                  className={`relative group rounded-3xl overflow-visible shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-labora-neon/10 p-6 flex flex-col items-center ${product.id === 'bootcamp' ? 'border-4 border-labora-neon' : ''}`}
+                  data-aos={product.id === 'bootcamp' ? 'zoom-in' : (idx % 2 === 0 ? 'fade-right' : 'fade-left')}
+                >
+                  {/* Etiqueta flotante */}
+                  {product.badge && (
+                    <span className={`absolute -top-4 left-6 z-10 px-4 py-1 rounded-full text-xs font-bold shadow-neon-glow ${product.color} text-white border-2 border-white/20`}>
+                      {product.badge}
+                    </span>
+                  )}
+                  {/* Imagen circular superpuesta */}
+                  <div className="relative -mt-16 mb-4 z-10">
+                    <img
+                      src={product.image}
+                      alt={`Imagen representativa de ${product.title}`}
+                      className="w-28 h-28 rounded-full object-cover border-4 border-labora-neon shadow-lg bg-white"
+                    />
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {product.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-labora-neon mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-200">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to={product.link}>
-                    <Button className="w-full group-hover:bg-labora-neon group-hover:text-gray-900 transition-colors bg-labora-neon/80 text-gray-900 font-semibold shadow-neon-glow">
-                      Conocer más
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                  <div className="flex-1 flex flex-col items-center text-center">
+                    <h3 className="text-2xl font-bold text-white mb-2">{product.title}</h3>
+                    <span className="text-labora-neon mb-2 font-semibold">{product.subtitle}</span>
+                    <div className="flex items-center justify-center gap-4 mb-2 text-gray-400 text-sm">
+                      <span className="font-semibold text-gray-300">{product.price}</span>
+                      <span>|</span>
+                      <span>{product.duration}</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 mb-2 text-gray-400 text-sm">
+                      <Users className="h-4 w-4 text-labora-neon" />
+                      <span>{product.students}</span>
+                    </div>
+                    <p className="text-gray-300 mb-4 min-h-[60px]">{product.description}</p>
+                    <ul className="list-disc list-inside text-gray-400 text-sm mb-4 text-left mx-auto max-w-xs">
+                      {product.features.map((feature, i) => (
+                        <li key={i}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <Link to={product.link} className="w-full mt-auto">
+                    <Button
+                      className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105"
+                      disabled={product.id === 'inicia' || product.id === 'hackatones'}
+                    >
+                      {product.id === 'inicia' || product.id === 'hackatones' ? 'Próximamente' : 'Conocer más'}
                     </Button>
                   </Link>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              ));
+            })()}
           </div>
         </div>
       </section>
 
       {/* Tabla comparativa de productos */}
-      <section className="bg-gray-900/80 pb-20 backdrop-blur-md">
+      <section className="bg-gray-900/80 pb-20 backdrop-blur-md" data-aos="fade-up">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <div className="mb-8 text-center">
             <h3 className="text-2xl font-bold text-white mb-2">Comparativa rápida</h3>
@@ -292,10 +345,10 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <TestimonialsSection />
+      <TestimonialsSection data-aos="fade-up" />
 
       {/* About Section */}
-      <section id="nosotros" className="py-20 bg-gray-900/80 backdrop-blur-md">
+      <section id="nosotros" className="py-20 bg-gray-900/80 backdrop-blur-md" data-aos="fade-up">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
@@ -334,8 +387,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Nueva sección para Estudio Labora */}
+      <section id="estudio-labora" className="py-20 bg-gray-950 border-t border-gray-800" data-aos="fade-up">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+          {/* Imagen a la izquierda */}
+          <div className="flex-1 flex justify-center">
+            <img
+              src={estudioLabora.image}
+              alt="Equipo Estudio Labora trabajando en soluciones digitales"
+              className="rounded-3xl w-full max-w-md object-cover shadow-lg border border-labora-neon/20"
+            />
+          </div>
+          {/* Contenido a la derecha */}
+          <div className="flex-1 max-w-xl">
+            <span className="text-labora-neon font-semibold text-lg mb-2 block">Para empresas</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              ¿Tu <span className="bg-labora-neon text-gray-900 px-2 rounded">empresa</span><br />necesita soluciones tech?
+            </h2>
+            <p className="text-lg text-gray-300 mb-8">
+              Impulsa tu negocio con productos digitales hechos a medida usando IA, No-Code y automatizaciones. Nuestro equipo de expertos y egresados te ayuda a innovar rápido y sin complicaciones técnicas.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to={estudioLabora.link}>
+                <Button size="lg" variant="outline" className="border-labora-neon text-gray-900 hover:bg-labora-neon/10 font-bold">
+                  Transforma tu empresa
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 text-white">
+      <section className="py-20 bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 text-white" data-aos="fade-up">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-labora-neon">
             ¿Listo para crear tu primer proyecto con IA?
@@ -350,7 +434,7 @@ const Index = () => {
                 Ver Próximas Fechas
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-labora-neon text-labora-neon hover:bg-labora-neon/10">
+            <Button size="lg" variant="outline" className="border-labora-neon text-gray-900 hover:bg-labora-neon/10">
               <Briefcase className="mr-2 h-5 w-5" />
               Conocer Estudio Labora
             </Button>
@@ -360,6 +444,13 @@ const Index = () => {
 
       <Footer />
       <WhatsAppButton />
+      <style>{`
+  a:focus, button:focus {
+    outline: 2px solid #00FFD0;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #00FFD033;
+  }
+`}</style>
     </div>
   );
 };

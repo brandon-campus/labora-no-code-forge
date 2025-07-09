@@ -80,7 +80,7 @@ const ContactSection = () => {
               </a>
               
               <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">12 de Mayo, 2025</span>
+                Fecha límite de inscripción: <span className="font-semibold">16 de Julio, 2025</span>
               </p>
               
               <div className="border-t border-gray-100 pt-6 mt-6">

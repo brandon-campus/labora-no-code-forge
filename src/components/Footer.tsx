@@ -12,12 +12,6 @@ const Footer = () => {
               Semillero de proyectos tecnológicos en Latinoamérica
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-labora-neon hover:text-white transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-labora-neon hover:text-white transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
               <a href="https://instagram.com/labora.ar/" target="_blank" rel="noopener noreferrer" className="text-labora-neon hover:text-white transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
@@ -30,10 +24,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Enlaces rápidos</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-labora-neon transition-colors">Inicio</a></li>
-              <li><a href="#beneficios" className="text-gray-400 hover:text-labora-neon transition-colors">Beneficios</a></li>
-              <li><a href="#proceso" className="text-gray-400 hover:text-labora-neon transition-colors">Proceso</a></li>
-              <li><a href="#testimonios" className="text-gray-400 hover:text-labora-neon transition-colors">Testimonios</a></li>
+              <li><a href="/" className="text-gray-400 hover:text-labora-neon transition-colors">Inicio</a></li>
+              <li><a href="/bootcamp" className="text-gray-400 hover:text-labora-neon transition-colors">Bootcamp</a></li>
+              <li><a href="/curso-inicia" className="text-gray-400 hover:text-labora-neon transition-colors">Curso Inicia</a></li>
+              <li><a href="/hackatones" className="text-gray-400 hover:text-labora-neon transition-colors">Hackatones</a></li>
+              <li><a href="/estudio-labora" className="text-gray-400 hover:text-labora-neon transition-colors">Empresas</a></li>
               <li><a href="#contacto" className="text-gray-400 hover:text-labora-neon transition-colors">Contacto</a></li>
             </ul>
           </div>
@@ -53,7 +48,7 @@ const Footer = () => {
             <address className="text-gray-400 not-italic">
               <p>Ciudad Autónoma de Buenos Aires</p>
               <p className="mt-2"><a href="mailto:info@labora.tech" className="hover:text-labora-neon transition-colors">info@labora.tech</a></p>
-              <p className="mt-2"><a href="tel:+525512345678" className="hover:text-labora-neon transition-colors">+52 55 1234 5678</a></p>
+              <p className="mt-2"><a href="tel:+5491138142899" className="hover:text-labora-neon transition-colors">+54 9 11 3814-2899</a></p>
             </address>
             <form className="mt-6 flex flex-col gap-2 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-labora-neon/10">
               <label htmlFor="newsletter" className="text-gray-200 text-sm">Suscríbete a nuestro newsletter</label>
