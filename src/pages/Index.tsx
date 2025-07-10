@@ -144,9 +144,9 @@ const Index = () => {
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon transition-colors">Bootcamp</Link>
-              <Link to="/curso-inicia" className="text-gray-300 hover:text-labora-neon transition-colors">Curso Inicia</Link>
-              <Link to="/hackatones" className="text-gray-300 hover:text-labora-neon transition-colors">Hackatones</Link>
-              <Link to="/estudio-labora" className="text-gray-300 hover:text-labora-neon transition-colors">Empresas</Link>
+              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Curso Inicia</a>
+              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Hackatones</a>
+              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Empresas</a>
               <Link to="/campus" className="text-gray-300 hover:text-labora-neon transition-colors">Campus</Link>
               <Link to="/bootcamp">
                 <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
@@ -171,9 +171,9 @@ const Index = () => {
           <div className="md:hidden bg-gray-900 border-b border-gray-800">
             <div className="px-4 py-4 flex flex-col space-y-4">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Bootcamp</Link>
-              <Link to="/curso-inicia" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Curso Inicia</Link>
-              <Link to="/hackatones" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Hackatones</Link>
-              <Link to="/estudio-labora" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Empresas</Link>
+              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Curso Inicia</a>
+              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Hackatones</a>
+              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Empresas</a>
               <Link to="/campus" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Campus</Link>
               <Link to="/bootcamp" onClick={() => setIsMenuOpen(false)}>
                 <Button className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow mt-2">

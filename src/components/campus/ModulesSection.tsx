@@ -1,203 +1,155 @@
-import React, { useState } from 'react';
-import { CheckCircle, Clock, Play, FileText, Upload } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+import { CheckCircle, Circle, ChevronDown, ChevronUp, Play, FileText, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
 
-const modules = [
-  {
-    id: 1,
-    title: "Introducción al mundo IA",
-    description: "Fundamentos de Inteligencia Artificial, herramientas y aplicaciones prácticas",
-    status: "completed",
-    videoUrl: "https://example.com/video1",
-    materials: ["Guía de IA.pdf", "Herramientas recomendadas.md"],
-    assignment: "Ensayo sobre el futuro de la IA"
-  },
-  {
-    id: 2,
-    title: "Introducción al mundo No-Code",
-    description: "Plataformas No-Code, ventajas y casos de uso empresariales",
-    status: "completed",
-    videoUrl: "https://example.com/video2",
-    materials: ["Manual No-Code.pdf", "Comparativa de plataformas.xlsx"],
-    assignment: "Crear primera app simple"
-  },
-  {
-    id: 3,
-    title: "Integraciones y APIs",
-    description: "Conectar diferentes servicios y plataformas mediante APIs",
-    status: "completed",
-    videoUrl: "https://example.com/video3",
-    materials: ["Guía de APIs.pdf", "Ejemplos de integración.zip"],
-    assignment: "Integrar 2 servicios diferentes"
-  },
-  {
-    id: 4,
-    title: "Automatizaciones",
-    description: "Crear flujos automatizados para optimizar procesos",
-    status: "current",
-    videoUrl: "https://example.com/video4",
-    materials: ["Zapier Advanced.pdf", "Make scenarios.json"],
-    assignment: "Automatización personal"
-  },
-  {
-    id: 5,
-    title: "Bases de datos: Supabase",
-    description: "Gestión de datos, autenticación y funciones en tiempo real",
-    status: "locked",
-    videoUrl: "",
-    materials: [],
-    assignment: "Base de datos para proyecto"
-  },
-  {
-    id: 6,
-    title: "Dashboards y Visualización",
-    description: "Crear dashboards interactivos y visualizaciones de datos",
-    status: "locked",
-    videoUrl: "",
-    materials: [],
-    assignment: "Dashboard del proyecto"
-  },
-  {
-    id: 7,
-    title: "Control de Flujo y Manejo de Errores",
-    description: "Optimización y debugging de aplicaciones No-Code",
-    status: "locked",
-    videoUrl: "",
-    materials: [],
-    assignment: "Optimización completa"
-  },
-  {
-    id: 8,
-    title: "Lanzamiento de Producto",
-    description: "Estrategias de lanzamiento, marketing y monetización",
-    status: "locked",
-    videoUrl: "",
-    materials: [],
-    assignment: "Plan de lanzamiento"
+const ModulesSection: React.FC = () => {
+  const [modules, setModules] = useState<any[]>([]);
+  const [progress, setProgress] = useState<{ [key: string]: any }>({});
+  const [loading, setLoading] = useState(true);
+  const [userCohort, setUserCohort] = useState<string>('');
+  const [userId, setUserId] = useState<string>('');
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const [uploading, setUploading] = useState<string | null>(null);
+  const fileInputs = useRef<{ [key: string]: HTMLInputElement | null }>({});
+
+  useEffect(() => {
+    const fetchModulesAndProgress = async () => {
+      setLoading(true);
+      // Obtener usuario y cohorte
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      setUserId(user.id);
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('cohorte')
+        .eq('id', user.id)
+        .single();
+      const cohort = profile?.cohorte || '13';
+      setUserCohort(cohort);
+      // Obtener módulos de la cohorte
+      const { data: mods } = await supabase
+        .from('modulos')
+        .select('*')
+        .eq('cohorte', cohort)
+        .order('orden', { ascending: true });
+      setModules(mods || []);
+      // Obtener progreso del usuario
+      const { data: prog } = await supabase
+        .from('progreso_modulo')
+        .select('modulo_id, completado, entregable_url')
+        .eq('user_id', user.id);
+      const progressMap: { [key: string]: any } = {};
+      (prog || []).forEach((p: any) => {
+        progressMap[p.modulo_id] = p;
+      });
+      setProgress(progressMap);
+      setLoading(false);
+    };
+    fetchModulesAndProgress();
+  }, []);
+
+  const handleComplete = async (moduloId: string) => {
+    setLoading(true);
+    await supabase.from('progreso_modulo').upsert({
+      user_id: userId,
+      modulo_id: moduloId,
+      completado: true,
+      completado_at: new Date().toISOString()
+    });
+    setProgress((prev) => ({ ...prev, [moduloId]: { ...prev[moduloId], completado: true } }));
+    setLoading(false);
+  };
+
+  const handleUpload = async (moduloId: string, file: File) => {
+    setUploading(moduloId);
+    const filePath = `entregables/${userId}/${moduloId}/${file.name}`;
+    const { error: uploadError } = await supabase.storage.from('entregables').upload(filePath, file, { upsert: true });
+    if (uploadError) {
+      alert('Error al subir el archivo: ' + uploadError.message);
+      setUploading(null);
+      return;
+    }
+    const { data: publicUrlData } = supabase.storage.from('entregables').getPublicUrl(filePath);
+    const url = publicUrlData?.publicUrl;
+    await supabase.from('progreso_modulo').upsert({
+      user_id: userId,
+      modulo_id: moduloId,
+      entregable_url: url
+    });
+    setProgress((prev) => ({ ...prev, [moduloId]: { ...prev[moduloId], entregable_url: url } }));
+    setUploading(null);
+  };
+
+  const toggleExpand = (id: string) => {
+    setExpanded(expanded === id ? null : id);
+  };
+
+  if (loading) {
+    return <div className="p-8 text-white">Cargando módulos...</div>;
   }
-];
-
-export function ModulesSection() {
-  const [selectedModule, setSelectedModule] = useState<number | null>(null);
-  const completedCount = modules.filter(m => m.status === 'completed').length;
-  const progressPercentage = (completedCount / modules.length) * 100;
-
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return <CheckCircle className="h-5 w-5 text-green-500" />;
-      case 'current':
-        return <Play className="h-5 w-5 text-labora-neon" />;
-      default:
-        return <Clock className="h-5 w-5 text-gray-500" />;
-    }
-  };
-
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return <Badge className="bg-green-500/20 text-green-400 border-green-500/30">Completado</Badge>;
-      case 'current':
-        return <Badge className="bg-labora-neon/20 text-labora-neon border-labora-neon/30">En Progreso</Badge>;
-      default:
-        return <Badge variant="secondary" className="bg-gray-700 text-gray-300">Bloqueado</Badge>;
-    }
-  };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl md:text-3xl font-bold text-white">
-          Módulos del Bootcamp
-        </h1>
-        <div className="text-right">
-          <p className="text-gray-300 text-sm">Progreso General</p>
-          <p className="text-white font-bold">{completedCount}/8 Módulos</p>
-        </div>
-      </div>
-
-      <Card className="bg-gray-900 border-gray-800">
-        <CardContent className="p-6">
-          <Progress value={progressPercentage} className="h-3 mb-2" />
-          <p className="text-gray-400 text-sm">
-            {Math.round(progressPercentage)}% del bootcamp completado
-          </p>
-        </CardContent>
-      </Card>
-
-      <div className="grid gap-6">
-        {modules.map((module) => (
-          <Card 
-            key={module.id} 
-            className={`bg-gray-900 border-gray-800 transition-all hover:border-gray-700 ${
-              selectedModule === module.id ? 'border-labora-red' : ''
-            }`}
-          >
-            <CardHeader 
-              className="cursor-pointer"
-              onClick={() => setSelectedModule(selectedModule === module.id ? null : module.id)}
+    <div className="p-8">
+      <h1 className="text-2xl font-bold text-white mb-6">Módulos de la cohorte #{userCohort}</h1>
+      <ul className="space-y-6">
+        {modules.map((mod, idx) => (
+          <li key={mod.id} className="bg-gray-900 rounded-2xl border border-gray-800 shadow-lg">
+            <button
+              className="w-full flex items-center justify-between px-6 py-4 focus:outline-none"
+              onClick={() => toggleExpand(mod.id)}
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  {getStatusIcon(module.status)}
-                  <div>
-                    <CardTitle className="text-white text-lg">
-                      Módulo {module.id}: {module.title}
-                    </CardTitle>
-                    <p className="text-gray-400 text-sm mt-1">
-                      {module.description}
-                    </p>
+              <div className="flex items-center gap-3">
+                {progress[mod.id]?.completado ? (
+                  <CheckCircle className="text-labora-neon h-6 w-6" />
+                ) : (
+                  <Circle className="text-gray-500 h-6 w-6" />
+                )}
+                <span className="text-lg md:text-xl font-bold text-white">MÓDULO {idx + 1}: {mod.titulo.toUpperCase()}</span>
                   </div>
-                </div>
-                {getStatusBadge(module.status)}
+              <div className="flex items-center gap-2">
+                {progress[mod.id]?.completado && (
+                  <span className="bg-green-700 text-white text-xs px-3 py-1 rounded-full font-semibold">Completado</span>
+                )}
+                {expanded === mod.id ? <ChevronUp className="h-5 w-5 text-labora-neon" /> : <ChevronDown className="h-5 w-5 text-labora-neon" />}
               </div>
-            </CardHeader>
-
-            {selectedModule === module.id && (
-              <CardContent className="pt-0">
-                <div className="border-t border-gray-800 pt-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Video Section */}
-                    <div>
-                      <h4 className="text-white font-semibold mb-3 flex items-center">
-                        <Play className="mr-2 h-4 w-4" />
-                        Video de la Clase
-                      </h4>
-                      {module.status !== 'locked' ? (
+            </button>
+            <div className={`transition-all duration-300 overflow-hidden ${expanded === mod.id ? 'max-h-[1000px] p-6 pt-0' : 'max-h-0 p-0'}`}>
+              {expanded === mod.id && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {/* Video */}
+                  <div className="md:col-span-1">
+                    <h3 className="text-xl font-bold text-white mb-3 flex items-center"><Play className="mr-2 h-5 w-5 text-labora-neon" /> VIDEO DE LA CLASE</h3>
+                    {mod.video_url ? (
                         <div className="bg-gray-800 rounded-lg p-8 text-center">
                           <Play className="mx-auto h-12 w-12 text-labora-neon mb-3" />
                           <p className="text-gray-300 mb-4">Video disponible</p>
-                          <Button className="bg-labora-red hover:bg-labora-red/90">
-                            Ver Video
-                          </Button>
+                        <a href={mod.video_url} target="_blank" rel="noopener noreferrer">
+                          <Button className="bg-labora-red hover:bg-labora-red/90">Ver Video</Button>
+                        </a>
                         </div>
                       ) : (
                         <div className="bg-gray-800 rounded-lg p-8 text-center">
-                          <Clock className="mx-auto h-12 w-12 text-gray-500 mb-3" />
-                          <p className="text-gray-400">Video se desbloqueará pronto</p>
+                        <Play className="mx-auto h-12 w-12 text-gray-500 mb-3" />
+                        <p className="text-gray-400">Video no disponible aún</p>
                         </div>
                       )}
                     </div>
-
-                    {/* Materials and Assignment */}
-                    <div className="space-y-6">
-                      {/* Materials */}
-                      <div>
-                        <h4 className="text-white font-semibold mb-3 flex items-center">
-                          <FileText className="mr-2 h-4 w-4" />
-                          Material de Lectura
-                        </h4>
-                        {module.materials.length > 0 ? (
-                          <div className="space-y-2">
-                            {module.materials.map((material, index) => (
-                              <div key={index} className="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                                <span className="text-gray-300 text-sm">{material}</span>
-                                <Button size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                                  Descargar
-                                </Button>
+                  {/* Materiales */}
+                  <div className="md:col-span-1">
+                    <h3 className="text-xl font-bold text-white mb-3 flex items-center"><FileText className="mr-2 h-5 w-5 text-labora-neon" /> MATERIAL DE LECTURA</h3>
+                    {Array.isArray(mod.materiales) && mod.materiales.length > 0 ? (
+                      <div className="space-y-3">
+                        {mod.materiales.map((mat: any, i: number) => (
+                          <div key={i} className="flex items-center justify-between bg-gray-800 rounded-lg p-3">
+                            <span className="text-gray-300 text-sm">{mat.nombre || mat}</span>
+                            {mat.url ? (
+                              <a href={mat.url} target="_blank" rel="noopener noreferrer">
+                                <Button size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">Descargar</Button>
+                              </a>
+                            ) : (
+                              <Button size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700" disabled>Descargar</Button>
+                            )}
                               </div>
                             ))}
                           </div>
@@ -205,46 +157,47 @@ export function ModulesSection() {
                           <p className="text-gray-400 text-sm">Material no disponible aún</p>
                         )}
                       </div>
-
-                      {/* Assignment */}
-                      <div>
-                        <h4 className="text-white font-semibold mb-3 flex items-center">
-                          <Upload className="mr-2 h-4 w-4" />
-                          Entregable
-                        </h4>
+                  {/* Entregable */}
+                  <div className="md:col-span-1">
+                    <h3 className="text-xl font-bold text-white mb-3 flex items-center"><Upload className="mr-2 h-5 w-5 text-labora-neon" /> ENTREGABLE</h3>
                         <div className="bg-gray-800 rounded-lg p-4">
-                          <p className="text-gray-300 text-sm mb-3">{module.assignment}</p>
-                          {module.status !== 'locked' && (
-                            <div className="flex flex-col sm:flex-row gap-2">
-                              <Button size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                                Subir Archivo
+                      <p className="text-gray-300 text-sm mb-3">{mod.entregable || 'No hay entregable para este módulo.'}</p>
+                      {progress[mod.id]?.entregable_url ? (
+                        <a href={progress[mod.id].entregable_url} target="_blank" rel="noopener noreferrer">
+                          <Button size="sm" className="bg-green-700 hover:bg-green-800 text-white">Ver Entregable</Button>
+                        </a>
+                      ) : (
+                        <>
+                          <input
+                            type="file"
+                            ref={el => (fileInputs.current[mod.id] = el)}
+                            className="hidden"
+                            onChange={e => {
+                              const file = e.target.files?.[0];
+                              if (file) handleUpload(mod.id, file);
+                            }}
+                          />
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="border-gray-600 text-gray-300 hover:bg-gray-700"
+                            onClick={() => fileInputs.current[mod.id]?.click()}
+                            disabled={!!uploading}
+                          >
+                            {uploading === mod.id ? 'Subiendo...' : 'Subir Archivo'}
                               </Button>
-                              {module.status === 'completed' && (
-                                <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
-                                  ✓ Entregado
-                                </Button>
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      </div>
+                        </>
+                      )}
                     </div>
                   </div>
-
-                  {/* Mark as Complete */}
-                  {module.status === 'current' && (
-                    <div className="mt-6 pt-6 border-t border-gray-800">
-                      <Button className="bg-labora-neon text-labora-dark hover:bg-labora-neon/90 font-medium">
-                        Marcar como Completado
-                      </Button>
                     </div>
                   )}
                 </div>
-              </CardContent>
-            )}
-          </Card>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
-}
+};
+
+export { ModulesSection };

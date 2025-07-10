@@ -8,11 +8,29 @@ import { ProjectSection } from "@/components/campus/ProjectSection";
 import { CommunitySection } from "@/components/campus/CommunitySection";
 import { ProfileSection } from "@/components/campus/ProfileSection";
 import { SupportSection } from "@/components/campus/SupportSection";
+import LoginRegister from '@/components/campus/LoginRegister';
+import { supabase, ensureProfile } from "@/lib/supabaseClient";
+import { useEffect } from "react";
 
 export type CampusSection = 'dashboard' | 'modules' | 'project' | 'community' | 'profile' | 'support';
 
 const Campus = () => {
   const [activeSection, setActiveSection] = useState<CampusSection>('dashboard');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Persistencia de sesión
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      setIsAuthenticated(!!data.user);
+    });
+    // Escuchar cambios de sesión
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session?.user);
+    });
+    return () => {
+      listener?.subscription.unsubscribe();
+    };
+  }, []);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -33,6 +51,14 @@ const Campus = () => {
     }
   };
 
+  if (!isAuthenticated) {
+    return <LoginRegister onAuth={async () => {
+      const { data } = await supabase.auth.getUser();
+      await ensureProfile(data.user);
+      setIsAuthenticated(true);
+    }} />;
+  }
+
   return (
     <div className="min-h-screen bg-labora-dark">
       <SidebarProvider>
@@ -40,13 +66,23 @@ const Campus = () => {
           <CampusSidebar 
             activeSection={activeSection}
             onSectionChange={setActiveSection}
+            onLogout={async () => {
+              await supabase.auth.signOut();
+              setIsAuthenticated(false);
+            }}
           />
-          
           <div className="flex-1 flex flex-col">
             <CampusHeader />
-            
             <main className="flex-1 p-4 md:p-6 lg:p-8">
-              {renderContent()}
+              {activeSection === 'dashboard' ? (
+                <Dashboard onNavigate={section => {
+                  if (section === 'modules') setActiveSection('modules');
+                  else if (section === 'project') setActiveSection('project');
+                  else if (section === 'community') setActiveSection('community');
+                  else if (section === 'support') setActiveSection('support');
+                  else if (section === 'profile') setActiveSection('profile');
+                }} />
+              ) : renderContent()}
             </main>
           </div>
         </div>
