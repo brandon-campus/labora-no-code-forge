@@ -24,9 +24,7 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://tally.so/r/w49bBo"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/bootcamp/aplicar"
                 onClick={() => fbqTrack('AplicaAhoraClick')}
               >
                 <Button className="bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base font-medium">

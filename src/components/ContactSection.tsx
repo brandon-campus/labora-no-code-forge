@@ -68,9 +68,7 @@ const ContactSection = () => {
             
             <div className="space-y-6">
               <a
-                href="https://tally.so/r/w49bBo"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/bootcamp/aplicar"
                 className="block"
                 onClick={() => fbqTrack('ContactoAplicaAhoraClick')}
               >

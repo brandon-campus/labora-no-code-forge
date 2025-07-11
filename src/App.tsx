@@ -12,6 +12,8 @@ import MasterclassGratuita from "./pages/MasterclassGratuita";
 import Campus from "./pages/Campus";
 import CursoInicia from "./pages/CursoInicia";
 import Hackatones from "./pages/Hackatones";
+import BootcampAplicar from "./pages/BootcampAplicar";
+import BootcampQuieroCrearConIA from "./pages/BootcampQuieroCrearConIA";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />
+          <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
+          <Route path="/bootcamp/quiero-crear-con-ia" element={<BootcampQuieroCrearConIA />} />
           <Route path="/curso-inicia" element={<CursoInicia />} />
           <Route path="/hackatones" element={<Hackatones />} />
           <Route path="/masterclass" element={<Masterclass />} />

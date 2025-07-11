@@ -45,9 +45,7 @@ const Navbar = () => {
                   {item.label}
                 </a>)}
               <a
-                href="https://tally.so/r/w49bBo"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/bootcamp/aplicar"
                 onClick={() => fbqTrack('NavbarAplicaAhoraClick')}
               >
                 <Button className="bg-labora-red hover:bg-labora-red/90">Aplica ahora</Button>
@@ -70,9 +68,7 @@ const Navbar = () => {
                 {item.label}
               </a>)}
             <a
-              href="https://tally.so/r/w49bBo"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/bootcamp/aplicar"
               onClick={() => {
                 fbqTrack('NavbarMobileAplicaAhoraClick');
                 toggleMenu();
