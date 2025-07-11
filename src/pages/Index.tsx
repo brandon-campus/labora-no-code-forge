@@ -88,24 +88,24 @@ const Index = () => {
 
   // Definir el producto de Estudio Labora aparte
   const estudioLabora = {
-    id: 'estudio',
-    title: 'Estudio Labora',
+      id: 'estudio',
+      title: 'Estudio Labora',
     subtitle: 'Servicios para empresas',
-    price: '500-2000 USD',
-    duration: '2-8 semanas',
-    frequency: 'Por proyecto',
-    students: 'Empresas',
-    description: 'Soluciones ágiles de desarrollo para empresas usando IA, No-Code y automatizaciones.',
-    features: [
-      'Equipo de egresados y mentores',
-      'Soluciones empresariales ágiles',
-      'IA, No-Code y automatizaciones',
-      'Soporte post-lanzamiento'
-    ],
-    badge: 'Empresas',
-    color: 'bg-gray-700',
-    link: '/estudio-labora',
-    image: 'https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80' // Teamwork
+      price: '500-2000 USD',
+      duration: '2-8 semanas',
+      frequency: 'Por proyecto',
+      students: 'Empresas',
+      description: 'Soluciones ágiles de desarrollo para empresas usando IA, No-Code y automatizaciones.',
+      features: [
+        'Equipo de egresados y mentores',
+        'Soluciones empresariales ágiles',
+        'IA, No-Code y automatizaciones',
+        'Soporte post-lanzamiento'
+      ],
+      badge: 'Empresas',
+      color: 'bg-gray-700',
+      link: '/estudio-labora',
+      image: 'https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80' // Teamwork
   };
 
   const testimonials = [
@@ -149,9 +149,9 @@ const Index = () => {
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Empresas</a>
               <Link to="/campus" className="text-gray-300 hover:text-labora-neon transition-colors">Campus</Link>
               <Link to="/bootcamp">
-                <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
-                  Comenzar Ahora
-                </Button>
+              <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
+                Comenzar Ahora
+              </Button>
               </Link>
             </div>
             {/* Botón menú hamburguesa para mobile */}
@@ -251,11 +251,11 @@ const Index = () => {
                   data-aos={product.id === 'bootcamp' ? 'zoom-in' : (idx % 2 === 0 ? 'fade-right' : 'fade-left')}
                 >
                   {/* Etiqueta flotante */}
-                  {product.badge && (
+                {product.badge && (
                     <span className={`absolute -top-4 left-6 z-10 px-4 py-1 rounded-full text-xs font-bold shadow-neon-glow ${product.color} text-white border-2 border-white/20`}>
-                      {product.badge}
+                    {product.badge}
                     </span>
-                  )}
+                )}
                   {/* Imagen circular superpuesta */}
                   <div className="relative -mt-16 mb-4 z-10">
                     <img
@@ -263,7 +263,7 @@ const Index = () => {
                       alt={`Imagen representativa de ${product.title}`}
                       className="w-28 h-28 rounded-full object-cover border-4 border-labora-neon shadow-lg bg-white"
                     />
-                  </div>
+                </div>
                   <div className="flex-1 flex flex-col items-center text-center">
                     <h3 className="text-2xl font-bold text-white mb-2">{product.title}</h3>
                     <span className="text-labora-neon mb-2 font-semibold">{product.subtitle}</span>

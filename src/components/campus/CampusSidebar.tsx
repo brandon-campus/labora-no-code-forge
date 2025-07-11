@@ -57,44 +57,44 @@ export function CampusSidebar({ activeSection, onSectionChange, onLogout }: Camp
       </button>
       <div className="flex flex-col h-screen bg-gray-900 border-r border-gray-800 relative">
         <SidebarContent className="flex-1 flex flex-col">
-          <div className="p-4 border-b border-gray-800">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-labora-neon rounded-lg flex items-center justify-center">
-                <span className="text-labora-dark font-bold text-sm">L</span>
-              </div>
-              {!collapsed && (
-                <div>
-                  <h1 className="text-white font-bold text-lg">Labora AI</h1>
-                  <p className="text-gray-400 text-xs">Campus Virtual</p>
-                </div>
-              )}
+        <div className="p-4 border-b border-gray-800">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-labora-neon rounded-lg flex items-center justify-center">
+              <span className="text-labora-dark font-bold text-sm">L</span>
             </div>
+            {!collapsed && (
+              <div>
+                <h1 className="text-white font-bold text-lg">Labora AI</h1>
+                <p className="text-gray-400 text-xs">Campus Virtual</p>
+              </div>
+            )}
           </div>
-          <SidebarGroup>
-            <SidebarGroupLabel className="text-gray-400 text-xs uppercase tracking-wider">
-              Navegación
-            </SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {menuItems.map((item) => (
-                  <SidebarMenuItem key={item.id}>
-                    <SidebarMenuButton
-                      onClick={() => onSectionChange(item.id)}
-                      className={`w-full justify-start ${
-                        activeSection === item.id
-                          ? 'bg-labora-red text-white hover:bg-labora-red/90'
-                          : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                      }`}
-                    >
-                      <item.icon className="mr-2 h-4 w-4" />
-                      {!collapsed && <span>{item.title}</span>}
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
+        </div>
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-gray-400 text-xs uppercase tracking-wider">
+            Navegación
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {menuItems.map((item) => (
+                <SidebarMenuItem key={item.id}>
+                  <SidebarMenuButton
+                    onClick={() => onSectionChange(item.id)}
+                    className={`w-full justify-start ${
+                      activeSection === item.id
+                        ? 'bg-labora-red text-white hover:bg-labora-red/90'
+                        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                    }`}
+                  >
+                    <item.icon className="mr-2 h-4 w-4" />
+                    {!collapsed && <span>{item.title}</span>}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
         <div className="p-4 border-t border-gray-800 mt-0">
           <button
             onClick={onLogout}

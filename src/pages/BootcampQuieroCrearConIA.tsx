@@ -40,6 +40,35 @@ function useCountdown(targetDate) {
 const BootcampQuieroCrearConIA = () => {
   const [open, setOpen] = useState(false);
   const countdown = useCountdown(FECHA_LIMITE.getTime());
+
+  // Evento Lead al cargar la página
+  useEffect(() => {
+    if (window.fbq) {
+      window.fbq('track', 'Lead');
+    }
+  }, []);
+
+  // Handler para InitiateCheckout
+  const handleInitiateCheckout = () => {
+    if (window.fbq) {
+      window.fbq('track', 'InitiateCheckout');
+    }
+  };
+
+  // Handler para Contact (WhatsApp)
+  const handleContact = () => {
+    if (window.fbq) {
+      window.fbq('track', 'Contact');
+    }
+  };
+
+  // Handler para CompleteRegistration (pago)
+  const handleCompleteRegistration = () => {
+    if (window.fbq) {
+      window.fbq('track', 'CompleteRegistration');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-labora-dark flex flex-col items-center justify-center px-4 py-12">
       <div className="max-w-xl w-full bg-white rounded-xl shadow-lg p-6 md:p-10 flex flex-col items-center">
@@ -76,7 +105,10 @@ const BootcampQuieroCrearConIA = () => {
         <div className="flex flex-col gap-4 w-full">
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-              <button className="w-full bg-labora-neon text-gray-900 font-bold py-3 rounded-lg text-lg hover:bg-labora-neon/90 transition">
+              <button
+                className="w-full bg-labora-neon text-gray-900 font-bold py-3 rounded-lg text-lg hover:bg-labora-neon/90 transition"
+                onClick={handleInitiateCheckout}
+              >
                 ✅ Inscribirme ahora
               </button>
             </DialogTrigger>
@@ -93,7 +125,10 @@ const BootcampQuieroCrearConIA = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    handleCompleteRegistration();
+                  }}
                 >
                   <button className="w-full bg-labora-red text-white font-bold py-3 rounded-lg text-lg hover:bg-labora-red/90 transition">
                     🇦🇷 Soy de Argentina
@@ -104,7 +139,10 @@ const BootcampQuieroCrearConIA = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    handleCompleteRegistration();
+                  }}
                 >
                   <button className="w-full bg-labora-neon text-gray-900 font-bold py-3 rounded-lg text-lg hover:bg-labora-neon/90 transition">
                     🌎 Soy de otro país
@@ -118,6 +156,7 @@ const BootcampQuieroCrearConIA = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="w-full"
+            onClick={handleContact}
           >
             <button className="w-full bg-labora-red text-white font-bold py-3 rounded-lg text-lg hover:bg-labora-red/90 transition">
               💬 Quiero hablar por WhatsApp

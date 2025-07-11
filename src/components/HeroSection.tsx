@@ -26,7 +26,7 @@ const HeroSection = () => {
               <a
                 href="/bootcamp/aplicar"
                 onClick={() => fbqTrack('AplicaAhoraClick')}
-              >
+              >image.png
                 <Button className="bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base font-medium">
                   Aplicar ahora
                   <ArrowRight className="ml-2 h-5 w-5" />
