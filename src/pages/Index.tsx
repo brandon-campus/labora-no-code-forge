@@ -268,8 +268,7 @@ const Index = () => {
                     <h3 className="text-2xl font-bold text-white mb-2">{product.title}</h3>
                     <span className="text-labora-neon mb-2 font-semibold">{product.subtitle}</span>
                     <div className="flex items-center justify-center gap-4 mb-2 text-gray-400 text-sm">
-                      <span className="font-semibold text-gray-300">{product.price}</span>
-                      <span>|</span>
+                      {/* <span className="font-semibold text-gray-300">{product.price}</span> */}
                       <span>{product.duration}</span>
                     </div>
                     <div className="flex items-center justify-center gap-2 mb-2 text-gray-400 text-sm">
@@ -312,7 +311,7 @@ const Index = () => {
                   <th className="py-3 px-4 text-left font-semibold text-labora-neon">Producto</th>
                   <th className="py-3 px-4 text-left font-semibold text-labora-neon">Modalidad</th>
                   <th className="py-3 px-4 text-left font-semibold text-labora-neon">Duración</th>
-                  <th className="py-3 px-4 text-left font-semibold text-labora-neon">Precio</th>
+                  {/* <th className="py-3 px-4 text-left font-semibold text-labora-neon">Precio</th> */}
                   <th className="py-3 px-4 text-left font-semibold text-labora-neon">Ideal para</th>
                   <th className="py-3 px-4 text-left font-semibold text-labora-neon">Objetivo</th>
                 </tr>
@@ -323,7 +322,7 @@ const Index = () => {
                     <td className="py-3 px-4 font-medium text-labora-neon">{product.title}</td>
                     <td className="py-3 px-4">{product.subtitle}</td>
                     <td className="py-3 px-4">{product.duration}</td>
-                    <td className="py-3 px-4">{product.price}</td>
+                    {/* <td className="py-3 px-4">{product.price}</td> */}
                     <td className="py-3 px-4">
                       {product.id === 'bootcamp' && 'Quienes quieren aprender en vivo y lanzar un proyecto'}
                       {product.id === 'inicia' && 'Principiantes absolutos, autodidactas'}

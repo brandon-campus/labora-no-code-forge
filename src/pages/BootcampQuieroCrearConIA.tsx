@@ -84,14 +84,13 @@ const BootcampQuieroCrearConIA = () => {
           </div>
         </div>
         {/* Video de bienvenida */}
-        <div className="w-full aspect-video mb-6 rounded-lg overflow-hidden">
+        <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }} className="w-full mb-6 rounded-lg overflow-hidden">
           <iframe
-            src="https://www.youtube.com/embed/ID_DEL_VIDEO"
-            title="Bienvenida Bootcamp Labora"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
+            src="https://www.tella.tv/video/cmd4zbb33000d0cl12tsheo0j/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1"
             allowFullScreen
-            className="w-full h-full"
+            allowTransparency
+            title="Bienvenida Bootcamp Labora"
           />
         </div>
         {/* Texto resumen */}
