@@ -63,7 +63,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                <Button className="bg-labora-red hover:bg-labora-red/90">Aplica ahora</Button>
+                <Button className="bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">APLICAR AHORA</Button>
               </a>
             </div>
           </div>
@@ -96,9 +96,7 @@ const Navbar = () => {
                 toggleMenu();
               }}
             >
-              <Button className="w-full bg-labora-red hover:bg-labora-red/90 mt-2">
-                Conoce más
-              </Button>
+              <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase mt-2">APLICAR AHORA</Button>
             </a>
           </div>
         </div>}

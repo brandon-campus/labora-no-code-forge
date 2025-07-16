@@ -87,8 +87,8 @@ const ContactSection = () => {
                   }
                 }}
               >
-                <Button className="w-full bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base">
-                  Aplicar ahora
+                <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">
+                  APLICAR AHORA
                 </Button>
               </a>
               
