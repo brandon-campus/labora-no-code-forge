@@ -21,10 +21,10 @@ const HeroSection = () => {
                 Semillero de Proyectos Tecnológicos en Latinoamérica
               </h2>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-white">
-                Campamento de Entrenamiento en IA y No Code
+                Crea proyectos con Inteligencia Artificial y empezá a vivir de ellos.
               </h1>
               <p className="text-gray-300 text-lg md:text-xl mb-6">
-                Desarrolla aplicaciones y plataformas usando Inteligencia Artificial y herramientas No-Code, sin necesidad de conocimientos técnicos previos.
+                Aprendé a desarrollar aplicaciones y automatizaciones con herramientas de IA y No Code, sin necesidad de experiencia previa.
               </p>
             </div>
             
