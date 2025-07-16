@@ -16,7 +16,7 @@ const BootcampQuieroCrearConIA = () => {
       <h1 className="text-3xl md:text-5xl font-black text-white mb-8 text-center">
         Bienvenido al <span className="text-labora-neon">Bootcamp de IA y No Code</span>
       </h1>
-      <div className="w-full max-w-2xl aspect-video mb-8 rounded-xl overflow-hidden shadow-lg">
+      <div className="w-full max-w-2xl aspect-video mb-4 rounded-xl overflow-hidden shadow-lg">
         <iframe
           src="https://www.tella.tv/video/cmd4zbb33000d0cl12tsheo0j/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1"
           title="Bienvenida Bootcamp Labora"
@@ -25,6 +25,9 @@ const BootcampQuieroCrearConIA = () => {
           style={{ border: 0 }}
         />
       </div>
+      <p className="text-center text-xs text-gray-400 mb-8 -mt-2">
+        Solo hoy: 30% de descuento en tu inscripción en una sola cuota
+      </p>
       <div className="flex flex-col gap-4 w-full max-w-xs">
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
