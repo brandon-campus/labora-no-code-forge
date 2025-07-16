@@ -50,7 +50,7 @@ const HeroSection = () => {
                 </Button>
               </a>
               <a
-                href="https://wa.me/5491138142899?text=%C2%A1Hola%20Labora!%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code"
+                href="https://wa.me/5491178519054?text=%C2%A1Hola%20Labora!%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mt-2 text-white underline text-base font-semibold hover:text-labora-red transition-colors text-left"
