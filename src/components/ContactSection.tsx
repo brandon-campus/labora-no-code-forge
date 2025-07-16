@@ -7,6 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { BookOpen, Calendar, MessageSquare, Rocket, Users } from 'lucide-react';
 import { fbqTrack } from "@/lib/fbqTrack";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 const ContactSection = () => {
   return (
     <section id="contacto" className="bg-labora-dark py-20">
@@ -70,7 +76,16 @@ const ContactSection = () => {
               <a
                 href="/bootcamp/aplicar"
                 className="block"
-                onClick={() => fbqTrack('ContactoAplicaAhoraClick')}
+                onClick={() => {
+                  fbqTrack('ContactoAplicaAhoraClick');
+                  if (window.gtag) {
+                    window.gtag('event', 'aplicar_ahora_click', {
+                      event_category: 'engagement',
+                      event_label: 'ContactSection',
+                      value: 1
+                    });
+                  }
+                }}
               >
                 <Button className="w-full bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base">
                   Aplicar ahora

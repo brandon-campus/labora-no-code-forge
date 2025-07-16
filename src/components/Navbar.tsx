@@ -5,6 +5,12 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { fbqTrack } from "@/lib/fbqTrack";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
@@ -46,7 +52,16 @@ const Navbar = () => {
                 </a>)}
               <a
                 href="/bootcamp/aplicar"
-                onClick={() => fbqTrack('NavbarAplicaAhoraClick')}
+                onClick={() => {
+                  fbqTrack('NavbarAplicaAhoraClick');
+                  if (window.gtag) {
+                    window.gtag('event', 'aplicar_ahora_click', {
+                      event_category: 'engagement',
+                      event_label: 'Navbar',
+                      value: 1
+                    });
+                  }
+                }}
               >
                 <Button className="bg-labora-red hover:bg-labora-red/90">Aplica ahora</Button>
               </a>
@@ -71,6 +86,13 @@ const Navbar = () => {
               href="/bootcamp/aplicar"
               onClick={() => {
                 fbqTrack('NavbarMobileAplicaAhoraClick');
+                if (window.gtag) {
+                  window.gtag('event', 'aplicar_ahora_click', {
+                    event_category: 'engagement',
+                    event_label: 'NavbarMobile',
+                    value: 1
+                  });
+                }
                 toggleMenu();
               }}
             >

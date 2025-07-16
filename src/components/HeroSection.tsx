@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Rocket, Video } from 'lucide-react';
 import { fbqTrack } from "@/lib/fbqTrack";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 const HeroSection = () => {
   return (
     <section className="hero-gradient py-16 md:py-28 overflow-hidden">
@@ -25,8 +31,17 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="/bootcamp/aplicar"
-                onClick={() => fbqTrack('AplicaAhoraClick')}
-              >image.png
+                onClick={() => {
+                  fbqTrack('AplicaAhoraClick');
+                  if (window.gtag) {
+                    window.gtag('event', 'aplicar_ahora_click', {
+                      event_category: 'engagement',
+                      event_label: 'HeroSection',
+                      value: 1
+                    });
+                  }
+                }}
+              >
                 <Button className="bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base font-medium">
                   Aplicar ahora
                   <ArrowRight className="ml-2 h-5 w-5" />
