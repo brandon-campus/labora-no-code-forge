@@ -30,7 +30,9 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="/bootcamp/aplicar"
+                href="https://tally.so/r/w49bBo"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   fbqTrack('AplicaAhoraClick');
                   if (window.gtag) {

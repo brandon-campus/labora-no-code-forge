@@ -51,7 +51,9 @@ const Navbar = () => {
                   {item.label}
                 </a>)}
               <a
-                href="/bootcamp/aplicar"
+                href="https://tally.so/r/w49bBo"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   fbqTrack('NavbarAplicaAhoraClick');
                   if (window.gtag) {
@@ -83,7 +85,9 @@ const Navbar = () => {
                 {item.label}
               </a>)}
             <a
-              href="/bootcamp/aplicar"
+              href="https://tally.so/r/w49bBo"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => {
                 fbqTrack('NavbarMobileAplicaAhoraClick');
                 if (window.gtag) {
