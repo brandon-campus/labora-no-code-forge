@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Rocket, Video } from 'lucide-react';
 import { fbqTrack } from "@/lib/fbqTrack";
+import WizardAplicar from './WizardAplicar';
 
 declare global {
   interface Window {
@@ -11,6 +12,8 @@ declare global {
 }
 
 const HeroSection = () => {
+  const [wizardOpen, setWizardOpen] = React.useState(false);
+
   return (
     <section className="hero-gradient py-16 md:pt-16 md:pb-28 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,10 +33,10 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://tally.so/r/w49bBo"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
+                href="#"
+                onClick={e => {
+                  e.preventDefault();
+                  setWizardOpen(true);
                   fbqTrack('AplicaAhoraClick');
                   if (window.gtag) {
                     window.gtag('event', 'aplicar_ahora_click', {
@@ -86,6 +89,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      <WizardAplicar open={wizardOpen} onClose={() => setWizardOpen(false)} />
     </section>
   );
 };

@@ -65,7 +65,7 @@ const modules: ModuleData[] = [
       {
         title: "ESTRUCTURA DE UN PROYECTO DE SOFTWARE",
         description: "",
-        date: "Martes, 6 Mayo",
+        date: "Martes, 5 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -74,7 +74,7 @@ const modules: ModuleData[] = [
       {
         title: "PROTOTIPO INICIAL CON LOVABLE",
         description: "",
-        date: "Jueves, 8 Mayo",
+        date: "Jueves, 7 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -83,7 +83,7 @@ const modules: ModuleData[] = [
       {
         title: "PAIR PROGRAMMING",
         description: "",
-        date: "Viernes, 09 Mayo",
+        date: "Viernes, 8 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -101,7 +101,7 @@ const modules: ModuleData[] = [
       {
         title: "CONSTRUIR PLATAFORMAS CON CURSOR AI",
         description: "",
-        date: "Martes, 13 Mayo",
+        date: "Martes, 12 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -110,7 +110,7 @@ const modules: ModuleData[] = [
       {
         title: "CONTROL DE FLUJO Y MANEJO DE ERRORES",
         description: "",
-        date: "Jueves, 15 Mayo",
+        date: "Jueves, 14 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -119,7 +119,7 @@ const modules: ModuleData[] = [
       {
         title: "PAIR PROGRAMMING",
         description: "",
-        date: "Viernes, 16 Mayo",
+        date: "Viernes, 15 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 2,
@@ -137,7 +137,7 @@ const modules: ModuleData[] = [
       {
         title: "DISEÑO Y ARQUITECTURA DE UNA BASE DE DATOS",
         description: "",
-        date: "Martes, 20 Mayo",
+        date: "Martes, 19 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -146,7 +146,7 @@ const modules: ModuleData[] = [
       {
         title: "CONEXIÓN CON SUPABASE Y DISEÑO DE TABLAS",
         description: "",
-        date: "Jueves, 22 Mayo",
+        date: "Jueves, 21 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -155,7 +155,7 @@ const modules: ModuleData[] = [
       {
         title: "PAIR PROGRAMMING",
         description: "",
-        date: "Viernes, 23 Mayo",
+        date: "Viernes, 22 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 2,
@@ -173,7 +173,7 @@ const modules: ModuleData[] = [
       {
         title: "CREAR AGENTES IA CON N8N",
         description: "",
-        date: "Martes, 27 Mayo",
+        date: "Martes, 26 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -182,7 +182,7 @@ const modules: ModuleData[] = [
       {
         title: "FLUJOS DE TRABAJO CON MAKE Y N8N",
         description: "",
-        date: "Jueves, 29 Mayo",
+        date: "Jueves, 28 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -191,7 +191,7 @@ const modules: ModuleData[] = [
       {
         title: "DESAFÍO FINAL DE PROYECTOS",
         description: "",
-        date: "Viernes, 30 Mayo",
+        date: "Viernes, 29 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 1,

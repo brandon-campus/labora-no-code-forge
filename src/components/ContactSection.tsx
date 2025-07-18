@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { BookOpen, Calendar, MessageSquare, Rocket, Users } from 'lucide-react';
 import { fbqTrack } from "@/lib/fbqTrack";
+import WizardAplicar from './WizardAplicar';
 
 declare global {
   interface Window {
@@ -14,6 +15,8 @@ declare global {
 }
 
 const ContactSection = () => {
+  const [wizardOpen, setWizardOpen] = React.useState(false);
+
   return (
     <section id="contacto" className="bg-labora-dark py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,11 +77,11 @@ const ContactSection = () => {
             
             <div className="space-y-6">
               <a
-                href="https://tally.so/r/w49bBo"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 className="block"
-                onClick={() => {
+                onClick={e => {
+                  e.preventDefault();
+                  setWizardOpen(true);
                   fbqTrack('ContactoAplicaAhoraClick');
                   if (window.gtag) {
                     window.gtag('event', 'aplicar_ahora_click', {
@@ -95,7 +98,7 @@ const ContactSection = () => {
               </a>
               
               <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">16 de Julio, 2025</span>
+                Fecha límite de inscripción: <span className="font-semibold">24 de Julio, 2025</span>
               </p>
               
               <div className="border-t border-gray-100 pt-6 mt-6">
@@ -107,6 +110,7 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+      <WizardAplicar open={wizardOpen} onClose={() => setWizardOpen(false)} />
     </section>
   );
 };

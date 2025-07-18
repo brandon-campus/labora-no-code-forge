@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { fbqTrack } from "@/lib/fbqTrack";
+import WizardAplicar from './WizardAplicar';
 
 declare global {
   interface Window {
@@ -13,6 +14,7 @@ declare global {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [wizardOpen, setWizardOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -51,10 +53,10 @@ const Navbar = () => {
                   {item.label}
                 </a>)}
               <a
-                href="https://tally.so/r/w49bBo"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
+                href="#"
+                onClick={e => {
+                  e.preventDefault();
+                  setWizardOpen(true);
                   fbqTrack('NavbarAplicaAhoraClick');
                   if (window.gtag) {
                     window.gtag('event', 'aplicar_ahora_click', {
@@ -85,10 +87,10 @@ const Navbar = () => {
                 {item.label}
               </a>)}
             <a
-              href="https://tally.so/r/w49bBo"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
+              href="#"
+              onClick={e => {
+                e.preventDefault();
+                setWizardOpen(true);
                 fbqTrack('NavbarMobileAplicaAhoraClick');
                 if (window.gtag) {
                   window.gtag('event', 'aplicar_ahora_click', {
@@ -104,6 +106,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>}
+      <WizardAplicar open={wizardOpen} onClose={() => setWizardOpen(false)} />
     </nav>;
 };
 export default Navbar;

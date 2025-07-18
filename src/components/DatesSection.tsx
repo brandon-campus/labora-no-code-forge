@@ -30,15 +30,15 @@ const DatesSection = () => {
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex justify-between">
                     <span>Inscripciones:</span>
-                    <span className="font-medium">7 Jul - 16 Jul</span>
+                    <span className="font-medium">15 al 24 de julio</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Inicio del programa:</span>
-                    <span className="font-medium">17 de Julio</span>
+                    <span className="font-medium">31 de julio</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Demo Day:</span>
-                    <span className="font-medium">13 de Agosto</span>
+                    <span className="font-medium">28 de agosto</span>
                   </li>
                 </ul>
               </div>
