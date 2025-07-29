@@ -42,7 +42,8 @@ const Index = () => {
       badge: 'Más Popular',
       color: 'bg-labora-red',
       link: '/bootcamp',
-      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80' // Bootcamp
+      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80', // Bootcamp
+      trialLink: '/bootcamp-gratis'
     },
     {
       id: 'inicia',
@@ -144,6 +145,7 @@ const Index = () => {
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon transition-colors">Bootcamp</Link>
+              <Link to="/bootcamp-gratis" className="text-labora-red hover:text-labora-red/80 transition-colors font-semibold">🎁 2 Clases Gratis</Link>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Curso Inicia</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Hackatones</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Empresas</a>
@@ -171,6 +173,7 @@ const Index = () => {
           <div className="md:hidden bg-gray-900 border-b border-gray-800">
             <div className="px-4 py-4 flex flex-col space-y-4">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Bootcamp</Link>
+              <Link to="/bootcamp-gratis" className="text-labora-red hover:text-labora-red/80 text-lg font-semibold" onClick={() => setIsMenuOpen(false)}>🎁 2 Clases Gratis</Link>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Curso Inicia</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Hackatones</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Empresas</a>
@@ -282,14 +285,26 @@ const Index = () => {
                       ))}
                     </ul>
                   </div>
-                  <Link to={product.link} className="w-full mt-auto">
-                    <Button
-                      className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105"
-                      disabled={product.id === 'inicia' || product.id === 'hackatones'}
-                    >
-                      {product.id === 'inicia' || product.id === 'hackatones' ? 'Próximamente' : 'Conocer más'}
-                    </Button>
-                  </Link>
+                  <div className="w-full mt-auto space-y-3">
+                    <Link to={product.link}>
+                      <Button
+                        className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105"
+                        disabled={product.id === 'inicia' || product.id === 'hackatones'}
+                      >
+                        {product.id === 'inicia' || product.id === 'hackatones' ? 'Próximamente' : 'Conocer más'}
+                      </Button>
+                    </Link>
+                    {product.trialLink && (
+                      <Link to={product.trialLink}>
+                        <Button
+                          variant="outline"
+                          className="w-full border-labora-red text-labora-red hover:bg-labora-red hover:text-white font-bold transition-all duration-200"
+                        >
+                          🎁 Probar 2 clases gratis
+                        </Button>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               ));
             })()}
