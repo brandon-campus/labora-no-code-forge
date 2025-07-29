@@ -145,7 +145,6 @@ const Index = () => {
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon transition-colors">Bootcamp</Link>
-              <Link to="/bootcamp-gratis" className="text-labora-red hover:text-labora-red/80 transition-colors font-semibold">🎁 2 Clases Gratis</Link>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Curso Inicia</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Hackatones</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Empresas</a>
@@ -173,7 +172,6 @@ const Index = () => {
           <div className="md:hidden bg-gray-900 border-b border-gray-800">
             <div className="px-4 py-4 flex flex-col space-y-4">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Bootcamp</Link>
-              <Link to="/bootcamp-gratis" className="text-labora-red hover:text-labora-red/80 text-lg font-semibold" onClick={() => setIsMenuOpen(false)}>🎁 2 Clases Gratis</Link>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Curso Inicia</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Hackatones</a>
               <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Empresas</a>
