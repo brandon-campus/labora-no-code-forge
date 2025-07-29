@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Bootcamp from "./pages/Bootcamp";
+import BootcampLanding from "./pages/BootcampLanding";
 import Masterclass from "./pages/Masterclass";
 import MasterclassGratuita from "./pages/MasterclassGratuita";
 import Campus from "./pages/Campus";
@@ -31,6 +32,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />
+          <Route path="/bootcamp-landing" element={<BootcampLanding />} />
           <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
           <Route path="/bootcamp/quiero-crear-con-ia" element={<BootcampQuieroCrearConIA />} />
           <Route path="/bootcamp-gratis" element={<BootcampGratis />} />
