@@ -72,7 +72,7 @@ const modules: ModuleData[] = [
         tags: ["Proyectos No-Code", "Planeamiento"]
       },
       {
-        title: "PROTOTIPO INICIAL CON LOVABLE E INTEGRACIÓN CON CURSOR AI",
+        title: "PROTOTIPO CON LOVABLE E INTEGRACIÓN CON CURSOR AI",
         description: "",
         date: "Jueves, 14 Agosto",
         duration: "2h",
@@ -92,7 +92,7 @@ const modules: ModuleData[] = [
     ]
   },
   {
-    title: "DE PROTOTIPO A PLATAFORMA Y APP COMPLETA",
+    title: "CURSOR AI Y DESARROLLO WEB AVANZADO",
     description: "Transformá ideas en productos funcionales usando herramientas impulsadas por IA",
     week: "Semana 2",
     difficulty: "Intermedio",
