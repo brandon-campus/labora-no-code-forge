@@ -56,25 +56,25 @@ interface ModuleData {
 
 const modules: ModuleData[] = [
   {
-    title: "FUNDAMENTOS DE DESARROLLO CON IA Y NO CODE",
+    title: "DE CERO A PRODUCTO COMPLETO",
     description: "Introducción al desarrollo moderno con herramientas No Code e Inteligencia Artificial",
     week: "Semana 1",
-    difficulty: "Básico",
+    difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
         title: "ESTRUCTURA DE UN PROYECTO DE SOFTWARE",
         description: "",
-        date: "Martes, 5 Agosto",
+        date: "Martes, 12 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
         tags: ["Proyectos No-Code", "Planeamiento"]
       },
       {
-        title: "PROTOTIPO INICIAL CON LOVABLE",
+        title: "PROTOTIPO INICIAL CON LOVABLE E INTEGRACIÓN CON CURSOR AI",
         description: "",
-        date: "Jueves, 7 Agosto",
+        date: "Jueves, 14 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -83,7 +83,7 @@ const modules: ModuleData[] = [
       {
         title: "PAIR PROGRAMMING",
         description: "",
-        date: "Viernes, 8 Agosto",
+        date: "Viernes, 15 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -101,7 +101,7 @@ const modules: ModuleData[] = [
       {
         title: "CONSTRUIR PLATAFORMAS CON CURSOR AI",
         description: "",
-        date: "Martes, 12 Agosto",
+        date: "Martes, 19 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -110,7 +110,7 @@ const modules: ModuleData[] = [
       {
         title: "CONTROL DE FLUJO Y MANEJO DE ERRORES",
         description: "",
-        date: "Jueves, 14 Agosto",
+        date: "Jueves, 21 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -119,7 +119,7 @@ const modules: ModuleData[] = [
       {
         title: "PAIR PROGRAMMING",
         description: "",
-        date: "Viernes, 15 Agosto",
+        date: "Viernes, 22 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 2,
@@ -137,7 +137,7 @@ const modules: ModuleData[] = [
       {
         title: "DISEÑO Y ARQUITECTURA DE UNA BASE DE DATOS",
         description: "",
-        date: "Martes, 19 Agosto",
+        date: "Martes, 26 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -146,7 +146,7 @@ const modules: ModuleData[] = [
       {
         title: "CONEXIÓN CON SUPABASE Y DISEÑO DE TABLAS",
         description: "",
-        date: "Jueves, 21 Agosto",
+        date: "Jueves, 28 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -155,7 +155,7 @@ const modules: ModuleData[] = [
       {
         title: "PAIR PROGRAMMING",
         description: "",
-        date: "Viernes, 22 Agosto",
+        date: "Viernes, 29 Agosto",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 2,
@@ -173,7 +173,7 @@ const modules: ModuleData[] = [
       {
         title: "CREAR AGENTES IA CON N8N",
         description: "",
-        date: "Martes, 26 Agosto",
+        date: "Martes, 3 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -182,7 +182,7 @@ const modules: ModuleData[] = [
       {
         title: "FLUJOS DE TRABAJO CON MAKE Y N8N",
         description: "",
-        date: "Jueves, 28 Agosto",
+        date: "Jueves, 5 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -191,7 +191,7 @@ const modules: ModuleData[] = [
       {
         title: "DESAFÍO FINAL DE PROYECTOS",
         description: "",
-        date: "Viernes, 29 Agosto",
+        date: "Viernes, 6 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 1,

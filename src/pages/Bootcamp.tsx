@@ -27,7 +27,7 @@ const Bootcamp = () => {
       <TestimonialsSection />
       <DemoSection />
       <ContactSection />
-      <Footer />
+      {/* <Footer /> */}
       <WhatsAppButton />
     </div>
   );

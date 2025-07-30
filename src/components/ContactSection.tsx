@@ -77,33 +77,21 @@ const ContactSection = () => {
             
             <div className="space-y-6">
               <a
-                href="#"
+                href="/curso-campus"
                 className="block"
-                onClick={e => {
-                  e.preventDefault();
-                  setWizardOpen(true);
-                  fbqTrack('ContactoAplicaAhoraClick');
-                  if (window.gtag) {
-                    window.gtag('event', 'aplicar_ahora_click', {
-                      event_category: 'engagement',
-                      event_label: 'ContactSection',
-                      value: 1
-                    });
-                  }
-                }}
               >
                 <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">
-                  APLICAR AHORA
+                  COMENZAR AHORA
                 </Button>
               </a>
               
               <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">24 de Julio, 2025</span>
+                Fecha límite de inscripción: <span className="font-semibold">05 de Agosto, 2025</span>
               </p>
               
               <div className="border-t border-gray-100 pt-6 mt-6">
                 <p className="text-gray-500 text-center">
-                  También puedes contactarnos directamente a <a href="mailto:info@cohorte.labora.ar" className="text-labora-red hover:underline">info@cohorte.labora.ar</a>
+                  También puedes contactarnos directamente a <a href="mailto:info@labora.ar" className="text-labora-red hover:underline">info@cohorte.labora.ar</a>
                 </p>
               </div>
             </div>

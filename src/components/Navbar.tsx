@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { fbqTrack } from "@/lib/fbqTrack";
-import WizardAplicar from './WizardAplicar';
 
 declare global {
   interface Window {
@@ -14,10 +13,24 @@ declare global {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [wizardOpen, setWizardOpen] = useState(false);
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleComenzarClick = () => {
+    fbqTrack('NavbarComenzarClick');
+    if (window.gtag) {
+      window.gtag('event', 'comenzar_ahora_click', {
+        event_category: 'engagement',
+        event_label: 'Navbar',
+        value: 1
+      });
+    }
+    // Redirigir a curso-campus
+    window.location.href = '/curso-campus';
+  };
+
   const navItems = [{
     label: "Acerca del programa",
     href: "#about"
@@ -37,7 +50,9 @@ const Navbar = () => {
     label: "Proyectos",
     href: "#demo"
   }];
-  return <nav className="w-full bg-labora-dark/95 backdrop-blur-md z-50 border-b border-gray-800">
+
+  return (
+    <nav className="w-full bg-labora-dark/95 backdrop-blur-md z-50 border-b border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -49,26 +64,17 @@ const Navbar = () => {
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-2">
-              {navItems.map((item, index) => <a key={index} href={item.href} className="text-gray-300 hover:text-labora-neon px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              {navItems.map((item, index) => (
+                <a key={index} href={item.href} className="text-gray-300 hover:text-labora-neon px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   {item.label}
-                </a>)}
-              <a
-                href="#"
-                onClick={e => {
-                  e.preventDefault();
-                  setWizardOpen(true);
-                  fbqTrack('NavbarAplicaAhoraClick');
-                  if (window.gtag) {
-                    window.gtag('event', 'aplicar_ahora_click', {
-                      event_category: 'engagement',
-                      event_label: 'Navbar',
-                      value: 1
-                    });
-                  }
-                }}
+                </a>
+              ))}
+              <Button 
+                onClick={handleComenzarClick}
+                className="bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase"
               >
-                <Button className="bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">APLICAR AHORA</Button>
-              </a>
+                COMENZAR AHORA
+              </Button>
             </div>
           </div>
           
@@ -81,32 +87,28 @@ const Navbar = () => {
       </div>
       
       {/* Mobile menu */}
-      {isMenuOpen && <div className="md:hidden bg-labora-dark border-b border-gray-800">
+      {isMenuOpen && (
+        <div className="md:hidden bg-labora-dark border-b border-gray-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item, index) => <a key={index} href={item.href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-labora-neon" onClick={toggleMenu}>
+            {navItems.map((item, index) => (
+              <a key={index} href={item.href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-labora-neon" onClick={toggleMenu}>
                 {item.label}
-              </a>)}
-            <a
-              href="#"
-              onClick={e => {
-                e.preventDefault();
-                setWizardOpen(true);
-                fbqTrack('NavbarMobileAplicaAhoraClick');
-                if (window.gtag) {
-                  window.gtag('event', 'aplicar_ahora_click', {
-                    event_category: 'engagement',
-                    event_label: 'NavbarMobile',
-                    value: 1
-                  });
-                }
+              </a>
+            ))}
+            <Button 
+              onClick={() => {
+                handleComenzarClick();
                 toggleMenu();
               }}
+              className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase mt-2"
             >
-              <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase mt-2">APLICAR AHORA</Button>
-            </a>
+              COMENZAR AHORA
+            </Button>
           </div>
-        </div>}
-      <WizardAplicar open={wizardOpen} onClose={() => setWizardOpen(false)} />
-    </nav>;
+        </div>
+      )}
+    </nav>
+  );
 };
+
 export default Navbar;

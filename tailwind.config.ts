@@ -83,6 +83,7 @@ export default {
 			boxShadow: {
 				'glow-primary': '0 0 20px rgba(233, 73, 100, 0.3)',
 				'glow-secondary': '0 0 20px rgba(193, 255, 114, 0.2)',
+				'neon-glow': '0 0 20px rgba(193, 255, 114, 0.4)',
 			},
 			keyframes: {
 				'accordion-down': {

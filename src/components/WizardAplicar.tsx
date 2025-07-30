@@ -96,7 +96,7 @@ const WizardAplicar = ({ open, onClose }: { open: boolean; onClose: () => void }
       setError('Hubo un error al guardar tu aplicación. Intenta de nuevo.');
       return;
     }
-    window.location.href = 'https://www.labora.ar/bootcamp/quiero-crear-con-ia';
+    window.location.href = '/curso-campus';
   };
 
   const totalPasos = pasos.length + 1; // Incluye el paso de datos de contacto
