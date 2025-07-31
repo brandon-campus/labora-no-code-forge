@@ -70,14 +70,14 @@ const CursoCampus = () => {
   // Lógica de módulos desbloqueados
   const puedeVerModulo = (idx: number) => {
     if (perfil?.curso_pagado) return true;
-    return idx < 2; // Solo los dos primeros módulos desbloqueados
+    return idx < 1; // Solo el primer módulo desbloqueado
   };
 
   // Calcular progreso real - SOLO para módulos gratuitos
   const calcularProgresoGratuito = () => {
     try {
-      // Solo considerar los 2 primeros módulos (gratuitos)
-      const modulosGratuitos = lecciones.slice(0, 2);
+      // Solo considerar el primer módulo (gratuito)
+      const modulosGratuitos = lecciones.slice(0, 1);
       
       // Si no hay módulos, mostrar título por defecto
       if (modulosGratuitos.length === 0) {
@@ -102,7 +102,7 @@ const CursoCampus = () => {
   const obtenerModuloActual = () => {
     try {
       // Solo considerar módulos gratuitos
-      const modulosGratuitos = lecciones.slice(0, 2);
+      const modulosGratuitos = lecciones.slice(0, 1);
       
       // Si no hay módulos, mostrar título por defecto
       if (modulosGratuitos.length === 0) {

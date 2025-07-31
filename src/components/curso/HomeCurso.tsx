@@ -29,7 +29,7 @@ const HomeCurso = ({
 
   // Función para determinar si un módulo es accesible (gratuito)
   const esModuloGratuito = (index: number) => {
-    return index < 2; // Los 2 primeros módulos son gratuitos
+    return index < 1; // Solo el primer módulo es gratuito
   };
 
   // Función para obtener icono basado en el tipo o título
@@ -86,7 +86,7 @@ const HomeCurso = ({
               <h3 className="text-lg sm:text-xl font-bold text-labora-neon mb-2">
                 {curso.titulo || 'Curso On Demand de IA y No Code'}
               </h3>
-              <p className="text-xs text-gray-400 mb-2">Acceso gratuito a 2 módulos</p>
+              <p className="text-xs text-gray-400 mb-2">Acceso gratuito a 1 módulo</p>
               <div className="flex items-center gap-4">
                 <div className="flex-1">
                   <div className="flex justify-between items-center mb-1">
