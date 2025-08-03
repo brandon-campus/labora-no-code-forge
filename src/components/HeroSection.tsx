@@ -20,67 +20,61 @@ const HeroSection = () => {
         value: 1
       });
     }
-    // Redirigir a curso-campus
-    window.location.href = '/curso-campus';
+    window.location.href = '/registro-curso';
   };
 
   return (
-    <section className="hero-gradient py-16 md:pt-16 md:pb-28 overflow-hidden">
+    <section className="hero-gradient py-8 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="space-y-8 animate-fade-in-up lg:pr-10">
-            <div>
-              <h2 className="inline-block mb-3 px-4 py-1 bg-gray-800 text-white rounded-full text-sm font-semibold">
-                Bootcamp en vivo de IA y No Code
-              </h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-white">
-                Crea proyectos con <span className="text-labora-neon">IA</span> y empezá a vivir de ellos.
-              </h1>
-              <p className="text-gray-300 text-lg md:text-xl mb-6">
-                Aprendé a desarrollar aplicaciones y automatizaciones con herramientas de IA y No Code. Crea tu primer proyecto con las 2 primeras clases del Bootcamp, gratis.
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={handleAplicarClick}
-                className="bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg"
-              >
-                COMENZAR GRATIS
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <a
-                href="https://wa.me/5491178519054?text=%C2%A1Hola%20Labora!%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mt-2 text-white underline text-base font-semibold hover:text-labora-red transition-colors text-left"
-              >
-                Hablar por Whatsapp
-              </a>
-            </div>
-            
-            <div className="flex items-center gap-6 pt-4">
-              <div className="flex items-center gap-2">
-                <Code className="h-5 w-5 text-labora-neon" />
-                <span className="text-sm text-gray-300">Sin código</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Rocket className="h-5 w-5 text-labora-red" />
-                <span className="text-sm text-gray-300">Proyectos reales</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Video className="h-5 w-5 text-labora-neon" />
-                <span className="text-sm text-gray-300">100% en vivo</span>
-              </div>
-            </div>
+        <div className="text-center max-w-4xl mx-auto">
+          {/* Badge */}
+          <div className="inline-block mb-4 px-4 py-2 bg-gray-800 text-white rounded-full text-sm font-semibold">
+            Bootcamp en vivo de IA y No Code
           </div>
           
-          <div className="relative h-[450px] w-full animate-fade-in rounded-2xl overflow-hidden hidden lg:block">
-            <img 
-              src="/lovable-uploads/portada.png"
-              alt="Personas creando productos con IA y No-Code" 
-              className="w-full h-full object-cover rounded-2xl"
-            />
+          {/* Headline principal */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-white">
+            Crea tu primera app con <span className="text-labora-neon">IA</span> en 4 semanas
+          </h1>
+          
+          {/* Subheadline */}
+          <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+            Sin programar, sin experiencia previa. 100% en vivo con mentores expertos. 
+            <span className="text-labora-neon font-semibold"> Prueba 2 clases gratis.</span>
+          </p>
+          
+          {/* CTA Principal - Más prominente */}
+          <div className="mb-8">
+            <Button
+              onClick={handleAplicarClick}
+              className="bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-8 py-4 text-lg md:text-xl transition-all shadow-lg w-full md:w-auto"
+            >
+              COMENZAR GRATIS
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+          
+          {/* Social proof */}
+          <div className="text-center mb-6">
+            <p className="text-gray-300 text-sm">
+              <span className="text-labora-neon font-semibold">500+ estudiantes</span> ya lanzaron sus proyectos
+            </p>
+          </div>
+          
+          {/* Beneficios clave */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <div className="flex items-center gap-2">
+              <Code className="h-4 w-4 text-labora-neon" />
+              <span className="text-sm text-gray-300">Sin código</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Rocket className="h-4 w-4 text-labora-red" />
+              <span className="text-sm text-gray-300">Proyectos reales</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Video className="h-4 w-4 text-labora-neon" />
+              <span className="text-sm text-gray-300">100% en vivo</span>
+            </div>
           </div>
         </div>
       </div>

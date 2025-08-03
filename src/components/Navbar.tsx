@@ -27,8 +27,8 @@ const Navbar = () => {
         value: 1
       });
     }
-    // Redirigir a curso-campus
-    window.location.href = '/curso-campus';
+    // Redirigir a registro-curso
+    window.location.href = '/registro-curso';
   };
 
   const navItems = [{

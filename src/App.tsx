@@ -20,6 +20,7 @@ import CursoCampusPage from "./pages/CursoCampus";
 import RegistroCurso from "./pages/RegistroCurso";
 import OnboardingCurso from "./pages/OnboardingCurso";
 import LoginCurso from "./pages/LoginCurso";
+import BootcampDeIA from "./pages/BootcampDeIA";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />
+          <Route path="/bootcamp-de-ia" element={<BootcampDeIA />} />
           <Route path="/bootcamp-landing" element={<BootcampLanding />} />
           <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
           <Route path="/bootcamp/quiero-crear-con-ia" element={<BootcampQuieroCrearConIA />} />
