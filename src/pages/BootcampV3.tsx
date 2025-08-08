@@ -1,25 +1,19 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import HeroSectionV3 from '@/components/HeroSectionV3';
+import HeaderSimple from '@/components/HeaderSimple';
+import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import DatesSection from '@/components/DatesSection';
-import CurriculumSection from '@/components/CurriculumSection';
-import ProcessSection from '@/components/ProcessSection';
-import DemoSection from '@/components/DemoSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
-const Bootcamp = () => {
+const BootcampV3 = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
-      <HeroSectionV3 />
+      <HeaderSimple />
+      <HeroSection />
       <AboutSection />
       <DatesSection />
-      <CurriculumSection />
-      <ProcessSection />
-      <DemoSection />
       <TestimonialsSection />
       <ContactSection />
       <WhatsAppButton />
@@ -27,4 +21,4 @@ const Bootcamp = () => {
   );
 };
 
-export default Bootcamp;
+export default BootcampV3; 

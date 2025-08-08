@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Rocket, Video } from 'lucide-react';
+import { ArrowRight, Zap, Clock, Users } from 'lucide-react';
 import { fbqTrack } from "@/lib/fbqTrack";
 
 declare global {
@@ -11,72 +11,68 @@ declare global {
 }
 
 const HeroSection = () => {
-  const handleAplicarClick = () => {
-    fbqTrack('AplicaAhoraClick');
+  const handleCampusClick = () => {
+    fbqTrack('CampusAccessClick');
     if (window.gtag) {
-      window.gtag('event', 'aplicar_ahora_click', {
+      window.gtag('event', 'campus_access_click', {
         event_category: 'engagement',
         event_label: 'HeroSection',
         value: 1
       });
     }
+    // Redirigir al campus para registro
     window.location.href = '/registro-curso';
   };
 
   return (
-    <section className="hero-gradient py-8 md:py-16 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-block mb-4 px-4 py-2 bg-gray-800 text-white rounded-full text-sm font-semibold">
-            Bootcamp en vivo de IA y No Code
+    <section className="hero-gradient min-h-screen flex items-center px-4 py-8 pt-16 lg:pt-20">
+      <div className="w-full max-w-2xl mx-auto text-center">
+        {/* Badge de urgencia */}
+        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-labora-neon/20 text-labora-neon rounded-full text-sm font-bold border border-labora-neon/30 animate-pulse">
+          <Zap className="h-4 w-4" />
+          <span>ACCESO INMEDIATO GRATUITO</span>
+        </div>
+        
+        {/* Headline principal - Mobile first */}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6 text-white">
+          Crea tu primer<span className="text-labora-neon"> proyecto con IA </span> 
+          <br className="hidden sm:block" />
+          <span className="text-white bg-gradient-to-r from-labora-neon to-labora-neon/70 bg-clip-text text-transparent">AHORA</span>
+        </h1>
+        
+        {/* Subheadline enfocado en acción inmediata */}
+        <p className="text-gray-300 text-lg sm:text-xl mb-8 leading-relaxed">
+          Aprende a Desarrollar Aplicaciones y Plataformas con <span className="text-labora-neon font-bold">Inteligencia Artificial</span> con los primeros módulos de nuestro bootcamp en menos de 30 minutos.
+        </p>
+        
+        {/* CTA Principal - Más prominente y urgente */}
+        <div className="mb-8">
+          <Button
+            onClick={handleCampusClick}
+            className="bg-labora-neon hover:bg-labora-neon/90 text-black font-black rounded-full px-8 py-6 text-lg sm:text-xl transition-all shadow-lg shadow-labora-neon/25 w-full sm:w-auto transform hover:scale-105 animate-bounce"
+          >
+            <Zap className="mr-3 h-5 w-5" />
+            CREAR MI APP AHORA
+            <ArrowRight className="ml-3 h-5 w-5" />
+          </Button>
+        </div>
+        
+        {/* Social proof simplificado */}
+        <div className="flex items-center justify-center gap-4 mb-6 text-sm text-gray-300">
+          <div className="flex items-center gap-1">
+            <Users className="h-4 w-4 text-labora-neon" />
+            <span><span className="text-labora-neon font-bold">500+</span> estudiantes</span>
           </div>
-          
-          {/* Headline principal */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-white">
-            Crea tu primera app con <span className="text-labora-neon">IA</span> en 4 semanas
-          </h1>
-          
-          {/* Subheadline */}
-          <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            Sin programar, sin experiencia previa. 100% en vivo con mentores expertos. 
-            <span className="text-labora-neon font-semibold"> Prueba 2 clases gratis.</span>
-          </p>
-          
-          {/* CTA Principal - Más prominente */}
-          <div className="mb-8">
-            <Button
-              onClick={handleAplicarClick}
-              className="bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-8 py-4 text-lg md:text-xl transition-all shadow-lg w-full md:w-auto"
-            >
-              COMENZAR GRATIS
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-          
-          {/* Social proof */}
-          <div className="text-center mb-6">
-            <p className="text-gray-300 text-sm">
-              <span className="text-labora-neon font-semibold">500+ estudiantes</span> ya lanzaron sus proyectos
-            </p>
-          </div>
-          
-          {/* Beneficios clave */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <div className="flex items-center gap-2">
-              <Code className="h-4 w-4 text-labora-neon" />
-              <span className="text-sm text-gray-300">Sin código</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Rocket className="h-4 w-4 text-labora-red" />
-              <span className="text-sm text-gray-300">Proyectos reales</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Video className="h-4 w-4 text-labora-neon" />
-              <span className="text-sm text-gray-300">100% en vivo</span>
-            </div>
+          <div className="flex items-center gap-1">
+            <Clock className="h-4 w-4 text-labora-red" />
+            <span>30 min</span>
           </div>
         </div>
+        
+        {/* Garantía de seguridad */}
+        <p className="text-gray-400 text-xs">
+          ✅ Sin registro de tarjeta • ✅ Acceso inmediato • ✅ Contenido premium
+        </p>
       </div>
     </section>
   );

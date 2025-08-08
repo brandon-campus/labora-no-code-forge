@@ -13,7 +13,7 @@ const DatesSection = () => {
             Conviértete en AI Builder en <span className="text-labora-neon">4 semanas</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Programa intensivo en vivo con mentoría personalizada y proyectos reales
+            Programa intensivo en vivo para que puedas crear y lanzar proyectos al mercado o trabajar con clientes.
           </p>
         </div>
         
@@ -49,7 +49,7 @@ const DatesSection = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Inicio:</span>
-                    <span className="text-white font-semibold">7 de agosto</span>
+                    <span className="text-white font-semibold">12 de agosto</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Finalización:</span>
@@ -101,7 +101,7 @@ const DatesSection = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Plazas:</span>
-                    <span className="text-labora-neon font-bold">30 estudiantes</span>
+                    <span className="text-labora-neon font-bold">20 estudiantes</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Grabaciones:</span>

@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Bootcamp from "./pages/Bootcamp";
+import BootcampV2 from "./pages/BootcampV2";
+import BootcampV3 from "./pages/BootcampV3";
 import BootcampLanding from "./pages/BootcampLanding";
 import Masterclass from "./pages/Masterclass";
 import MasterclassGratuita from "./pages/MasterclassGratuita";
@@ -33,6 +35,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />
+          <Route path="/bootcamp-v2" element={<BootcampV2 />} />
+          <Route path="/bootcamp-v3" element={<BootcampV3 />} />
           <Route path="/bootcamp-de-ia" element={<BootcampDeIA />} />
           <Route path="/bootcamp-landing" element={<BootcampLanding />} />
           <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
