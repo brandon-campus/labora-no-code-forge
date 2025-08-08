@@ -56,7 +56,7 @@ const HeroSectionV2 = () => {
         <div className="flex items-center justify-center gap-4 mb-6 text-sm text-gray-300">
           <div className="flex items-center gap-1">
             <Users className="h-4 w-4 text-labora-neon" />
-            <span><span className="text-labora-neon font-bold">80+</span> estudiantes</span>
+            <span><span className="text-labora-neon font-bold">112+</span> estudiantes</span>
           </div>
         </div>
         
