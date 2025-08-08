@@ -1,16 +1,9 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Clock, Users } from 'lucide-react';
 import { fbqTrack } from "@/lib/fbqTrack";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
-const HeroSection = () => {
+const HeroSectionV2 = () => {
   const handleCampusClick = () => {
     // Scroll to contact section instead of redirecting
     const contactSection = document.getElementById('contact');
@@ -20,24 +13,32 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="hero-gradient min-h-screen flex items-center px-4 py-8 pt-16 lg:pt-20">
-      <div className="w-full max-w-2xl mx-auto text-center">
+    <section className="relative min-h-screen flex items-center px-4 py-8 pt-16 lg:pt-20 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      {/* Overlay sutil */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+      
+      {/* Elementos de profundidad */}
+      <div className="absolute inset-0 bg-gradient-to-r from-labora-neon/5 via-transparent to-labora-red/5"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-labora-neon/10 via-transparent to-transparent"></div>
+      
+      {/* Contenido */}
+      <div className="relative w-full max-w-2xl mx-auto text-center">
         {/* Badge de urgencia */}
         <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-labora-neon/20 text-labora-neon rounded-full text-sm font-bold border border-labora-neon/30 animate-pulse">
           <Zap className="h-4 w-4" />
-          <span>ACCESO INMEDIATO GRATUITO</span>
+          <span>BOOTCAMP EN VIVO DE IA Y NO CODE</span>
         </div>
         
         {/* Headline principal - Mobile first */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6 text-white">
-          Crea tu primer<span className="text-labora-neon"> proyecto con IA </span> 
+          Crea proyectos con<span className="text-labora-neon"> IA </span> 
           <br className="hidden sm:block" />
-          <span className="text-white bg-gradient-to-r from-labora-neon to-labora-neon/70 bg-clip-text text-transparent">AHORA</span>
+          <span className="text-white bg-gradient-to-r from-labora-neon to-labora-neon/70 bg-clip-text text-transparent">Y EMPEZÁ A VIVIR DE ELLOS.</span>
         </h1>
         
         {/* Subheadline enfocado en acción inmediata */}
         <p className="text-gray-300 text-lg sm:text-xl mb-8 leading-relaxed">
-          Aprende a Desarrollar Aplicaciones y Plataformas con <span className="text-labora-neon font-bold">Inteligencia Artificial</span> con los primeros módulos de nuestro bootcamp en menos de 30 minutos.
+        Dominá las herramientas y procesos para construir apps, automatizaciones y agentes de IA <span className="text-labora-neon font-bold">sin programar</span> guiado en vivo por expertos y con acompañamiento 100% práctico.
         </p>
         
         {/* CTA Principal - Más prominente y urgente */}
@@ -55,11 +56,7 @@ const HeroSection = () => {
         <div className="flex items-center justify-center gap-4 mb-6 text-sm text-gray-300">
           <div className="flex items-center gap-1">
             <Users className="h-4 w-4 text-labora-neon" />
-            <span><span className="text-labora-neon font-bold">500+</span> estudiantes</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Clock className="h-4 w-4 text-labora-red" />
-            <span>30 min</span>
+            <span><span className="text-labora-neon font-bold">80+</span> estudiantes</span>
           </div>
         </div>
         
@@ -72,4 +69,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default HeroSectionV2; 

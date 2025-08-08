@@ -5,7 +5,10 @@ import { ArrowRight } from 'lucide-react';
 
 const AboutSectionOptimized = () => {
   const handleComenzarClick = () => {
-    window.location.href = '/registro-curso';
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (

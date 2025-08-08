@@ -5,7 +5,10 @@ import { ArrowRight } from 'lucide-react';
 
 const DatesSectionOptimized = () => {
   const handleComenzarClick = () => {
-    window.location.href = '/registro-curso';
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -124,7 +127,7 @@ const DatesSectionOptimized = () => {
               onClick={handleComenzarClick}
               className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg sm:text-xl transition-all shadow-lg shadow-labora-neon/25 transform hover:scale-105 w-full sm:w-auto"
             >
-              COMENZAR AHORA
+              EMPEZAR AHORA
               <ArrowRight className="ml-3 h-5 w-5" />
             </Button>
             

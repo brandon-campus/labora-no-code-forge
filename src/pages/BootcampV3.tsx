@@ -1,9 +1,9 @@
 import React from 'react';
 import HeaderSimple from '@/components/HeaderSimple';
-import HeroSection from '@/components/HeroSection';
+import HeroSectionV2 from '@/components/HeroSectionV2';
 import AboutSectionOptimized from '@/components/AboutSectionOptimized';
 import DatesSectionOptimized from '@/components/DatesSectionOptimized';
-import TestimonialsSectionOptimized from '@/components/TestimonialsSectionOptimized';
+import TestimonialsSectionModern from '@/components/TestimonialsSectionModern';
 import ContactSectionOptimized from '@/components/ContactSectionOptimized';
 import WhatsAppButtonOptimized from '@/components/WhatsAppButtonOptimized';
 
@@ -11,10 +11,10 @@ const BootcampV3 = () => {
   return (
     <div className="min-h-screen bg-white">
       <HeaderSimple />
-      <HeroSection />
+      <HeroSectionV2 />
       <AboutSectionOptimized />
       <DatesSectionOptimized />
-      <TestimonialsSectionOptimized />
+      <TestimonialsSectionModern />
       <ContactSectionOptimized />
       <WhatsAppButtonOptimized />
     </div>
