@@ -150,9 +150,9 @@ const TestimonialsSectionModern = () => {
             
             <Button
               onClick={handleComenzarClick}
-              className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-labora-neon/25 transform hover:scale-105 hover:shadow-xl hover:shadow-labora-neon/40 active:scale-95"
+              className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-labora-neon/25 transform hover:scale-105 w-full sm:w-auto"
             >
-              EMPEZAR AHORA
+              PROBAR CLASE GRATIS
               <ArrowRight className="ml-3 h-5 w-5" />
             </Button>
             

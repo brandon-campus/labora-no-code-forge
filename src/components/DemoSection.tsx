@@ -91,13 +91,6 @@ const DemoSection = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <a href="#contacto">
-            <Button className="bg-labora-red hover:bg-labora-red/90 px-8 py-6 text-base">
-              ¡Quiero crear mi propia aplicación!
-            </Button>
-          </a>
-        </div>
       </div>
     </section>
   );

@@ -100,6 +100,17 @@ const AboutSectionOptimized = () => {
               </div>
             </div>
           </div>
+
+          {/* CTA Button */}
+          <div className="text-center">
+            <Button
+              onClick={handleComenzarClick}
+              className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-labora-neon/25 transform hover:scale-105"
+            >
+              PROBAR CLASE GRATIS
+              <ArrowRight className="ml-3 h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>

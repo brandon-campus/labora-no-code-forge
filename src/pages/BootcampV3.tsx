@@ -2,6 +2,8 @@ import React from 'react';
 import HeaderSimple from '@/components/HeaderSimple';
 import HeroSectionV2 from '@/components/HeroSectionV2';
 import AboutSectionOptimized from '@/components/AboutSectionOptimized';
+import CurriculumSection from '@/components/CurriculumSection';
+import DemoSection from '@/components/DemoSection';
 import DatesSectionOptimized from '@/components/DatesSectionOptimized';
 import TestimonialsSectionModern from '@/components/TestimonialsSectionModern';
 import ContactSectionOptimized from '@/components/ContactSectionOptimized';
@@ -13,6 +15,8 @@ const BootcampV3 = () => {
       <HeaderSimple />
       <HeroSectionV2 />
       <AboutSectionOptimized />
+      <CurriculumSection />
+      <DemoSection />
       <DatesSectionOptimized />
       <TestimonialsSectionModern />
       <ContactSectionOptimized />
