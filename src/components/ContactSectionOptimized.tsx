@@ -11,10 +11,10 @@ const ContactSectionOptimized = () => {
               <MessageCircle className="h-8 w-8 text-labora-neon" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              ¿Listo para <span className="text-labora-neon">transformar tu futuro</span>?
+              Prueba Gratis el <span className="text-labora-neon">Bootcamp de IA y No Code</span>?
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Completa el formulario y comienza tu viaje en AI con tu Clase de Prueba Gratuita.
+              Completa el formulario y comienza tu viaje en AI con tu Clase de Prueba Gratuita en vivo.
 
             </p>
           </div>
