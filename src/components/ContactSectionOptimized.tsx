@@ -14,21 +14,13 @@ const ContactSectionOptimized = () => {
               ¿Listo para <span className="text-labora-neon">transformar tu futuro</span>?
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Únete a cientos de estudiantes que ya están creando aplicaciones con IA. 
-              Tu próximo proyecto está a solo un clic de distancia.
+              Completa el formulario y comienza tu viaje en AI con tu Clase de Prueba Gratuita.
+
             </p>
           </div>
 
           {/* Application Form Section */}
           <div className="bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-700 shadow-2xl">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                ¡Aplica ahora al programa!
-              </h3>
-              <p className="text-gray-300 mb-6">
-                Completa el formulario y comienza tu viaje en AI Builder en menos de 2 minutos.
-              </p>
-            </div>
             
             {/* Tally Form Embed */}
             <div className="max-w-2xl mx-auto">
