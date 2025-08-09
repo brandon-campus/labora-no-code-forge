@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Clock, Users, Calendar, ArrowRight, Zap, Star } from 'lucide-react';
+import { CheckCircle, Clock, Users, Calendar, ArrowRight, Zap, Star, Globe } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const PostAplicacion = () => {
@@ -24,21 +24,39 @@ const PostAplicacion = () => {
       time: '10:00 - 12:00',
       timezone: 'Hora Argentina',
       label: 'Mañana',
-      available: true
+      available: true,
+      otherTimezones: {
+        peru: '08:00 - 10:00',
+        colombia: '08:00 - 10:00', 
+        mexico: '07:00 - 09:00',
+        chile: '09:00 - 11:00'
+      }
     },
     {
       id: 'afternoon', 
       time: '15:00 - 17:00',
       timezone: 'Hora Argentina',
       label: 'Tarde',
-      available: true
+      available: true,
+      otherTimezones: {
+        peru: '13:00 - 15:00',
+        colombia: '13:00 - 15:00',
+        mexico: '12:00 - 14:00', 
+        chile: '14:00 - 16:00'
+      }
     },
     {
       id: 'evening',
       time: '20:00 - 22:00', 
       timezone: 'Hora Argentina',
       label: 'Noche',
-      available: true
+      available: true,
+      otherTimezones: {
+        peru: '18:00 - 20:00',
+        colombia: '18:00 - 20:00',
+        mexico: '17:00 - 19:00',
+        chile: '19:00 - 21:00'
+      }
     }
   ];
 
@@ -113,19 +131,19 @@ const PostAplicacion = () => {
               </div>
 
               {/* Date Badge */}
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-labora-red/20 text-labora-red rounded-full text-sm font-bold border border-labora-red/30">
-                <Calendar className="h-4 w-4" />
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-600">
+                <Calendar className="h-4 w-4 text-labora-neon" />
                 <span>Lunes 11 de Agosto</span>
               </div>
             </div>
 
             {/* Time Selection */}
-            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-700 shadow-2xl max-w-3xl mx-auto mb-8">
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-700 shadow-2xl max-w-4xl mx-auto mb-8">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-white text-center">
                 Elige tu horario preferido
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 {timeSlots.map((slot) => (
                   <button
                     key={slot.id}
@@ -147,6 +165,40 @@ const PostAplicacion = () => {
                     </div>
                   </button>
                 ))}
+              </div>
+
+              {/* Timezone Converter */}
+              <div className="bg-gray-700 rounded-lg p-4 border border-gray-600">
+                <div className="flex items-center gap-2 mb-3">
+                  <Globe className="h-4 w-4 text-labora-neon" />
+                  <h4 className="text-white font-semibold text-sm">Horarios en otros países</h4>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                  <div className="text-center">
+                    <div className="text-labora-neon font-semibold mb-1">🇵🇪 Perú</div>
+                    <div className="text-gray-300">
+                      {selectedTime && timeSlots.find(s => s.time === selectedTime)?.otherTimezones.peru}
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-labora-neon font-semibold mb-1">🇨🇴 Colombia</div>
+                    <div className="text-gray-300">
+                      {selectedTime && timeSlots.find(s => s.time === selectedTime)?.otherTimezones.colombia}
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-labora-neon font-semibold mb-1">🇲🇽 México</div>
+                    <div className="text-gray-300">
+                      {selectedTime && timeSlots.find(s => s.time === selectedTime)?.otherTimezones.mexico}
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-labora-neon font-semibold mb-1">🇨🇱 Chile</div>
+                    <div className="text-gray-300">
+                      {selectedTime && timeSlots.find(s => s.time === selectedTime)?.otherTimezones.chile}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
