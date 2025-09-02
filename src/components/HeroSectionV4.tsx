@@ -12,12 +12,7 @@ const HeroSectionV4 = () => {
     }
     
     // Track the event
-    fbqTrack('Lead', {
-      content_name: 'Hero CTA - EMPEZAR AHORA',
-      content_category: 'Bootcamp V4',
-      value: 0,
-      currency: 'USD'
-    });
+    fbqTrack('HeroCTABootcampV4');
   };
 
   return (
