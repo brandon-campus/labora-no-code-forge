@@ -56,146 +56,173 @@ interface ModuleData {
 
 const modules: ModuleData[] = [
   {
-    title: "DE CERO A PRODUCTO COMPLETO",
-    description: "Introducción al desarrollo moderno con herramientas No Code e Inteligencia Artificial",
-    week: "Semana 1",
-    difficulty: "Intermedio",
+    title: "FASE 1: DE CERO A APP",
+    description: "Fundamentos esenciales para crear tu primera aplicación funcional",
+    week: "Semana 1 (16 al 20 de septiembre)",
+    difficulty: "Básico",
     progress: 0,
     sessions: [
       {
-        title: "ESTRUCTURA DE UN PROYECTO DE SOFTWARE",
-        description: "",
-        date: "Martes, 12 Agosto",
+        title: "Cursor AI – Tu copiloto 2025",
+        description: "Introducción a Cursor AI y cómo aprovechar la IA para desarrollo",
+        date: "Martes, 17 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
-        tags: ["Proyectos No-Code", "Planeamiento"]
+        tags: ["Cursor AI", "IA", "Desarrollo"]
       },
       {
-        title: "PROTOTIPO CON LOVABLE E INTEGRACIÓN CON CURSOR AI",
-        description: "",
-        date: "Jueves, 14 Agosto",
+        title: "GitHub para no técnicos",
+        description: "Control de versiones y colaboración en proyectos",
+        date: "Jueves, 19 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
-        tags: ["Lovable", "UX", "Prototipado"]
+        tags: ["GitHub", "Colaboración", "Control de versiones"]
       },
       {
-        title: "PAIR PROGRAMMING",
-        description: "",
-        date: "Viernes, 15 Agosto",
+        title: "Pair Programming: Creación de primera App",
+        description: "Sesión práctica para crear tu primera aplicación completa",
+        date: "Viernes, 20 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
-        resources: 3,
-        tags: ["Colaboración", "IA", "Iteración"]
+        resources: 5,
+        tags: ["Pair Programming", "Práctica", "Primera App"]
       }
     ]
   },
   {
-    title: "CURSOR AI Y DESARROLLO WEB AVANZADO",
-    description: "Transformá ideas en productos funcionales usando herramientas impulsadas por IA",
-    week: "Semana 2",
+    title: "FASE 2: DISEÑO DE BASES DE DATOS",
+    description: "Construye la arquitectura robusta de tu aplicación",
+    week: "Semana 2 (23 al 27 de septiembre)",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
-        title: "CONSTRUIR PLATAFORMAS CON CURSOR AI",
-        description: "",
-        date: "Martes, 19 Agosto",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 4,
-        tags: ["Cursor AI", "Desarrollo Web", "IA Coding"]
-      },
-      {
-        title: "CONTROL DE FLUJO Y MANEJO DE ERRORES",
-        description: "",
-        date: "Jueves, 21 Agosto",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 3,
-        tags: ["Lógica", "Validaciones", "Testing"]
-      },
-      {
-        title: "PAIR PROGRAMMING",
-        description: "",
-        date: "Viernes, 22 Agosto",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 2,
-        tags: ["Debugging", "Refactorización", "Mejoras"]
-      }
-    ]
-  },
-  {
-    title: "BASES DE DATOS Y SUPABASE",
-    description: "Fundamentos y prácticas modernas para trabajar con datos",
-    week: "Semana 3",
-    difficulty: "Intermedio",
-    progress: 0,
-    sessions: [
-      {
-        title: "DISEÑO Y ARQUITECTURA DE UNA BASE DE DATOS",
-        description: "",
-        date: "Martes, 26 Agosto",
+        title: "Lógica y diseño de bases de datos",
+        description: "Fundamentos de modelado de datos y relaciones",
+        date: "Martes, 24 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
         tags: ["Bases de Datos", "Modelado", "Relaciones"]
       },
       {
-        title: "CONEXIÓN CON SUPABASE Y DISEÑO DE TABLAS",
-        description: "",
-        date: "Jueves, 28 Agosto",
+        title: "Supabase desde cero",
+        description: "Implementación y configuración de Supabase",
+        date: "Jueves, 26 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
-        tags: ["Supabase", "Autenticación", "Storage"]
+        tags: ["Supabase", "Backend", "Autenticación"]
       },
       {
-        title: "PAIR PROGRAMMING",
-        description: "",
-        date: "Viernes, 29 Agosto",
+        title: "Pair Programming: Dashboards y visualización de datos",
+        description: "Creación de dashboards interactivos con datos reales",
+        date: "Viernes, 27 Septiembre",
         duration: "2h",
         instructor: "Equipo Labora",
-        resources: 2,
-        tags: ["Consultas SQL", "Optimización", "IA Assistant"]
+        resources: 3,
+        tags: ["Dashboards", "Visualización", "Pair Programming"]
       }
     ]
   },
   {
-    title: "AUTOMATIZACIONES E INTEGRACIONES",
-    description: "Creá flujos automáticos e integraciones inteligentes con herramientas IA",
-    week: "Semana 4",
+    title: "FASE 3: IA Y AGENTES",
+    description: "Automatización e inteligencia artificial para tu aplicación",
+    week: "Semana 3 (30 de septiembre al 4 de octubre)",
+    difficulty: "Intermedio",
+    progress: 0,
+    sessions: [
+      {
+        title: "Automatización con n8n y agentes (intro)",
+        description: "Introducción a la automatización de procesos con n8n",
+        date: "Martes, 1 Octubre",
+        duration: "2h",
+        instructor: "Equipo Labora",
+        resources: 4,
+        tags: ["n8n", "Automatización", "Agentes"]
+      },
+      {
+        title: "Creación de agentes con IA avanzado",
+        description: "Desarrollo de agentes inteligentes para automatización",
+        date: "Jueves, 3 Octubre",
+        duration: "2h",
+        instructor: "Equipo Labora",
+        resources: 5,
+        tags: ["IA", "Agentes", "Automatización"]
+      },
+      {
+        title: "Pair Programming: Adaptación de agentes a nichos y mercados",
+        description: "Personalización de agentes para diferentes industrias",
+        date: "Viernes, 4 Octubre",
+        duration: "2h",
+        instructor: "Equipo Labora",
+        resources: 3,
+        tags: ["Pair Programming", "Agentes", "Mercados"]
+      }
+    ]
+  },
+  {
+    title: "FASE 4: USUARIOS, INTEGRACIONES Y DEPLOY",
+    description: "Gestión avanzada de usuarios y lanzamiento de tu aplicación",
+    week: "Semana 4 (7 al 11 de octubre)",
     difficulty: "Avanzado",
     progress: 0,
     sessions: [
       {
-        title: "CREAR AGENTES IA CON N8N",
-        description: "",
-        date: "Martes, 3 Septiembre",
+        title: "Flujo de Usuarios y roles avanzados",
+        description: "Sistema de autenticación y gestión de permisos",
+        date: "Martes, 8 Octubre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
-        tags: ["N8N", "Automatización", "Agentes"]
+        tags: ["Usuarios", "Roles", "Autenticación"]
       },
       {
-        title: "FLUJOS DE TRABAJO CON MAKE Y N8N",
-        description: "",
-        date: "Jueves, 5 Septiembre",
+        title: "Integraciones esenciales y Deploy",
+        description: "Conexión con servicios externos y despliegue a producción",
+        date: "Jueves, 10 Octubre",
+        duration: "2h",
+        instructor: "Equipo Labora",
+        resources: 5,
+        tags: ["Integraciones", "Deploy", "Producción"]
+      },
+      {
+        title: "Pair Programming: Analítica de Producto",
+        description: "Implementación de métricas y análisis de uso",
+        date: "Viernes, 11 Octubre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
-        tags: ["Make", "N8N", "Integraciones"]
-      },
+        tags: ["Analítica", "Métricas", "Pair Programming"]
+      }
+    ]
+  },
+  {
+    title: "FASE 5: LANZAMIENTO Y CRECIMIENTO",
+    description: "Estrategias para lanzar y hacer crecer tu aplicación",
+    week: "Clases Adicionales (14 al 17 de octubre)",
+    difficulty: "Avanzado",
+    progress: 0,
+    sessions: [
       {
-        title: "DESAFÍO FINAL DE PROYECTOS",
-        description: "",
-        date: "Viernes, 6 Septiembre",
+        title: "Lanzamiento estratégico y captación de tráfico",
+        description: "Planificación del lanzamiento y estrategias de marketing",
+        date: "Lunes, 14 Octubre",
         duration: "2h",
         instructor: "Equipo Labora",
-        resources: 1,
-        tags: ["Proyecto Final", "Presentación", "Feedback"]
+        resources: 4,
+        tags: ["Lanzamiento", "Marketing", "Tráfico"]
+      },
+      {
+        title: "Contenido orgánico y posicionamiento",
+        description: "SEO, contenido y posicionamiento en buscadores",
+        date: "Jueves, 17 Octubre",
+        duration: "2h",
+        instructor: "Equipo Labora",
+        resources: 3,
+        tags: ["SEO", "Contenido", "Posicionamiento"]
       }
     ]
   }

@@ -67,17 +67,17 @@ const CursoCampus = () => {
     );
   }
 
-  // Lógica de módulos desbloqueados
+  // Lógica de módulos desbloqueados - MODIFICADA
   const puedeVerModulo = (idx: number) => {
     if (perfil?.curso_pagado) return true;
-    return idx < 1; // Solo el primer módulo desbloqueado
+    return idx < 9; // Los primeros 9 módulos desbloqueados (índices 0-8)
   };
 
-  // Calcular progreso real - SOLO para módulos gratuitos
+  // Calcular progreso real - MODIFICADO para incluir módulos 1-9
   const calcularProgresoGratuito = () => {
     try {
-      // Solo considerar el primer módulo (gratuito)
-      const modulosGratuitos = lecciones.slice(0, 1);
+      // Considerar los primeros 9 módulos (gratuitos)
+      const modulosGratuitos = lecciones.slice(0, 9);
       
       // Si no hay módulos, mostrar título por defecto
       if (modulosGratuitos.length === 0) {
@@ -89,7 +89,7 @@ const CursoCampus = () => {
       // Contar cuántos módulos gratuitos están completados
       const completadosGratuitos = completadas.filter(id => modulosGratuitosIds.includes(id));
       
-      // Calcular progreso basado solo en módulos gratuitos
+      // Calcular progreso basado en módulos gratuitos (1-9)
       return (completadosGratuitos.length / modulosGratuitos.length) * 100;
       
     } catch (error) {
@@ -98,11 +98,11 @@ const CursoCampus = () => {
     }
   };
 
-  // Función para obtener el módulo actual (donde se quedó el usuario)
+  // Función para obtener el módulo actual - MODIFICADA
   const obtenerModuloActual = () => {
     try {
-      // Solo considerar módulos gratuitos
-      const modulosGratuitos = lecciones.slice(0, 1);
+      // Considerar módulos gratuitos (1-9)
+      const modulosGratuitos = lecciones.slice(0, 9);
       
       // Si no hay módulos, mostrar título por defecto
       if (modulosGratuitos.length === 0) {

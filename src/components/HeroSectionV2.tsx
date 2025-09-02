@@ -2,15 +2,9 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Clock, Users } from 'lucide-react';
 import { fbqTrack } from "@/lib/fbqTrack";
+import { Link } from 'react-router-dom';
 
 const HeroSectionV2 = () => {
-  const handleCampusClick = () => {
-    // Scroll to contact section instead of redirecting
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="relative min-h-screen flex items-center px-4 py-8 pt-16 lg:pt-20 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
@@ -33,7 +27,7 @@ const HeroSectionV2 = () => {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6 text-white">
           Crea proyectos con<span className="text-labora-neon"> IA </span> 
           <br className="hidden sm:block" />
-          <span className="text-white bg-gradient-to-r from-labora-neon to-labora-neon/70 bg-clip-text text-transparent">Y EMPEZÁ A VIVIR DE ELLOS.</span>
+          <span className="text-white bg-gradient-to-r from-labora-neon to-labora-neon/70 bg-clip-text text-transparent">Y EMPIEZA A VIVIR DE ELLOS.</span>
         </h1>
         
         {/* Subheadline enfocado en acción inmediata */}
@@ -43,13 +37,14 @@ const HeroSectionV2 = () => {
         
         {/* CTA Principal - Más prominente y urgente */}
         <div className="mb-8">
-          <Button
-            onClick={handleCampusClick}
-            className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg sm:text-xl transition-all shadow-lg shadow-labora-neon/25 transform hover:scale-105 w-full sm:w-auto"
-          >
-            PROBAR CLASE GRATIS
-            <ArrowRight className="ml-3 h-5 w-5" />
-          </Button>
+          <Link to="/formulario-bootcamp">
+            <Button
+              className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg sm:text-xl transition-all shadow-lg shadow-labora-neon/25 transform hover:scale-105 w-full sm:w-auto"
+            >
+              PROBAR CLASE GRATIS
+              <ArrowRight className="ml-3 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
         
         {/* Social proof simplificado */}

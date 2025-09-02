@@ -14,7 +14,7 @@ const PostAplicacion = () => {
       const message = encodeURIComponent(
         `¡Hola Labora! Me pre-inscribí en el Bootcamp de IA y No Code y quiero confirmar mi asistencia a la CLASE GRATUITA del Lunes 11 de Agosto en el horario de ${selectedTime}. Por favor, envíenme toda la información necesaria.`
       );
-      window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
+    window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
     }
   };
 
