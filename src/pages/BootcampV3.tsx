@@ -7,6 +7,8 @@ import CurriculumSection from '@/components/CurriculumSection';
 import DemoSection from '@/components/DemoSection';
 import DatesSectionOptimized from '@/components/DatesSectionOptimized';
 import TestimonialsSectionModern from '@/components/TestimonialsSectionModern';
+import FAQSection from '@/components/FAQSection';
+import FinalCTASection from '@/components/FinalCTASection';
 import WhatsAppButtonOptimized from '@/components/WhatsAppButtonOptimized';
 
 const BootcampV3 = () => {
@@ -20,6 +22,8 @@ const BootcampV3 = () => {
       <CurriculumSection />
       <DemoSection />
       <TestimonialsSectionModern />
+      <FAQSection />
+      <FinalCTASection />
       <WhatsAppButtonOptimized />
     </div>
   );

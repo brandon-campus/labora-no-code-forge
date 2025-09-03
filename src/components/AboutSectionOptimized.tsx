@@ -5,12 +5,15 @@ import ToolsLogosBar from './ToolsLogosBar';
 const AboutSectionOptimized = () => {
 
   return (
-    <section id="about" className="py-16 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+    <section id="about" className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-labora-neon/5 via-transparent to-labora-red/5"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-white leading-tight">
               ¿Qué es el <span className="text-labora-neon">Bootcamp de IA y No Code</span>?
             </h2>
           </div>

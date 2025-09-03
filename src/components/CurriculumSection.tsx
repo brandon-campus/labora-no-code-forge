@@ -240,44 +240,47 @@ const CurriculumSection = () => {
   };
 
   return (
-    <section className="py-16 bg-[#0A0A0A]">
-      <div className="container max-w-[1000px] mx-auto px-4">
-        <div className="flex justify-center mb-4">
-          <Badge 
-            variant="outline" 
-            className="bg-[#1A1F2C] text-white border-[#2A2A2A] px-4 py-2 text-sm font-medium"
-          >
-            <Zap className="w-4 h-4 mr-2 text-labora-neon" />
-            Programa intensivo de 4 semanas
-          </Badge>
-        </div>
-        
-        <h2 className="text-5xl font-bold text-white text-center mb-4">
-          PLAN DE ESTUDIOS
-        </h2>
-        
-        <p className="text-gray-400 text-center text-lg mb-12 max-w-3xl mx-auto">
-          Un recorrido práctico y completo para convertirte en creador de productos tecnológicos con IA y No Code.
-        </p>
+    <section className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-labora-neon/5 via-transparent to-labora-red/5"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-2 mb-4 md:mb-6 px-4 sm:px-6 py-2 sm:py-3 bg-labora-neon/10 backdrop-blur-sm rounded-full shadow-lg border border-labora-neon/20">
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-labora-neon" />
+              <span className="text-labora-neon text-sm font-bold uppercase tracking-wider">Programa intensivo de 4 semanas</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4 md:mb-6">
+              PLAN DE ESTUDIOS
+            </h2>
+            
+            <p className="text-gray-300 text-center text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+              Un recorrido práctico y completo para convertirte en creador de productos tecnológicos con IA y No Code.
+            </p>
+          </div>
 
-        <div className="space-y-4">
-          {modules.map((module, index) => (
-            <Module
-              key={index}
-              title={module.title}
-              description={module.description}
-              week={module.week}
-              difficulty={module.difficulty}
-              progress={module.progress}
-              sessions={module.sessions}
-              isExpanded={expandedModules.includes(index)}
-              onToggle={() => handleToggleModule(index)}
-            />
-          ))}
-        </div>
+          <div className="space-y-4">
+            {modules.map((module, index) => (
+              <Module
+                key={index}
+                title={module.title}
+                description={module.description}
+                week={module.week}
+                difficulty={module.difficulty}
+                progress={module.progress}
+                sessions={module.sessions}
+                isExpanded={expandedModules.includes(index)}
+                onToggle={() => handleToggleModule(index)}
+              />
+            ))}
+          </div>
 
-        <div className="mt-8 text-center text-gray-400 text-sm max-w-2xl mx-auto">
-          Cada módulo incluye clases en vivo, recursos adicionales, acceso a una comunidad de estudiantes y soporte personalizado de entrenadores.
+          <div className="mt-8 md:mt-12 text-center text-gray-400 text-sm md:text-base max-w-3xl mx-auto">
+            Cada módulo incluye clases en vivo, recursos adicionales, acceso a una comunidad de estudiantes y soporte personalizado de entrenadores.
+          </div>
         </div>
       </div>
     </section>

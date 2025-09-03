@@ -118,48 +118,9 @@ const TestimonialsSectionModern = () => {
             ))}
           </div>
 
-          {/* Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-labora-neon mb-2">80+</div>
-              <div className="text-gray-400 text-sm">Estudiantes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-labora-neon mb-2">95%</div>
-              <div className="text-gray-400 text-sm">Satisfacción</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-labora-neon mb-2">4.8/5</div>
-              <div className="text-gray-400 text-sm">Calificación</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-labora-neon mb-2">85+</div>
-              <div className="text-gray-400 text-sm">Proyectos Creados</div>
-            </div>
-          </div>
+          
 
-          {/* CTA Section */}
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              ¿Quieres ser el próximo éxito?
-            </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Únete a cientos de personas que ya están creando aplicaciones con IA 
-              y transformando sus vidas.
-            </p>
-            
-            <Button
-              onClick={handleComenzarClick}
-              className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-labora-neon/25 transform hover:scale-105 w-full sm:w-auto"
-            >
-              PROBAR CLASE GRATIS
-              <ArrowRight className="ml-3 h-5 w-5" />
-            </Button>
-            
-            <p className="text-gray-400 text-sm mt-4">
-              Acceso inmediato • Sin compromisos • Resultados garantizados
-            </p>
-          </div>
+          
         </div>
       </div>
     </section>
