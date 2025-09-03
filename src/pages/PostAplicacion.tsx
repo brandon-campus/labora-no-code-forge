@@ -12,7 +12,7 @@ const PostAplicacion = () => {
   const handleConfirmClass = () => {
     if (selectedTime) {
       const message = encodeURIComponent(
-        `¡Hola Labora! Me pre-inscribí en el Bootcamp de IA y No Code y quiero confirmar mi asistencia a la CLASE GRATUITA del Lunes 11 de Agosto en el horario de ${selectedTime}. Por favor, envíenme toda la información necesaria.`
+        `¡Hola Labora! Me pre-inscribí en el Bootcamp de IA y No Code y quiero confirmar mi asistencia a la CLASE GRATUITA del Lunes 8 de Septiembre en el horario de ${selectedTime}. Por favor, envíenme toda la información necesaria.`
       );
     window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
     }
@@ -92,7 +92,7 @@ const PostAplicacion = () => {
 
             {/* Subheadline */}
             <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto text-gray-300 leading-relaxed">
-              Te hemos reservado un lugar en nuestra clase gratuita en vivo del <span className="text-labora-neon font-bold">Lunes 11 de Agosto</span>. 
+              Te hemos reservado un lugar en nuestra clase gratuita en vivo del <span className="text-labora-neon font-bold">Lunes 8 de Septiembre</span>. 
               Elige el horario que mejor te convenga.
             </p>
 
@@ -133,7 +133,7 @@ const PostAplicacion = () => {
               {/* Date Badge */}
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-600">
                 <Calendar className="h-4 w-4 text-labora-neon" />
-                <span>Lunes 11 de Agosto</span>
+                <span>Lunes 8 de Septiembre</span>
               </div>
             </div>
 
