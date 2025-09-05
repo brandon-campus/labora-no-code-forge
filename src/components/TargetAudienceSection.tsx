@@ -51,78 +51,26 @@ const TargetAudienceSection = () => {
             ¿Esto es para <span className="text-labora-neon">mí</span>?
           </h2>
           <p className="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">
-            Descubrí si este bootcamp es perfecto para tu perfil y objetivos profesionales
+            Descubre si este bootcamp es perfecto para tu perfil y objetivos profesionales
           </p>
         </div>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          {/* Left side - Interactive Visual */}
+          {/* Left side - Hero Image */}
           <div className="relative order-2 lg:order-1">
             <div className="relative w-full max-w-lg mx-auto">
-              {/* Main container with modern glassmorphism */}
-              <div className="relative bg-white/60 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20">
+              {/* Main image container */}
+              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+                <img 
+                  src="/lovable-uploads/portada.png" 
+                  alt="Bootcamp de IA y No Code - Labora AI" 
+                  className="w-full h-full object-cover rounded-3xl"
+                />
                 
-                {/* Floating personas grid */}
-                <div className="grid grid-cols-2 gap-6">
-                  {targetAudiences.map((audience, index) => {
-                    const IconComponent = audience.icon;
-                    return (
-                      <div 
-                        key={index}
-                        className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                      >
-                        <div className={`w-16 h-16 bg-gradient-to-br ${audience.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300`}>
-                          <IconComponent className="h-8 w-8 text-white" />
-                        </div>
-                        <p className="text-xs text-gray-700 font-semibold text-center leading-tight">
-                          {audience.title.split(' ').slice(0, 2).join(' ')}
-                        </p>
-                        
-                        {/* Hover tooltip */}
-                        <div className="absolute -top-2 -left-2 -right-2 bg-gray-900 text-white p-3 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                          <p className="text-xs font-medium">{audience.description}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                
-                {/* Central connecting element */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                  <div className="w-12 h-12 bg-gradient-to-br from-labora-neon to-green-400 rounded-full flex items-center justify-center shadow-xl border-4 border-white">
-                    <CheckCircle className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-
-                {/* Decorative connecting lines */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <svg className="w-full h-full opacity-20" viewBox="0 0 300 300">
-                    <path d="M150,150 L75,75" stroke="url(#gradient1)" strokeWidth="2" strokeDasharray="5,5" />
-                    <path d="M150,150 L225,75" stroke="url(#gradient2)" strokeWidth="2" strokeDasharray="5,5" />
-                    <path d="M150,150 L75,225" stroke="url(#gradient3)" strokeWidth="2" strokeDasharray="5,5" />
-                    <path d="M150,150 L225,225" stroke="url(#gradient4)" strokeWidth="2" strokeDasharray="5,5" />
-                    <defs>
-                      <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#c1ff72" />
-                        <stop offset="100%" stopColor="#fbbf24" />
-                      </linearGradient>
-                      <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#c1ff72" />
-                        <stop offset="100%" stopColor="#3b82f6" />
-                      </linearGradient>
-                      <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#c1ff72" />
-                        <stop offset="100%" stopColor="#a855f7" />
-                      </linearGradient>
-                      <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#c1ff72" />
-                        <stop offset="100%" stopColor="#10b981" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
+                {/* Optional overlay for better text readability if needed */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl"></div>
               </div>
             </div>
           </div>
