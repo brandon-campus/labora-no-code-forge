@@ -12,33 +12,13 @@ const AboutSectionOptimized = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-white leading-tight">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 md:mb-8 text-white leading-tight">
               ¿Qué es el <span className="text-labora-neon">Bootcamp de IA y No Code</span>?
             </h2>
-          </div>
-
-          {/* Main Concept Cards */}
-          <div className="mb-12">
-            {/* Qué es */}
-            <div className="relative group max-w-2xl mx-auto">
-              {/* Background with gradient and shadow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-labora-neon/20 via-gray-800 to-labora-red/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-              
-              {/* Main card */}
-              <div className="relative bg-gradient-to-br from-gray-800/90 via-gray-800 to-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-labora-neon/30 shadow-2xl shadow-labora-neon/10 group-hover:shadow-labora-neon/20 transition-all duration-300 transform group-hover:scale-[1.02]">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-labora-neon/30 to-labora-neon/10 rounded-2xl flex items-center justify-center mr-6 shadow-lg shadow-labora-neon/20">
-                    <Rocket className="h-8 w-8 text-labora-neon" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">¿Qué es?</h3>
-                </div>
-                <p className="text-gray-200 leading-relaxed text-lg">
-                  Una inmersión en la cual aprenderás a crear aplicaciones funcionales 
-                  usando herramientas de IA y No Code para crear tu propio proyecto o trabajar para clientes.
-                </p>
-              </div>
-            </div>
+            <p className="text-gray-300 leading-relaxed text-lg md:text-xl max-w-3xl mx-auto">
+              Una inmersión de 4 semanas 100% en vivo donde aprenderás a crear Plataformas y Aplicaciones Reales usando herramientas de IA y No Code para lanzar tu proyecto o trabajar para clientes.
+            </p>
           </div>
 
           {/* Qué aprenderás */}

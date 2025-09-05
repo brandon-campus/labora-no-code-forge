@@ -45,7 +45,7 @@ const DatesSectionOptimized = () => {
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-black">Cohorte #14 - En Vivo</h3>
                   </div>
-                  <p className="text-gray-300 text-lg">Última oportunidad del año - Plazas limitadas</p>
+                  <p className="text-gray-300 text-lg">Cupos limitadas</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30 text-center">
