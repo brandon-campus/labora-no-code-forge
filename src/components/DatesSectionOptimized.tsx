@@ -57,6 +57,16 @@ const DatesSectionOptimized = () => {
                     <p className="font-black text-xl text-white">16 SEP</p>
                   </div>
                 </div>
+                
+                {/* CTA Button - Solo Mobile */}
+                <div className="mt-6 sm:hidden">
+                  <Link to="/formulario-bootcamp">
+                    <Button className="bg-gradient-to-r from-labora-neon to-green-400 hover:from-green-400 hover:to-labora-neon text-black font-black rounded-full px-8 py-4 text-lg transition-all duration-300 shadow-xl transform hover:scale-105 w-full group">
+                      PROBAR CLASE GRATIS
+                      <ArrowRight className="ml-3 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
             
