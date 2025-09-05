@@ -6,26 +6,20 @@ const TargetAudienceSection = () => {
   const targetAudiences = [
     {
       icon: Lightbulb,
-      title: "Personas con ideas que no saben por dónde empezar",
-      description: "Tienes una idea de proyecto brillante pero no sabes cómo hacerla realidad",
+      title: "Tienes una idea de proyecto brillante",
+      description: "y quieres hacerla realidad creando un proyecto tecnologíco",
       color: "from-labora-neon to-green-400"
     },
     {
       icon: Users,
-      title: "Si deseas trabajar con clientes creando proyectos para ellos",
-      description: "Buscas expandir tus servicios y crear productos escalables",
+      title: "Quieres trabajar con clientes",
+      description: "Deseas construir aplicaciones y plataformas para empresas o emprendedores",
       color: "from-labora-red to-red-500"
     },
     {
-      icon: Rocket,
-      title: "Emprendedores que quieren implementar soluciones con IA",
-      description: "Quieres estar a la vanguardia tecnológica en tu sector",
-      color: "from-labora-neon to-labora-red"
-    },
-    {
       icon: Briefcase,
-      title: "Profesionales que quieren adaptarse al futuro",
-      description: "Necesitas nuevas habilidades para mantenerte competitivo",
+      title: "Trabajas en otra industria",
+      description: "Y necesitas nuevas habilidades para mantenerte competitivo",
       color: "from-labora-red to-labora-neon"
     }
   ];
@@ -48,10 +42,10 @@ const TargetAudienceSection = () => {
             <span className="text-gray-700 text-sm font-semibold">Para Ti</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-            ¿Esto es para <span className="text-labora-neon">mí</span>?
+            ¿Esto es para <span className="text-labora-neon">mí?</span>
           </h2>
           <p className="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">
-            Descubre si este bootcamp es perfecto para tu perfil y objetivos profesionales
+            Si alguna de estas opciones te identifica, este programa es para ti.
           </p>
         </div>
 
