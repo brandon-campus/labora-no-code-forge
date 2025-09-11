@@ -97,9 +97,9 @@ export function CommunitySection() {
           </Badge>
         </div>
       </div>
-
+/*
       <div className="space-y-8">
-        {/* WhatsApp Card - Redesigned */}
+        {/* WhatsApp Card - Redesigned 
         <div className="bg-gradient-to-r from-green-600 to-green-500 rounded-2xl border border-green-400/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
           <div className="p-8">
           <div className="flex items-center justify-between">
@@ -137,7 +137,7 @@ export function CommunitySection() {
             </div>
             </div>
           </div>
-
+*/}
         {/* Students Grid - Modernized */}
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 shadow-xl">
           <div className="p-6 border-b border-gray-700">
