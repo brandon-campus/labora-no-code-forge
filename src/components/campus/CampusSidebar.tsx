@@ -2,10 +2,8 @@ import React from 'react';
 import { 
   Home, 
   BookOpen, 
-  Briefcase, 
   Users, 
   User, 
-  HelpCircle,
   LogOut,
   Menu,
   ChevronRight,
@@ -34,10 +32,8 @@ interface CampusSidebarProps {
 const menuItems = [
   { id: 'dashboard' as CampusSection, title: 'Dashboard', icon: Home },
   { id: 'modules' as CampusSection, title: 'Módulos', icon: BookOpen },
-  { id: 'project' as CampusSection, title: 'Mi Proyecto', icon: Briefcase },
   { id: 'community' as CampusSection, title: 'Comunidad', icon: Users },
   { id: 'profile' as CampusSection, title: 'Mi Perfil', icon: User },
-  { id: 'support' as CampusSection, title: 'Soporte', icon: HelpCircle },
 ];
 
 export function CampusSidebar({ activeSection, onSectionChange, onLogout }: CampusSidebarProps) {

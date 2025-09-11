@@ -18,8 +18,7 @@ export async function ensureProfile(user) {
     await supabase.from('profiles').insert({
       id: user.id,
       full_name: user.user_metadata?.full_name || user.email,
-      cohorte: user.user_metadata?.cohorte || '13',
-      onboarding_done: false
+      cohorte: user.user_metadata?.cohorte || '13'
     });
   }
 }

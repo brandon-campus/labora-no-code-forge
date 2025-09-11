@@ -4,15 +4,13 @@ import { CampusSidebar } from "@/components/campus/CampusSidebar";
 import { CampusHeader } from "@/components/campus/CampusHeader";
 import { Dashboard } from "@/components/campus/Dashboard";
 import { ModulesSection } from "@/components/campus/ModulesSection";
-import { ProjectSection } from "@/components/campus/ProjectSection";
 import { CommunitySection } from "@/components/campus/CommunitySection";
 import { ProfileSection } from "@/components/campus/ProfileSection";
-import { SupportSection } from "@/components/campus/SupportSection";
 import LoginRegister from '@/components/campus/LoginRegister';
 import { supabase, ensureProfile } from "@/lib/supabaseClient";
 import { useEffect } from "react";
 
-export type CampusSection = 'dashboard' | 'modules' | 'project' | 'community' | 'profile' | 'support';
+export type CampusSection = 'dashboard' | 'modules' | 'community' | 'profile';
 
 const Campus = () => {
   const [activeSection, setActiveSection] = useState<CampusSection>('dashboard');
@@ -38,14 +36,10 @@ const Campus = () => {
         return <Dashboard />;
       case 'modules':
         return <ModulesSection />;
-      case 'project':
-        return <ProjectSection />;
       case 'community':
         return <CommunitySection />;
       case 'profile':
         return <ProfileSection />;
-      case 'support':
-        return <SupportSection />;
       default:
         return <Dashboard />;
     }
@@ -77,9 +71,7 @@ const Campus = () => {
               {activeSection === 'dashboard' ? (
                 <Dashboard onNavigate={section => {
                   if (section === 'modules') setActiveSection('modules');
-                  else if (section === 'project') setActiveSection('project');
                   else if (section === 'community') setActiveSection('community');
-                  else if (section === 'support') setActiveSection('support');
                   else if (section === 'profile') setActiveSection('profile');
                 }} />
               ) : renderContent()}
