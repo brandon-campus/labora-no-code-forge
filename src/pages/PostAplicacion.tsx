@@ -12,7 +12,7 @@ const PostAplicacion = () => {
   const handleConfirmClass = () => {
     if (selectedTime) {
       const message = encodeURIComponent(
-        `¡Hola Labora! Me pre-inscribí en el Bootcamp de IA y No Code y quiero confirmar mi asistencia a la CLASE GRATUITA del Lunes 8 de Septiembre en el horario de ${selectedTime}. Por favor, envíenme toda la información necesaria.`
+        `¡Hola Labora! Me pre-inscribí en el Bootcamp de IA y No Code y quiero confirmar mi asistencia a la CLASE GRATUITA del Miércoles 24 de septiembre en el horario de ${selectedTime}. Por favor, envíenme toda la información necesaria.`
       );
     window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
     }
@@ -23,7 +23,7 @@ const PostAplicacion = () => {
       id: 'morning',
       time: '10:00 - 12:00',
       timezone: 'Hora Argentina',
-      label: 'Mañana',
+      label: 'Turno Mañana',
       available: true,
       otherTimezones: {
         peru: '08:00 - 10:00',
@@ -36,26 +36,13 @@ const PostAplicacion = () => {
       id: 'afternoon', 
       time: '15:00 - 17:00',
       timezone: 'Hora Argentina',
-      label: 'Tarde',
+      label: 'Turno Tarde',
       available: true,
       otherTimezones: {
         peru: '13:00 - 15:00',
         colombia: '13:00 - 15:00',
         mexico: '12:00 - 14:00', 
         chile: '14:00 - 16:00'
-      }
-    },
-    {
-      id: 'evening',
-      time: '20:00 - 22:00', 
-      timezone: 'Hora Argentina',
-      label: 'Noche',
-      available: true,
-      otherTimezones: {
-        peru: '18:00 - 20:00',
-        colombia: '18:00 - 20:00',
-        mexico: '17:00 - 19:00',
-        chile: '19:00 - 21:00'
       }
     }
   ];
@@ -92,7 +79,7 @@ const PostAplicacion = () => {
 
             {/* Subheadline */}
             <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto text-gray-300 leading-relaxed">
-              Te hemos reservado un lugar en nuestra clase gratuita en vivo del <span className="text-labora-neon font-bold">Lunes 8 de Septiembre</span>. 
+              Te hemos reservado un lugar en nuestra clase gratuita en vivo del <span className="text-labora-neon font-bold">Miércoles 24 de septiembre</span>. 
               Elige el horario que mejor te convenga.
             </p>
 
@@ -133,7 +120,7 @@ const PostAplicacion = () => {
               {/* Date Badge */}
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-600">
                 <Calendar className="h-4 w-4 text-labora-neon" />
-                <span>Lunes 8 de Septiembre</span>
+                <span>Miércoles 24 de septiembre</span>
               </div>
             </div>
 
@@ -143,7 +130,7 @@ const PostAplicacion = () => {
                 Elige tu horario preferido
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 {timeSlots.map((slot) => (
                   <button
                     key={slot.id}

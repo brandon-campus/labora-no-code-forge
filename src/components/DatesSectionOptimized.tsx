@@ -54,7 +54,7 @@ const DatesSectionOptimized = () => {
                   </div>
                   <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30 text-center">
                     <p className="text-gray-300 text-sm font-medium">Inicio</p>
-                    <p className="font-black text-xl text-white">16 SEP</p>
+                    <p className="font-black text-xl text-white">02 OCT</p>
                   </div>
                 </div>
                 
@@ -83,11 +83,11 @@ const DatesSectionOptimized = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Inicio:</span>
-                    <span className="text-gray-900 font-bold">16 Septiembre</span>
+                    <span className="text-gray-900 font-bold">02 Octubre</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Finalización:</span>
-                    <span className="text-gray-900 font-bold">17 Octubre</span>
+                    <span className="text-gray-900 font-bold">05 Noviembre</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-gray-600 font-medium">Duración:</span>
