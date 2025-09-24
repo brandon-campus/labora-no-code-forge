@@ -12,7 +12,7 @@ const PostAplicacion = () => {
   const handleConfirmClass = () => {
     if (selectedTime) {
       const message = encodeURIComponent(
-        `¡Hola Labora! Me pre-inscribí en el Bootcamp de IA y No Code y quiero confirmar mi asistencia a la CLASE GRATUITA del Miércoles 24 de septiembre en el horario de ${selectedTime}. Por favor, envíenme toda la información necesaria.`
+        `¡Hola Labora! Me pre-inscribí en el Bootcamp de IA y No Code y quiero confirmar mi asistencia a la CLASE GRATUITA del 26 de septiembre en el horario de ${selectedTime}. Por favor, envíenme toda la información necesaria.`
       );
     window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
     }
@@ -79,24 +79,24 @@ const PostAplicacion = () => {
 
             {/* Subheadline */}
             <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto text-gray-300 leading-relaxed">
-              Te hemos reservado un lugar en nuestra clase gratuita en vivo del <span className="text-labora-neon font-bold">Miércoles 24 de septiembre</span>. 
+              Te hemos reservado un lugar en nuestra clase gratuita en vivo del <span className="text-labora-neon font-bold">26 de septiembre</span>. 
               Elige el horario que mejor te convenga.
             </p>
 
-            {/* Class Details Card */}
-            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-700 shadow-2xl max-w-3xl mx-auto mb-8">
+            {/* Combined Class Details and Time Selection */}
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-700 shadow-2xl max-w-4xl mx-auto mb-8">
               {/* Class Icon */}
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-labora-neon rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <Zap className="h-8 w-8 sm:h-10 sm:w-10 text-black" />
               </div>
 
               {/* Class Title */}
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-white">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-white text-center">
                 Clase Gratuita en Vivo
               </h2>
 
               {/* Class Description */}
-              <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-300 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-300 leading-relaxed text-center">
                 Aprende a crear tu primera aplicación con IA y No Code en solo 2 horas. 
                 <span className="text-labora-neon font-bold"> Sin conocimientos previos necesarios.</span>
               </p>
@@ -118,14 +118,15 @@ const PostAplicacion = () => {
               </div>
 
               {/* Date Badge */}
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-600">
+              <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-600 mx-auto">
                 <Calendar className="h-4 w-4 text-labora-neon" />
-                <span>Miércoles 24 de septiembre</span>
+                <span>26 de septiembre</span>
               </div>
-            </div>
 
-            {/* Time Selection */}
-            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-700 shadow-2xl max-w-4xl mx-auto mb-8">
+              {/* Divider */}
+              <div className="border-t border-gray-600 mb-8"></div>
+
+              {/* Time Selection Title */}
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 text-white text-center">
                 Elige tu horario preferido
               </h3>
