@@ -43,7 +43,7 @@ const Index = () => {
       color: 'bg-labora-red',
       link: '/bootcamp',
       image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80', // Bootcamp
-      trialLink: '/bootcamp-gratis'
+      trialLink: '/bootcamp-landing'
     },
     {
       id: 'inicia',
@@ -145,14 +145,11 @@ const Index = () => {
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon transition-colors">Bootcamp</Link>
-              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Curso Inicia</a>
-              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Hackatones</a>
-              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 transition-colors">Empresas</a>
               <Link to="/campus" className="text-gray-300 hover:text-labora-neon transition-colors">Campus</Link>
               <Link to="/bootcamp">
-              <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
-                Comenzar Ahora
-              </Button>
+                <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
+                  Comenzar Ahora
+                </Button>
               </Link>
             </div>
             {/* Botón menú hamburguesa para mobile */}
@@ -172,9 +169,6 @@ const Index = () => {
           <div className="md:hidden bg-gray-900 border-b border-gray-800">
             <div className="px-4 py-4 flex flex-col space-y-4">
               <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Bootcamp</Link>
-              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Curso Inicia</a>
-              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Hackatones</a>
-              <a href="#" className="text-gray-400 cursor-not-allowed opacity-60 text-lg">Empresas</a>
               <Link to="/campus" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Campus</Link>
               <Link to="/bootcamp" onClick={() => setIsMenuOpen(false)}>
                 <Button className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow mt-2">
@@ -203,17 +197,13 @@ const Index = () => {
               Formamos creadores digitales desde cero. Aprende a lanzar tus propios proyectos al mercado 
               usando IA, herramientas No-Code y dinámicas colaborativas.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link to="/bootcamp">
                 <Button size="lg" className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
                   <Play className="mr-2 h-5 w-5" />
                   Ver Bootcamp
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-labora-neon text-gray-900 hover:bg-labora-neon/10 font-bold">
-                <BookOpen className="mr-2 h-5 w-5" />
-                Explorar Cursos
-              </Button>
             </div>
           </div>
         </div>
@@ -231,127 +221,118 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {(() => {
-              // Ordenar productos para que el bootcamp esté en el centro
-              const bootcampIndex = products.findIndex(p => p.id === 'bootcamp');
-              let ordered = [...products];
-              if (bootcampIndex !== -1 && products.length === 3) {
-                // Si hay 3 productos, poner bootcamp en el centro
-                ordered = [products[1], products[0], products[2]];
-                if (products[1].id === 'bootcamp') {
-                  ordered = [products[0], products[1], products[2]];
-                } else if (products[2].id === 'bootcamp') {
-                  ordered = [products[0], products[2], products[1]];
-                }
-              }
-              return ordered.map((product, idx) => (
-                <div
-                  key={product.id}
-                  className={`relative group rounded-3xl overflow-visible shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-labora-neon/10 p-6 flex flex-col items-center ${product.id === 'bootcamp' ? 'border-4 border-labora-neon' : ''}`}
-                  data-aos={product.id === 'bootcamp' ? 'zoom-in' : (idx % 2 === 0 ? 'fade-right' : 'fade-left')}
-                >
-                  {/* Etiqueta flotante */}
-                {product.badge && (
-                    <span className={`absolute -top-4 left-6 z-10 px-4 py-1 rounded-full text-xs font-bold shadow-neon-glow ${product.color} text-white border-2 border-white/20`}>
-                    {product.badge}
-                    </span>
-                )}
-                  {/* Imagen circular superpuesta */}
-                  <div className="relative -mt-16 mb-4 z-10">
-                    <img
-                      src={product.image}
-                      alt={`Imagen representativa de ${product.title}`}
-                      className="w-28 h-28 rounded-full object-cover border-4 border-labora-neon shadow-lg bg-white"
-                    />
-                </div>
-                  <div className="flex-1 flex flex-col items-center text-center">
-                    <h3 className="text-2xl font-bold text-white mb-2">{product.title}</h3>
-                    <span className="text-labora-neon mb-2 font-semibold">{product.subtitle}</span>
-                    <div className="flex items-center justify-center gap-4 mb-2 text-gray-400 text-sm">
-                      {/* <span className="font-semibold text-gray-300">{product.price}</span> */}
-                      <span>{product.duration}</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 mb-2 text-gray-400 text-sm">
-                      <Users className="h-4 w-4 text-labora-neon" />
-                      <span>{product.students}</span>
-                    </div>
-                    <p className="text-gray-300 mb-4 min-h-[60px]">{product.description}</p>
-                    <ul className="list-disc list-inside text-gray-400 text-sm mb-4 text-left mx-auto max-w-xs">
-                      {product.features.map((feature, i) => (
-                        <li key={i}>{feature}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="w-full mt-auto space-y-3">
-                    <Link to={product.link}>
-                      <Button
-                        className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105"
-                        disabled={product.id === 'inicia' || product.id === 'hackatones'}
-                      >
-                        {product.id === 'inicia' || product.id === 'hackatones' ? 'Próximamente' : 'Conocer más'}
-                      </Button>
-                    </Link>
-                    {product.trialLink && (
-                      <Link to={product.trialLink}>
-                        <Button
-                          variant="outline"
-                          className="w-full border-labora-red text-labora-red hover:bg-labora-red hover:text-white font-bold transition-all duration-200"
-                        >
-                          🎁 Probar 2 clases gratis
-                        </Button>
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              ));
-            })()}
-          </div>
-        </div>
-      </section>
+              // Filtrar productos activos (excluir 'inicia')
+              const activeProducts = products.filter(p => p.id !== 'inicia');
+              const bootcamp = activeProducts.find(p => p.id === 'bootcamp');
+              const hackatones = activeProducts.find(p => p.id === 'hackatones');
 
-      {/* Tabla comparativa de productos */}
-      <section className="bg-gray-900/80 pb-20 backdrop-blur-md" data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <div className="mb-8 text-center">
-            <h3 className="text-2xl font-bold text-white mb-2">Comparativa rápida</h3>
-            <p className="text-gray-300">Compara nuestros programas y elige el que mejor se adapte a tus objetivos</p>
-          </div>
-          <div className="overflow-x-auto rounded-lg shadow">
-            <table className="min-w-full bg-gray-950/80 border border-labora-neon/10 text-gray-100">
-              <thead>
-                <tr className="bg-gray-800/80">
-                  <th className="py-3 px-4 text-left font-semibold text-labora-neon">Producto</th>
-                  <th className="py-3 px-4 text-left font-semibold text-labora-neon">Modalidad</th>
-                  <th className="py-3 px-4 text-left font-semibold text-labora-neon">Duración</th>
-                  {/* <th className="py-3 px-4 text-left font-semibold text-labora-neon">Precio</th> */}
-                  <th className="py-3 px-4 text-left font-semibold text-labora-neon">Ideal para</th>
-                  <th className="py-3 px-4 text-left font-semibold text-labora-neon">Objetivo</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product) => (
-                  <tr key={product.id} className="border-t border-gray-800 hover:bg-gray-900/60 transition-colors">
-                    <td className="py-3 px-4 font-medium text-labora-neon">{product.title}</td>
-                    <td className="py-3 px-4">{product.subtitle}</td>
-                    <td className="py-3 px-4">{product.duration}</td>
-                    {/* <td className="py-3 px-4">{product.price}</td> */}
-                    <td className="py-3 px-4">
-                      {product.id === 'bootcamp' && 'Quienes quieren aprender en vivo y lanzar un proyecto'}
-                      {product.id === 'inicia' && 'Principiantes absolutos, autodidactas'}
-                      {product.id === 'hackatones' && 'Quienes buscan práctica y networking'}
-                      {product.id === 'estudio' && 'Empresas que necesitan soluciones ágiles'}
-                    </td>
-                    <td className="py-3 px-4">
-                      {product.id === 'bootcamp' && 'Proyecto funcionando en 4 semanas'}
-                      {product.id === 'inicia' && 'Base sólida de IA y No-Code'}
-                      {product.id === 'hackatones' && 'Resolver desafíos reales en equipo'}
-                      {product.id === 'estudio' && 'Desarrollo de soluciones a medida'}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              return (
+                <>
+                  {/* Bootcamp - Grande y destacado arriba */}
+                  {bootcamp && (
+                    <div
+                      className="relative group rounded-3xl overflow-visible shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border-4 border-labora-neon p-8 md:p-10 flex flex-col items-center mb-12"
+                      data-aos="zoom-in"
+                    >
+                      {/* Etiqueta flotante */}
+                      {bootcamp.badge && (
+                        <span className={`absolute -top-4 left-6 z-10 px-4 py-1 rounded-full text-xs font-bold shadow-neon-glow ${bootcamp.color} text-white border-2 border-white/20`}>
+                          {bootcamp.badge}
+                        </span>
+                      )}
+                      {/* Imagen circular superpuesta - más grande */}
+                      <div className="relative -mt-20 mb-6 z-10">
+                        <img
+                          src={bootcamp.image}
+                          alt={`Imagen representativa de ${bootcamp.title}`}
+                          className="w-36 h-36 md:w-40 md:h-40 rounded-full object-cover border-4 border-labora-neon shadow-lg bg-white"
+                        />
+                      </div>
+                      <div className="flex-1 flex flex-col items-center text-center">
+                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">{bootcamp.title}</h3>
+                        <span className="text-labora-neon mb-3 font-semibold text-lg">{bootcamp.subtitle}</span>
+                        <div className="flex items-center justify-center gap-4 mb-3 text-gray-400">
+                          <span>{bootcamp.duration}</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 mb-4 text-gray-400">
+                          <Users className="h-5 w-5 text-labora-neon" />
+                          <span>{bootcamp.students}</span>
+                        </div>
+                        <p className="text-gray-300 mb-6 text-lg max-w-2xl">{bootcamp.description}</p>
+                        <ul className="list-disc list-inside text-gray-400 mb-6 text-left max-w-md space-y-2">
+                          {bootcamp.features.map((feature, i) => (
+                            <li key={i} className="text-base">{feature}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="w-full max-w-md mt-auto">
+                        <Link to={bootcamp.link}>
+                          <Button
+                            className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105 text-lg py-6"
+                          >
+                            Conocer más
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Hackatones - Más pequeño abajo */}
+                  {hackatones && (
+                    <div className="max-w-md mx-auto">
+                      <div
+                        className="relative group rounded-3xl overflow-visible shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-labora-neon/10 p-6 flex flex-col items-center"
+                        data-aos="fade-up"
+                      >
+                        {/* Etiqueta flotante */}
+                        {hackatones.badge && (
+                          <span className={`absolute -top-4 left-6 z-10 px-4 py-1 rounded-full text-xs font-bold shadow-neon-glow ${hackatones.color} text-white border-2 border-white/20`}>
+                            {hackatones.badge}
+                          </span>
+                        )}
+                        {/* Imagen circular superpuesta */}
+                        <div className="relative -mt-16 mb-4 z-10">
+                          <img
+                            src={hackatones.image}
+                            alt={`Imagen representativa de ${hackatones.title}`}
+                            className="w-24 h-24 rounded-full object-cover border-4 border-labora-neon shadow-lg bg-white"
+                          />
+                        </div>
+                        <div className="flex-1 flex flex-col items-center text-center">
+                          <h3 className="text-xl font-bold text-white mb-2">{hackatones.title}</h3>
+                          <span className="text-labora-neon mb-2 font-semibold">{hackatones.subtitle}</span>
+                          <div className="flex items-center justify-center gap-4 mb-2 text-gray-400 text-sm">
+                            <span>{hackatones.duration}</span>
+                          </div>
+                          <div className="flex items-center justify-center gap-2 mb-2 text-gray-400 text-sm">
+                            <Users className="h-4 w-4 text-labora-neon" />
+                            <span>{hackatones.students}</span>
+                          </div>
+                          <p className="text-gray-300 mb-4 min-h-[60px] text-sm">{hackatones.description}</p>
+                          <ul className="list-disc list-inside text-gray-400 text-sm mb-4 text-left mx-auto max-w-xs">
+                            {hackatones.features.map((feature, i) => (
+                              <li key={i}>{feature}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="w-full mt-auto space-y-3">
+                          <Link to={hackatones.link}>
+                            <Button
+                              className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105"
+                              disabled={hackatones.id === 'hackatones'}
+                            >
+                              {hackatones.id === 'hackatones' ? 'Próximamente' : 'Conocer más'}
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </>
+              );
+            })()}
           </div>
         </div>
       </section>
@@ -420,11 +401,15 @@ const Index = () => {
               Impulsa tu negocio con productos digitales hechos a medida usando IA, No-Code y automatizaciones. Nuestro equipo de expertos y egresados te ayuda a innovar rápido y sin complicaciones técnicas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to={estudioLabora.link}>
+              <a
+                href="https://wa.me/5491138142899?text=Hola%20Labora%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20poder%20construir%20junto%20a%20ustedes."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button size="lg" variant="outline" className="border-labora-neon text-gray-900 hover:bg-labora-neon/10 font-bold">
                   Transforma tu empresa
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

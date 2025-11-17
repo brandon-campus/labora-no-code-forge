@@ -7,10 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Bootcamp from "./pages/Bootcamp";
-import BootcampV2 from "./pages/BootcampV2";
 import BootcampV3 from "./pages/BootcampV3";
 import BootcampLanding from "./pages/BootcampLanding";
-import BootcampLandingV2 from "./pages/BootcampLandingV2";
 import Masterclass from "./pages/Masterclass";
 import MasterclassGratuita from "./pages/MasterclassGratuita";
 import Campus from "./pages/Campus";
@@ -18,12 +16,10 @@ import CursoInicia from "./pages/CursoInicia";
 import Hackatones from "./pages/Hackatones";
 import BootcampAplicar from "./pages/BootcampAplicar";
 import BootcampQuieroCrearConIA from "./pages/BootcampQuieroCrearConIA";
-import BootcampGratis from "./pages/BootcampGratis";
 import CursoCampusPage from "./pages/CursoCampus";
 import RegistroCurso from "./pages/RegistroCurso";
 import OnboardingCurso from "./pages/OnboardingCurso";
 import LoginCurso from "./pages/LoginCurso";
-import BootcampDeIA from "./pages/BootcampDeIA";
 import PostAplicacion from './pages/PostAplicacion';
 import FormularioBootcamp from './pages/FormularioBootcamp';
 
@@ -38,14 +34,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />
-          <Route path="/bootcamp-v2" element={<BootcampV2 />} />
           <Route path="/bootcamp-v3" element={<BootcampV3 />} />
-          <Route path="/bootcamp-de-ia" element={<BootcampDeIA />} />
           <Route path="/bootcamp-landing" element={<BootcampLanding />} />
-          <Route path="/bootcamp-landing-v2" element={<BootcampLandingV2 />} />
           <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
           <Route path="/bootcamp/quiero-crear-con-ia" element={<BootcampQuieroCrearConIA />} />
-          <Route path="/bootcamp-gratis" element={<BootcampGratis />} />
           <Route path="/curso-inicia" element={<CursoInicia />} />
           <Route path="/hackatones" element={<Hackatones />} />
           <Route path="/masterclass" element={<Masterclass />} />
