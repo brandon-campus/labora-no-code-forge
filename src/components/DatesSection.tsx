@@ -24,8 +24,8 @@ const DatesSection = () => {
             <div className="bg-gradient-to-r from-labora-red to-labora-red/80 text-white p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Cohorte #13 - En Vivo</h3>
-                  <p className="text-gray-200">¡Últimas plazas disponibles!</p>
+                  <h3 className="text-2xl font-bold mb-2">Nueva Cohorte - En Vivo</h3>
+                  <p className="text-gray-200">¡Inscripciones abiertas!</p>
                 </div>
                 <div className="text-right">
                   <div className="bg-white/20 rounded-lg px-4 py-2">
@@ -49,11 +49,11 @@ const DatesSection = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Inicio:</span>
-                    <span className="text-white font-semibold">12 de agosto</span>
+                    <span className="text-white font-semibold">Jueves 11 de diciembre</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Finalización:</span>
-                    <span className="text-white font-semibold">13 de septiembre</span>
+                    <span className="text-white font-semibold">Viernes 3 de enero</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Duración total:</span>
@@ -118,10 +118,10 @@ const DatesSection = () => {
         {/* Call to Action Buttons */}
         <div className="max-w-4xl mx-auto mt-8">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/registro-curso" className="bg-labora-neon text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-labora-neon/80 transition-all duration-200 transform hover:scale-105 shadow-lg inline-block text-center">
+            <a href="/formulario-bootcamp" className="bg-labora-neon text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-labora-neon/80 transition-all duration-200 transform hover:scale-105 shadow-lg inline-block text-center">
               COMENZAR AHORA
             </a>
-            <a href="https://wa.me/5491178519054?text=%C2%A1Hola%20Labora!%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-200 transform hover:scale-105 inline-block text-center">
+            <a href="https://wa.me/5491138142899?text=%C2%A1Hola%20Labora!%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-200 transform hover:scale-105 inline-block text-center">
               HABLAR POR WHATSAPP
             </a>
           </div>

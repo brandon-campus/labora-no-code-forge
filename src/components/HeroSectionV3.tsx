@@ -19,11 +19,11 @@ const HeroSectionV3 = () => {
         value: 1
       });
     }
-    window.location.href = '/registro-curso';
+    window.location.href = '/bootcamp-landing';
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/5491178519054?text=¡Hola! Quiero más información sobre el bootcamp de IA y No Code', '_blank');
+    window.open('https://wa.me/5491138142899?text=¡Hola%20Labora!%20Quiero%20más%20información%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code', '_blank');
   };
 
   return (

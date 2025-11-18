@@ -63,7 +63,7 @@ const DemoSection = () => {
       delay: 2
     },
     {
-      videoUrl: "https://www.tella.tv/video/cm9k5bp4m00050bib2xjwddjm/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1",
+      videoUrl: "https://www.tella.tv/video/cm9k6jqfh000c0dl52s2a6m6t/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1",
       title: "Sistema de reservas para restaurantes",
       description: "Aplicación que permite a los clientes hacer reservas y a los restaurantes gestionar mesas, horarios y personal.",
       tags: ["Supabase", "No-Code", "IA"],

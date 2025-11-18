@@ -1,12 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { BookOpen, Calendar, MessageSquare, Rocket, Users } from 'lucide-react';
-import { fbqTrack } from "@/lib/fbqTrack";
-import WizardAplicar from './WizardAplicar';
+import { BookOpen, Calendar, Rocket, Users } from 'lucide-react';
 
 declare global {
   interface Window {
@@ -15,8 +10,6 @@ declare global {
 }
 
 const ContactSection = () => {
-  const [wizardOpen, setWizardOpen] = React.useState(false);
-
   return (
     <section id="contacto" className="bg-labora-dark py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +70,7 @@ const ContactSection = () => {
             
             <div className="space-y-6">
               <a
-                href="/registro-curso"
+                href="/formulario-bootcamp"
                 className="block"
               >
                 <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">
@@ -86,19 +79,18 @@ const ContactSection = () => {
               </a>
               
               <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">10 de Agosto, 2025</span>
+                Fecha límite de inscripción: <span className="font-semibold">10 de diciembre, 2024</span>
               </p>
               
               <div className="border-t border-gray-100 pt-6 mt-6">
                 <p className="text-gray-500 text-center">
-                  También puedes contactarnos directamente a <a href="mailto:info@labora.ar" className="text-labora-red hover:underline">info@cohorte.labora.ar</a>
+                  También puedes contactarnos directamente a <a href="mailto:info@labora.tech" className="text-labora-red hover:underline">info@labora.tech</a>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <WizardAplicar open={wizardOpen} onClose={() => setWizardOpen(false)} />
     </section>
   );
 };

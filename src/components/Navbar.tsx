@@ -27,8 +27,8 @@ const Navbar = () => {
         value: 1
       });
     }
-    // Redirigir a registro-curso
-    window.location.href = '/registro-curso';
+    // Redirigir a formulario de bootcamp
+    window.location.href = '/formulario-bootcamp';
   };
 
   const navItems = [{

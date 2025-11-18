@@ -58,14 +58,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 1: DE CERO A APP",
     description: "Fundamentos esenciales para crear tu primera aplicación funcional",
-    week: "Semana 1 (07 al 11 de octubre)",
+    week: "Semana 1 (10 al 13 de diciembre)",
     difficulty: "Básico",
     progress: 0,
     sessions: [
       {
         title: "Cursor AI – Tu copiloto 2025",
         description: "Introducción a Cursor AI y cómo aprovechar la IA para desarrollo",
-        date: "Martes, 07 de octubre",
+        date: "Martes, 10 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -74,7 +74,7 @@ const modules: ModuleData[] = [
       {
         title: "GitHub para no técnicos",
         description: "Control de versiones y colaboración en proyectos",
-        date: "Jueves, 09 de octubre",
+        date: "Jueves, 12 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -83,7 +83,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Creación de primera app",
         description: "Sesión práctica para crear tu primera aplicación completa",
-        date: "Viernes, 10 de octubre",
+        date: "Viernes, 13 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -94,14 +94,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 2: DISEÑO DE BASES DE DATOS",
     description: "Construye la arquitectura robusta de tu aplicación",
-    week: "Semana 2 (14 al 18 de octubre)",
+    week: "Semana 2 (17 al 20 de diciembre)",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
         title: "Lógica y diseño de bases de datos",
         description: "Fundamentos de modelado de datos y relaciones",
-        date: "Martes, 14 de octubre",
+        date: "Martes, 17 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -110,7 +110,7 @@ const modules: ModuleData[] = [
       {
         title: "Supabase desde cero",
         description: "Implementación y configuración de Supabase",
-        date: "Jueves, 16 de octubre",
+        date: "Jueves, 19 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -119,7 +119,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Dashboards y visualización de datos",
         description: "Creación de dashboards interactivos con datos reales",
-        date: "Viernes, 17 de octubre",
+        date: "Viernes, 20 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -130,14 +130,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 3: IA Y AGENTES",
     description: "Automatización e inteligencia artificial para tu aplicación",
-    week: "Semana 3 (21 al 25 de octubre)",
+    week: "Semana 3 (24 al 27 de diciembre)",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
         title: "Automatización con n8n y agentes (Intro)",
         description: "Introducción a la automatización de procesos con n8n",
-        date: "Martes, 21 de octubre",
+        date: "Martes, 24 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -146,7 +146,7 @@ const modules: ModuleData[] = [
       {
         title: "Creación de agentes con IA avanzado",
         description: "Desarrollo de agentes inteligentes para automatización",
-        date: "Jueves, 23 de octubre",
+        date: "Jueves, 26 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -155,7 +155,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Adaptación de agentes a nichos y mercados",
         description: "Personalización de agentes para diferentes industrias",
-        date: "Viernes, 24 de octubre",
+        date: "Viernes, 27 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -166,14 +166,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 4: USUARIOS, INTEGRACIONES Y DEPLOY",
     description: "Gestión avanzada de usuarios y lanzamiento de tu aplicación",
-    week: "Semana 4 (28 de octubre al 1 de noviembre)",
+    week: "Semana 4 (31 de diciembre al 3 de enero)",
     difficulty: "Avanzado",
     progress: 0,
     sessions: [
       {
         title: "Flujo de usuarios y roles avanzados",
         description: "Sistema de autenticación y gestión de permisos",
-        date: "Martes, 28 de octubre",
+        date: "Martes, 31 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -182,47 +182,20 @@ const modules: ModuleData[] = [
       {
         title: "Integraciones esenciales y deploy",
         description: "Conexión con servicios externos y despliegue a producción",
-        date: "Jueves, 30 de octubre",
+        date: "Jueves, 2 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
         tags: ["Integraciones", "Deploy", "Producción"]
       },
       {
-        title: "Pair Programming: Analítica de producto",
-        description: "Implementación de métricas y análisis de uso",
-        date: "Viernes, 31 de octubre",
+        title: "Pair Programming: Analítica de producto y lanzamiento",
+        description: "Implementación de métricas, análisis de uso y estrategias de lanzamiento",
+        date: "Viernes, 3 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
-        tags: ["Analítica", "Métricas", "Pair Programming"]
-      }
-    ]
-  },
-  {
-    title: "FASE 5: LANZAMIENTO Y CRECIMIENTO",
-    description: "Estrategias para lanzar y hacer crecer tu aplicación",
-    week: "Semana 5 (4 al 8 de noviembre)",
-    difficulty: "Avanzado",
-    progress: 0,
-    sessions: [
-      {
-        title: "Lanzamiento estratégico y captación de tráfico",
-        description: "Planificación del lanzamiento y estrategias de marketing",
-        date: "Martes, 04 de noviembre",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 4,
-        tags: ["Lanzamiento", "Marketing", "Tráfico"]
-      },
-      {
-        title: "Contenido orgánico y posicionamiento",
-        description: "SEO, contenido y posicionamiento en buscadores",
-        date: "Jueves, 06 de noviembre",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 3,
-        tags: ["SEO", "Contenido", "Posicionamiento"]
+        tags: ["Analítica", "Métricas", "Lanzamiento", "Pair Programming"]
       }
     ]
   }

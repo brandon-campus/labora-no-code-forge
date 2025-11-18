@@ -424,17 +424,13 @@ const Index = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto text-gray-200">
             Únete a cientos de estudiantes que ya están construyendo el futuro con Inteligencia Artificial y No-Code
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Link to="/bootcamp">
               <Button size="lg" className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
                 <Calendar className="mr-2 h-5 w-5" />
                 Ver Próximas Fechas
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-labora-neon text-gray-900 hover:bg-labora-neon/10">
-              <Briefcase className="mr-2 h-5 w-5" />
-              Conocer Estudio Labora
-            </Button>
           </div>
         </div>
       </section>
