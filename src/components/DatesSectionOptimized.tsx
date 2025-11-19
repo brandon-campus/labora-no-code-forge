@@ -54,7 +54,7 @@ const DatesSectionOptimized = () => {
                   </div>
                   <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30 text-center">
                     <p className="text-gray-300 text-sm font-medium">Inicio</p>
-                    <p className="font-black text-xl text-white">02 OCT</p>
+                    <p className="font-black text-xl text-white">11 DIC</p>
                   </div>
                 </div>
                 
@@ -83,15 +83,22 @@ const DatesSectionOptimized = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Inicio:</span>
-                    <span className="text-gray-900 font-bold">02 Octubre</span>
+                    <span className="text-gray-900 font-bold">11 de diciembre</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Finalización:</span>
-                    <span className="text-gray-900 font-bold">05 Noviembre</span>
+                    <span className="text-gray-900 font-bold">19 de enero</span>
                   </div>
-                  <div className="flex justify-between items-center py-2">
+                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Duración:</span>
                     <span className="text-labora-neon font-black text-lg">4 Semanas</span>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-sm text-gray-600 font-medium mb-2">📅 Días festivos:</p>
+                    <p className="text-xs text-gray-500 leading-relaxed">
+                      No habrá clases el Jueves 25, Viernes 26 de diciembre y Jueves 01 de enero. 
+                      En esas 2 semanas tendremos clases solo el Lunes 22, Lunes 29 de diciembre y Viernes 02 de enero.
+                    </p>
                   </div>
                 </div>
               </div>

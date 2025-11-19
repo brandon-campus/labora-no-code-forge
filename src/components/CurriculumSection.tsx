@@ -58,14 +58,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 1: DE CERO A APP",
     description: "Fundamentos esenciales para crear tu primera aplicación funcional",
-    week: "Semana 1 (10 al 13 de diciembre)",
+    week: "Semana 1 (15 al 19 de diciembre)",
     difficulty: "Básico",
     progress: 0,
     sessions: [
       {
         title: "Cursor AI – Tu copiloto 2025",
         description: "Introducción a Cursor AI y cómo aprovechar la IA para desarrollo",
-        date: "Martes, 10 de diciembre",
+        date: "Lunes, 15 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -74,7 +74,7 @@ const modules: ModuleData[] = [
       {
         title: "GitHub para no técnicos",
         description: "Control de versiones y colaboración en proyectos",
-        date: "Jueves, 12 de diciembre",
+        date: "Jueves, 18 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -83,7 +83,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Creación de primera app",
         description: "Sesión práctica para crear tu primera aplicación completa",
-        date: "Viernes, 13 de diciembre",
+        date: "Viernes, 19 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -94,14 +94,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 2: DISEÑO DE BASES DE DATOS",
     description: "Construye la arquitectura robusta de tu aplicación",
-    week: "Semana 2 (17 al 20 de diciembre)",
+    week: "Semana 2 (22 y 29 de diciembre)",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
         title: "Lógica y diseño de bases de datos",
         description: "Fundamentos de modelado de datos y relaciones",
-        date: "Martes, 17 de diciembre",
+        date: "Lunes, 22 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -110,7 +110,7 @@ const modules: ModuleData[] = [
       {
         title: "Supabase desde cero",
         description: "Implementación y configuración de Supabase",
-        date: "Jueves, 19 de diciembre",
+        date: "Lunes, 29 de diciembre",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -119,7 +119,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Dashboards y visualización de datos",
         description: "Creación de dashboards interactivos con datos reales",
-        date: "Viernes, 20 de diciembre",
+        date: "Viernes, 02 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -130,14 +130,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 3: IA Y AGENTES",
     description: "Automatización e inteligencia artificial para tu aplicación",
-    week: "Semana 3 (24 al 27 de diciembre)",
+    week: "Semana 3 (6 al 10 de enero)",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
         title: "Automatización con n8n y agentes (Intro)",
         description: "Introducción a la automatización de procesos con n8n",
-        date: "Martes, 24 de diciembre",
+        date: "Lunes, 6 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -146,7 +146,7 @@ const modules: ModuleData[] = [
       {
         title: "Creación de agentes con IA avanzado",
         description: "Desarrollo de agentes inteligentes para automatización",
-        date: "Jueves, 26 de diciembre",
+        date: "Jueves, 9 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -155,7 +155,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Adaptación de agentes a nichos y mercados",
         description: "Personalización de agentes para diferentes industrias",
-        date: "Viernes, 27 de diciembre",
+        date: "Viernes, 10 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -166,14 +166,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 4: USUARIOS, INTEGRACIONES Y DEPLOY",
     description: "Gestión avanzada de usuarios y lanzamiento de tu aplicación",
-    week: "Semana 4 (31 de diciembre al 3 de enero)",
+    week: "Semana 4 (13 al 17 de enero)",
     difficulty: "Avanzado",
     progress: 0,
     sessions: [
       {
         title: "Flujo de usuarios y roles avanzados",
         description: "Sistema de autenticación y gestión de permisos",
-        date: "Martes, 31 de diciembre",
+        date: "Lunes, 13 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -182,7 +182,7 @@ const modules: ModuleData[] = [
       {
         title: "Integraciones esenciales y deploy",
         description: "Conexión con servicios externos y despliegue a producción",
-        date: "Jueves, 2 de enero",
+        date: "Jueves, 16 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -191,7 +191,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Analítica de producto y lanzamiento",
         description: "Implementación de métricas, análisis de uso y estrategias de lanzamiento",
-        date: "Viernes, 3 de enero",
+        date: "Viernes, 17 de enero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -233,6 +233,19 @@ const CurriculumSection = () => {
             <p className="text-gray-300 text-center text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
               Un recorrido práctico y completo para convertirte en creador de productos tecnológicos con IA y No Code.
             </p>
+          </div>
+
+          {/* Clase de Bienvenida */}
+          <div className="mb-8 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-labora-neon/20 to-labora-red/20 backdrop-blur-sm rounded-2xl p-6 border border-labora-neon/30">
+              <div className="flex items-center gap-3 mb-2">
+                <Calendar className="h-5 w-5 text-labora-neon" />
+                <h3 className="text-xl font-bold text-white">Clase de Bienvenida</h3>
+              </div>
+              <p className="text-gray-300 text-base">
+                <span className="font-semibold text-labora-neon">Jueves, 11 de diciembre</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa. El primer tema del curriculum comenzará el <span className="font-semibold">Lunes, 15 de diciembre</span>.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-4">

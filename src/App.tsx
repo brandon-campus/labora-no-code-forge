@@ -11,6 +11,7 @@ import BootcampV3 from "./pages/BootcampV3";
 import BootcampLanding from "./pages/BootcampLanding";
 import Masterclass from "./pages/Masterclass";
 import MasterclassGratuita from "./pages/MasterclassGratuita";
+import CursorAIClass from "./pages/CursorAIClass";
 import Campus from "./pages/Campus";
 import CursoInicia from "./pages/CursoInicia";
 import Hackatones from "./pages/Hackatones";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/hackatones" element={<Hackatones />} />
           <Route path="/masterclass" element={<Masterclass />} />
           <Route path="/masterclsacaass-gratuita" element={<MasterclassGratuita />} />
+          <Route path="/cursor-ai-class" element={<CursorAIClass />} />
           <Route path="/campus" element={<Campus />} />
           <Route path="/login-curso" element={<LoginCurso />} />
           <Route path="/registro-curso" element={<RegistroCurso />} />
