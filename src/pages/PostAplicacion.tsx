@@ -90,7 +90,7 @@ const PostAplicacion = () => {
                 ¿Qué aprenderás en esta <span className="text-labora-neon">clase gratuita</span>?
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-300">
-                En solo 2 horas tendrás las bases para crear tu primera aplicación.
+                Tendrás las bases para crear tu primera aplicación.
               </p>
             </div>
 
