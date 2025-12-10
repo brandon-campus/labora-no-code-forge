@@ -35,7 +35,14 @@ const IaParaTodos: React.FC = () => {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(203,255,0,0.06),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(56,189,248,0.05),_transparent_55%)]" />
         </div>
 
-        <div className="relative px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-24">
+        <div className="relative px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
+          <div className="mx-auto mb-6 flex max-w-6xl justify-center lg:mb-8">
+            <img
+              src="/lovable-uploads/logolabora.webp"
+              alt="Logo Labora"
+              className="h-8 w-auto opacity-90 drop-shadow-[0_0_18px_rgba(0,0,0,0.7)] sm:h-9"
+            />
+          </div>
           <div className="mx-auto flex max-w-6xl flex-col gap-12 lg:flex-row lg:items-center">
             <div className="max-w-2xl space-y-6 lg:space-y-8">
               <div className="inline-flex flex-wrap items-center gap-3">

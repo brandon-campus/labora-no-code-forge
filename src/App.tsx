@@ -25,6 +25,7 @@ import LoginCurso from "./pages/LoginCurso";
 import PostAplicacion from './pages/PostAplicacion';
 import FormularioBootcamp from './pages/FormularioBootcamp';
 import IaParaTodos from "./pages/IaParaTodos";
+import IaParaTodosGracias from "./pages/IaParaTodosGracias";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/bootcamp-landing" element={<BootcampLanding />} />
           <Route path="/bootcamp-ia" element={<BootcampIA />} />
           <Route path="/ia-para-todos" element={<IaParaTodos />} />
+          <Route path="/ia-para-todos/gracias" element={<IaParaTodosGracias />} />
           <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
           <Route path="/bootcamp/quiero-crear-con-ia" element={<BootcampQuieroCrearConIA />} />
           <Route path="/curso-inicia" element={<CursoInicia />} />
