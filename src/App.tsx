@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Bootcamp from "./pages/Bootcamp";
 import BootcampV3 from "./pages/BootcampV3";
 import BootcampLanding from "./pages/BootcampLanding";
+import BootcampIA from "./pages/BootcampIA";
 import Masterclass from "./pages/Masterclass";
 import MasterclassGratuita from "./pages/MasterclassGratuita";
 import CursorAIClass from "./pages/CursorAIClass";
@@ -23,6 +24,7 @@ import OnboardingCurso from "./pages/OnboardingCurso";
 import LoginCurso from "./pages/LoginCurso";
 import PostAplicacion from './pages/PostAplicacion';
 import FormularioBootcamp from './pages/FormularioBootcamp';
+import IaParaTodos from "./pages/IaParaTodos";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +39,8 @@ const App = () => (
           <Route path="/bootcamp" element={<Bootcamp />} />
           <Route path="/bootcamp-v3" element={<BootcampV3 />} />
           <Route path="/bootcamp-landing" element={<BootcampLanding />} />
+          <Route path="/bootcamp-ia" element={<BootcampIA />} />
+          <Route path="/ia-para-todos" element={<IaParaTodos />} />
           <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
           <Route path="/bootcamp/quiero-crear-con-ia" element={<BootcampQuieroCrearConIA />} />
           <Route path="/curso-inicia" element={<CursoInicia />} />
