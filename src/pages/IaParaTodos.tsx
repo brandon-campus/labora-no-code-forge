@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -18,21 +18,35 @@ import {
   Rocket,
 } from 'lucide-react';
 
-const TALLY_URL = 'https://tally.so/r/VLGbyl';
+const LUMA_EVENT_ID = 'evt-LuYXNGvAya5sv6b';
+const LUMA_EVENT_URL = `https://lu.ma/event/${LUMA_EVENT_ID}`;
 
 const IaParaTodos: React.FC = () => {
+  // Cargar el script de Luma para el botón de checkout
+  useEffect(() => {
+    if (document.getElementById('luma-checkout')) return;
+    const script = document.createElement('script');
+    script.id = 'luma-checkout';
+    script.src = 'https://embed.lu.ma/checkout-button.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      const existing = document.getElementById('luma-checkout');
+      if (existing) existing.remove();
+    };
+  }, []);
+
   const handlePrimaryCTA = () => {
-    window.open(TALLY_URL, '_blank', 'noopener,noreferrer');
+    window.open(LUMA_EVENT_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900">
-        <div className="absolute inset-0 opacity-40" aria-hidden="true">
-          <div className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-[#CBFF00]/10 blur-3xl" />
-          <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(203,255,0,0.06),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(56,189,248,0.05),_transparent_55%)]" />
+      <section className="relative overflow-hidden border-b border-slate-800 bg-slate-950">
+        <div className="absolute inset-0" aria-hidden="true">
+          <div className="h-full w-full bg-[url('https://images.unsplash.com/photo-1515165562835-c4c9e0737eaa?auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center opacity-50 sm:opacity-60" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/70 to-slate-950/85" />
         </div>
 
         <div className="relative px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
@@ -47,112 +61,104 @@ const IaParaTodos: React.FC = () => {
             <div className="max-w-2xl space-y-6 lg:space-y-8">
               <div className="inline-flex flex-wrap items-center gap-3">
                 <Badge className="bg-slate-900/80 text-xs font-semibold uppercase tracking-[0.15em] text-[#CBFF00] ring-1 ring-[#CBFF00]/30">
-                  EVENTO PRESENCIAL EXCLUSIVO · DOMINGO 14 DE DICIEMBRE
+                  EVENTO PRESENCIAL GRATUITO
                 </Badge>
-                <div className="flex items-center gap-2 text-xs font-medium text-slate-300/80">
-                  <Calendar className="h-4 w-4 text-[#CBFF00]" />
-                  <span>Domingo 14 de diciembre</span>
-                </div>
               </div>
 
               <h1 className="font-montserrat text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-                Dejá de mirar la revolución de la IA desde afuera.
-                <span className="mt-2 block bg-gradient-to-r from-[#CBFF00] via-[#CBFF00] to-sky-400 bg-clip-text text-transparent">
-                  Empezá a liderarla.
-                </span>
+                Sumergite de lleno en la era de la IA.
               </h1>
 
               <p className="max-w-2xl text-base text-slate-200 sm:text-lg md:text-xl">
-                Una experiencia inmersiva de <span className="font-semibold text-[#CBFF00]">Edutainment</span> donde
-                aprenderás a crear productos digitales sin escribir una sola línea de código. Olvidate de la teoría
-                aburrida: vení a ver cómo se hace en tiempo real. Ideal para dueños de negocio, emprendedores y mentes
-                curiosas.
+                Un evento en vivo en el que vas a poder aprender desde cero a usar la Inteligencia Artificial para maximizar tus
+                oportunidades y construir productos para tu trabajo o empresa.
               </p>
 
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <Button
-                  onClick={handlePrimaryCTA}
-                  className="group w-full max-w-md rounded-full bg-[#CBFF00] px-8 py-6 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_25px_rgba(203,255,0,0.4)] transition-transform hover:-translate-y-0.5 hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
+                  className="luma-checkout--button group flex w-full max-w-md items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-8 py-4 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_25px_rgba(203,255,0,0.4)] transition-transform hover:-translate-y-0.5 hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
+                  data-luma-action="checkout"
+                  data-luma-event-id="evt-LuYXNGvAya5sv6b"
                 >
-                  <span className="flex w-full items-center justify-center gap-3">
-                    <Sparkles className="h-5 w-5" />
-                    QUIERO MI LUGAR AHORA - SOLO 70 CUPOS
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Button>
+                  <Sparkles className="h-5 w-5" />
+                  RESERVAR MI LUGAR (70 CUPOS)
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </a>
 
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-300/80">
-                  <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4 text-[#CBFF00]" />
-                    <span>Solo 70 personas en sala</span>
-                  </div>
-                  <div className="hidden h-1 w-1 rounded-full bg-slate-600 sm:inline-flex" />
-                  <div className="flex items-center gap-1">
-                    <MapPin className="h-4 w-4 text-sky-400" />
-                    <span>Auditorio Servant, CABA</span>
-                  </div>
+                <div className="flex items-center gap-2 text-xs font-medium text-slate-300/80">
+                  <Calendar className="h-4 w-4 text-[#CBFF00]" />
+                  <span>Domingo 14 de diciembre a las 17:30 · Auditorio Servant (CABA)</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex-1">
-              <div className="mx-auto max-w-md lg:max-w-lg">
-                <Card className="border border-slate-800/80 bg-slate-900/80 shadow-[0_0_30px_rgba(15,23,42,0.9)] backdrop-blur">
-                  <CardContent className="space-y-6 p-6 sm:p-8">
+            <div className="w-full lg:flex-1">
+              <div className="mx-auto max-w-sm sm:max-w-md lg:max-w-lg">
+                <Card className="overflow-hidden border border-slate-800/80 bg-slate-900/80 shadow-[0_0_30px_rgba(15,23,42,0.9)] backdrop-blur">
+                  {/* Imagen de Brandon */}
+                  <div className="relative h-40 sm:h-48 w-full overflow-hidden">
+                    <img
+                      src="/lovable-uploads/fotobrandoportada.png"
+                      alt="Brandon Candia - Fundador de Labora"
+                      className="h-full w-full object-cover object-top"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                      <div>
+                        <p className="text-sm font-semibold text-white drop-shadow-md">Brandon Candia</p>
+                        <p className="text-xs text-slate-200/90 drop-shadow-md">Fundador de Labora</p>
+                      </div>
+                      <Ticket className="h-7 w-7 text-[#CBFF00] drop-shadow-md" />
+                    </div>
+                  </div>
+
+                  <CardContent className="space-y-4 p-4 sm:p-6">
                     <div className="flex items-center justify-between">
-                      <div className="space-y-1">
-                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CBFF00]">IA para Todos</p>
-                        <p className="text-sm text-slate-300">by Labora</p>
-                      </div>
-                      <Ticket className="h-9 w-9 text-[#CBFF00]" />
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#CBFF00]">IA para Todos</p>
+                      <p className="text-xs text-slate-400">by Labora</p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 text-sm text-slate-200">
-                      <div className="space-y-1">
-                        <p className="text-xs uppercase tracking-wide text-slate-400">Cuándo</p>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="h-4 w-4 text-[#CBFF00]" />
-                          <span>Domingo 14 de diciembre</span>
+                    <div className="grid grid-cols-2 gap-3 text-sm text-slate-200">
+                      <div className="space-y-0.5">
+                        <p className="text-[10px] uppercase tracking-wide text-slate-400">Cuándo</p>
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="h-3.5 w-3.5 text-[#CBFF00]" />
+                          <span className="text-xs">Dom 14 de diciembre</span>
                         </div>
                       </div>
-                      <div className="space-y-1">
-                        <p className="text-xs uppercase tracking-wide text-slate-400">Horario</p>
-                        <div className="flex items-center gap-2">
-                          <Clock className="h-4 w-4 text-sky-400" />
-                          <span>18:15 a 20:00 hs</span>
+                      <div className="space-y-0.5">
+                        <p className="text-[10px] uppercase tracking-wide text-slate-400">Horario</p>
+                        <div className="flex items-center gap-1.5">
+                          <Clock className="h-3.5 w-3.5 text-sky-400" />
+                          <span className="text-xs">17:30 hs</span>
                         </div>
                       </div>
-                      <div className="space-y-1">
-                        <p className="text-xs uppercase tracking-wide text-slate-400">Lugar</p>
-                        <div className="flex items-start gap-2">
-                          <MapPin className="mt-0.5 h-4 w-4 text-emerald-400" />
-                          <span>Auditorio Servant, Av. Corrientes 3621, CABA</span>
+                      <div className="space-y-0.5">
+                        <p className="text-[10px] uppercase tracking-wide text-slate-400">Lugar</p>
+                        <div className="flex items-start gap-1.5">
+                          <MapPin className="mt-0.5 h-3.5 w-3.5 text-emerald-400" />
+                          <span className="text-xs">Auditorio Servant, CABA</span>
                         </div>
                       </div>
-                      <div className="space-y-1">
-                        <p className="text-xs uppercase tracking-wide text-slate-400">Formato</p>
-                        <div className="flex items-center gap-2">
-                          <Mic2 className="h-4 w-4 text-rose-400" />
-                          <span>Show de Edutainment</span>
+                      <div className="space-y-0.5">
+                        <p className="text-[10px] uppercase tracking-wide text-slate-400">Formato</p>
+                        <div className="flex items-center gap-1.5">
+                          <Mic2 className="h-3.5 w-3.5 text-rose-400" />
+                          <span className="text-xs">Evento en vivo</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="rounded-2xl border border-[#CBFF00]/30 bg-[#CBFF00]/5 p-4 text-sm text-slate-100">
-                      <p className="font-semibold text-[#CBFF00]">No es una conferencia más.</p>
-                      <p className="mt-1 text-slate-200/90">
-                        Es una experiencia inmersiva donde vas a ver en vivo cómo se construyen productos digitales usando IA
-                        y No-Code, paso a paso.
-                      </p>
-                    </div>
-
-                    <Button
-                      onClick={handlePrimaryCTA}
-                      className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#CBFF00] px-6 py-4 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_20px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
+                    <a
+                      href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
+                      className="luma-checkout--button group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#CBFF00] px-5 py-3 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_20px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
+                      data-luma-action="checkout"
+                      data-luma-event-id="evt-LuYXNGvAya5sv6b"
                     >
-                      Reservar mi lugar ahora
+                      Reservar mi lugar
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
+                    </a>
                   </CardContent>
                 </Card>
               </div>
@@ -358,23 +364,25 @@ const IaParaTodos: React.FC = () => {
                 <div className="mt-2 rounded-2xl border border-pink-400/40 bg-pink-500/10 p-4 text-sm text-slate-50 sm:text-base">
                   <p className="font-semibold">
                     VALOR DE LA ENTRADA:{' '}
-                    <span className="text-[#CBFF00]">$5.000 ARS + 1 alimento no perecedero</span> (harina o azúcar).
+                    <span className="text-[#CBFF00]">1 alimento no perecedero</span> (harina, azúcar, arroz, etc.)
                   </p>
                   <p className="mt-1 text-slate-100/90">
-                    Todo lo recaudado en alimentos será destinado a apoyar la actividad{' '}
+                    Todo lo recaudado será destinado a apoyar la causa{' '}
                     <span className="font-semibold">Navidad Solidaria</span>.
                   </p>
                 </div>
               </div>
 
               <div className="mt-2 flex justify-center md:mt-0">
-                <Button
-                  onClick={handlePrimaryCTA}
-                  className="group w-full max-w-xs rounded-full bg-[#CBFF00] px-6 py-4 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_24px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
+                <a
+                  href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
+                  className="luma-checkout--button group flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-[#CBFF00] px-6 py-4 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_24px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
+                  data-luma-action="checkout"
+                  data-luma-event-id="evt-LuYXNGvAya5sv6b"
                 >
                   Reservar mi lugar solidario
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </div>
             </div>
           </div>
@@ -413,7 +421,7 @@ const IaParaTodos: React.FC = () => {
             <div className="flex justify-center md:justify-end">
               <div className="relative h-80 w-72 max-w-full overflow-hidden rounded-3xl border border-slate-700 bg-slate-900/80 shadow-[0_0_40px_rgba(15,23,42,0.9)]">
                 <img
-                  src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=600&q=80"
+                  src="/lovable-uploads/brandoncandia.png"
                   alt="Retrato de Brandon Candia, fundador de Labora"
                   className="h-full w-full object-cover object-center"
                 />
@@ -446,16 +454,17 @@ const IaParaTodos: React.FC = () => {
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4">
-            <Button
-              onClick={handlePrimaryCTA}
-              size="lg"
-              className="group w-full max-w-xl rounded-full bg-[#CBFF00] px-10 py-6 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_32px_rgba(203,255,0,0.55)] transition hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
+            <a
+              href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
+              className="luma-checkout--button group flex w-full max-w-xl items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-10 py-5 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_32px_rgba(203,255,0,0.55)] transition hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
+              data-luma-action="checkout"
+              data-luma-event-id="evt-LuYXNGvAya5sv6b"
             >
               <span className="flex w-full items-center justify-center gap-3">
                 RESERVAR MI LUGAR AHORA
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </span>
-            </Button>
+            </a>
             <p className="text-xs text-slate-400">
               Entradas limitadas. Prioridad por orden de inscripción.
             </p>
