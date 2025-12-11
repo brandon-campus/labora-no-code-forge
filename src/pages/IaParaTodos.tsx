@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   Calendar,
   MapPin,
-  Users,
   Clock,
   CheckCircle2,
   Sparkles,
@@ -36,12 +34,15 @@ const IaParaTodos: React.FC = () => {
     };
   }, []);
 
-  const handlePrimaryCTA = () => {
-    window.open(LUMA_EVENT_URL, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
+      {/* URGENCY BAR */}
+      <div className="bg-[#CBFF00] py-2 text-center">
+        <p className="text-xs font-bold uppercase tracking-wide text-slate-950 sm:text-sm">
+          🔥 Solo 40 lugares disponibles
+        </p>
+      </div>
+
       {/* HERO SECTION */}
       <section className="relative overflow-hidden border-b border-slate-800 bg-slate-950">
         <div className="absolute inset-0" aria-hidden="true">
@@ -76,17 +77,19 @@ const IaParaTodos: React.FC = () => {
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
-                  href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
-                  className="luma-checkout--button group flex w-full max-w-md items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-8 py-4 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_25px_rgba(203,255,0,0.4)] transition-transform hover:-translate-y-0.5 hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
+                  href={LUMA_EVENT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex w-full max-w-md items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-8 py-4 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_25px_rgba(203,255,0,0.4)] transition-transform hover:-translate-y-0.5 hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
                   data-luma-action="checkout"
-                  data-luma-event-id="evt-LuYXNGvAya5sv6b"
+                  data-luma-event-id={LUMA_EVENT_ID}
                 >
                   <Sparkles className="h-5 w-5" />
-                  RESERVAR MI LUGAR (70 CUPOS)
+                  RESERVAR MI LUGAR
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
 
-                <div className="flex items-center gap-2 text-xs font-medium text-slate-300/80">
+                <div className="flex items-center gap-2 text-xs font-medium text-slate-300">
                   <Calendar className="h-4 w-4 text-[#CBFF00]" />
                   <span>Domingo 14 de diciembre a las 17:30 · Auditorio Servant (CABA)</span>
                 </div>
@@ -149,16 +152,6 @@ const IaParaTodos: React.FC = () => {
                         </div>
                       </div>
                     </div>
-
-                    <a
-                      href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
-                      className="luma-checkout--button group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#CBFF00] px-5 py-3 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_20px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
-                      data-luma-action="checkout"
-                      data-luma-event-id="evt-LuYXNGvAya5sv6b"
-                    >
-                      Reservar mi lugar
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </a>
                   </CardContent>
                 </Card>
               </div>
@@ -283,7 +276,7 @@ const IaParaTodos: React.FC = () => {
                   <CardContent className="flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:gap-6 sm:p-6">
                     <div className="flex items-center gap-3 text-sm text-[#CBFF00]">
                       <Clock className="h-4 w-4" />
-                      <span className="font-semibold uppercase tracking-wide">18:15 hs</span>
+                      <span className="font-semibold uppercase tracking-wide">17:30 hs</span>
                     </div>
                     <div className="space-y-2">
                       <h3 className="font-montserrat text-lg font-bold text-slate-50 sm:text-xl">
@@ -301,7 +294,7 @@ const IaParaTodos: React.FC = () => {
                   <CardContent className="flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:gap-6 sm:p-6">
                     <div className="flex items-center gap-3 text-sm text-sky-300">
                       <Clock className="h-4 w-4" />
-                      <span className="font-semibold uppercase tracking-wide">18:50 hs</span>
+                      <span className="font-semibold uppercase tracking-wide">18:05 hs</span>
                     </div>
                     <div className="space-y-2">
                       <h3 className="font-montserrat text-lg font-bold text-slate-50 sm:text-xl">
@@ -319,7 +312,7 @@ const IaParaTodos: React.FC = () => {
                   <CardContent className="flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:gap-6 sm:p-6">
                     <div className="flex items-center gap-3 text-sm text-emerald-300">
                       <Clock className="h-4 w-4" />
-                      <span className="font-semibold uppercase tracking-wide">19:30 hs</span>
+                      <span className="font-semibold uppercase tracking-wide">18:45 hs</span>
                     </div>
                     <div className="space-y-2">
                       <h3 className="font-montserrat text-lg font-bold text-slate-50 sm:text-xl">
@@ -375,12 +368,14 @@ const IaParaTodos: React.FC = () => {
 
               <div className="mt-2 flex justify-center md:mt-0">
                 <a
-                  href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
-                  className="luma-checkout--button group flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-[#CBFF00] px-6 py-4 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_24px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
+                  href={LUMA_EVENT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-[#CBFF00] px-6 py-4 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_24px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
                   data-luma-action="checkout"
-                  data-luma-event-id="evt-LuYXNGvAya5sv6b"
+                  data-luma-event-id={LUMA_EVENT_ID}
                 >
-                  Reservar mi lugar solidario
+                  Reservar mi lugar
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
@@ -455,15 +450,15 @@ const IaParaTodos: React.FC = () => {
 
           <div className="mt-8 flex flex-col items-center gap-4">
             <a
-              href="https://lu.ma/event/evt-LuYXNGvAya5sv6b"
-              className="luma-checkout--button group flex w-full max-w-xl items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-10 py-5 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_32px_rgba(203,255,0,0.55)] transition hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
+              href={LUMA_EVENT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex w-full max-w-xl items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-10 py-5 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_32px_rgba(203,255,0,0.55)] transition hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
               data-luma-action="checkout"
-              data-luma-event-id="evt-LuYXNGvAya5sv6b"
+              data-luma-event-id={LUMA_EVENT_ID}
             >
-              <span className="flex w-full items-center justify-center gap-3">
-                RESERVAR MI LUGAR AHORA
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </span>
+              RESERVAR MI LUGAR
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
             <p className="text-xs text-slate-400">
               Entradas limitadas. Prioridad por orden de inscripción.
