@@ -350,8 +350,9 @@ const IaParaTodos: React.FC = () => {
                   ❤️ Navidad Solidaria con T-Ayudo Argentina
                 </h2>
                 <p className="text-sm text-slate-100 sm:text-base">
-                  En Labora creemos que la tecnología debe servir para mejorar vidas. Por eso nos aliamos con{' '}
-                  <span className="font-semibold">T-Ayudo Argentina</span>.
+                  En Labora creemos que la tecnología debe servir para mejorar vidas. Por eso nos sumamos a la causa{' '}
+                  <span className="font-semibold">Navidad Solidaria</span> por una Argentina sin hambre del grupo{' '}
+                  <span className="font-semibold">T-Ayudo</span>.
                 </p>
 
                 <div className="mt-2 rounded-2xl border border-pink-400/40 bg-pink-500/10 p-4 text-sm text-slate-50 sm:text-base">
