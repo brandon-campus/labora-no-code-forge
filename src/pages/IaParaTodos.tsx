@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -16,24 +16,9 @@ import {
   Rocket,
 } from 'lucide-react';
 
-const LUMA_EVENT_ID = 'evt-LuYXNGvAya5sv6b';
-const LUMA_EVENT_URL = `https://lu.ma/event/${LUMA_EVENT_ID}`;
+const TALLY_URL = 'https://tally.so/r/VLGbyl';
 
 const IaParaTodos: React.FC = () => {
-  // Cargar el script de Luma para el botón de checkout
-  useEffect(() => {
-    if (document.getElementById('luma-checkout')) return;
-    const script = document.createElement('script');
-    script.id = 'luma-checkout';
-    script.src = 'https://embed.lu.ma/checkout-button.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      const existing = document.getElementById('luma-checkout');
-      if (existing) existing.remove();
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
       {/* URGENCY BAR */}
@@ -77,12 +62,10 @@ const IaParaTodos: React.FC = () => {
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
-                  href={LUMA_EVENT_URL}
+                  href={TALLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex w-full max-w-md items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-8 py-4 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_25px_rgba(203,255,0,0.4)] transition-transform hover:-translate-y-0.5 hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
-                  data-luma-action="checkout"
-                  data-luma-event-id={LUMA_EVENT_ID}
                 >
                   <Sparkles className="h-5 w-5" />
                   RESERVAR MI LUGAR
@@ -369,12 +352,10 @@ const IaParaTodos: React.FC = () => {
 
               <div className="mt-2 flex justify-center md:mt-0">
                 <a
-                  href={LUMA_EVENT_URL}
+                  href={TALLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-[#CBFF00] px-6 py-4 text-sm font-bold uppercase tracking-wide text-slate-950 shadow-[0_0_24px_rgba(203,255,0,0.5)] transition hover:bg-[#b4e600]"
-                  data-luma-action="checkout"
-                  data-luma-event-id={LUMA_EVENT_ID}
                 >
                   Reservar mi lugar
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -451,12 +432,10 @@ const IaParaTodos: React.FC = () => {
 
           <div className="mt-8 flex flex-col items-center gap-4">
             <a
-              href={LUMA_EVENT_URL}
+              href={TALLY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex w-full max-w-xl items-center justify-center gap-3 rounded-full bg-[#CBFF00] px-10 py-5 text-base font-extrabold uppercase tracking-wide text-slate-950 shadow-[0_0_32px_rgba(203,255,0,0.55)] transition hover:bg-[#b4e600] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFF00]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:text-lg"
-              data-luma-action="checkout"
-              data-luma-event-id={LUMA_EVENT_ID}
             >
               RESERVAR MI LUGAR
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />

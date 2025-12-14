@@ -2,12 +2,29 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle2, Calendar, Clock, MapPin, Download, Ticket, Info, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const TICKET_URL = 'https://example.com/entrada-ia-para-todos.pdf'; // TODO: Reemplazar por URL real de la entrada
+const STORAGE_PREFIX = 'ia-para-todos:ticket:';
 
 const IaParaTodosGracias: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleDownloadTicket = () => {
-    window.open(TICKET_URL, '_blank', 'noopener,noreferrer');
+    const id = typeof crypto !== 'undefined' && 'randomUUID' in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+    const ticket = {
+      id,
+      createdAt: new Date().toISOString(),
+      eventName: 'IA para Todos by Labora',
+      dateText: 'Domingo 14 de diciembre',
+      timeText: '18:15 a 20:00 hs (acreditación desde las 18:00 hs)',
+      locationText: 'Auditorio Servant · Av. Corrientes 3621, CABA',
+    };
+
+    localStorage.setItem(`${STORAGE_PREFIX}${id}`, JSON.stringify(ticket));
+    navigate(`/ia-para-todos/entrada/${id}`);
   };
 
   return (
