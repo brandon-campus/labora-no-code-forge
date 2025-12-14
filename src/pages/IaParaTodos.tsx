@@ -443,7 +443,7 @@ const IaParaTodos: React.FC = () => {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#CBFF00]">Cierre</p>
           <h2 className="mt-3 font-montserrat text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
-            No te quedes afuera. Solo 70 lugares.
+            No te quedes afuera. Solo 40 lugares.
           </h2>
           <p className="mt-4 text-sm text-slate-300 sm:text-base">
             Auditorio Servant (Av. Corrientes 3621, CABA).
