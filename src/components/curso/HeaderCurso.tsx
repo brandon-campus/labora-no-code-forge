@@ -9,10 +9,10 @@ const HeaderCurso = ({ nombre, onPerfil, onLogout }: { nombre: string; onPerfil:
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       // Solo cerrar si el clic NO está dentro del menú ni en el botón
-      if (menuRef.current && 
-          !menuRef.current.contains(e.target as Node) && 
-          buttonRef.current && 
-          !buttonRef.current.contains(e.target as Node)) {
+      if (menuRef.current &&
+        !menuRef.current.contains(e.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target as Node)) {
         setOpen(false);
       }
     };
@@ -20,7 +20,7 @@ const HeaderCurso = ({ nombre, onPerfil, onLogout }: { nombre: string; onPerfil:
     if (open) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-    
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -28,7 +28,7 @@ const HeaderCurso = ({ nombre, onPerfil, onLogout }: { nombre: string; onPerfil:
 
   const handleBootcampClick = () => {
     // Redirigir a la página del bootcamp
-    window.location.href = '/bootcamp/quiero-crear-con-ia';
+    window.location.href = 'https://wa.me/5491138142899?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code';
   };
 
   const handlePerfilClick = (e: React.MouseEvent) => {
@@ -50,9 +50,9 @@ const HeaderCurso = ({ nombre, onPerfil, onLogout }: { nombre: string; onPerfil:
     <header className="w-full bg-white/10 backdrop-blur-lg border-b border-labora-neon/20 flex justify-between items-center px-4 sm:px-8 py-3 sm:py-4 shadow-lg">
       {/* Logo de Labora */}
       <div className="flex items-center">
-        <img 
-          src="/lovable-uploads/logolabora.webp" 
-          alt="Labora Logo" 
+        <img
+          src="/lovable-uploads/logolabora.webp"
+          alt="Labora Logo"
           className="h-8 sm:h-10 w-auto"
         />
         <span className="ml-2 sm:ml-3 text-white font-bold text-sm sm:text-base hidden sm:block">
@@ -81,9 +81,9 @@ const HeaderCurso = ({ nombre, onPerfil, onLogout }: { nombre: string; onPerfil:
             <span className="sm:hidden">{nombre.split(' ')[0]}</span>
             <ChevronDown size={16} className="sm:w-[18px] sm:h-[18px]" />
           </button>
-          
+
           {open && (
-            <div 
+            <div
               ref={menuRef}
               className="absolute right-0 mt-2 w-32 sm:w-40 bg-white/10 backdrop-blur-lg border border-labora-neon/20 rounded-lg shadow-lg z-50"
             >

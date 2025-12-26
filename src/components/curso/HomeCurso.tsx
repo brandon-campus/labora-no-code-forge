@@ -249,7 +249,7 @@ const HomeCurso = ({
 
             {/* CTA Principal */}
             <button
-              onClick={() => window.open('/bootcamp/quiero-crear-con-ia', '_blank')}
+              onClick={() => window.open('https://wa.me/5491138142899?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code', '_blank')}
               className="bg-gradient-to-r from-labora-red to-labora-red/80 hover:from-labora-red/90 hover:to-labora-red/70 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-labora-red/30 mb-4"
             >
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
