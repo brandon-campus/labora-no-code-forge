@@ -27,6 +27,7 @@ import FormularioBootcamp from './pages/FormularioBootcamp';
 import IaParaTodos from "./pages/IaParaTodos";
 import IaParaTodosGracias from "./pages/IaParaTodosGracias";
 import IaParaTodosEntrada from "./pages/IaParaTodosEntrada";
+import ClaseGratuitaIA from "./pages/ClaseGratuitaIA";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/curso-campus" element={<CursoCampusPage />} />
           <Route path="/post-aplicacion" element={<PostAplicacion />} />
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
+          <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
