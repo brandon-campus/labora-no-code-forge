@@ -78,20 +78,20 @@ const CursoCampus = () => {
     try {
       // Considerar los primeros 9 módulos (gratuitos)
       const modulosGratuitos = lecciones.slice(0, 9);
-      
+
       // Si no hay módulos, mostrar título por defecto
       if (modulosGratuitos.length === 0) {
         return 0;
       }
-      
+
       const modulosGratuitosIds = modulosGratuitos.map(l => l.id);
-      
+
       // Contar cuántos módulos gratuitos están completados
       const completadosGratuitos = completadas.filter(id => modulosGratuitosIds.includes(id));
-      
+
       // Calcular progreso basado en módulos gratuitos (1-9)
       return (completadosGratuitos.length / modulosGratuitos.length) * 100;
-      
+
     } catch (error) {
       console.error('Error al calcular progreso:', error);
       return 0;
@@ -103,31 +103,31 @@ const CursoCampus = () => {
     try {
       // Considerar módulos gratuitos (1-9)
       const modulosGratuitos = lecciones.slice(0, 9);
-      
+
       // Si no hay módulos, mostrar título por defecto
       if (modulosGratuitos.length === 0) {
         return 'Curso On Demand de IA y No Code';
       }
-      
+
       const modulosGratuitosIds = modulosGratuitos.map(l => l.id);
-      
+
       // Si no ha completado ningún módulo gratuito, mostrar el primero
       if (completadas.length === 0) {
         return modulosGratuitos[0]?.titulo || 'Curso On Demand de IA y No Code';
       }
-      
+
       // Contar cuántos módulos gratuitos están completados
       const completadosGratuitos = completadas.filter(id => modulosGratuitosIds.includes(id));
-      
+
       // Si completó todos los módulos gratuitos
       if (completadosGratuitos.length >= modulosGratuitos.length) {
         return '¡Módulos gratuitos completados!';
       }
-      
+
       // Si no, mostrar el siguiente módulo a completar
       const siguienteModulo = modulosGratuitos[completadosGratuitos.length];
       return siguienteModulo?.titulo || 'Curso On Demand de IA y No Code';
-      
+
     } catch (error) {
       console.error('Error al obtener módulo actual:', error);
       return 'Curso On Demand de IA y No Code';
@@ -141,26 +141,26 @@ const CursoCampus = () => {
   const handleLogout = async () => {
     try {
       console.log('Iniciando logout...');
-      
+
       // Cerrar sesión en Supabase
       const { error } = await supabase.auth.signOut();
-      
+
       if (error) {
         console.error('Error al cerrar sesión:', error);
         alert('Error al cerrar sesión. Inténtalo de nuevo.');
         return;
       }
-      
+
       console.log('Sesión cerrada exitosamente');
-      
+
       // Limpiar datos locales
       setPerfil(null);
       setLecciones([]);
       setCompletadas([]);
-      
+
       // Redirigir a login
       window.location.href = '/login-curso';
-      
+
     } catch (error) {
       console.error('Error inesperado en logout:', error);
       alert('Error inesperado. Inténtalo de nuevo.');
@@ -170,14 +170,14 @@ const CursoCampus = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/tech-grid.svg')] bg-repeat opacity-10 pointer-events-none"></div>
-      
+
       {/* Header */}
       <HeaderCurso
         nombre={perfil?.nombre || 'Alumno'}
         onPerfil={() => alert('Ir a perfil (pendiente)')}
         onLogout={handleLogout}
       />
-      
+
       {/* Contenido principal */}
       <main className="flex-1 relative z-10">
         {vista === 'home' && (
@@ -190,7 +190,7 @@ const CursoCampus = () => {
             lecciones={lecciones}
           />
         )}
-        
+
         {vista === 'lecciones' && lecciones.length > 0 && (
           <div className="w-full flex flex-col items-center justify-center min-h-screen pt-16 sm:pt-20 pb-20 px-4 sm:px-6">
             {leccionActiva && (() => {
@@ -200,26 +200,44 @@ const CursoCampus = () => {
                 return (
                   <>
                     {/* Video grande y centrado */}
-                    {lec.url_video && (
-                      <div className="mb-4 sm:mb-6 w-full flex justify-center">
-                        <div className="aspect-w-16 aspect-h-9 w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-labora-neon/30 bg-white/5 backdrop-blur-sm">
-                          <iframe
-                            src={lec.url_video.includes('tella.tv') ? lec.url_video + '/embed' : lec.url_video}
-                            title={lec.titulo}
-                            allow="autoplay; encrypted-media"
-                            allowFullScreen
-                            className="w-full h-[50vw] sm:h-[40vw] min-h-[200px] sm:min-h-[300px] max-h-[60vh] sm:max-h-[70vh] border-none bg-black"
-                          />
+                    {lec.url_video && (() => {
+                      // Función auxiliar para procesar URLs de video
+                      const getEmbedUrl = (url: string) => {
+                        if (!url) return '';
+
+                        if (url.includes('tella.tv')) {
+                          // Eliminar slash final si existe
+                          let cleanUrl = url.replace(/\/$/, '');
+                          // Si ya tiene /embed, no agregarlo
+                          if (cleanUrl.endsWith('/embed')) return cleanUrl;
+                          // Si no, agregarlo
+                          return `${cleanUrl}/embed`;
+                        }
+
+                        return url;
+                      };
+
+                      return (
+                        <div className="mb-4 sm:mb-6 w-full flex justify-center">
+                          <div className="aspect-w-16 aspect-h-9 w-full max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-labora-neon/30 bg-white/5 backdrop-blur-sm">
+                            <iframe
+                              src={getEmbedUrl(lec.url_video)}
+                              title={lec.titulo}
+                              allow="autoplay; encrypted-media"
+                              allowFullScreen
+                              className="w-full h-[50vw] sm:h-[40vw] min-h-[200px] sm:min-h-[300px] max-h-[60vh] sm:max-h-[70vh] border-none bg-black"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    )}
-                    
+                      );
+                    })()}
+
                     {/* Título y descripción debajo del video */}
                     <div className="w-full max-w-4xl mx-auto text-left mb-4 sm:mb-6">
                       <h1 className="text-lg sm:text-xl font-bold text-white mb-1">{lec.titulo}</h1>
                       {lec.descripcion && <div className="mb-3 text-gray-300 text-sm sm:text-base">{lec.descripcion}</div>}
                     </div>
-                    
+
                     {/* Navegación y progreso */}
                     <div className="flex flex-col items-center w-full max-w-4xl mx-auto">
                       <div className="flex items-center justify-between w-full mb-4 sm:mb-6 gap-2 sm:gap-4">
@@ -238,7 +256,7 @@ const CursoCampus = () => {
                           Siguiente →
                         </button>
                       </div>
-                      
+
                       {/* Barra de progreso animada */}
                       <div className="w-full mb-4 sm:mb-6">
                         <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
@@ -246,14 +264,14 @@ const CursoCampus = () => {
                         </div>
                         <div className="text-xs text-gray-300 font-semibold mt-1 text-right">{Math.round(progresoReal)}% completado</div>
                       </div>
-                      
+
                       {/* Feedback visual al marcar como completada */}
                       {completadas.includes(leccionActiva) && (
                         <div className="mb-4 p-3 bg-green-100 border border-green-300 rounded-lg text-green-800 font-semibold animate-pulse text-sm sm:text-base">
                           ¡Lección completada!
                         </div>
                       )}
-                      
+
                       {!completadas.includes(leccionActiva) && (
                         <button
                           className="bg-labora-neon text-black font-bold px-4 sm:px-6 py-2 rounded-lg shadow hover:bg-labora-neon/80 transition text-sm sm:text-base shadow-neon-glow"
@@ -262,7 +280,7 @@ const CursoCampus = () => {
                           Marcar como completada
                         </button>
                       )}
-                      
+
                       {completadas.length === lecciones.length && (
                         <div className="mt-6 sm:mt-8 p-3 sm:p-4 bg-green-100 border border-green-300 rounded-lg text-green-800 font-semibold text-sm sm:text-base">
                           ¡Curso completado! Puedes descargar tu certificado.
@@ -308,7 +326,7 @@ const CursoCampus = () => {
           </div>
         )}
       </main>
-      
+
       {/* Botón para volver al home */}
       {vista === 'lecciones' && (
         <button
@@ -317,11 +335,11 @@ const CursoCampus = () => {
           title="Volver al inicio"
         >
           <svg width="24" height="24" className="sm:w-7 sm:h-7" fill="none" viewBox="0 0 24 24">
-            <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
       )}
-      
+
       {/* Soporte o certificado - botones flotantes */}
       <div className="fixed right-4 sm:right-8 bottom-4 sm:bottom-8 z-30 flex flex-col items-end gap-2 sm:gap-4">
         <a href="https://wa.me/5491178519054" target="_blank" rel="noopener noreferrer" className="bg-labora-neon text-black font-bold px-3 sm:px-4 py-2 rounded-lg shadow hover:bg-labora-neon/80 transition text-xs sm:text-sm shadow-neon-glow">Soporte WhatsApp</a>

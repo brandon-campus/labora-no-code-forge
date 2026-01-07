@@ -65,21 +65,35 @@ const ModulesSection: React.FC = () => {
     setExpanded(expanded === id ? null : id);
   };
 
-  // Función para extraer el ID de Google Drive y convertir a embed
-  const getGoogleDriveVideoInfo = (url: string) => {
+  // Función para identificar el proveedor de video (Google Drive o Tella)
+  const getVideoProviderInfo = (url: string) => {
     if (!url) return null;
-    
-    // Extraer ID del archivo de Google Drive
-    const match = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
-    if (!match) return null;
-    
-    const fileId = match[1];
-    return {
-      fileId,
-      thumbnailUrl: `https://drive.google.com/thumbnail?id=${fileId}&sz=w320`,
-      embedUrl: `https://drive.google.com/file/d/${fileId}/preview`,
-      directUrl: url
-    };
+
+    // Google Drive
+    const driveMatch = url.match(/\/file\/d\/([a-zA-Z0-9-_]+)/);
+    if (driveMatch) {
+      const fileId = driveMatch[1];
+      return {
+        type: 'drive',
+        thumbnailUrl: `https://drive.google.com/thumbnail?id=${fileId}&sz=w320`,
+        embedUrl: `https://drive.google.com/file/d/${fileId}/preview`,
+        directUrl: url
+      };
+    }
+
+    // Tella
+    if (url.includes('tella.tv')) {
+      let cleanUrl = url.replace(/\/$/, '');
+      const embedUrl = cleanUrl.endsWith('/embed') ? cleanUrl : `${cleanUrl}/embed`;
+      return {
+        type: 'tella',
+        thumbnailUrl: null, // Tella no ofrece thumbnail público fácil
+        embedUrl,
+        directUrl: url
+      };
+    }
+
+    return null;
   };
 
   const openVideoModal = (videoInfo: any, title: string) => {
@@ -145,57 +159,71 @@ const ModulesSection: React.FC = () => {
                   <div className="w-full">
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                        <Play className="mr-3 h-6 w-6 text-labora-neon" /> 
+                        <Play className="mr-3 h-6 w-6 text-labora-neon" />
                         Video de la Clase
                       </h3>
                       <p className="text-gray-400">Haz clic en el preview o en el botón para ver el contenido</p>
                     </div>
                     {mod.video_url ? (
                       (() => {
-                        const videoInfo = getGoogleDriveVideoInfo(mod.video_url);
+                        const videoInfo = getVideoProviderInfo(mod.video_url);
                         return videoInfo ? (
                           <div className="bg-gray-800 rounded-lg overflow-hidden">
                             {/* Preview del video */}
                             <div className="relative aspect-video bg-gray-900">
-                              <img
-                                src={videoInfo.thumbnailUrl}
-                                alt="Preview del video"
-                                className="w-full h-full object-cover"
-                                onError={(e) => {
-                                  // Fallback si no se puede cargar el thumbnail
-                                  const target = e.currentTarget as HTMLImageElement;
-                                  target.style.display = 'none';
-                                  const fallback = target.nextElementSibling as HTMLElement;
-                                  if (fallback) fallback.style.display = 'flex';
-                                }}
-                              />
-                              {/* Fallback overlay */}
-                              <div className="absolute inset-0 bg-gray-800 flex items-center justify-center" style={{display: 'none'}}>
-                                <Play className="h-12 w-12 text-labora-neon" />
-                              </div>
-                              {/* Play overlay */}
-                              <div 
-                                className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
+                              {videoInfo.thumbnailUrl ? (
+                                <>
+                                  <img
+                                    src={videoInfo.thumbnailUrl}
+                                    alt="Preview del video"
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                      // Fallback si no se puede cargar el thumbnail
+                                      const target = e.currentTarget as HTMLImageElement;
+                                      target.style.display = 'none';
+                                      const fallback = target.nextElementSibling as HTMLElement;
+                                      if (fallback) fallback.style.display = 'flex';
+                                    }}
+                                  />
+                                  <div className="absolute inset-0 bg-gray-800 flex items-center justify-center" style={{ display: 'none' }}>
+                                    <Play className="h-12 w-12 text-labora-neon" />
+                                  </div>
+                                </>
+                              ) : (
+                                /* Fallback para proveedores sin thumbnail (Tella) */
+                                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex flex-col items-center justify-center">
+                                  <div className="bg-labora-neon/10 p-4 rounded-full mb-3 animate-pulse">
+                                    <Play className="h-12 w-12 text-labora-neon ml-1" />
+                                  </div>
+                                  <p className="text-gray-400 font-medium">Click para reproducir</p>
+                                </div>
+                              )}
+
+                              {/* Play overlay - Clickable area */}
+                              <div
+                                className="absolute inset-0 bg-black/10 hover:bg-black/40 flex items-center justify-center transition-all cursor-pointer group"
                                 onClick={() => openVideoModal(videoInfo, mod.titulo)}
                               >
-                                <div className="bg-labora-neon/90 rounded-full p-3">
-                                  <Play className="h-8 w-8 text-gray-900 fill-current" />
-                                </div>
+                                {videoInfo.thumbnailUrl && (
+                                  <div className="bg-labora-neon/90 rounded-full p-3 transform group-hover:scale-110 transition-transform shadow-lg shadow-black/50">
+                                    <Play className="h-8 w-8 text-gray-900 fill-current ml-1" />
+                                  </div>
+                                )}
                               </div>
                             </div>
                             {/* Botones de acción */}
                             <div className="p-4 space-y-2">
-                              <p className="text-gray-300 text-sm mb-3">Video disponible</p>
+                              <p className="text-gray-300 text-sm mb-3">Video disponible • {videoInfo.type === 'tella' ? 'Tella.tv' : 'Google Drive'}</p>
                               <div className="flex gap-2">
-                                <Button 
-                                  className="flex-1 bg-labora-red hover:bg-labora-red/90"
+                                <Button
+                                  className="flex-1 bg-labora-red hover:bg-labora-red/90 font-bold"
                                   onClick={() => openVideoModal(videoInfo, mod.titulo)}
                                 >
                                   <Play className="mr-2 h-4 w-4" />
                                   Ver Video
                                 </Button>
                                 <a href={videoInfo.directUrl} target="_blank" rel="noopener noreferrer">
-                                  <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700" title="Abrir en Google Drive">
+                                  <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700" title="Abrir enlace original">
                                     <ExternalLink className="h-4 w-4" />
                                   </Button>
                                 </a>
@@ -219,7 +247,7 @@ const ModulesSection: React.FC = () => {
                         <p className="text-gray-400">Video no disponible aún</p>
                       </div>
                     )}
-                    
+
                     {/* Botón para marcar como completado */}
                     <div className="mt-8 flex justify-center">
                       {!progress[mod.id]?.completado ? (
@@ -241,8 +269,8 @@ const ModulesSection: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                  )}
-                </div>
+              )}
+            </div>
           </li>
         ))}
       </ul>
@@ -260,9 +288,9 @@ const ModulesSection: React.FC = () => {
                 </h3>
               </div>
               <div className="flex items-center gap-2">
-                <a 
-                  href={videoModal.videoInfo?.directUrl} 
-                  target="_blank" 
+                <a
+                  href={videoModal.videoInfo?.directUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 text-gray-400 hover:text-labora-neon transition-colors"
                   title="Abrir en Google Drive"
@@ -278,7 +306,7 @@ const ModulesSection: React.FC = () => {
                 </button>
               </div>
             </div>
-            
+
             {/* Contenido del Video */}
             <div className="relative aspect-video bg-black">
               {videoModal.videoInfo && (
@@ -292,7 +320,7 @@ const ModulesSection: React.FC = () => {
                 />
               )}
             </div>
-            
+
             {/* Footer del Modal */}
             <div className="p-4 bg-gray-800 flex justify-between items-center">
               <p className="text-gray-400 text-sm">
