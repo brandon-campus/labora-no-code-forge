@@ -4,6 +4,7 @@ import { BookOpen, Users, User, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import NextClassWidget from './NextClassWidget';
 
 // Hook para obtener y actualizar datos reales del perfil desde la tabla 'profiles'
 const useProfile = () => {
@@ -72,6 +73,10 @@ const Dashboard: React.FC<{ onNavigate?: (section: string) => void }> = ({ onNav
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold text-white mb-6">¡Bienvenido/a, {userName}!</h1>
+
+      {/* Widget de Próxima Clase */}
+      <NextClassWidget />
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {dashboardCards.map(card => {
           const Icon = card.icon;

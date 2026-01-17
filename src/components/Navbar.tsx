@@ -13,7 +13,7 @@ declare global {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -21,14 +21,14 @@ const Navbar = () => {
   const handleComenzarClick = () => {
     fbqTrack('NavbarComenzarClick');
     if (window.gtag) {
-      window.gtag('event', 'comenzar_ahora_click', {
+      window.gtag('event', 'aplicar_ahora_click', {
         event_category: 'engagement',
         event_label: 'Navbar',
         value: 1
       });
     }
     // Redirigir a formulario de bootcamp
-    window.location.href = '/formulario-bootcamp';
+    window.location.href = 'https://tally.so/r/w49bBo';
   };
 
   const navItems = [{
@@ -61,7 +61,7 @@ const Navbar = () => {
               <img src="/lovable-uploads/logolabora.webp" alt="Labora" className="h-8" />
             </Link>
           </div>
-          
+
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-2">
               {navItems.map((item, index) => (
@@ -69,15 +69,15 @@ const Navbar = () => {
                   {item.label}
                 </a>
               ))}
-              <Button 
+              <Button
                 onClick={handleComenzarClick}
                 className="bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase"
               >
-                COMENZAR AHORA
+                APLICAR AHORA
               </Button>
             </div>
           </div>
-          
+
           <div className="md:hidden">
             <button onClick={toggleMenu} className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white focus:outline-none">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,7 +85,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-labora-dark border-b border-gray-800">
@@ -95,14 +95,14 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            <Button 
+            <Button
               onClick={() => {
                 handleComenzarClick();
                 toggleMenu();
               }}
               className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase mt-2"
             >
-              COMENZAR AHORA
+              APLICAR AHORA
             </Button>
           </div>
         </div>

@@ -21,7 +21,7 @@ const ContactSection = () => {
             <p className="text-gray-300 text-lg mb-8">
               Completa el formulario y nos pondremos en contacto contigo para darte toda la información sobre nuestro programa.
             </p>
-            
+
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -32,7 +32,7 @@ const ContactSection = () => {
                   <p className="text-gray-300">Programa intensivo de 4 semanas</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <BookOpen className="h-5 w-5 text-labora-red" />
@@ -42,7 +42,7 @@ const ContactSection = () => {
                   <p className="text-gray-300">Clases 100% en vivo, 3 veces por semana</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <Users className="h-5 w-5 text-labora-red" />
@@ -52,7 +52,7 @@ const ContactSection = () => {
                   <p className="text-gray-300">Entrenadores especializados en IA y No-Code</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <Rocket className="h-5 w-5 text-labora-red" />
@@ -64,24 +64,24 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 animate-fade-in-up">
             <h3 className="text-2xl font-bold mb-6 text-labora-dark">¿Listo para iniciar con IA y No Code?</h3>
-            
+
             <div className="space-y-6">
               <a
-                href="/formulario-bootcamp"
+                href="https://tally.so/r/w49bBo"
                 className="block"
               >
                 <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">
-                  COMENZAR AHORA
+                  APLICAR AHORA
                 </Button>
               </a>
-              
+
               <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">10 de diciembre, 2024</span>
+                Fecha límite de inscripción: <span className="font-semibold">29 de enero</span>
               </p>
-              
+
               <div className="border-t border-gray-100 pt-6 mt-6">
                 <p className="text-gray-500 text-center">
                   También puedes contactarnos directamente a <a href="mailto:info@labora.tech" className="text-labora-red hover:underline">info@labora.tech</a>
