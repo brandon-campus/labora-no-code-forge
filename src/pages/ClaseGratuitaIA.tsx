@@ -3,8 +3,8 @@ import { ArrowRight, CheckCircle, Play, Star } from 'lucide-react';
 
 const ClaseGratuitaIA = () => {
 
-    const handleWhatsAppClick = () => {
-        window.open('https://wa.me/5491138142899?text=Hola,%20vi%20la%20clase%20gratuita%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp', '_blank');
+    const handleBootcampClick = () => {
+        window.location.href = '/bootcamp';
     };
 
     return (
@@ -84,14 +84,14 @@ const ClaseGratuitaIA = () => {
                         </p>
                         <div className="space-y-4">
                             <button
-                                onClick={handleWhatsAppClick}
+                                onClick={handleBootcampClick}
                                 className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-3 group"
                             >
-                                <span>Quiero más info por WhatsApp</span>
+                                <span>Ver Bootcamp Completo</span>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
                             <p className="text-center text-xs text-gray-500">
-                                Habla directamente con un asesor de admisiones.
+                                Inscríbete ahora y asegura tu lugar.
                             </p>
                         </div>
                     </div>
