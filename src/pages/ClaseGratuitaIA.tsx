@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
+import { supabase } from '@/lib/supabaseClient';
+
 const ClaseGratuitaIA = () => {
     const [isUnlocked, setIsUnlocked] = useState(false);
     const [showDialog, setShowDialog] = useState(false);
@@ -12,6 +14,7 @@ const ClaseGratuitaIA = () => {
         email: '',
         whatsapp: ''
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         const unlocked = localStorage.getItem('class_unlocked');
@@ -24,12 +27,35 @@ const ClaseGratuitaIA = () => {
         window.location.href = '/bootcamp';
     };
 
-    const handleUnlock = (e: React.FormEvent) => {
+    const handleUnlock = async (e: React.FormEvent) => {
         e.preventDefault();
         if (formData.email && formData.whatsapp) {
-            localStorage.setItem('class_unlocked', 'true');
-            setIsUnlocked(true);
-            setShowDialog(false);
+            setIsSubmitting(true);
+
+            try {
+                // Intentamos guardar en Supabase
+                const { error } = await supabase
+                    .from('leads')
+                    .insert([
+                        {
+                            email: formData.email,
+                            whatsapp: formData.whatsapp,
+                            source: 'clase_gratuita'
+                        }
+                    ]);
+
+                if (error) {
+                    console.error('Error saving lead:', error);
+                }
+            } catch (err) {
+                console.error('Unexpected error saving lead:', err);
+            } finally {
+                // Desbloqueamos de todas formas para no trabar al usuario
+                localStorage.setItem('class_unlocked', 'true');
+                setIsUnlocked(true);
+                setShowDialog(false);
+                setIsSubmitting(false);
+            }
         }
     };
 
@@ -74,8 +100,12 @@ const ClaseGratuitaIA = () => {
                                 onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                             />
                         </div>
-                        <Button type="submit" className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold mt-2">
-                            DESBLOQUEAR AHORA
+                        <Button
+                            type="submit"
+                            className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold mt-2"
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'PROCESANDO...' : 'DESBLOQUEAR AHORA'}
                         </Button>
                     </form>
                     <p className="text-xs text-center text-gray-500 mt-2">
