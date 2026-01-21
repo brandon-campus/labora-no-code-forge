@@ -1,14 +1,89 @@
-import React from 'react';
-import { ArrowRight, CheckCircle, Play, Star } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, CheckCircle, Play, Star, Lock } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 const ClaseGratuitaIA = () => {
+    const [isUnlocked, setIsUnlocked] = useState(false);
+    const [showDialog, setShowDialog] = useState(false);
+    const [formData, setFormData] = useState({
+        email: '',
+        whatsapp: ''
+    });
+
+    useEffect(() => {
+        const unlocked = localStorage.getItem('class_unlocked');
+        if (unlocked === 'true') {
+            setIsUnlocked(true);
+        }
+    }, []);
 
     const handleBootcampClick = () => {
         window.location.href = '/bootcamp';
     };
 
+    const handleUnlock = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (formData.email && formData.whatsapp) {
+            localStorage.setItem('class_unlocked', 'true');
+            setIsUnlocked(true);
+            setShowDialog(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative overflow-hidden font-sans text-white">
+            {/* Lead Capture Dialog */}
+            <Dialog open={showDialog} onOpenChange={setShowDialog}>
+                <DialogContent className="sm:max-w-[425px] bg-gray-900 border-gray-800 text-white [&>button]:hidden">
+                    <DialogHeader>
+                        <DialogTitle className="text-2xl font-bold text-center text-white flex flex-col items-center gap-4">
+                            <div className="w-12 h-12 bg-labora-neon/20 rounded-full flex items-center justify-center">
+                                <Lock className="w-6 h-6 text-labora-neon" />
+                            </div>
+                            Desbloquear Clase Gratuita
+                        </DialogTitle>
+                        <DialogDescription className="text-center text-gray-400">
+                            Ingresa tus datos para acceder inmediatamente al entrenamiento sobre creación de productos con IA.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <form onSubmit={handleUnlock} className="grid gap-4 py-4">
+                        <div className="grid gap-2">
+                            <Label htmlFor="email" className="text-gray-200">Correo Electrónico</Label>
+                            <Input
+                                id="email"
+                                type="email"
+                                placeholder="tu@email.com"
+                                required
+                                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                                value={formData.email}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            />
+                        </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="whatsapp" className="text-gray-200">WhatsApp</Label>
+                            <Input
+                                id="whatsapp"
+                                type="tel"
+                                placeholder="+54 9 11..."
+                                required
+                                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                                value={formData.whatsapp}
+                                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                            />
+                        </div>
+                        <Button type="submit" className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold mt-2">
+                            DESBLOQUEAR AHORA
+                        </Button>
+                    </form>
+                    <p className="text-xs text-center text-gray-500 mt-2">
+                        Tus datos están seguros. No enviamos spam.
+                    </p>
+                </DialogContent>
+            </Dialog>
+
             {/* Background Elements */}
             <div className="absolute inset-0 bg-[url('/tech-grid.svg')] bg-repeat opacity-10 pointer-events-none"></div>
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-labora-neon/20 rounded-full blur-[128px] pointer-events-none"></div>
@@ -45,6 +120,20 @@ const ClaseGratuitaIA = () => {
                 {/* Video Section */}
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-labora-neon/20 bg-black mb-12 sm:mb-16 aspect-video group">
                     <div className="absolute inset-0 bg-labora-neon/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20"></div>
+
+                    {/* Locked Overlay */}
+                    {!isUnlocked && (
+                        <div
+                            className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm cursor-pointer hover:bg-black/50 transition-all"
+                            onClick={() => setShowDialog(true)}
+                        >
+                            <div className="w-20 h-20 bg-labora-neon rounded-full flex items-center justify-center shadow-lg shadow-labora-neon/30 transform transition-transform group-hover:scale-110 mb-4">
+                                <Play className="w-8 h-8 text-black fill-black ml-1" />
+                            </div>
+                            <p className="text-white font-bold text-lg drop-shadow-md">Hacer clic para ver la clase</p>
+                        </div>
+                    )}
+
                     <iframe
                         src="https://www.tella.tv/video/creacion-de-productos-con-ia-4p5u/embed?autoplay=0&share=0"
                         title="Clase Gratuita: Creación de Productos con IA"
