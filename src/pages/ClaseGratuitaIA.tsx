@@ -144,44 +144,50 @@ const ClaseGratuitaIA = () => {
                 </div>
 
                 {/* Value Content */}
-                <div className="grid md:grid-cols-2 gap-8 mb-16">
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8">
-                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                            <CheckCircle className="text-labora-neon w-6 h-6" />
-                            Lo que aprenderás hoy
-                        </h3>
-                        <ul className="space-y-4 text-gray-300">
-                            <li className="flex gap-3">
-                                <span className="bg-labora-neon/20 text-labora-neon w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold mt-0.5">1</span>
-                                <span>Cómo validar ideas de negocio usando Inteligencia Artificial antes de escribir código.</span>
-                            </li>
-                            <li className="flex gap-3">
-                                <span className="bg-labora-neon/20 text-labora-neon w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold mt-0.5">2</span>
-                                <span>Prototipado rápido con herramientas No-Code modernas.</span>
-                            </li>
-                            <li className="flex gap-3">
-                                <span className="bg-labora-neon/20 text-labora-neon w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold mt-0.5">3</span>
-                                <span>Estrategias de lanzamiento para conseguir tus primeros usuarios.</span>
-                            </li>
-                        </ul>
-                    </div>
+                {/* Value Content - Redesigned as Learning Path */}
+                <div className="max-w-3xl mx-auto mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-8">Tu Ruta de Aprendizaje</h3>
 
-                    <div className="flex flex-col justify-center">
-                        <h3 className="text-2xl font-bold mb-4">¿Te gustaría dominar estas herramientas por completo?</h3>
-                        <p className="text-gray-400 mb-6">
-                            Esta clase es solo una pequeña muestra de lo que aprendemos en el <strong>Bootcamp de AI & No-Code</strong>. Entrenamos a profesionales para construir el futuro del software.
-                        </p>
-                        <div className="space-y-4">
-                            <button
-                                onClick={handleBootcampClick}
-                                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-3 group"
-                            >
-                                <span>Ver Bootcamp Completo</span>
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <p className="text-center text-xs text-gray-500">
-                                Inscríbete ahora y asegura tu lugar.
-                            </p>
+                    <div className="relative border-l-2 border-labora-neon/30 ml-4 md:ml-0 md:pl-0 md:border-l-0 md:border-t-2 space-y-8 md:space-y-0 md:flex md:justify-between md:pt-8 bg-gradient-to-b from-transparent via-gray-900/50 to-transparent p-4 rounded-xl">
+                        {/* Step 1: Current Class */}
+                        <div className="relative pl-8 md:pl-0 md:w-1/2 md:pr-8 group">
+                            <div className="absolute left-[-9px] top-0 md:top-[-36px] md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-labora-neon shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl relative opacity-80 hover:opacity-100 transition-opacity">
+                                <div className="text-labora-neon text-xs font-bold uppercase tracking-wider mb-2">Paso 1 (Estás aquí)</div>
+                                <h4 className="text-xl font-bold text-white mb-2">Clase Gratuita: Validación y Prototipado</h4>
+                                <ul className="space-y-2 text-sm text-gray-400">
+                                    <li className="flex gap-2 items-start">
+                                        <CheckCircle className="w-4 h-4 text-labora-neon mt-0.5 shrink-0" />
+                                        <span>Valida ideas con IA sin costo</span>
+                                    </li>
+                                    <li className="flex gap-2 items-start">
+                                        <CheckCircle className="w-4 h-4 text-labora-neon mt-0.5 shrink-0" />
+                                        <span>Prototipa rápido tu solución</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Step 2: The Bootcamp */}
+                        <div className="relative pl-8 md:pl-0 md:w-1/2 md:pl-8">
+                            <div className="absolute left-[-9px] top-0 md:top-[-36px] md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-gray-700 border-2 border-labora-neon animate-pulse"></div>
+                            <div className="bg-gradient-to-br from-gray-900 to-labora-neon/10 border border-labora-neon/30 p-6 rounded-xl relative shadow-lg shadow-labora-neon/5 hover:shadow-labora-neon/10 transition-shadow">
+                                <div className="text-labora-neon text-xs font-bold uppercase tracking-wider mb-2">Paso 2 (Siguiente Nivel)</div>
+                                <h4 className="text-xl font-bold text-white mb-3">Bootcamp AI & No-Code</h4>
+                                <p className="text-gray-400 text-sm mb-4">
+                                    Domina el ciclo completo: Desarrollo, Bases de Datos, Automatización y Lanzamiento.
+                                </p>
+                                <button
+                                    onClick={handleBootcampClick}
+                                    className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 group transition-all"
+                                >
+                                    <span>Ver Programa Completo</span>
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                                <p className="text-center text-[10px] text-gray-500 mt-2">
+                                    El 80% de los asistentes continúa aquí
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
