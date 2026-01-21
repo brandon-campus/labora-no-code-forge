@@ -44,18 +44,18 @@ const DatesSection = () => {
                   <div className="w-10 h-10 bg-labora-red/20 rounded-full flex items-center justify-center mr-3">
                     <Calendar className="h-5 w-5 text-labora-red" />
                   </div>
-                  <h4 className="font-semibold text-white text-lg">Fechas del Programa</h4>
+                  <h4 className="font-semibold text-white text-lg">Próximos Inicios</h4>
                 </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Inicio:</span>
-                    <span className="text-white font-semibold">Jueves 29 de enero</span>
+                <div className="space-y-4">
+                  <div className="bg-white/5 p-3 rounded-lg border border-white/10">
+                    <span className="text-labora-neon font-bold block mb-1">Cohorte 15</span>
+                    <span className="text-white text-sm">Inicio: Miércoles 4 de febrero</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Finalización:</span>
-                    <span className="text-white font-semibold">Viernes 21 de febrero</span>
+                  <div className="bg-white/5 p-3 rounded-lg border border-white/10">
+                    <span className="text-labora-neon font-bold block mb-1">Cohorte 16</span>
+                    <span className="text-white text-sm">Inicio: Miércoles 19 de febrero</span>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-700">
                     <span className="text-gray-300">Duración total:</span>
                     <span className="text-labora-neon font-bold">4 semanas</span>
                   </div>
@@ -68,18 +68,22 @@ const DatesSection = () => {
                   <div className="w-10 h-10 bg-labora-neon/20 rounded-full flex items-center justify-center mr-3">
                     <Clock className="h-5 w-5 text-labora-neon" />
                   </div>
-                  <h4 className="font-semibold text-white text-lg">Horarios</h4>
+                  <h4 className="font-semibold text-white text-lg">Horarios (Arg)</h4>
                 </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Sesiones:</span>
-                    <span className="text-white font-semibold">3 por semana</span>
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-gray-400 text-xs uppercase font-bold block mb-1">Opción A (Cohorte 15)</span>
+                    <div className="flex justify-between items-start text-sm">
+                      <span className="text-white">Mié 10-12hs + Sáb 10-14hs</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Duración:</span>
-                    <span className="text-white font-semibold">2 horas c/u</span>
+                  <div>
+                    <span className="text-gray-400 text-xs uppercase font-bold block mb-1">Opción B (Cohorte 16)</span>
+                    <div className="flex justify-between items-start text-sm">
+                      <span className="text-white">Mar, Jue y Vie 10-12hs</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-700 mt-2">
                     <span className="text-gray-300">Dedicación:</span>
                     <span className="text-labora-neon font-bold">6h semanales</span>
                   </div>

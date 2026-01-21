@@ -40,31 +40,43 @@ const PostAplicacion = () => {
           Tu aplicación ha sido recibida correctamente. Estás a un paso de transformar tu carrera profesional.
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2 max-w-2xl mx-auto animate-fade-in-up delay-300">
-          {/* Botón Inscribirse */}
-          <div className="bg-gray-900/50 border border-gray-800 p-8 rounded-2xl hover:border-labora-neon/50 transition-all group">
-            <h3 className="text-lg font-bold mb-4 text-white">¿Estás listo para comenzar?</h3>
-            <p className="text-gray-400 text-sm mb-6">Confirma tu inscripción ahora mismo y asegura tu lugar en la próxima cohorte.</p>
+        <div className="flex flex-col gap-6 max-w-2xl mx-auto animate-fade-in-up delay-300">
+          {/* Botón Inscribirse - Primary & Larger */}
+          <div className="bg-gray-900/80 border border-labora-neon/30 p-8 md:p-10 rounded-3xl hover:border-labora-neon/60 transition-all group shadow-2xl shadow-labora-neon/5 ring-1 ring-white/5">
+            <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">¿Estás listo para comenzar?</h3>
+            <div className="inline-block bg-labora-neon/20 border border-labora-neon/40 rounded-lg px-6 py-4 mb-4 text-left max-w-md w-full">
+              <p className="text-labora-neon font-bold text-sm mb-2 text-center uppercase tracking-wider">Próximos Inicios Confirmados</p>
+              <ul className="text-gray-300 text-sm space-y-3">
+                <li className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-labora-neon/20 pb-2">
+                  <span className="font-bold text-white">4 de Feb:</span>
+                  <span className="text-gray-400">Mié 10-12hs + Sáb 10-14hs</span>
+                </li>
+                <li className="flex flex-col sm:flex-row sm:items-center justify-between pt-1">
+                  <span className="font-bold text-white">19 de Feb:</span>
+                  <span className="text-gray-400">Mar, Jue, Vie 10-12hs</span>
+                </li>
+              </ul>
+            </div>
+            <p className="text-gray-300 text-base md:text-lg mb-8 max-w-lg mx-auto">Confirma tu inscripción ahora mismo y asegura tu lugar.</p>
             <Button
               onClick={handleInscribirse}
-              className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold py-6 text-lg rounded-xl shadow-lg shadow-labora-neon/10"
+              className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold py-8 text-lg md:text-xl rounded-2xl shadow-xl shadow-labora-neon/20 transform hover:-translate-y-1 transition-all"
             >
-              <CheckCircle className="mr-2 h-5 w-5" />
+              <CheckCircle className="mr-3 h-6 w-6" />
               INSCRIBIRSE AHORA
             </Button>
           </div>
 
-          {/* Botón Más Info */}
-          <div className="bg-gray-900/50 border border-gray-800 p-8 rounded-2xl hover:border-white/30 transition-all group">
-            <h3 className="text-lg font-bold mb-4 text-white">¿Tienes dudas?</h3>
-            <p className="text-gray-400 text-sm mb-6">Habla con nuestro equipo de admisiones para resolver cualquier consulta que tengas.</p>
+          {/* Botón Más Info - Secondary */}
+          <div className="mt-4">
+            <p className="text-gray-400 text-sm mb-4">¿Tienes dudas antes de inscribirte?</p>
             <Button
-              variant="default"
+              variant="outline"
               onClick={handleInfo}
-              className="w-full bg-white text-black hover:bg-gray-200 font-bold py-6 text-lg rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="w-full md:w-auto bg-transparent border border-gray-700 text-gray-300 hover:bg-white hover:text-black hover:border-white font-medium py-3 px-8 text-base rounded-xl transition-all"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
-              HABLAR POR WHATSAPP
+              Hablar con un asesor por WhatsApp
             </Button>
           </div>
         </div>

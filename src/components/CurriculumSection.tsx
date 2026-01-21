@@ -58,14 +58,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 1: DE CERO A APP",
     description: "Fundamentos esenciales para crear tu primera aplicación funcional",
-    week: "Semana 1 (2 al 6 de febrero)",
+    week: "Semana 1 (4 al 7 de febrero)",
     difficulty: "Básico",
     progress: 0,
     sessions: [
       {
         title: "Cursor AI – Tu copiloto 2025",
         description: "Introducción a Cursor AI y cómo aprovechar la IA para desarrollo",
-        date: "Lunes, 2 de febrero",
+        date: "Miércoles, 4 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -74,7 +74,7 @@ const modules: ModuleData[] = [
       {
         title: "GitHub para no técnicos",
         description: "Control de versiones y colaboración en proyectos",
-        date: "Jueves, 5 de febrero",
+        date: "Sábado, 7 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -83,7 +83,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Creación de primera app",
         description: "Sesión práctica para crear tu primera aplicación completa",
-        date: "Viernes, 6 de febrero",
+        date: "Sábado, 7 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -94,14 +94,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 2: DISEÑO DE BASES DE DATOS",
     description: "Construye la arquitectura robusta de tu aplicación",
-    week: "Semana 2 (9 al 13 de febrero)",
+    week: "Semana 2 (11 al 14 de febrero)",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
         title: "Lógica y diseño de bases de datos",
         description: "Fundamentos de modelado de datos y relaciones",
-        date: "Lunes, 9 de febrero",
+        date: "Miércoles, 11 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -110,7 +110,7 @@ const modules: ModuleData[] = [
       {
         title: "Supabase desde cero",
         description: "Implementación y configuración de Supabase",
-        date: "Jueves, 12 de febrero",
+        date: "Sábado, 14 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -119,7 +119,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Dashboards y visualización de datos",
         description: "Creación de dashboards interactivos con datos reales",
-        date: "Viernes, 13 de febrero",
+        date: "Sábado, 14 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -130,14 +130,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 3: IA Y AGENTES",
     description: "Automatización e inteligencia artificial para tu aplicación",
-    week: "Semana 3 (16 al 20 de febrero)",
+    week: "Semana 3 (18 al 21 de febrero)",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
         title: "Automatización con n8n y agentes (Intro)",
         description: "Introducción a la automatización de procesos con n8n",
-        date: "Lunes, 16 de febrero",
+        date: "Miércoles, 18 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -146,7 +146,7 @@ const modules: ModuleData[] = [
       {
         title: "Creación de agentes con IA avanzado",
         description: "Desarrollo de agentes inteligentes para automatización",
-        date: "Jueves, 19 de febrero",
+        date: "Sábado, 21 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -155,7 +155,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Adaptación de agentes a nichos y mercados",
         description: "Personalización de agentes para diferentes industrias",
-        date: "Viernes, 20 de febrero",
+        date: "Sábado, 21 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -166,14 +166,14 @@ const modules: ModuleData[] = [
   {
     title: "FASE 4: USUARIOS, INTEGRACIONES Y DEPLOY",
     description: "Gestión avanzada de usuarios y lanzamiento de tu aplicación",
-    week: "Semana 4 (23 al 27 de febrero)",
+    week: "Semana 4 (25 al 28 de febrero)",
     difficulty: "Avanzado",
     progress: 0,
     sessions: [
       {
         title: "Flujo de usuarios y roles avanzados",
         description: "Sistema de autenticación y gestión de permisos",
-        date: "Lunes, 23 de febrero",
+        date: "Miércoles, 25 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 4,
@@ -182,7 +182,7 @@ const modules: ModuleData[] = [
       {
         title: "Integraciones esenciales y deploy",
         description: "Conexión con servicios externos y despliegue a producción",
-        date: "Jueves, 26 de febrero",
+        date: "Sábado, 28 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 5,
@@ -191,7 +191,7 @@ const modules: ModuleData[] = [
       {
         title: "Pair Programming: Analítica de producto y lanzamiento",
         description: "Implementación de métricas, análisis de uso y estrategias de lanzamiento",
-        date: "Viernes, 27 de febrero",
+        date: "Sábado, 28 de febrero",
         duration: "2h",
         instructor: "Equipo Labora",
         resources: 3,
@@ -243,7 +243,7 @@ const CurriculumSection = () => {
                 <h3 className="text-xl font-bold text-white">Clase de Bienvenida</h3>
               </div>
               <p className="text-gray-300 text-base">
-                <span className="font-semibold text-labora-neon">Jueves, 29 de enero</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa. El primer tema del curriculum comenzará el <span className="font-semibold">Lunes, 2 de febrero</span>.
+                <span className="font-semibold text-labora-neon">Miércoles, 4 de febrero</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa.
               </p>
             </div>
           </div>
