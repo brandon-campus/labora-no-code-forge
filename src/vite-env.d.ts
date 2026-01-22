@@ -3,8 +3,10 @@
 
 declare global {
   interface Window {
-    fbq?: (...args: any[]) => void;
+    fbq?: any;
+    gtag?: (...args: any[]) => void;
+    clarity?: (...args: any[]) => void;
   }
 }
 
-export {};
+export { };

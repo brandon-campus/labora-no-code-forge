@@ -3,13 +3,9 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { fbqTrack } from "@/lib/fbqTrack";
+import { analytics } from "@/lib/analytics";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,14 +15,12 @@ const Navbar = () => {
   };
 
   const handleComenzarClick = () => {
-    fbqTrack('NavbarComenzarClick');
-    if (window.gtag) {
-      window.gtag('event', 'aplicar_ahora_click', {
-        event_category: 'engagement',
-        event_label: 'Navbar',
-        value: 1
-      });
-    }
+    analytics.trackEvent('aplicar_ahora_click', {
+      event_category: 'engagement',
+      event_label: 'Navbar',
+      value: 1
+    });
+
     // Redirigir a formulario de bootcamp
     window.location.href = 'https://tally.so/r/w49bBo';
   };

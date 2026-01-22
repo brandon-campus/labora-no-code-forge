@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowRight, 
-  Play, 
-  Users, 
-  Clock, 
-  Star, 
-  Zap, 
-  CheckCircle, 
-  Rocket, 
-  Code, 
+import {
+  ArrowRight,
+  Play,
+  Users,
+  Clock,
+  Star,
+  Zap,
+  CheckCircle,
+  Rocket,
+  Code,
   Target,
   Brain,
   Sparkles,
@@ -22,16 +22,10 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
-import { fbqTrack } from "@/lib/fbqTrack";
+import { analytics } from "@/lib/analytics";
 import WizardAplicar from '@/components/WizardAplicar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
 
 const BootcampIA = () => {
   const [wizardOpen, setWizardOpen] = useState(false);
@@ -39,14 +33,11 @@ const BootcampIA = () => {
 
   const handleCTAClick = () => {
     setWizardOpen(true);
-    fbqTrack('BootcampIACTA');
-    if (window.gtag) {
-      window.gtag('event', 'bootcamp_ia_cta', {
-        event_category: 'engagement',
-        event_label: 'BootcampIA',
-        value: 1
-      });
-    }
+    analytics.trackEvent('bootcamp_ia_cta', {
+      event_category: 'engagement',
+      event_label: 'BootcampIA',
+      value: 1
+    });
   };
 
   const toggleFAQ = (index: number) => {
@@ -196,7 +187,7 @@ const BootcampIA = () => {
   return (
     <div className="min-h-screen bg-gray-950">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden hero-gradient">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/50 to-gray-950"></div>
@@ -206,16 +197,16 @@ const BootcampIA = () => {
               <Sparkles className="h-4 w-4" />
               <span>Bootcamp de IA y No-Code - 8 Semanas</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6 text-white">
               Domina la <span className="text-labora-neon">Inteligencia Artificial</span> y crea productos <span className="text-labora-red">sin programar</span>
             </h1>
-            
+
             <p className="text-gray-300 text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl mx-auto">
-              Aprende a desarrollar aplicaciones, automatizaciones y productos digitales usando IA y herramientas No-Code. 
+              Aprende a desarrollar aplicaciones, automatizaciones y productos digitales usando IA y herramientas No-Code.
               <strong className="text-white"> Crea proyectos reales</strong> desde la primera clase.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button
                 onClick={handleCTAClick}
@@ -225,7 +216,7 @@ const BootcampIA = () => {
                 INSCRIBIRME AHORA
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
-              
+
               <Button
                 variant="outline"
                 onClick={() => document.getElementById('curriculum')?.scrollIntoView({ behavior: 'smooth' })}
@@ -234,7 +225,7 @@ const BootcampIA = () => {
                 Ver Programa
               </Button>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
               <div className="flex flex-col items-center gap-2">
                 <Users className="h-8 w-8 text-labora-neon" />
@@ -274,7 +265,7 @@ const BootcampIA = () => {
               {beneficios.map((beneficio, index) => {
                 const Icon = beneficio.icon;
                 return (
-                  <div 
+                  <div
                     key={index}
                     className="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-labora-neon/50 transition-all hover:shadow-lg hover:shadow-labora-neon/10"
                   >
@@ -308,7 +299,7 @@ const BootcampIA = () => {
 
             <div className="space-y-6">
               {modulos.map((modulo, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-labora-neon/30 transition-all"
                 >
@@ -351,7 +342,7 @@ const BootcampIA = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {testimonios.map((testimonio, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-gray-800 p-8 rounded-2xl border border-gray-700"
                 >
@@ -386,7 +377,7 @@ const BootcampIA = () => {
 
             <div className="space-y-4">
               {faqItems.map((item, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden"
                 >
@@ -422,10 +413,10 @@ const BootcampIA = () => {
                 ¿Listo para crear tu futuro con <span className="text-labora-neon">IA</span>?
               </h2>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Únete al bootcamp más completo de IA y No-Code de Latinoamérica. 
+                Únete al bootcamp más completo de IA y No-Code de Latinoamérica.
                 Aprende creando proyectos reales desde el primer día.
               </p>
-              
+
               <Button
                 onClick={handleCTAClick}
                 className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-12 py-6 text-xl transition-all shadow-lg shadow-labora-neon/25 uppercase mb-4"
@@ -434,7 +425,7 @@ const BootcampIA = () => {
                 INSCRIBIRME AHORA
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
-              
+
               <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400">
                 <div className="flex items-center gap-2">
                   <Shield className="h-4 w-4 text-labora-neon" />
