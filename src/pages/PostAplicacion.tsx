@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { CheckCircle, Phone, MessageCircle, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { CheckCircle, MessageCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { fbqTrack } from "@/lib/fbqTrack";
 
