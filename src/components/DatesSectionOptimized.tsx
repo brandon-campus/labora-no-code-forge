@@ -43,7 +43,7 @@ const DatesSectionOptimized = () => {
                     <div className="w-12 h-12 bg-labora-neon rounded-2xl flex items-center justify-center shadow-lg">
                       <Star className="h-6 w-6 text-black" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black">Cohorte #14 - En Vivo</h3>
+                    <h3 className="text-2xl sm:text-3xl font-black">Cohorte #17 - En Vivo</h3>
                   </div>
                   <p className="text-gray-300 text-lg">Cupos limitadas</p>
                 </div>
@@ -54,7 +54,7 @@ const DatesSectionOptimized = () => {
                   </div>
                   <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30 text-center">
                     <p className="text-gray-300 text-sm font-medium">Inicio</p>
-                    <p className="font-black text-xl text-white">11 DIC</p>
+                    <p className="font-black text-xl text-white">29 MAR</p>
                   </div>
                 </div>
                 
@@ -83,21 +83,20 @@ const DatesSectionOptimized = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Inicio:</span>
-                    <span className="text-gray-900 font-bold">11 de diciembre</span>
+                    <span className="text-gray-900 font-bold">29 de marzo</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Finalización:</span>
-                    <span className="text-gray-900 font-bold">19 de enero</span>
+                    <span className="text-gray-900 font-bold">Por definir</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Duración:</span>
                     <span className="text-labora-neon font-black text-lg">4 Semanas</span>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-600 font-medium mb-2">📅 Días festivos:</p>
+                    <p className="text-sm text-gray-600 font-medium mb-2">📅 Horarios:</p>
                     <p className="text-xs text-gray-500 leading-relaxed">
-                      No habrá clases el Jueves 25, Viernes 26 de diciembre y Jueves 01 de enero. 
-                      En esas 2 semanas tendremos clases solo el Lunes 22, Lunes 29 de diciembre y Viernes 02 de enero.
+                      Todos los sábados de 10 a 14hs.
                     </p>
                   </div>
                 </div>
@@ -114,15 +113,15 @@ const DatesSectionOptimized = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Sesiones:</span>
-                    <span className="text-gray-900 font-bold">3 por semana</span>
+                    <span className="text-gray-900 font-bold">1 por semana</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Duración:</span>
-                    <span className="text-gray-900 font-bold">2 horas c/u</span>
+                    <span className="text-gray-900 font-bold">4 horas c/u</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-gray-600 font-medium">Total:</span>
-                    <span className="text-labora-neon font-black text-lg">6h/semana</span>
+                    <span className="text-labora-neon font-black text-lg">4h/semana</span>
                   </div>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { fbqTrack } from "@/lib/fbqTrack";
 
 const PostAplicacion = () => {
-
+  // Manejo de eventos de Facebook Pixel
   const handleInscribirse = () => {
     fbqTrack('ClickInscribirseWhatsApp');
     const message = encodeURIComponent("Apliqué al Bootcamp de IA y No Code y quiero inscribirme");

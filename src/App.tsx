@@ -29,6 +29,11 @@ import IaParaTodos from "./pages/IaParaTodos";
 import IaParaTodosGracias from "./pages/IaParaTodosGracias";
 import IaParaTodosEntrada from "./pages/IaParaTodosEntrada";
 import ClaseGratuitaIA from "./pages/ClaseGratuitaIA";
+import AdminGuard from "./components/auth/AdminGuard";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ModulesManager from "./pages/admin/ModulesManager";
+import UsersManager from "./pages/admin/UsersManager";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +68,17 @@ const App = () => (
           <Route path="/post-aplicacion" element={<PostAplicacion />} />
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={
+            <AdminGuard>
+              <AdminLayout />
+            </AdminGuard>
+          }>
+            <Route index element={<AdminDashboard />} />
+            <Route path="modules" element={<ModulesManager />} />
+            <Route path="users" element={<UsersManager />} />
+          </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -30,7 +30,7 @@ const Index = () => {
       subtitle: '100% en vivo',
       price: '250 USD',
       duration: '4 semanas',
-      frequency: '3 clases por semana',
+      frequency: '1 clase por semana (Sábados)',
       students: '10-25 personas',
       description: 'Programa intensivo para crear tu primer proyecto con IA y No-Code desde cero hasta el lanzamiento.',
       features: [

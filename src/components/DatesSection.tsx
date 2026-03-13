@@ -48,12 +48,8 @@ const DatesSection = () => {
                 </div>
                 <div className="space-y-4">
                   <div className="bg-white/5 p-3 rounded-lg border border-white/10">
-                    <span className="text-labora-neon font-bold block mb-1">Cohorte 15</span>
-                    <span className="text-white text-sm">Inicio: Miércoles 4 de febrero</span>
-                  </div>
-                  <div className="bg-white/5 p-3 rounded-lg border border-white/10">
-                    <span className="text-labora-neon font-bold block mb-1">Cohorte 16</span>
-                    <span className="text-white text-sm">Inicio: Miércoles 19 de febrero</span>
+                    <span className="text-labora-neon font-bold block mb-1">Cohorte 17</span>
+                    <span className="text-white text-sm">Inicio: Sábado 29 de Marzo</span>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-gray-700">
                     <span className="text-gray-300">Duración total:</span>
@@ -72,20 +68,14 @@ const DatesSection = () => {
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <span className="text-gray-400 text-xs uppercase font-bold block mb-1">Opción A (Cohorte 15)</span>
+                    <span className="text-gray-400 text-xs uppercase font-bold block mb-1">Horario Único</span>
                     <div className="flex justify-between items-start text-sm">
-                      <span className="text-white">Mié 10-12hs + Sáb 10-14hs</span>
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-gray-400 text-xs uppercase font-bold block mb-1">Opción B (Cohorte 16)</span>
-                    <div className="flex justify-between items-start text-sm">
-                      <span className="text-white">Mar, Jue y Vie 10-12hs</span>
+                      <span className="text-white">Sábados 10-14hs</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-gray-700 mt-2">
                     <span className="text-gray-300">Dedicación:</span>
-                    <span className="text-labora-neon font-bold">6h semanales</span>
+                    <span className="text-labora-neon font-bold">4h semanales</span>
                   </div>
                 </div>
               </div>
