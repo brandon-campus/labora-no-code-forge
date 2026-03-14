@@ -16,7 +16,7 @@ const WhatsAppButtonOptimized = () => {
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("¡Hola! Me interesa el bootcamp de AI Builder. ¿Podrían darme más información?");
-    window.open(`https://wa.me/573001234567?text=${message}`, '_blank');
+    window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
   };
 
   const handleClose = () => {
