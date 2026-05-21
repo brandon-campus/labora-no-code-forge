@@ -25,6 +25,7 @@ import OnboardingCurso from "./pages/OnboardingCurso";
 import LoginCurso from "./pages/LoginCurso";
 import PostAplicacion from './pages/PostAplicacion';
 import FormularioBootcamp from './pages/FormularioBootcamp';
+import Checkout from "./pages/Checkout";
 import IaParaTodos from "./pages/IaParaTodos";
 import IaParaTodosGracias from "./pages/IaParaTodosGracias";
 import IaParaTodosEntrada from "./pages/IaParaTodosEntrada";
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/post-aplicacion" element={<PostAplicacion />} />
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
+          <Route path="/checkout" element={<Checkout />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={

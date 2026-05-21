@@ -47,6 +47,7 @@ const WizardAplicar = ({ open, onClose }: { open: boolean; onClose: () => void }
   const [wsp, setWsp] = useState('');
   const [error, setError] = useState('');
   const [opcionSeleccionada, setOpcionSeleccionada] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   React.useEffect(() => {
     setOpcionSeleccionada(null);
@@ -83,6 +84,7 @@ const WizardAplicar = ({ open, onClose }: { open: boolean; onClose: () => void }
     }
     const wspCompleto = `${codigoPais}${wsp}`;
     // Guardar en Supabase
+    setIsSubmitting(true);
     const { error: supaError } = await supabase.from('aplicaciones_bootcamp').insert({
       nombre,
       correo,
@@ -94,9 +96,11 @@ const WizardAplicar = ({ open, onClose }: { open: boolean; onClose: () => void }
     });
     if (supaError) {
       setError('Hubo un error al guardar tu aplicación. Intenta de nuevo.');
+      setIsSubmitting(false);
       return;
     }
-    window.location.href = '/curso-campus';
+
+    window.location.href = '/checkout';
   };
 
   const totalPasos = pasos.length + 1; // Incluye el paso de datos de contacto
@@ -191,8 +195,8 @@ const WizardAplicar = ({ open, onClose }: { open: boolean; onClose: () => void }
                     />
                   </div>
                   {error && <div className="text-red-500 text-sm">{error}</div>}
-                  <Button type="submit" className="w-full bg-labora-neon text-black">
-                    Quiero Unirme
+                  <Button type="submit" className="w-full bg-labora-neon text-black" disabled={isSubmitting}>
+                    {isSubmitting ? 'Procesando...' : 'Quiero Unirme'}
                   </Button>
                 </form>
               )}

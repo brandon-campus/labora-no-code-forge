@@ -20,16 +20,36 @@ import {
   Video,
   MessageCircle,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  CreditCard
 } from 'lucide-react';
 import { analytics } from "@/lib/analytics";
 import WizardAplicar from '@/components/WizardAplicar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { createMercadoPagoPreference } from '@/lib/mercadopago';
+import { toast } from 'sonner';
 
 const BootcampIA = () => {
   const [wizardOpen, setWizardOpen] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  const handleMercadoPagoClick = async () => {
+    try {
+      setIsCheckingOut(true);
+      const initPoint = await createMercadoPagoPreference({
+        title: "Bootcamp de IA y No-Code",
+        unit_price: 150000, /* Reemplaza por el precio real en ARS/moneda local */
+        quantity: 1
+      });
+      window.location.href = initPoint;
+    } catch (error) {
+      toast.error("Hubo un error al iniciar el pago con Mercado Pago.");
+    } finally {
+      setIsCheckingOut(false);
+    }
+  };
 
   const handleCTAClick = () => {
     setWizardOpen(true);
@@ -210,17 +230,25 @@ const BootcampIA = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button
                 onClick={handleCTAClick}
-                className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-12 py-6 text-xl transition-all shadow-lg shadow-labora-neon/25 uppercase"
+                className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-labora-neon/25 uppercase"
               >
-                <Play className="mr-3 h-6 w-6" />
+                <Play className="mr-2 h-5 w-5" />
                 INSCRIBIRME AHORA
-                <ArrowRight className="ml-3 h-6 w-6" />
+              </Button>
+
+              <Button
+                onClick={handleMercadoPagoClick}
+                disabled={isCheckingOut}
+                className="bg-[#009EE3] hover:bg-[#008CCh] text-white font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-[#009EE3]/25 uppercase"
+              >
+                <CreditCard className="mr-2 h-5 w-5" />
+                {isCheckingOut ? "Procesando..." : "Pagar con M. Pago"}
               </Button>
 
               <Button
                 variant="outline"
                 onClick={() => document.getElementById('curriculum')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-gray-700 text-white hover:bg-gray-800 font-bold rounded-full px-12 py-6 text-xl transition-all"
+                className="border-2 border-gray-700 text-white hover:bg-gray-800 font-bold rounded-full px-8 py-6 text-lg transition-all hidden lg:flex"
               >
                 Ver Programa
               </Button>
@@ -417,14 +445,24 @@ const BootcampIA = () => {
                 Aprende creando proyectos reales desde el primer día.
               </p>
 
-              <Button
-                onClick={handleCTAClick}
-                className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-12 py-6 text-xl transition-all shadow-lg shadow-labora-neon/25 uppercase mb-4"
-              >
-                <Play className="mr-3 h-6 w-6" />
-                INSCRIBIRME AHORA
-                <ArrowRight className="ml-3 h-6 w-6" />
-              </Button>
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-4">
+                <Button
+                  onClick={handleCTAClick}
+                  className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-labora-neon/25 uppercase"
+                >
+                  <Play className="mr-2 h-5 w-5" />
+                  INSCRIBIRME
+                </Button>
+
+                <Button
+                  onClick={handleMercadoPagoClick}
+                  disabled={isCheckingOut}
+                  className="bg-[#009EE3] hover:bg-[#008CCh] text-white font-bold rounded-full px-8 py-6 text-lg transition-all shadow-lg shadow-[#009EE3]/25 uppercase"
+                >
+                  <CreditCard className="mr-2 h-5 w-5" />
+                  {isCheckingOut ? "Procesando..." : "Pagar con Mercado Pago"}
+                </Button>
+              </div>
 
               <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400">
                 <div className="flex items-center gap-2">
