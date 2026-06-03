@@ -36,6 +36,11 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import ModulesManager from "./pages/admin/ModulesManager";
 import UsersManager from "./pages/admin/UsersManager";
 
+// TikTok Funnel Pages
+import BootcampTikTok from "./pages/tiktok/BootcampTikTok";
+import BootcampAplicarTikTok from "./pages/tiktok/BootcampAplicarTikTok";
+import PostAplicacionTikTok from "./pages/tiktok/PostAplicacionTikTok";
+import ClaseGratuitaIATikTok from "./pages/tiktok/ClaseGratuitaIATikTok";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -70,6 +75,12 @@ const App = () => (
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
           <Route path="/checkout" element={<Checkout />} />
+
+          {/* TikTok Funnel Routes */}
+          <Route path="/tiktok/clase-gratuita-ia" element={<ClaseGratuitaIATikTok />} />
+          <Route path="/tiktok/bootcamp" element={<BootcampTikTok />} />
+          <Route path="/tiktok/bootcamp/aplicar" element={<BootcampAplicarTikTok />} />
+          <Route path="/tiktok/post-aplicacion" element={<PostAplicacionTikTok />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={

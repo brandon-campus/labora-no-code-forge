@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-const ContactSection = () => {
+const ContactSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
   return (
     <section id="contacto" className="bg-labora-dark py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +70,7 @@ const ContactSection = () => {
 
             <div className="space-y-6">
               <a
-                href="/bootcamp/aplicar"
+                href={`${funnelPath}/bootcamp/aplicar`}
                 className="block"
               >
                 <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">
