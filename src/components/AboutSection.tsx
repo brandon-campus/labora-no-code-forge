@@ -11,7 +11,7 @@ const AboutSection = () => {
             <span className="text-labora-red">Acerca</span> del bootcamp
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            Labora es el semillero de proyectos tecnológicos más innovador de Latinoamérica, donde aprenderás a crear productos reales sin necesidad de saber programar.
+            El mejor bootcamp de LATAM para desarrollar productos digitales con IA desde cero y sin necesidad de tener conocimientos previos.
           </p>
         </div>
         
@@ -32,7 +32,7 @@ const AboutSection = () => {
             </div>
             <h3 className="text-xl font-semibold mb-3 text-labora-dark">Aprendizaje práctico</h3>
             <p className="text-gray-600">
-              Aprenderás a utilizar IA y herramientas No-Code como Lovable, Cursor AI, Supabase y n8n mientras construyes tu producto paso a paso.
+              Aprenderás a utilizar IA y herramientas No-Code como Claude Code, Antigravity, Supabase y n8n mientras construyes tu producto paso a paso.
             </p>
           </div>
           

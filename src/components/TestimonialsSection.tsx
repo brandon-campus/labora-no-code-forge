@@ -12,6 +12,20 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
+    name: "Agustin Gonzalez",
+    country: "Argentina",
+    flag: "🇦🇷",
+    image: "/lovable-uploads/agustin.png",
+    quote: "Mi experiencia fue muy buena en todo sentido, me sentí acompañado en cada momento del bootcamp. Me llevo muchas cosas pero las más esenciales son la configuración de bases de datos, la creación de agentes en n8n y sobretodo el tiempo para resolver dudas y problemas que me sirvieron bastante"
+  },
+  {
+    name: "Gonzalo Carballo",
+    country: "Argentina",
+    flag: "🇦🇷",
+    image: "/lovable-uploads/gonzalo.jpg",
+    quote: "Lo que me aporto el bootcamp es tener una guia de como conectar las herramientas para lograr un producto final que resuelve un problema real. Mi proyecto fue encontrar solucion al problema de la gestion comercial de vendedores de una agencia de viajes. El CRM se centro en la gestion de base de datos e inteligencia de agentes IA como soporte al humano y no como un reemplazo."
+  },
+  {
     name: "Sebastián Acuña",
     country: "Argentina",
     flag: "🇦🇷",

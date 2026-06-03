@@ -268,7 +268,7 @@ const CurriculumSection = () => {
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 mb-4 md:mb-6 px-4 sm:px-6 py-2 sm:py-3 bg-labora-neon/10 backdrop-blur-sm rounded-full shadow-lg border border-labora-neon/20">
               <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-labora-neon" />
-              <span className="text-labora-neon text-sm font-bold uppercase tracking-wider">Programa intensivo de 7 semanas</span>
+              <span className="text-labora-neon text-sm font-bold uppercase tracking-wider">El bootcamp más completo de LATAM</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4 md:mb-6">
@@ -276,7 +276,7 @@ const CurriculumSection = () => {
             </h2>
 
             <p className="text-gray-300 text-center text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
-              Un recorrido práctico y completo para convertirte en creador de productos tecnológicos con IA y No Code.
+              En 7 semanas desde cero al lanzamiento de tu producto.
             </p>
           </div>
 
