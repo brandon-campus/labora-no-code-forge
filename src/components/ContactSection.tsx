@@ -29,7 +29,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-white">Duración</h3>
-                  <p className="text-gray-300">Programa intensivo de 4 semanas</p>
+                  <p className="text-gray-300">Programa intensivo de 7 semanas</p>
                 </div>
               </div>
 
@@ -39,7 +39,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-white">Metodología</h3>
-                  <p className="text-gray-300">Clases 100% en vivo, 3 veces por semana</p>
+                  <p className="text-gray-300">Clases 100% en vivo</p>
                 </div>
               </div>
 
@@ -79,12 +79,12 @@ const ContactSection = () => {
               </a>
 
               <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">29 de enero</span>
+                Fecha límite de inscripción: <span className="font-semibold">05 de Junio</span>
               </p>
 
               <div className="border-t border-gray-100 pt-6 mt-6">
                 <p className="text-gray-500 text-center">
-                  También puedes contactarnos directamente a <a href="mailto:info@labora.tech" className="text-labora-red hover:underline">info@labora.tech</a>
+                  También puedes contactarnos directamente a <a href="mailto:laborastartup@gmail.com" className="text-labora-red hover:underline">laborastartup@gmail.com</a>
                 </p>
               </div>
             </div>
