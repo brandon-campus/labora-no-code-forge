@@ -58,144 +58,189 @@ const modules: ModuleData[] = [
   {
     title: "FASE 1: DE CERO A APP",
     description: "Fundamentos esenciales para crear tu primera aplicación funcional",
-    week: "Semana 1 (4 al 7 de febrero)",
+    week: "Semana 1",
     difficulty: "Básico",
     progress: 0,
     sessions: [
       {
-        title: "Cursor AI – Tu copiloto 2025",
-        description: "Introducción a Cursor AI y cómo aprovechar la IA para desarrollo",
-        date: "Miércoles, 4 de febrero",
-        duration: "2h",
+        title: "De Cero a App",
+        description: "Introducción al desarrollo y creación de la primera app",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
         resources: 4,
-        tags: ["Cursor AI", "IA", "Desarrollo"]
+        tags: ["App", "Introducción", "Desarrollo"]
       },
       {
-        title: "GitHub para no técnicos",
+        title: "Ecosistema de Claude: Claude Coworks y Skills",
+        description: "Aprovechando Claude para potenciar tu productividad y desarrollo",
+        date: "Sábado",
+        duration: "4h",
+        instructor: "Equipo Labora",
+        resources: 3,
+        tags: ["Claude", "IA", "Productividad"]
+      }
+    ]
+  },
+  {
+    title: "ENTORNO DE DESARROLLO",
+    description: "Configura tu entorno de trabajo y herramientas como un profesional",
+    week: "Semana 2",
+    difficulty: "Básico",
+    progress: 0,
+    sessions: [
+      {
+        title: "Google Antigravity/Cursor - Copiloto",
+        description: "Domina las herramientas de IA para asistir en tu código",
+        date: "Sábado",
+        duration: "4h",
+        instructor: "Equipo Labora",
+        resources: 4,
+        tags: ["Cursor", "Antigravity", "IA"]
+      },
+      {
+        title: "Github para No Técnicos",
         description: "Control de versiones y colaboración en proyectos",
-        date: "Sábado, 7 de febrero",
-        duration: "2h",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
         resources: 3,
         tags: ["GitHub", "Colaboración", "Control de versiones"]
-      },
-      {
-        title: "Pair Programming: Creación de primera app",
-        description: "Sesión práctica para crear tu primera aplicación completa",
-        date: "Sábado, 7 de febrero",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 5,
-        tags: ["Pair Programming", "Práctica", "Primera App"]
       }
     ]
   },
   {
-    title: "FASE 2: DISEÑO DE BASES DE DATOS",
+    title: "BASES DE DATOS - SUPABASE",
     description: "Construye la arquitectura robusta de tu aplicación",
-    week: "Semana 2 (11 al 14 de febrero)",
+    week: "Semana 3",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
-        title: "Lógica y diseño de bases de datos",
-        description: "Fundamentos de modelado de datos y relaciones",
-        date: "Miércoles, 11 de febrero",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 4,
-        tags: ["Bases de Datos", "Modelado", "Relaciones"]
-      },
-      {
-        title: "Supabase desde cero",
-        description: "Implementación y configuración de Supabase",
-        date: "Sábado, 14 de febrero",
-        duration: "2h",
+        title: "Bases de datos: Supabase",
+        description: "Implementación y configuración de Supabase desde cero",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
         resources: 5,
-        tags: ["Supabase", "Backend", "Autenticación"]
+        tags: ["Supabase", "Backend", "Bases de Datos"]
       },
       {
-        title: "Pair Programming: Dashboards y visualización de datos",
-        description: "Creación de dashboards interactivos con datos reales",
-        date: "Sábado, 14 de febrero",
-        duration: "2h",
+        title: "Dashboard y Visualización de Datos",
+        description: "Creación de paneles administrativos y gráficos",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
-        resources: 3,
-        tags: ["Dashboards", "Visualización", "Pair Programming"]
+        resources: 4,
+        tags: ["Dashboard", "Visualización", "UI"]
       }
     ]
   },
   {
-    title: "FASE 3: IA Y AGENTES",
-    description: "Automatización e inteligencia artificial para tu aplicación",
-    week: "Semana 3 (18 al 21 de febrero)",
+    title: "ESCALABILIDAD Y AGENTES",
+    description: "Seguridad, control de accesos y primeras automatizaciones",
+    week: "Semana 4",
     difficulty: "Intermedio",
     progress: 0,
     sessions: [
       {
-        title: "Automatización con n8n y agentes (Intro)",
-        description: "Introducción a la automatización de procesos con n8n",
-        date: "Miércoles, 18 de febrero",
-        duration: "2h",
+        title: "Políticas RLS, Tipos de Usuarios",
+        description: "Seguridad a nivel de filas y gestión avanzada de roles",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
         resources: 4,
-        tags: ["n8n", "Automatización", "Agentes"]
+        tags: ["Seguridad", "RLS", "Usuarios"]
       },
       {
-        title: "Creación de agentes con IA avanzado",
-        description: "Desarrollo de agentes inteligentes para automatización",
-        date: "Sábado, 21 de febrero",
-        duration: "2h",
+        title: "Automatizaciones",
+        description: "Introducción a automatizaciones para procesos recurrentes",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
-        resources: 5,
-        tags: ["IA", "Agentes", "Automatización"]
-      },
-      {
-        title: "Pair Programming: Adaptación de agentes a nichos y mercados",
-        description: "Personalización de agentes para diferentes industrias",
-        date: "Sábado, 21 de febrero",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 3,
-        tags: ["Pair Programming", "Agentes", "Mercados"]
+        resources: 4,
+        tags: ["Automatización", "Procesos"]
       }
     ]
   },
   {
-    title: "FASE 4: USUARIOS, INTEGRACIONES Y DEPLOY",
-    description: "Gestión avanzada de usuarios y lanzamiento de tu aplicación",
-    week: "Semana 4 (25 al 28 de febrero)",
+    title: "AGENTES N8N",
+    description: "Automatización avanzada e inteligencia artificial integrada",
+    week: "Semana 5",
     difficulty: "Avanzado",
     progress: 0,
     sessions: [
       {
-        title: "Flujo de usuarios y roles avanzados",
-        description: "Sistema de autenticación y gestión de permisos",
-        date: "Miércoles, 25 de febrero",
-        duration: "2h",
-        instructor: "Equipo Labora",
-        resources: 4,
-        tags: ["Usuarios", "Roles", "Autenticación"]
-      },
-      {
-        title: "Integraciones esenciales y deploy",
-        description: "Conexión con servicios externos y despliegue a producción",
-        date: "Sábado, 28 de febrero",
-        duration: "2h",
+        title: "Creación de Agentes IA",
+        description: "Desarrollo de agentes inteligentes con n8n",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
         resources: 5,
-        tags: ["Integraciones", "Deploy", "Producción"]
+        tags: ["n8n", "Agentes", "IA"]
       },
       {
-        title: "Pair Programming: Analítica de producto y lanzamiento",
-        description: "Implementación de métricas, análisis de uso y estrategias de lanzamiento",
-        date: "Sábado, 28 de febrero",
-        duration: "2h",
+        title: "Adaptación de Agentes RAG",
+        description: "Sistemas RAG (Retrieval-Augmented Generation) para tus agentes",
+        date: "Sábado",
+        duration: "4h",
         instructor: "Equipo Labora",
-        resources: 3,
-        tags: ["Analítica", "Métricas", "Lanzamiento", "Pair Programming"]
+        resources: 5,
+        tags: ["RAG", "IA", "n8n"]
+      }
+    ]
+  },
+  {
+    title: "INTEGRACIONES Y DEPLOY",
+    description: "Manejo de errores, integraciones clave y lanzamiento",
+    week: "Semana 6",
+    difficulty: "Avanzado",
+    progress: 0,
+    sessions: [
+      {
+        title: "Control de flujo, Manejo de errores, Testing",
+        description: "Asegurando la calidad y estabilidad de tu aplicación",
+        date: "Sábado",
+        duration: "4h",
+        instructor: "Equipo Labora",
+        resources: 4,
+        tags: ["Testing", "Errores", "Calidad"]
+      },
+      {
+        title: "Integraciones: ADS, Analytics, Microsoft Clarity",
+        description: "Conecta tu app con herramientas de análisis y marketing",
+        date: "Sábado",
+        duration: "4h",
+        instructor: "Equipo Labora",
+        resources: 4,
+        tags: ["Analytics", "ADS", "Clarity"]
+      }
+    ]
+  },
+  {
+    title: "LANZAMIENTO DE PRODUCTO",
+    description: "Presentación final y estrategias de crecimiento",
+    week: "Semana 7",
+    difficulty: "Avanzado",
+    progress: 0,
+    sessions: [
+      {
+        title: "Adquisición de usuarios y clientes + Modelos de Negocio VibeCoding",
+        description: "Estrategias de monetización y crecimiento para tu producto",
+        date: "Sábado",
+        duration: "4h",
+        instructor: "Equipo Labora",
+        resources: 5,
+        tags: ["Negocios", "Growth", "VibeCoding"]
+      },
+      {
+        title: "Presentación de Proyectos",
+        description: "Demo Day: Muestra tu aplicación terminada",
+        date: "Sábado",
+        duration: "4h",
+        instructor: "Equipo Labora",
+        resources: 2,
+        tags: ["Demo Day", "Proyectos", "Presentación"]
       }
     ]
   }
@@ -223,7 +268,7 @@ const CurriculumSection = () => {
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 mb-4 md:mb-6 px-4 sm:px-6 py-2 sm:py-3 bg-labora-neon/10 backdrop-blur-sm rounded-full shadow-lg border border-labora-neon/20">
               <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-labora-neon" />
-              <span className="text-labora-neon text-sm font-bold uppercase tracking-wider">Programa intensivo de 4 semanas</span>
+              <span className="text-labora-neon text-sm font-bold uppercase tracking-wider">Programa intensivo de 7 semanas</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4 md:mb-6">
@@ -243,7 +288,7 @@ const CurriculumSection = () => {
                 <h3 className="text-xl font-bold text-white">Clase de Bienvenida</h3>
               </div>
               <p className="text-gray-300 text-base">
-                <span className="font-semibold text-labora-neon">Miércoles, 4 de febrero</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa.
+                <span className="font-semibold text-labora-neon">Sábado, 06 de junio</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa.
               </p>
             </div>
           </div>

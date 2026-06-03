@@ -10,7 +10,7 @@ const DatesSection = () => {
             PRÓXIMA COHORTE DISPONIBLE
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Conviértete en AI Builder en <span className="text-labora-neon">4 semanas</span>
+            Conviértete en AI Builder en <span className="text-labora-neon">7 semanas</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Programa intensivo en vivo para que puedas crear y lanzar proyectos al mercado o trabajar con clientes.
@@ -48,12 +48,12 @@ const DatesSection = () => {
                 </div>
                 <div className="space-y-4">
                   <div className="bg-white/5 p-3 rounded-lg border border-white/10">
-                    <span className="text-labora-neon font-bold block mb-1">Cohorte 17</span>
-                    <span className="text-white text-sm">Inicio: Sábado 29 de Marzo</span>
+                    <span className="text-labora-neon font-bold block mb-1">Cohorte 18</span>
+                    <span className="text-white text-sm">Inicio: Sábado 06 de Junio</span>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-gray-700">
                     <span className="text-gray-300">Duración total:</span>
-                    <span className="text-labora-neon font-bold">4 semanas</span>
+                    <span className="text-labora-neon font-bold">7 semanas</span>
                   </div>
                 </div>
               </div>

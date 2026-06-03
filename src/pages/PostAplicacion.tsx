@@ -48,12 +48,8 @@ const PostAplicacion = () => {
               <p className="text-labora-neon font-bold text-sm mb-2 text-center uppercase tracking-wider">Próximos Inicios Confirmados</p>
               <ul className="text-gray-300 text-sm space-y-3">
                 <li className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-labora-neon/20 pb-2">
-                  <span className="font-bold text-white">4 de Feb:</span>
-                  <span className="text-gray-400">Mié 10-12hs + Sáb 10-14hs</span>
-                </li>
-                <li className="flex flex-col sm:flex-row sm:items-center justify-between pt-1">
-                  <span className="font-bold text-white">19 de Feb:</span>
-                  <span className="text-gray-400">Mar, Jue, Vie 10-12hs</span>
+                  <span className="font-bold text-white">06 de Jun:</span>
+                  <span className="text-gray-400">Sábados 10-14hs</span>
                 </li>
               </ul>
             </div>
