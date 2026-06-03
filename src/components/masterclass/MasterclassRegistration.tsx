@@ -26,7 +26,7 @@ const MasterclassRegistration = () => {
           <Button 
             size="lg"
             className="bg-labora-neon hover:bg-labora-neon/90 text-gray-900 font-semibold"
-            onClick={() => window.location.href = "https://tally.so/r/w49bBo"}
+            onClick={() => window.location.href = "/bootcamp/aplicar"}
           >
             Reservar mi lugar gratis
             <ArrowRight className="ml-2" />

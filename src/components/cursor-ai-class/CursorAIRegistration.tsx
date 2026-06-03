@@ -85,7 +85,7 @@ const CursorAIRegistration = () => {
                 className="w-full bg-labora-neon hover:bg-labora-neon/90 text-gray-900 font-semibold text-lg py-6"
                 onClick={() => {
                   // Aquí puedes integrar con tu formulario de Tally o el sistema que uses
-                  window.location.href = "https://tally.so/r/w49bBo";
+                  window.location.href = "/bootcamp/aplicar";
                 }}
               >
                 Confirmar mi registro

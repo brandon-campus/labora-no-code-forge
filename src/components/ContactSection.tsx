@@ -70,7 +70,7 @@ const ContactSection = () => {
 
             <div className="space-y-6">
               <a
-                href="https://tally.so/r/w49bBo"
+                href="/bootcamp/aplicar"
                 className="block"
               >
                 <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">

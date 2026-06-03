@@ -19,7 +19,7 @@ const HeroSectionV3 = () => {
         value: 1
       });
     }
-    window.location.href = 'https://tally.so/r/w49bBo';
+    window.location.href = '/bootcamp/aplicar';
   };
 
   const handleWhatsAppClick = () => {
