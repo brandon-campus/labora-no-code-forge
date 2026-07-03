@@ -16,13 +16,13 @@ const Links = () => {
         <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-labora-neon shadow-[0_0_20px_rgba(205,255,100,0.3)] mb-6">
           <img 
             src="/DSC05880.jpg" 
-            alt="Erik Taveras" 
+            alt="Brandon Candia" 
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Profile Info */}
-        <h1 className="text-2xl font-black text-white mb-2 text-center">Erik Taveras</h1>
+        <h1 className="text-2xl font-black text-white mb-2 text-center">Brandon Candia</h1>
         <p className="text-gray-300 text-center mb-8 px-4 font-medium text-sm">
           AI Developer en Ditobanx and Founder of Labora Academy
         </p>
@@ -31,13 +31,14 @@ const Links = () => {
         <div className="w-full flex flex-col gap-4 mb-10">
           <Link 
             to="/bootcamp" 
-            className="group relative flex flex-col items-center justify-center p-4 bg-gray-900/60 backdrop-blur-md border border-gray-700/50 rounded-2xl hover:border-labora-neon transition-all duration-300 shadow-lg hover:shadow-[0_0_15px_rgba(205,255,100,0.15)] overflow-hidden"
+            className="group relative flex flex-col items-center justify-center p-5 bg-gradient-to-b from-gray-800 to-black backdrop-blur-md border-2 border-labora-neon rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(205,255,100,0.25)] hover:shadow-[0_0_30px_rgba(205,255,100,0.4)] hover:-translate-y-1 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-labora-neon/0 via-labora-neon/5 to-labora-neon/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <span className="font-bold text-lg text-white text-center relative z-10">
-              Bootcamp de IA y No Code
+            <div className="absolute inset-0 bg-labora-neon/5 group-hover:bg-labora-neon/10 transition-colors duration-500"></div>
+            <div className="absolute top-0 right-0 w-20 h-20 bg-labora-neon/20 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2 group-hover:bg-labora-neon/30 transition-all"></div>
+            <span className="font-black text-xl text-white text-center relative z-10 flex items-center gap-2">
+              🚀 Bootcamp de IA y No Code
             </span>
-            <span className="text-labora-neon text-xs font-semibold mt-1 tracking-wider uppercase relative z-10">
+            <span className="text-black bg-labora-neon px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase relative z-10 mt-3 shadow-[0_0_10px_rgba(205,255,100,0.5)]">
               Próxima Cohorte: 18 de julio
             </span>
           </Link>
