@@ -24,7 +24,7 @@ const DatesSectionOptimized = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 leading-tight">
             Conviértete en AI Builder<br />
-            en <span className="bg-gradient-to-r from-labora-neon to-green-400 bg-clip-text text-transparent">4 semanas</span>
+            en <span className="bg-gradient-to-r from-labora-neon to-green-400 bg-clip-text text-transparent">7 semanas</span>
           </h2>
           <p className="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">
             Programa intensivo en vivo para que puedas crear y lanzar proyectos al mercado con IA y No-Code
@@ -43,7 +43,7 @@ const DatesSectionOptimized = () => {
                     <div className="w-12 h-12 bg-labora-neon rounded-2xl flex items-center justify-center shadow-lg">
                       <Star className="h-6 w-6 text-black" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black">Cohorte #17 - En Vivo</h3>
+                    <h3 className="text-2xl sm:text-3xl font-black">Cohorte #20 - En Vivo</h3>
                   </div>
                   <p className="text-gray-300 text-lg">Cupos limitadas</p>
                 </div>
@@ -54,7 +54,7 @@ const DatesSectionOptimized = () => {
                   </div>
                   <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/30 text-center">
                     <p className="text-gray-300 text-sm font-medium">Inicio</p>
-                    <p className="font-black text-xl text-white">29 MAR</p>
+                    <p className="font-black text-xl text-white">18 JUL</p>
                   </div>
                 </div>
                 
@@ -83,7 +83,7 @@ const DatesSectionOptimized = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Inicio:</span>
-                    <span className="text-gray-900 font-bold">29 de marzo</span>
+                    <span className="text-gray-900 font-bold">18 de Julio</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Finalización:</span>
@@ -91,7 +91,7 @@ const DatesSectionOptimized = () => {
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Duración:</span>
-                    <span className="text-labora-neon font-black text-lg">4 Semanas</span>
+                    <span className="text-labora-neon font-black text-lg">7 Semanas</span>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200">
                     <p className="text-sm text-gray-600 font-medium mb-2">📅 Horarios:</p>

@@ -35,6 +35,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ModulesManager from "./pages/admin/ModulesManager";
 import UsersManager from "./pages/admin/UsersManager";
+import Links from "./pages/Links";
 
 // TikTok Funnel Pages
 import BootcampTikTok from "./pages/tiktok/BootcampTikTok";
@@ -75,6 +76,7 @@ const App = () => (
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/links" element={<Links />} />
 
           {/* TikTok Funnel Routes */}
           <Route path="/tiktok/clase-gratuita-ia" element={<ClaseGratuitaIATikTok />} />

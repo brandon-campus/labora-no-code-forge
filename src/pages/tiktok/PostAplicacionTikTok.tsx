@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { fbqTrack } from "@/lib/fbqTrack";
 
 const pricingByCountry = {
-  Otro: { currency: "USD", symbol: "$", cuotas3: 110, cuotas2: 150, unico: 250, total3: 330, total2: 300, ahorras: 80 },
-  Argentina: { currency: "ARS", symbol: "$", cuotas3: 156310, cuotas2: 213150, unico: 355250, total3: 468930, total2: 426300, ahorras: 113680 },
-  Perú: { currency: "PEN", symbol: "S/", cuotas3: 374, cuotas2: 510, unico: 850, total3: 1122, total2: 1020, ahorras: 272 },
-  Colombia: { currency: "COP", symbol: "$", cuotas3: 392480, cuotas2: 535200, unico: 892000, total3: 1177440, total2: 1070400, ahorras: 285440 },
-  México: { currency: "MXN", symbol: "$", cuotas3: 1911, cuotas2: 2606, unico: 4343, total3: 5733, total2: 5211, ahorras: 1390 },
-  Chile: { currency: "CLP", symbol: "$", cuotas3: 98120, cuotas2: 133800, unico: 223000, total3: 294360, total2: 267600, ahorras: 71360 },
+  Otro: { currency: "USD", symbol: "$", cuotas3: 110, cuotas2: 150, unico: 175, total3: 330, total2: 300, ahorras: 155, unicoOriginal: 250 },
+  Argentina: { currency: "ARS", symbol: "$", cuotas3: 156310, cuotas2: 213150, unico: 248675, total3: 468930, total2: 426300, ahorras: 220255, unicoOriginal: 355250 },
+  Perú: { currency: "PEN", symbol: "S/", cuotas3: 374, cuotas2: 510, unico: 595, total3: 1122, total2: 1020, ahorras: 527, unicoOriginal: 850 },
+  Colombia: { currency: "COP", symbol: "$", cuotas3: 392480, cuotas2: 535200, unico: 624400, total3: 1177440, total2: 1070400, ahorras: 553040, unicoOriginal: 892000 },
+  México: { currency: "MXN", symbol: "$", cuotas3: 1911, cuotas2: 2606, unico: 3040, total3: 5733, total2: 5211, ahorras: 2693, unicoOriginal: 4343 },
+  Chile: { currency: "CLP", symbol: "$", cuotas3: 98120, cuotas2: 133800, unico: 156100, total3: 294360, total2: 267600, ahorras: 138260, unicoOriginal: 223000 },
 };
 
 type Country = keyof typeof pricingByCountry;
@@ -69,7 +69,7 @@ const PostAplicacionTikTok = () => {
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
                   Próximo Inicio Confirmado
                 </p>
-                <p className="font-black text-white text-xl md:text-2xl tracking-tight">Sábado 06 de Junio</p>
+                <p className="font-black text-white text-xl md:text-2xl tracking-tight">Sábado 18 de Julio</p>
               </div>
             </div>
 
@@ -162,11 +162,12 @@ const PostAplicacionTikTok = () => {
              {/* Option 3: Pago Único (Recomendado) */}
              <div className="bg-gradient-to-b from-[#1a2130] to-[#141824] border border-labora-neon p-8 rounded-2xl transform md:-translate-y-3 relative shadow-[0_0_30px_rgba(205,255,100,0.15)] flex flex-col order-1 md:order-3">
                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-labora-neon text-black text-[10px] font-bold px-5 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-1 shadow-lg whitespace-nowrap">
-                 ⭐ AHORRAS {pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].ahorras.toLocaleString()} {pricingByCountry[selectedCountry].currency}
+                 ⭐ 30% DE DESCUENTO HASTA EL 05/07
                </div>
                <h4 className="text-2xl font-bold text-labora-neon mb-2 mt-2">Pago Único</h4>
-               <p className="text-gray-300 text-sm mb-6 h-10">Mejor precio garantizado. La opción más elegida.</p>
-               <div className="flex items-center gap-2 mb-1">
+               <p className="text-gray-300 text-sm mb-6 h-10">Mejor precio garantizado. Ahorras {pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].ahorras.toLocaleString()} {pricingByCountry[selectedCountry].currency}.</p>
+               <div className="flex items-center gap-2 mb-1 flex-wrap">
+                 <span className="text-gray-400 line-through text-2xl font-bold mr-2">{pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].unicoOriginal.toLocaleString()}</span>
                  <span className="text-4xl lg:text-5xl font-black text-white">{pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].unico.toLocaleString()}</span>
                  <span className="text-gray-400 font-medium text-xl">{pricingByCountry[selectedCountry].currency}</span>
                </div>

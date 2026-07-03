@@ -79,7 +79,7 @@ const ContactSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
               </a>
 
               <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">05 de Junio</span>
+                Fecha límite de inscripción: <span className="font-semibold">14 de Julio</span>
               </p>
 
               <div className="border-t border-gray-100 pt-6 mt-6">
