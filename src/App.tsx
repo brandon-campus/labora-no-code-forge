@@ -42,6 +42,7 @@ import BootcampTikTok from "./pages/tiktok/BootcampTikTok";
 import BootcampAplicarTikTok from "./pages/tiktok/BootcampAplicarTikTok";
 import PostAplicacionTikTok from "./pages/tiktok/PostAplicacionTikTok";
 import ClaseGratuitaIATikTok from "./pages/tiktok/ClaseGratuitaIATikTok";
+import LinksTikTok from "./pages/tiktok/LinksTikTok";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -83,6 +84,7 @@ const App = () => (
           <Route path="/tiktok/bootcamp" element={<BootcampTikTok />} />
           <Route path="/tiktok/bootcamp/aplicar" element={<BootcampAplicarTikTok />} />
           <Route path="/tiktok/post-aplicacion" element={<PostAplicacionTikTok />} />
+          <Route path="/tiktok/links" element={<LinksTikTok />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={
