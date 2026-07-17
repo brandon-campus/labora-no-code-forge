@@ -30,6 +30,7 @@ import IaParaTodos from "./pages/IaParaTodos";
 import IaParaTodosGracias from "./pages/IaParaTodosGracias";
 import IaParaTodosEntrada from "./pages/IaParaTodosEntrada";
 import ClaseGratuitaIA from "./pages/ClaseGratuitaIA";
+import GuiaPrd from "./pages/GuiaPrd";
 import AdminGuard from "./components/auth/AdminGuard";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -76,6 +77,7 @@ const App = () => (
           <Route path="/post-aplicacion" element={<PostAplicacion />} />
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
+          <Route path="/guia-prd" element={<GuiaPrd />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/links" element={<Links />} />
 
