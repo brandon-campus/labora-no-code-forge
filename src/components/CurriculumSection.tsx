@@ -5,6 +5,8 @@ import { Progress } from "@/components/ui/progress";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import Module from './Module';
+import { useActiveCohorte } from '@/hooks/useActiveCohorte';
+import { Loader2 } from 'lucide-react';
 
 interface TechBadgeProps {
   name: string;
@@ -54,7 +56,7 @@ interface ModuleData {
   sessions: SessionProps[];
 }
 
-const modules: ModuleData[] = [
+const fallbackModules: ModuleData[] = [
   {
     title: "FASE 1: DE CERO A APP",
     description: "Fundamentos esenciales para crear tu primera aplicación funcional",
@@ -248,6 +250,9 @@ const modules: ModuleData[] = [
 
 const CurriculumSection = () => {
   const [expandedModules, setExpandedModules] = useState<number[]>([]);
+  const { data: cohorte, isLoading } = useActiveCohorte();
+
+  const currentModules = cohorte?.temario || fallbackModules;
 
   const handleToggleModule = (index: number) => {
     setExpandedModules(prev =>
@@ -288,25 +293,29 @@ const CurriculumSection = () => {
                 <h3 className="text-xl font-bold text-white">Clase de Bienvenida</h3>
               </div>
               <p className="text-gray-300 text-base">
-                <span className="font-semibold text-labora-neon">Sábado, 06 de junio</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa.
+                <span className="font-semibold text-labora-neon">{cohorte?.fecha_bienvenida || 'Sábado, 06 de junio'}</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa.
               </p>
             </div>
           </div>
 
           <div className="space-y-4">
-            {modules.map((module, index) => (
-              <Module
-                key={index}
-                title={module.title}
-                description={module.description}
-                week={module.week}
-                difficulty={module.difficulty}
-                progress={module.progress}
-                sessions={module.sessions}
-                isExpanded={expandedModules.includes(index)}
-                onToggle={() => handleToggleModule(index)}
-              />
-            ))}
+            {isLoading ? (
+               <div className="flex justify-center py-10"><Loader2 className="animate-spin text-labora-neon w-8 h-8" /></div>
+            ) : (
+              currentModules.map((module: any, index: number) => (
+                <Module
+                  key={index}
+                  title={module.title}
+                  description={module.description}
+                  week={module.week}
+                  difficulty={module.difficulty}
+                  progress={module.progress}
+                  sessions={module.sessions}
+                  isExpanded={expandedModules.includes(index)}
+                  onToggle={() => handleToggleModule(index)}
+                />
+              ))
+            )}
           </div>
 
           <div className="mt-8 md:mt-12 text-center text-gray-400 text-sm md:text-base max-w-3xl mx-auto">

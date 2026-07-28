@@ -14,15 +14,10 @@ import BootcampIA from "./pages/BootcampIA";
 import Masterclass from "./pages/Masterclass";
 import MasterclassGratuita from "./pages/MasterclassGratuita";
 import CursorAIClass from "./pages/CursorAIClass";
-import Campus from "./pages/Campus";
 import CursoInicia from "./pages/CursoInicia";
 import Hackatones from "./pages/Hackatones";
 import BootcampAplicar from "./pages/BootcampAplicar";
 import BootcampQuieroCrearConIA from "./pages/BootcampQuieroCrearConIA";
-import CursoCampusPage from "./pages/CursoCampus";
-import RegistroCurso from "./pages/RegistroCurso";
-import OnboardingCurso from "./pages/OnboardingCurso";
-import LoginCurso from "./pages/LoginCurso";
 import PostAplicacion from './pages/PostAplicacion';
 import FormularioBootcamp from './pages/FormularioBootcamp';
 import Checkout from "./pages/Checkout";
@@ -30,13 +25,18 @@ import IaParaTodos from "./pages/IaParaTodos";
 import IaParaTodosGracias from "./pages/IaParaTodosGracias";
 import IaParaTodosEntrada from "./pages/IaParaTodosEntrada";
 import ClaseGratuitaIA from "./pages/ClaseGratuitaIA";
+import ClaseHerramientasApp from "./pages/ClaseHerramientasApp";
 import GuiaPrd from "./pages/GuiaPrd";
-import AdminGuard from "./components/auth/AdminGuard";
+
 import AdminLayout from "./components/admin/AdminLayout";
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import ModulesManager from "./pages/admin/ModulesManager";
-import UsersManager from "./pages/admin/UsersManager";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminHub from "./pages/admin/AdminHub";
+import CohortesManager from "./pages/admin/CohortesManager";
+import LeadsManager from "./pages/admin/LeadsManager";
+import ClasesManager from "./pages/admin/ClasesManager";
+
 import Links from "./pages/Links";
+import DynamicLeadMagnet from "./pages/DynamicLeadMagnet";
 
 // TikTok Funnel Pages
 import BootcampTikTok from "./pages/tiktok/BootcampTikTok";
@@ -69,15 +69,13 @@ const App = () => (
           <Route path="/masterclass" element={<Masterclass />} />
           <Route path="/masterclsacaass-gratuita" element={<MasterclassGratuita />} />
           <Route path="/cursor-ai-class" element={<CursorAIClass />} />
-          <Route path="/campus" element={<Campus />} />
-          <Route path="/login-curso" element={<LoginCurso />} />
-          <Route path="/registro-curso" element={<RegistroCurso />} />
-          <Route path="/onboarding-curso" element={<OnboardingCurso />} />
-          <Route path="/curso-campus" element={<CursoCampusPage />} />
+
           <Route path="/post-aplicacion" element={<PostAplicacion />} />
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
+          <Route path="/clase-herramientas-app" element={<ClaseHerramientasApp />} />
           <Route path="/guia-prd" element={<GuiaPrd />} />
+          <Route path="/clase/:slug" element={<DynamicLeadMagnet />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/links" element={<Links />} />
 
@@ -88,16 +86,16 @@ const App = () => (
           <Route path="/tiktok/post-aplicacion" element={<PostAplicacionTikTok />} />
           <Route path="/tiktok/links" element={<LinksTikTok />} />
 
+
           {/* Admin Routes */}
-          <Route path="/admin" element={
-            <AdminGuard>
-              <AdminLayout />
-            </AdminGuard>
-          }>
-            <Route index element={<AdminDashboard />} />
-            <Route path="modules" element={<ModulesManager />} />
-            <Route path="users" element={<UsersManager />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminHub />} />
+            <Route path="cohortes" element={<CohortesManager />} />
+            <Route path="leads" element={<LeadsManager />} />
+            <Route path="clases" element={<ClasesManager />} />
           </Route>
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -10,12 +10,18 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
+import { useActiveCohorte } from '@/hooks/useActiveCohorte';
+
 const Bootcamp = () => {
+  const { data: cohorte, isLoading } = useActiveCohorte();
+
   return (
     <div className="min-h-screen bg-white">
-      <a href="/bootcamp/aplicar" className="block bg-labora-neon text-black text-center py-2 px-4 font-bold text-sm md:text-base z-50 relative w-full hover:bg-labora-neon/80 transition-colors cursor-pointer">
-        🚀 ¡30% de descuento en el Pago Único hasta el 05/07!
-      </a>
+      {cohorte?.promocion_texto_banner && (
+        <a href="/bootcamp/aplicar" className="block bg-labora-neon text-black text-center py-2 px-4 font-bold text-sm md:text-base z-50 relative w-full hover:bg-labora-neon/80 transition-colors cursor-pointer">
+          {cohorte.promocion_texto_banner}
+        </a>
+      )}
       <Navbar />
       <HeroSectionV3 />
       <AboutSection />

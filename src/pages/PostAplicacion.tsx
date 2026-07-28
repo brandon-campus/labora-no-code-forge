@@ -3,7 +3,11 @@ import { CheckCircle, MessageCircle, MapPin, Calendar, Clock } from 'lucide-reac
 import { Button } from "@/components/ui/button";
 import { fbqTrack } from "@/lib/fbqTrack";
 
-const pricingByCountry = {
+import { useActiveCohorte } from '@/hooks/useActiveCohorte';
+import { Loader2 } from 'lucide-react';
+
+// Fallback if no cohort exists
+const fallbackPricing = {
   Otro: { currency: "USD", symbol: "$", cuotas3: 110, cuotas2: 150, unico: 175, total3: 330, total2: 300, ahorras: 155, unicoOriginal: 250 },
   Argentina: { currency: "ARS", symbol: "$", cuotas3: 156310, cuotas2: 213150, unico: 248675, total3: 468930, total2: 426300, ahorras: 220255, unicoOriginal: 355250 },
   Perú: { currency: "PEN", symbol: "S/", cuotas3: 374, cuotas2: 510, unico: 595, total3: 1122, total2: 1020, ahorras: 527, unicoOriginal: 850 },
@@ -12,10 +16,15 @@ const pricingByCountry = {
   Chile: { currency: "CLP", symbol: "$", cuotas3: 98120, cuotas2: 133800, unico: 156100, total3: 294360, total2: 267600, ahorras: 138260, unicoOriginal: 223000 },
 };
 
+type Country = keyof typeof fallbackPricing;
+
 type Country = keyof typeof pricingByCountry;
 
 const PostAplicacion = () => {
   const [selectedCountry, setSelectedCountry] = useState<Country>('Otro');
+  const { data: cohorte, isLoading } = useActiveCohorte();
+
+  const currentPricing = cohorte?.precios_regionales || fallbackPricing;
 
   // Manejo de eventos de Facebook Pixel
   const handleInscribirse = (planName: string) => {
@@ -69,7 +78,7 @@ const PostAplicacion = () => {
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
                   Próximo Inicio Confirmado
                 </p>
-                <p className="font-black text-white text-xl md:text-2xl tracking-tight">Sábado 18 de Julio</p>
+                <p className="font-black text-white text-xl md:text-2xl tracking-tight">{cohorte?.fecha_inicio || 'Sábado 18 de Julio'}</p>
               </div>
             </div>
 
@@ -80,8 +89,8 @@ const PostAplicacion = () => {
                 <Clock className="text-blue-400 w-6 h-6" />
               </div>
               <div className="text-left">
-                <p className="text-gray-400 text-[10px] md:text-[11px] mb-1 uppercase tracking-[0.2em] font-bold">7 Semanas • Modalidad Online</p>
-                <p className="font-black text-white text-xl md:text-2xl tracking-tight">Sábados 10 a 14hs <span className="text-sm font-medium text-blue-400">(ARG)</span></p>
+                <p className="text-gray-400 text-[10px] md:text-[11px] mb-1 uppercase tracking-[0.2em] font-bold">{cohorte?.semanas_duracion || '7 Semanas'} • Modalidad Online</p>
+                <p className="font-black text-white text-xl md:text-2xl tracking-tight">{cohorte?.horario || 'Sábados 10 a 14hs'} <span className="text-sm font-medium text-blue-400">(ARG)</span></p>
               </div>
             </div>
           </div>
@@ -119,10 +128,10 @@ const PostAplicacion = () => {
                <h4 className="text-2xl font-semibold text-white mb-2 mt-2">3 Cuotas</h4>
                <p className="text-gray-400 text-sm mb-6 h-10">Paga en partes para mayor comodidad.</p>
                <div className="flex items-center gap-2 mb-1">
-                 <span className="text-3xl lg:text-4xl font-black text-white">3 x {pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].cuotas3.toLocaleString()}</span>
-                 <span className="text-gray-500 font-medium">{pricingByCountry[selectedCountry].currency}</span>
+                 <span className="text-3xl lg:text-4xl font-black text-white">3 x {currentPricing[selectedCountry].symbol}{currentPricing[selectedCountry].cuotas3.toLocaleString()}</span>
+                 <span className="text-gray-500 font-medium">{currentPricing[selectedCountry].currency}</span>
                </div>
-               <p className="text-gray-500 text-sm mb-8 flex-grow">Total: {pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].total3.toLocaleString()} {pricingByCountry[selectedCountry].currency}</p>
+               <p className="text-gray-500 text-sm mb-8 flex-grow">Total: {currentPricing[selectedCountry].symbol}{currentPricing[selectedCountry].total3.toLocaleString()} {currentPricing[selectedCountry].currency}</p>
                
                <ul className="space-y-4 mb-8 text-sm text-gray-300">
                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-gray-500 shrink-0" /> Acceso a clases en vivo</li>
@@ -143,10 +152,10 @@ const PostAplicacion = () => {
                <h4 className="text-2xl font-semibold text-white mb-2 mt-2">2 Cuotas</h4>
                <p className="text-gray-400 text-sm mb-6 h-10">Equilibrio entre flexibilidad y precio final.</p>
                <div className="flex items-center gap-2 mb-1">
-                 <span className="text-3xl lg:text-4xl font-black text-white">2 x {pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].cuotas2.toLocaleString()}</span>
-                 <span className="text-gray-500 font-medium">{pricingByCountry[selectedCountry].currency}</span>
+                 <span className="text-3xl lg:text-4xl font-black text-white">2 x {currentPricing[selectedCountry].symbol}{currentPricing[selectedCountry].cuotas2.toLocaleString()}</span>
+                 <span className="text-gray-500 font-medium">{currentPricing[selectedCountry].currency}</span>
                </div>
-               <p className="text-gray-500 text-sm mb-8 flex-grow">Total: {pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].total2.toLocaleString()} {pricingByCountry[selectedCountry].currency}</p>
+               <p className="text-gray-500 text-sm mb-8 flex-grow">Total: {currentPricing[selectedCountry].symbol}{currentPricing[selectedCountry].total2.toLocaleString()} {currentPricing[selectedCountry].currency}</p>
                
                <ul className="space-y-4 mb-8 text-sm text-gray-300">
                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-gray-500 shrink-0" /> Acceso a clases en vivo</li>
@@ -161,15 +170,17 @@ const PostAplicacion = () => {
 
              {/* Option 3: Pago Único (Recomendado) */}
              <div className="bg-gradient-to-b from-[#1a2130] to-[#141824] border border-labora-neon p-8 rounded-2xl transform md:-translate-y-3 relative shadow-[0_0_30px_rgba(205,255,100,0.15)] flex flex-col order-1 md:order-3">
-               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-labora-neon text-black text-[10px] font-bold px-5 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-1 shadow-lg whitespace-nowrap">
-                 ⭐ 30% DE DESCUENTO HASTA EL 05/07
-               </div>
+               {cohorte?.promocion_texto_badge && (
+                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-labora-neon text-black text-[10px] font-bold px-5 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-1 shadow-lg whitespace-nowrap">
+                   {cohorte.promocion_texto_badge}
+                 </div>
+               )}
                <h4 className="text-2xl font-bold text-labora-neon mb-2 mt-2">Pago Único</h4>
-               <p className="text-gray-300 text-sm mb-6 h-10">Mejor precio garantizado. Ahorras {pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].ahorras.toLocaleString()} {pricingByCountry[selectedCountry].currency}.</p>
+               <p className="text-gray-300 text-sm mb-6 h-10">Mejor precio garantizado. Ahorras {currentPricing[selectedCountry].symbol}{currentPricing[selectedCountry].ahorras.toLocaleString()} {currentPricing[selectedCountry].currency}.</p>
                <div className="flex items-center gap-2 mb-1 flex-wrap">
-                 <span className="text-gray-400 line-through text-2xl font-bold mr-2">{pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].unicoOriginal.toLocaleString()}</span>
-                 <span className="text-4xl lg:text-5xl font-black text-white">{pricingByCountry[selectedCountry].symbol}{pricingByCountry[selectedCountry].unico.toLocaleString()}</span>
-                 <span className="text-gray-400 font-medium text-xl">{pricingByCountry[selectedCountry].currency}</span>
+                 <span className="text-gray-400 line-through text-2xl font-bold mr-2">{currentPricing[selectedCountry].symbol}{currentPricing[selectedCountry].unicoOriginal.toLocaleString()}</span>
+                 <span className="text-4xl lg:text-5xl font-black text-white">{currentPricing[selectedCountry].symbol}{currentPricing[selectedCountry].unico.toLocaleString()}</span>
+                 <span className="text-gray-400 font-medium text-xl">{currentPricing[selectedCountry].currency}</span>
                </div>
                <p className="text-labora-neon/80 text-sm mb-8 flex-grow font-medium">Único pago final</p>
                

@@ -1,81 +1,91 @@
 import React from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import {
-    LayoutDashboard,
-    BookOpen,
-    Users,
-    Settings,
-    LogOut
-} from 'lucide-react';
+import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { supabase } from '@/lib/supabaseClient';
+import { LayoutDashboard, Users, Video, LogOut, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function AdminLayout() {
-    const location = useLocation();
+  const { user, loading } = useAdminAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const handleLogout = async () => {
-        await supabase.auth.signOut();
-        window.location.href = '/login-curso';
-    };
-
-    const menuItems = [
-        { title: 'Dashboard', icon: LayoutDashboard, path: '/admin' },
-        { title: 'Módulos', icon: BookOpen, path: '/admin/modules' },
-        { title: 'Usuarios', icon: Users, path: '/admin/users' },
-        { title: 'Configuración', icon: Settings, path: '/admin/settings' },
-    ];
-
+  if (loading) {
     return (
-        <div className="flex min-h-screen bg-gray-950">
-            {/* Sidebar */}
-            <aside className="w-64 bg-gray-900 border-r border-gray-800 hidden md:flex flex-col">
-                <div className="p-6 border-b border-gray-800">
-                    <h1 className="text-xl font-bold text-white flex items-center gap-2">
-                        <span className="bg-labora-red p-1 rounded">LMS</span> Admin
-                    </h1>
-                </div>
-
-                <nav className="flex-1 p-4 space-y-2">
-                    {menuItems.map((item) => {
-                        const isActive = location.pathname === item.path;
-                        const Icon = item.icon;
-                        return (
-                            <Link
-                                key={item.path}
-                                to={item.path}
-                                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${isActive
-                                        ? 'bg-labora-neon text-gray-900 font-bold'
-                                        : 'text-gray-400 hover:bg-gray-800 hover:text-white'
-                                    }`}
-                            >
-                                <Icon className="h-5 w-5" />
-                                {item.title}
-                            </Link>
-                        );
-                    })}
-                </nav>
-
-                <div className="p-4 border-t border-gray-800">
-                    <Button
-                        variant="ghost"
-                        className="w-full justify-start text-red-400 hover:text-red-300 hover:bg-red-900/20"
-                        onClick={handleLogout}
-                    >
-                        <LogOut className="mr-2 h-4 w-4" />
-                        Cerrar Sesión
-                    </Button>
-                </div>
-            </aside>
-
-            {/* Main Content */}
-            <main className="flex-1 overflow-auto">
-                <header className="bg-gray-900 border-b border-gray-800 p-4 sticky top-0 z-10 md:hidden">
-                    <h1 className="text-lg font-bold text-white">LMS Admin</h1>
-                </header>
-                <div className="p-6 md:p-10 max-w-7xl mx-auto">
-                    <Outlet />
-                </div>
-            </main>
-        </div>
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-labora-neon" />
+      </div>
     );
+  }
+
+  if (!user) return null; // handled by useAdminAuth redirect
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate('/admin/login');
+  };
+
+  const navItems = [
+    { name: 'Hub', path: '/admin', icon: LayoutDashboard },
+    { name: 'Cohortes', path: '/admin/cohortes', icon: Users },
+    { name: 'Leads', path: '/admin/leads', icon: Users },
+    { name: 'Clases', path: '/admin/clases', icon: Video },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white flex flex-col">
+      {/* Header */}
+      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          <Link to="/admin" className="flex items-center gap-2">
+            <span className="font-black text-xl text-labora-neon tracking-tight">LABORA</span>
+            <span className="text-gray-400 text-sm font-semibold tracking-widest uppercase">Admin</span>
+          </Link>
+          
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:flex items-center gap-1 bg-gray-800 rounded-lg p-1">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                      isActive 
+                        ? 'bg-gray-700 text-white' 
+                        : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="h-6 w-px bg-gray-700 mx-2 hidden sm:block"></div>
+            
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-gray-400 hidden md:block">{user.email}</span>
+              <Button variant="ghost" size="sm" onClick={handleLogout} className="text-gray-400 hover:text-white hover:bg-gray-800">
+                <LogOut className="w-4 h-4 mr-2" />
+                Salir
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-grow container mx-auto px-4 py-8 relative">
+        {/* Gradients */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+          <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-labora-neon/5 rounded-full blur-[120px]"></div>
+        </div>
+        
+        <Outlet />
+      </main>
+    </div>
+  );
 }

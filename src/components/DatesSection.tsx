@@ -1,7 +1,9 @@
 import React from 'react';
-import { Calendar, Clock, Users } from 'lucide-react';
+import { Calendar, Clock, Users, Loader2 } from 'lucide-react';
+import { useActiveCohorte } from '@/hooks/useActiveCohorte';
 
 const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
+  const { data: cohorte, isLoading } = useActiveCohorte();
   return (
     <section id="dates" className="py-20 bg-gradient-to-b from-gray-900 to-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,16 +48,20 @@ const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
                   </div>
                   <h4 className="font-semibold text-white text-lg">Próximos Inicios</h4>
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-white/5 p-3 rounded-lg border border-white/10">
-                    <span className="text-labora-neon font-bold block mb-1">Cohorte 20</span>
-                    <span className="text-white text-sm">Inicio: Sábado 18 de Julio</span>
+                {isLoading ? (
+                  <div className="flex justify-center py-4"><Loader2 className="animate-spin text-labora-neon" /></div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="bg-white/5 p-3 rounded-lg border border-white/10">
+                      <span className="text-labora-neon font-bold block mb-1">Cohorte {cohorte?.numero || 20}</span>
+                      <span className="text-white text-sm">Inicio: {cohorte?.fecha_inicio || 'Sábado 18 de Julio'}</span>
+                    </div>
+                    <div className="flex justify-between items-center pt-2 border-t border-gray-700">
+                      <span className="text-gray-300">Duración total:</span>
+                      <span className="text-labora-neon font-bold">{cohorte?.semanas_duracion || '7 semanas'}</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center pt-2 border-t border-gray-700">
-                    <span className="text-gray-300">Duración total:</span>
-                    <span className="text-labora-neon font-bold">7 semanas</span>
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Horarios y Modalidad */}
@@ -66,18 +72,23 @@ const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
                   </div>
                   <h4 className="font-semibold text-white text-lg">Horarios (Arg)</h4>
                 </div>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-gray-400 text-xs uppercase font-bold block mb-1">Horario Único</span>
-                    <div className="flex justify-between items-start text-sm">
-                      <span className="text-white">Sábados 10-14hs</span>
+                {isLoading ? (
+                  <div className="flex justify-center py-4"><Loader2 className="animate-spin text-labora-neon" /></div>
+                ) : (
+                  <div className="space-y-4">
+                    <div>
+                      <span className="text-gray-400 text-xs uppercase font-bold block mb-1">Horario Único</span>
+                      <div className="flex justify-between items-start text-sm">
+                        <span className="text-white">{cohorte?.horario || 'Sábados 10-14hs'}</span>
+                      </div>
+                    </div>
+                    {/* dedicacion is not in DB currently, we might just omit it or hardcode, I didn't add it to DB, wait I forgot to add dedicacion to DB! No problem, I can leave it hardcoded or use a fallback */}
+                    <div className="flex justify-between items-center pt-2 border-t border-gray-700 mt-2">
+                      <span className="text-gray-300">Dedicación:</span>
+                      <span className="text-labora-neon font-bold">4h semanales</span>
                     </div>
                   </div>
-                  <div className="flex justify-between items-center pt-2 border-t border-gray-700 mt-2">
-                    <span className="text-gray-300">Dedicación:</span>
-                    <span className="text-labora-neon font-bold">4h semanales</span>
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Modalidad y Plazas */}
@@ -88,20 +99,24 @@ const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
                   </div>
                   <h4 className="font-semibold text-white text-lg">Modalidad</h4>
                 </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Formato:</span>
-                    <span className="text-white font-semibold">100% online</span>
+                {isLoading ? (
+                  <div className="flex justify-center py-4"><Loader2 className="animate-spin text-labora-red" /></div>
+                ) : (
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-300">Formato:</span>
+                      <span className="text-white font-semibold">100% online</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-300">Plazas:</span>
+                      <span className="text-labora-neon font-bold">{cohorte?.plazas_totales || 20} estudiantes</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-300">Grabaciones:</span>
+                      <span className="text-white font-semibold">Disponibles 24/7</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Plazas:</span>
-                    <span className="text-labora-neon font-bold">20 estudiantes</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Grabaciones:</span>
-                    <span className="text-white font-semibold">Disponibles 24/7</span>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
 
