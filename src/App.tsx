@@ -8,6 +8,7 @@ import { AnalyticsTracker } from "./components/AnalyticsTracker";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Bootcamp from "./pages/Bootcamp";
+import BootcampOferta from "./pages/BootcampOferta";
 import BootcampV3 from "./pages/BootcampV3";
 import BootcampLanding from "./pages/BootcampLanding";
 import BootcampIA from "./pages/BootcampIA";
@@ -56,6 +57,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />
+          <Route path="/bootcamp-oferta" element={<BootcampOferta />} />
           <Route path="/bootcamp-v3" element={<BootcampV3 />} />
           <Route path="/bootcamp-landing" element={<BootcampLanding />} />
           <Route path="/bootcamp-ia" element={<BootcampIA />} />
