@@ -83,7 +83,7 @@ const DatesSectionOptimized = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Inicio:</span>
-                    <span className="text-gray-900 font-bold">18 de Julio</span>
+                    <span className="text-gray-900 font-bold">01 de Julio</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-600 font-medium">Finalización:</span>

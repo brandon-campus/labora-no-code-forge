@@ -78,7 +78,7 @@ const PostAplicacion = () => {
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
                   Próximo Inicio Confirmado
                 </p>
-                <p className="font-black text-white text-xl md:text-2xl tracking-tight">{cohorte?.fecha_inicio || 'Sábado 18 de Julio'}</p>
+                <p className="font-black text-white text-xl md:text-2xl tracking-tight">{cohorte?.fecha_inicio || 'Sábado 01 de Julio'}</p>
               </div>
             </div>
 

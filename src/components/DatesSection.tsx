@@ -54,7 +54,7 @@ const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
                   <div className="space-y-4">
                     <div className="bg-white/5 p-3 rounded-lg border border-white/10">
                       <span className="text-labora-neon font-bold block mb-1">Cohorte {cohorte?.numero || 20}</span>
-                      <span className="text-white text-sm">Inicio: {cohorte?.fecha_inicio || 'Sábado 18 de Julio'}</span>
+                      <span className="text-white text-sm">Inicio: {cohorte?.fecha_inicio || 'Sábado 01 de Julio'}</span>
                     </div>
                     <div className="flex justify-between items-center pt-2 border-t border-gray-700">
                       <span className="text-gray-300">Duración total:</span>

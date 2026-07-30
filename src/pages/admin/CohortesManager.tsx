@@ -145,7 +145,7 @@ export default function CohortesManager() {
           </div>
           
           <div className="space-y-2">
-            <Label className="text-gray-300">Fecha de Inicio (Ej: Sábado 18 de Julio)</Label>
+            <Label className="text-gray-300">Fecha de Inicio (Ej: Sábado 01 de Julio)</Label>
             <Input name="fecha_inicio" value={cohorte.fecha_inicio} onChange={handleChange} required className="bg-black/50 border-gray-700 text-white" />
           </div>
           <div className="space-y-2">

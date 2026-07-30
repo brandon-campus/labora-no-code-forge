@@ -39,7 +39,7 @@ const LinksTikTok = () => {
               🚀 Bootcamp de IA y No Code
             </span>
             <span className="text-black bg-labora-neon px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase relative z-10 mt-3 shadow-[0_0_10px_rgba(205,255,100,0.5)]">
-              Próxima Cohorte: 18 de julio
+              Próxima Cohorte: 01 de julio
             </span>
           </Link>
 
