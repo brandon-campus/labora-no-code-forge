@@ -90,117 +90,77 @@ const TestimonialsSection = ({ lightBg = false }: TestimonialsSectionProps) => {
   };
 
   return (
-    <section id="testimonials" className={`relative py-20 ${lightBg ? 'bg-white' : 'bg-gray-950'} overflow-hidden`}>
-      {/* Tech Grid Background */}
-      {!lightBg && (
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/tech-grid.svg')] bg-repeat opacity-5"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950 to-gray-950"></div>
-        </div>
-      )}
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className={cn(
-            "inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full",
-            "bg-gray-900/80 backdrop-blur-sm",
-            "border border-labora-neon/20",
-            "shadow-[0_0_20px_rgba(0,255,170,0.1)]"
-          )}>
-            <Quote className="h-5 w-5 text-labora-neon" />
-            <span className="text-gray-200 text-sm font-medium">Historias de éxito</span>
-          </div>
-          <h2 className={cn(
-            "text-4xl md:text-5xl font-bold mb-6",
-            "bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent",
-            "tracking-tight"
-          )}>
-            Lo que dicen nuestros estudiantes
+    <section id="testimonials" className="py-16 md:py-20 bg-[#0a0a0a] text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <div className="text-center mb-10">
+          <h2 className="text-[2rem] sm:text-4xl md:text-5xl font-black mb-3 text-white uppercase leading-[1.2]">
+            LO QUE DICEN <br className="hidden sm:block" /><span className="text-labora-neon">NUESTROS ALUMNOS</span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            Descubrí cómo nuestros estudiantes están transformando sus carreras y creando productos increíbles.
+          <p className="text-[#c9c9c9] text-[15px] sm:text-[16px] max-w-2xl mx-auto">
+            Únete a cientos de profesionales que ya están transformando su carrera con nosotros.
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto relative">
-          <div className="relative h-[400px]">
-          {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={cn(
-                  "absolute inset-0 transition-all duration-500",
-                  "flex flex-col items-center text-center",
-                  "bg-gray-900/80 backdrop-blur-sm rounded-xl p-8",
-                  "border border-gray-800/50",
-                  "shadow-[0_0_30px_rgba(0,0,0,0.3)]",
-                  index === currentIndex ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full"
-                )}
-              >
-                <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-2 border-labora-neon/30">
-              <img 
-                src={testimonial.image} 
-                alt={testimonial.name} 
-                    className="w-full h-full object-cover"
-                  />
+        <div className="max-w-3xl mx-auto overflow-hidden relative">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="w-full flex-shrink-0 px-2 sm:px-4">
+                <div className="bg-[#12151a] border border-white/10 rounded-[24px] p-8 sm:p-10 flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-full overflow-hidden mb-5 bg-[#333]">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-[15px] sm:text-[16px] leading-[1.6] italic text-[#e4e4e4] mb-6">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="font-extrabold text-[16px] text-labora-neon uppercase tracking-wide flex items-center justify-center gap-2">
+                    {testimonial.name} <span className="text-xl">{testimonial.flag}</span>
+                  </div>
+                  <div className="text-[13px] text-[#888] mt-1 uppercase tracking-wider font-semibold">
+                    {testimonial.country}
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 mb-4">
-                  <h3 className="text-xl font-semibold text-white">{testimonial.name}</h3>
-                  <span className="text-2xl">{testimonial.flag}</span>
               </div>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         
-          {/* Navigation Buttons */}
-          <button
+        {/* Carousel controls */}
+        <div className="flex items-center gap-4 mt-8 max-w-3xl mx-auto justify-center">
+          <button 
             onClick={goToPrevious}
-            className={cn(
-              "absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12",
-              "p-3 rounded-full",
-              "bg-gray-900/80 backdrop-blur-sm",
-              "border border-labora-neon/20",
-              "shadow-[0_0_20px_rgba(0,255,170,0.1)]",
-              "transition-all duration-300",
-              "hover:bg-labora-neon/20 hover:border-labora-neon/50",
-              "focus:outline-none focus:ring-2 focus:ring-labora-neon/50",
-              "group"
-            )}
+            className="p-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
           >
-            <ChevronLeft className="w-6 h-6 text-white group-hover:text-labora-neon" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
-
-          <button
-            onClick={goToNext}
-            className={cn(
-              "absolute right-0 top-1/2 -translate-y-1/2 translate-x-12",
-              "p-3 rounded-full",
-              "bg-gray-900/80 backdrop-blur-sm",
-              "border border-labora-neon/20",
-              "shadow-[0_0_20px_rgba(0,255,170,0.1)]",
-              "transition-all duration-300",
-              "hover:bg-labora-neon/20 hover:border-labora-neon/50",
-              "focus:outline-none focus:ring-2 focus:ring-labora-neon/50",
-              "group"
-            )}
-          >
-            <ChevronRight className="w-6 h-6 text-white group-hover:text-labora-neon" />
-          </button>
-
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
+          
+          <div className="flex items-center justify-center gap-2.5 px-4">
+            {testimonials.map((_, i) => (
+              <div 
+                key={i} 
+                onClick={() => setCurrentIndex(i)}
                 className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-300",
-                  index === currentIndex ? "bg-labora-neon" : "bg-gray-700",
-                  "hover:bg-labora-neon/50"
+                  "cursor-pointer transition-all",
+                  i === currentIndex 
+                    ? "w-[34px] h-[6px] rounded-[4px] bg-gradient-to-r from-labora-red to-labora-neon" 
+                    : "w-2 h-2 rounded-full bg-white/20 hover:bg-white/40"
                 )}
-              />
+              ></div>
             ))}
-            </div>
+          </div>
+
+          <button 
+            onClick={goToNext}
+            className="p-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>

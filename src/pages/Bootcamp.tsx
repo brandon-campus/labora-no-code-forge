@@ -24,10 +24,10 @@ const Bootcamp = () => {
       )}
       <Navbar />
       <HeroSectionV3 />
-      <AboutSection />
+      {/* <AboutSection /> */}
+      <ProcessSection />
       <DatesSection />
       <CurriculumSection />
-      <ProcessSection />
       <DemoSection />
       <TestimonialsSection />
       <ContactSection />

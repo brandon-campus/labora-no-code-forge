@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Labora — Crea proyectos con IA</title>
+<style>
+  :root{
+    --bg-black:#0a0a0a;
+    --lime:#aaff00;
+    --coral:#e54b5c;
+    --white-off:#f5f0ec;
+    --gray-text:#9a9a9a;
+    --gray-light:#6b6b6b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg-black);
+    color:#fff;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:480px;margin:0 auto;position:relative;}
+
+  /* HEADER */
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;background:var(--bg-black);
+    position:sticky;top:0;z-index:50;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;letter-spacing:-0.5px;}
+  .logo svg{flex-shrink:0;}
+  .menu-btn{background:none;border:none;cursor:pointer;padding:8px;}
+  .menu-btn span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;border-radius:2px;}
+
+  /* HERO */
+  .hero{background:var(--bg-black);padding:36px 24px 28px;}
+  .hero h1{
+    font-size:2.5rem;
+    font-weight:900;
+    line-height:1.08;
+    text-transform:uppercase;
+    letter-spacing:-1px;
+  }
+  .hero h1 .accent{color:var(--lime);}
+
+  .video-box{
+    position:relative;margin-top:28px;border-radius:18px;overflow:hidden;
+    aspect-ratio:16/9;background:#000;
+  }
+  .video-box iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:none;
+  }
+  .video-placeholder-label{
+    position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.55);
+    color:#fff;font-size:11px;padding:5px 10px;border-radius:20px;
+    letter-spacing:0.3px;z-index:2;border:1px dashed rgba(255,255,255,0.4);
+  }
+  .play-btn{
+    width:76px;height:76px;border-radius:50%;
+    border:3px solid #fff;display:flex;align-items:center;justify-content:center;
+    background:rgba(0,0,0,0.15);z-index:2;cursor:pointer;
+    transition:transform .2s ease;
+  }
+  .play-btn:hover{transform:scale(1.06);}
+  .play-btn svg{margin-left:4px;}
+
+  .badge-row{margin-top:-18px;padding:0 24px;position:relative;z-index:3;}
+  .badge{
+    background:rgba(20,24,18,0.92);
+    border:1px solid rgba(170,255,0,0.25);
+    color:var(--lime);
+    font-weight:700;font-size:13px;text-align:center;
+    padding:16px 20px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    letter-spacing:0.2px;
+  }
+
+  .benefits{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:14px;padding:28px 24px 36px;background:var(--bg-black);
+    text-align:center;
+  }
+  .benefit-icon{
+    width:64px;height:64px;border-radius:50%;background:var(--lime);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 10px;
+  }
+  .benefit-icon.outline{background:transparent;border:2.5px solid var(--lime);}
+  .benefits p{font-size:14px;font-weight:700;line-height:1.25;}
+
+  /* DOTS */
+  .dots{display:flex;align-items:center;justify-content:center;gap:8px;padding:0 0 32px;}
+  .dots .bar{width:34px;height:5px;border-radius:4px;background:linear-gradient(90deg,var(--coral),var(--lime));}
+  .dots .dot{width:6px;height:6px;border-radius:50%;background:#4a4a4a;}
+
+  /* PROCESS STEPS (below the 3 icons) */
+  .process{background:var(--white-off);color:#141414;padding:44px 24px 8px;text-align:center;}
+  .process-icon-wrap{position:relative;width:96px;height:96px;margin:0 auto 26px;}
+  .process-icon{
+    width:96px;height:96px;border-radius:26px;background:var(--lime);
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.4rem;font-weight:800;color:#141414;
+  }
+  .process-badge{
+    position:absolute;bottom:-6px;right:-10px;width:38px;height:38px;border-radius:50%;
+    background:#fff;box-shadow:0 4px 14px rgba(0,0,0,0.12);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .process h3{font-size:1.5rem;font-weight:900;letter-spacing:0.3px;text-transform:uppercase;}
+  .process p{margin-top:16px;font-size:15px;color:#5c5c5c;line-height:1.65;max-width:340px;margin-left:auto;margin-right:auto;}
+  .process .dots{padding-top:26px;padding-bottom:36px;}
+  .process .dots .dot{background:#c9c9c1;}
+
+  /* CURRICULUM */
+  .curriculum-head{
+    padding:44px 24px 26px;
+    background:linear-gradient(160deg,var(--lime) 0%,#5c6b30 55%,var(--bg-black) 100%);
+  }
+  .curriculum-head h2{font-size:2rem;font-weight:900;line-height:1.15;color:#fff;}
+  .curriculum-head h2 .accent{color:var(--lime);background:none;-webkit-text-fill-color:var(--lime);}
+
+  .curriculum-body{padding:0 24px 40px;background:var(--bg-black);}
+  .timeline-card{
+    border:2px solid var(--lime);
+    border-radius:26px;
+    padding:32px 26px;
+    box-shadow:0 0 40px rgba(170,255,0,0.08);
+  }
+  .week{display:grid;grid-template-columns:64px 1px 1fr;gap:16px;padding:20px 0;}
+  .week:first-child{padding-top:0;}
+  .week:last-child{padding-bottom:0;}
+  .week-num-wrap{display:flex;flex-direction:column;align-items:flex-start;}
+  .week-label{font-size:11px;font-weight:800;color:var(--coral);letter-spacing:0.5px;margin-bottom:-4px;}
+  .week-num{
+    font-size:3.2rem;font-weight:900;line-height:1;
+    background:linear-gradient(160deg,var(--coral) 0%, var(--lime) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .divider{background:rgba(255,255,255,0.15);width:1px;}
+  .week-title{font-size:1.2rem;font-weight:800;color:var(--coral);line-height:1.2;margin-bottom:6px;text-transform:uppercase;}
+  .week-desc{font-size:14px;color:#d8d8d8;line-height:1.5;}
+  .week-divider-line{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:0;}
+
+  /* PROJECTS */
+  .projects{background:var(--white-off);color:#141414;padding:48px 24px 40px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1.5px solid #dcdcd6;border-radius:30px;
+    padding:9px 18px;font-size:13px;font-weight:700;color:#141414;
+    letter-spacing:0.3px;
+  }
+  .eyebrow .dot-ico{width:7px;height:7px;border-radius:50%;background:var(--coral);}
+  .projects h2{font-size:2.1rem;font-weight:900;line-height:1.15;margin-top:20px;text-transform:uppercase;}
+  .projects h2 .accent{color:var(--coral);}
+  .projects p.lead{margin-top:16px;font-size:15.5px;color:#5c5c5c;line-height:1.6;}
+
+  .project-card{
+    margin-top:32px;border-radius:20px;overflow:hidden;
+    background:#fff;border:1px solid #e8e4de;
+  }
+  .project-video{
+    position:relative;aspect-ratio:16/10.5;
+    background:linear-gradient(150deg,#4a1319,#1c0608);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .project-video-tag{
+    position:absolute;top:12px;left:12px;color:#fff;font-weight:800;font-size:14px;
+    text-shadow:0 1px 4px rgba(0,0,0,0.4);
+  }
+  .project-video .video-placeholder-label{border-color:rgba(255,255,255,0.5);}
+  .project-play{
+    width:56px;height:56px;border-radius:50%;background:rgba(0,0,0,0.3);
+    border:2.5px solid #fff;display:flex;align-items:center;justify-content:center;
+  }
+  .project-info{padding:22px 22px 26px;}
+  .project-info h3{font-size:1.3rem;font-weight:800;line-height:1.25;text-transform:uppercase;}
+  .project-info p{margin-top:12px;font-size:14.5px;color:#5c5c5c;line-height:1.6;}
+  .projects .dots{padding-top:32px;}
+  .projects .dots .dot{background:#c9c9c1;}
+
+  /* TESTIMONIALS */
+  .testimonials{background:var(--bg-black);padding:48px 24px 44px;}
+  .quote-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1.5px solid rgba(170,255,0,0.3);border-radius:30px;
+    padding:9px 18px;font-size:14px;font-weight:700;color:#fff;
+  }
+  .testi-card{
+    margin-top:26px;background:#12151a;border-radius:22px;
+    padding:38px 26px 30px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .testi-avatar{
+    width:96px;height:96px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--lime);margin:0 auto 22px;display:block;
+  }
+  .testi-name{font-size:1.3rem;font-weight:800;letter-spacing:0.3px;}
+  .testi-quote{margin-top:20px;font-size:16px;line-height:1.65;color:#c9c9c9;font-style:italic;}
+  .testimonials .dots{padding-top:26px;}
+
+  /* FINAL CTA */
+  .final-cta{background:var(--white-off);color:#141414;padding:52px 24px 44px;}
+  .final-cta h2{font-size:2rem;font-weight:900;line-height:1.2;text-transform:uppercase;}
+  .cta-btn{
+    display:block;width:100%;text-align:center;
+    background:var(--lime);color:#0a0a0a;font-weight:800;font-size:16px;
+    padding:19px;border-radius:40px;margin-top:28px;border:none;cursor:pointer;
+    text-decoration:none;letter-spacing:0.3px;
+    box-shadow:0 8px 24px rgba(170,255,0,0.35);
+    transition:transform .15s ease;
+  }
+  .cta-btn:hover{transform:translateY(-2px);}
+  .deadline{margin-top:22px;text-align:center;font-size:15px;color:#4a4a4a;}
+  .deadline b{color:#141414;}
+  .deadline .placeholder{
+    border-bottom:1.5px dashed #b8b8b0;padding:2px 4px;color:#8a8a80;font-style:italic;
+  }
+  hr.sep{border:none;border-top:1px solid #ddd8d0;margin:30px 0;}
+  .contact{text-align:center;font-size:14.5px;color:#5c5c5c;line-height:1.6;}
+  .contact a{color:var(--coral);font-weight:700;text-decoration:none;}
+
+  footer{background:var(--bg-black);text-align:center;padding:24px;font-size:12px;color:#555;}
+
+  @media (min-width:481px){
+    .wrap{border-left:1px solid #1a1a1a;border-right:1px solid #1a1a1a;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="14" cy="14" r="11.5" stroke="#e54b5c" stroke-width="4"/>
+        <circle cx="23" cy="23" r="3.6" fill="#e54b5c"/>
+      </svg>
+      labora
+    </div>
+    <button class="menu-btn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>CREA PROYECTOS CON <span class="accent">IA</span> Y EMPEZÁ A VIVIR DE ELLOS.</h1>
+
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/v1jTFGGjfEk" title="Labora - video presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+        EL BOOTCAMP MÁS COMPLETO DE LATAM
+      </div>
+    </div>
+
+    <div class="benefits">
+      <div>
+        <div class="benefit-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <p>Sin codigo</p>
+      </div>
+      <div>
+        <div class="benefit-icon outline">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#aaff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        </div>
+        <p>Proyectos reales</p>
+      </div>
+      <div>
+        <div class="benefit-icon outline">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#aaff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <p>100 % en vivo</p>
+      </div>
+    </div>
+
+    <div class="dots"><div class="bar"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  </section>
+
+  <!-- PROCESS STEPS -->
+  <section class="process">
+    <div class="process-icon-wrap">
+      <div class="process-icon">1</div>
+      <div class="process-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e54b5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.75.75 1.23 1.5 1.41 2.5"/></svg>
+      </div>
+    </div>
+    <h3>Idea y validación</h3>
+    <p>Definirás tu idea de producto y la validarás con técnicas de Design Thinking y métodos ágiles, identificando su potencial de mercado.</p>
+    <div class="dots"><div class="bar"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section>
+    <div class="curriculum-head">
+      <h2>Conviertete en un AI Builder en <span class="accent">7</span> semanas</h2>
+    </div>
+    <div class="curriculum-body">
+      <div class="timeline-card" id="weeks">
+        <!-- weeks injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects">
+    <span class="eyebrow"><span class="dot-ico"></span> PROYECTOS REALES</span>
+    <h2><span class="accent">PROYECTOS</span> QUE PODRÁS CREAR</h2>
+    <p class="lead">Estos son algunos ejemplos de aplicaciones y plataformas desarrolladas por nuestros estudiantes utilizando herramientas de IA y No-Code.</p>
+
+    <div class="project-card">
+      <div class="project-video">
+        <span class="project-video-tag">[Nombre del proyecto]</span>
+        <span class="video-placeholder-label" style="top:auto;bottom:12px;left:12px;">📹 Espacio para video</span>
+        <div class="project-play">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>PLATAFORMA DE GESTIÓN DE INTERNET EN SERVICIOS RURALES</h3>
+        <p>Plataforma web para gestionar clientes, enviar facturas, habilitar servicios de empresas proveedoras de Internet.</p>
+      </div>
+    </div>
+
+    <div class="dots"><div class="bar"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <span class="quote-eyebrow">❝❞ Historias de éxito</span>
+    <div class="testi-card">
+      <img class="testi-avatar" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=200&h=200&fit=crop&crop=faces" alt="Lucas Parolini">
+      <div class="testi-name">LUCAS PAROLINI 🇦🇷</div>
+      <p class="testi-quote">"Estoy emocionado con el comienzo del bootcamp. Quiero aprender a fondo cómo utilizar herramientas de inteligencia artificial."</p>
+    </div>
+    <div class="dots"><div class="bar"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>¿LISTO PARA INICIAR CON IA Y NO CODE?</h2>
+    <a href="#" class="cta-btn">APLICAR AHORA</a>
+    <p class="deadline">Fecha límite de inscripción: <span class="placeholder">[completar fecha]</span></p>
+    <hr class="sep">
+    <p class="contact">También puedes contactarnos directamente a<br><a href="mailto:laborastartup@gmail.com">laborastartup@gmail.com</a></p>
+  </section>
+
+  <footer>© Labora — Todos los derechos reservados</footer>
+</div>
+
+<script>
+const weeks = [
+  {n:1, title:"DE CERO A APP", desc:"Fundamentos escenciales para crear tu primera aplicacion funcional"},
+  {n:2, title:"ENTORNO DE DESARROLLO", desc:"Configura tu entorno de trabajo y herramientas como un profesional"},
+  {n:3, title:"BASES DE DATOS - SUPABASE", desc:"Construye la arquitectura robusta de tu aplicación"},
+  {n:4, title:"ESCALABILIDAD Y AGENTES", desc:"Seguridad, control de accesos y primeras automatizaciones"},
+  {n:5, title:"AGENTES N8N", desc:"Automatización avanzada e inteligencia artificial integrada"},
+  {n:6, title:"INTEGRACIONES Y DEPLOY", desc:"Manejo de errores, integraciones clave y lanzamiento"},
+  {n:7, title:"LANZAMIENTO DE PRODUCTO", desc:"Presentación final y estrategias de crecimiento"},
+];
+const container = document.getElementById('weeks');
+weeks.forEach((w, i) => {
+  const div = document.createElement('div');
+  div.innerHTML = `
+    <div class="week">
+      <div class="week-num-wrap">
+        <span class="week-label">SEMANA</span>
+        <span class="week-num">${w.n}</span>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="week-title">${w.title}</div>
+        <div class="week-desc">${w.desc}</div>
+      </div>
+    </div>
+    ${i < weeks.length - 1 ? '<hr class="week-divider-line">' : ''}
+  `;
+  container.appendChild(div);
+});
+</script>
+</body>
+</html>

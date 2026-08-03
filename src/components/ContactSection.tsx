@@ -1,95 +1,32 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { BookOpen, Calendar, Rocket, Users } from 'lucide-react';
-
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
 
 const ContactSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
   return (
-    <section id="contacto" className="bg-labora-dark py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-              Únete al <span className="text-labora-neon">bootcamp</span> y crea tu proyecto
-            </h2>
-            <p className="text-gray-300 text-lg mb-8">
-              Completa el formulario y nos pondremos en contacto contigo para darte toda la información sobre nuestro programa.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Calendar className="h-5 w-5 text-labora-red" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg text-white">Duración</h3>
-                  <p className="text-gray-300">Programa intensivo de 7 semanas</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <BookOpen className="h-5 w-5 text-labora-red" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg text-white">Metodología</h3>
-                  <p className="text-gray-300">Clases 100% en vivo</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Users className="h-5 w-5 text-labora-red" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg text-white">Acompañamiento</h3>
-                  <p className="text-gray-300">Entrenadores especializados en IA y No-Code</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-labora-red/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Rocket className="h-5 w-5 text-labora-red" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg text-white">Resultado</h3>
-                  <p className="text-gray-300">Tu producto terminado y listo para lanzar</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 animate-fade-in-up">
-            <h3 className="text-2xl font-bold mb-6 text-labora-dark">¿Listo para iniciar con IA y No Code?</h3>
-
-            <div className="space-y-6">
-              <a
-                href={`${funnelPath}/bootcamp/aplicar`}
-                className="block"
-              >
-                <Button className="w-full bg-[#c1ff72] hover:bg-[#b0ff4a] text-black font-bold rounded-full px-10 pt-7 pb-7 text-base transition-all shadow-lg uppercase">
-                  APLICAR AHORA
-                </Button>
-              </a>
-
-              <p className="text-gray-500 text-center">
-                Fecha límite de inscripción: <span className="font-semibold">14 de Julio</span>
-              </p>
-
-              <div className="border-t border-gray-100 pt-6 mt-6">
-                <p className="text-gray-500 text-center">
-                  También puedes contactarnos directamente a <a href="mailto:laborastartup@gmail.com" className="text-labora-red hover:underline">laborastartup@gmail.com</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="contacto" className="bg-[#f5f0ec] text-[#141414] py-[52px] px-6 sm:py-16 md:py-20 text-center">
+      <div className="container mx-auto max-w-2xl">
+        <h2 className="text-[2rem] sm:text-4xl md:text-5xl font-black leading-[1.2] uppercase">
+          ¿LISTO PARA INICIAR CON IA Y NO CODE?
+        </h2>
+        
+        <a href={`${funnelPath}/bootcamp/aplicar`} className="block w-full sm:w-auto mt-[28px] sm:mt-10">
+          <Button className="w-full bg-[#aaff00] hover:bg-[#99e600] text-[#0a0a0a] font-extrabold text-[16px] px-8 py-[28px] rounded-[40px] uppercase tracking-[0.3px] shadow-[0_8px_24px_rgba(170,255,0,0.35)] transition-transform hover:-translate-y-1">
+            APLICAR AHORA
+          </Button>
+        </a>
+        
+        <p className="mt-[22px] text-[15px] text-[#4a4a4a]">
+          Fecha límite de inscripción: <span className="border-b-[1.5px] border-dashed border-[#b8b8b0] px-1 py-0.5 text-[#8a8a80] italic">05 de Septiembre</span>
+        </p>
+        
+        <hr className="border-t border-[#ddd8d0] my-[30px]" />
+        
+        <p className="text-[14.5px] text-[#5c5c5c] leading-[1.6]">
+          También puedes contactarnos directamente a<br />
+          <a href="mailto:laborastartup@gmail.com" className="text-[#e54b5c] font-bold hover:underline">
+            laborastartup@gmail.com
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -24,10 +24,9 @@ const BootcampOferta = () => {
       )}
       <Navbar />
       <HeroSectionOferta />
-      <AboutSection />
+      <ProcessSection />
       <DatesSection />
       <CurriculumSection />
-      <ProcessSection />
       <DemoSection />
       <TestimonialsSection />
       <ContactSection />

@@ -12,7 +12,7 @@ const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
             PRÓXIMA COHORTE DISPONIBLE
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Conviértete en AI Builder en <span className="text-labora-neon">7 semanas</span>
+            Asegura tu lugar en la <span className="text-labora-neon">próxima edición</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Programa intensivo en vivo para que puedas crear y lanzar proyectos al mercado o trabajar con clientes.
@@ -54,7 +54,7 @@ const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
                   <div className="space-y-4">
                     <div className="bg-white/5 p-3 rounded-lg border border-white/10">
                       <span className="text-labora-neon font-bold block mb-1">Cohorte {cohorte?.numero || 20}</span>
-                      <span className="text-white text-sm">Inicio: {cohorte?.fecha_inicio || 'Sábado 01 de Julio'}</span>
+                      <span className="text-white text-sm">Inicio: {cohorte?.fecha_inicio || '05 de Septiembre'}</span>
                     </div>
                     <div className="flex justify-between items-center pt-2 border-t border-gray-700">
                       <span className="text-gray-300">Duración total:</span>

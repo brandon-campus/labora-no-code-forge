@@ -1,41 +1,7 @@
 import React, { useState } from 'react';
-import { Brain, Zap, Layout, Database, Rocket, Calendar, Clock, Video, ChevronDown, ChevronUp, Terminal, Shield, Cpu, Cloud } from 'lucide-react';
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
-import Module from './Module';
+import { Zap, Calendar, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
 import { useActiveCohorte } from '@/hooks/useActiveCohorte';
-import { Loader2 } from 'lucide-react';
-
-interface TechBadgeProps {
-  name: string;
-  color: string;
-}
-
-const TechBadge = ({ name, color }: TechBadgeProps) => (
-  <Badge variant="outline" className={cn("border-2 text-white bg-gray-900/60", color)}>
-    {name}
-  </Badge>
-);
-
-interface DifficultyBadgeProps {
-  level: "Básico" | "Intermedio" | "Avanzado";
-}
-
-const DifficultyBadge = ({ level }: DifficultyBadgeProps) => {
-  const colors = {
-    Básico: "text-green-400 border-green-400",
-    Intermedio: "text-yellow-400 border-yellow-400",
-    Avanzado: "text-red-400 border-red-400"
-  };
-
-  return (
-    <Badge variant="outline" className={cn("border-2", colors[level])}>
-      {level}
-    </Badge>
-  );
-};
+import { cn } from "@/lib/utils";
 
 interface SessionProps {
   title: string;
@@ -263,64 +229,99 @@ const CurriculumSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-labora-neon/5 via-transparent to-labora-red/5"></div>
+    <section>
+      {/* Curriculum Head */}
+      <div className="pt-14 pb-10 px-4 sm:px-6 bg-gradient-to-br from-labora-neon via-[#5c6b30] to-[#0a0a0a]">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-[2rem] sm:text-4xl md:text-5xl font-black leading-[1.15] text-white">
+            Conviertete en un AI Builder en <span className="text-labora-neon bg-transparent" style={{ WebkitTextFillColor: '#aaff00' }}>7</span> semanas
+          </h2>
+        </div>
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Header Section */}
-          <div className="text-center mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 mb-4 md:mb-6 px-4 sm:px-6 py-2 sm:py-3 bg-labora-neon/10 backdrop-blur-sm rounded-full shadow-lg border border-labora-neon/20">
-              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-labora-neon" />
-              <span className="text-labora-neon text-sm font-bold uppercase tracking-wider">El bootcamp más completo de LATAM</span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4 md:mb-6">
-              PLAN DE ESTUDIOS
-            </h2>
-
-            <p className="text-gray-300 text-center text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
-              En 7 semanas desde cero al lanzamiento de tu producto.
-            </p>
-          </div>
-
-          {/* Clase de Bienvenida */}
-          <div className="mb-8 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-labora-neon/20 to-labora-red/20 backdrop-blur-sm rounded-2xl p-6 border border-labora-neon/30">
+      {/* Curriculum Body */}
+      <div className="px-4 sm:px-6 pb-16 pt-8 bg-[#0a0a0a]">
+        <div className="container mx-auto max-w-4xl relative">
+          
+          {/* Clase de Bienvenida (Conservada del original, adaptada al estilo oscuro) */}
+          <div className="mb-8 relative z-10">
+            <div className="bg-[#12151a] rounded-2xl p-6 border border-labora-neon/30 shadow-lg">
               <div className="flex items-center gap-3 mb-2">
                 <Calendar className="h-5 w-5 text-labora-neon" />
                 <h3 className="text-xl font-bold text-white">Clase de Bienvenida</h3>
               </div>
-              <p className="text-gray-300 text-base">
-                <span className="font-semibold text-labora-neon">{cohorte?.fecha_bienvenida || 'Sábado, 06 de junio'}</span> - Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa.
+              <p className="text-[#c9c9c9] text-base">
+                Sesión introductoria donde conocerás al equipo, la metodología y te prepararás para comenzar el programa.
               </p>
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="border-2 border-labora-neon rounded-[26px] p-6 sm:p-8 shadow-[0_0_40px_rgba(170,255,0,0.08)] bg-[#0a0a0a]">
             {isLoading ? (
                <div className="flex justify-center py-10"><Loader2 className="animate-spin text-labora-neon w-8 h-8" /></div>
             ) : (
-              currentModules.map((module: any, index: number) => (
-                <Module
-                  key={index}
-                  title={module.title}
-                  description={module.description}
-                  week={module.week}
-                  difficulty={module.difficulty}
-                  progress={module.progress}
-                  sessions={module.sessions}
-                  isExpanded={expandedModules.includes(index)}
-                  onToggle={() => handleToggleModule(index)}
-                />
-              ))
+               currentModules.map((module: any, index: number) => {
+                 const weekNum = index + 1;
+                 const isLast = index === currentModules.length - 1;
+                 
+                 return (
+                   <React.Fragment key={index}>
+                     <div 
+                       className="grid grid-cols-[56px_1px_1fr] sm:grid-cols-[72px_1px_1fr] gap-4 sm:gap-6 py-5 sm:py-6 first:pt-0 last:pb-0 cursor-pointer group"
+                       onClick={() => handleToggleModule(index)}
+                     >
+                       {/* Week Number */}
+                       <div className="flex flex-col items-start">
+                         <span className="text-[11px] font-extrabold text-labora-red tracking-[0.5px] -mb-1">SEMANA</span>
+                         <span className="text-[3.2rem] sm:text-[4rem] font-black leading-none bg-gradient-to-br from-labora-red to-labora-neon bg-clip-text text-transparent group-hover:scale-105 transition-transform origin-left">
+                           {weekNum}
+                         </span>
+                       </div>
+                       
+                       {/* Divider */}
+                       <div className="bg-white/15 w-[1px] h-full"></div>
+                       
+                       {/* Content */}
+                       <div className="flex flex-col justify-center">
+                         <div className="flex justify-between items-start">
+                           <div className="text-[1.1rem] sm:text-[1.3rem] font-extrabold text-labora-red leading-[1.2] mb-1.5 uppercase pr-2">
+                             {module.title.replace(/FASE \d+: /i, '')}
+                           </div>
+                           <div className="text-labora-neon flex-shrink-0 mt-0.5 opacity-50 group-hover:opacity-100 transition-opacity">
+                             {expandedModules.includes(index) ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                           </div>
+                         </div>
+                         <div className="text-[14px] sm:text-[15px] text-[#d8d8d8] leading-[1.5]">
+                           {module.description}
+                         </div>
+                         
+                         {/* Expanded Sessions Details (Added functionality over prototype) */}
+                         {expandedModules.includes(index) && module.sessions && (
+                           <div className="mt-4 pt-4 border-t border-white/10 space-y-3 animate-fade-in">
+                             {module.sessions.map((session: any, sIdx: number) => (
+                               <div key={sIdx} className="bg-white/5 rounded-xl p-4 border border-white/5">
+                                 <div className="text-white font-bold text-sm sm:text-base mb-1">{session.title}</div>
+                                 <div className="text-[#a0a0a0] text-xs sm:text-sm mb-3">{session.description}</div>
+                                 <div className="flex flex-wrap gap-2">
+                                   {session.tags.map((tag: string, tIdx: number) => (
+                                     <span key={tIdx} className="text-[10px] px-2 py-0.5 rounded-full border border-labora-neon/30 text-labora-neon bg-labora-neon/5 font-medium tracking-wide uppercase">
+                                       {tag}
+                                     </span>
+                                   ))}
+                                 </div>
+                               </div>
+                             ))}
+                           </div>
+                         )}
+                       </div>
+                     </div>
+                     {!isLast && <hr className="border-t border-white/10 m-0" />}
+                   </React.Fragment>
+                 )
+               })
             )}
           </div>
-
-          <div className="mt-8 md:mt-12 text-center text-gray-400 text-sm md:text-base max-w-3xl mx-auto">
-            Cada módulo incluye clases en vivo, recursos adicionales, acceso a una comunidad de estudiantes y soporte personalizado de entrenadores.
-          </div>
+          
         </div>
       </div>
     </section>

@@ -15,10 +15,9 @@ const BootcampTikTok = () => {
     <div className="min-h-screen bg-white">
       <Navbar funnelPath="/tiktok" />
       <HeroSectionV3 funnelPath="/tiktok" />
-      <AboutSection />
+      <ProcessSection />
       <DatesSection funnelPath="/tiktok" />
       <CurriculumSection />
-      <ProcessSection />
       <DemoSection />
       <TestimonialsSection />
       <ContactSection funnelPath="/tiktok" />
