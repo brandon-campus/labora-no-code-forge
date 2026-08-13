@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { getStoredUtmsQueryString } from "@/hooks/useUtm";
 
-const BootcampAplicar = () => {
-  const [tallyUrl, setTallyUrl] = useState("https://tally.so/r/w49bBo?transparentBackground=1&formEventsForwarding=1");
+const Aplicar = () => {
+  const [tallyUrl, setTallyUrl] = useState("https://tally.so/r/q4QzOd?transparentBackground=1&formEventsForwarding=1");
 
   useEffect(() => {
     // Agregar UTMs a la URL si existen
     const utms = getStoredUtmsQueryString();
     if (utms) {
-      setTallyUrl(`https://tally.so/r/w49bBo?transparentBackground=1&formEventsForwarding=1&${utms}`);
+      setTallyUrl(`https://tally.so/r/q4QzOd?transparentBackground=1&formEventsForwarding=1&${utms}`);
     }
 
     // Ensure Tally script is loaded
@@ -33,7 +33,7 @@ const BootcampAplicar = () => {
         frameBorder="0"
         marginHeight={0}
         marginWidth={0}
-        title="ADS-Pre-Inscripción-Bootcamp"
+        title="Linkinbio-Pre-inscritos-bootcamp"
         style={{ position: "absolute", top: 0, left: 0, border: 0, right: 0, bottom: 0 }}
         allow="camera; microphone; autoplay; encrypted-media;"
       />
@@ -41,4 +41,4 @@ const BootcampAplicar = () => {
   );
 };
 
-export default BootcampAplicar;
+export default Aplicar;

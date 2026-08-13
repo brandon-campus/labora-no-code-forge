@@ -18,8 +18,10 @@ import CursorAIClass from "./pages/CursorAIClass";
 import CursoInicia from "./pages/CursoInicia";
 import Hackatones from "./pages/Hackatones";
 import BootcampAplicar from "./pages/BootcampAplicar";
+import Aplicar from "./pages/Aplicar";
 import BootcampQuieroCrearConIA from "./pages/BootcampQuieroCrearConIA";
 import PostAplicacion from './pages/PostAplicacion';
+import PostAplicacionOrganico from './pages/PostAplicacionOrganico';
 import FormularioBootcamp from './pages/FormularioBootcamp';
 import Checkout from "./pages/Checkout";
 import IaParaTodos from "./pages/IaParaTodos";
@@ -68,6 +70,7 @@ const App = () => (
           <Route path="/ia-para-todos/gracias" element={<IaParaTodosGracias />} />
           <Route path="/ia-para-todos/entrada/:id" element={<IaParaTodosEntrada />} />
           <Route path="/bootcamp/aplicar" element={<BootcampAplicar />} />
+          <Route path="/aplicar" element={<Aplicar />} />
           <Route path="/bootcamp/quiero-crear-con-ia" element={<BootcampQuieroCrearConIA />} />
           <Route path="/curso-inicia" element={<CursoInicia />} />
           <Route path="/hackatones" element={<Hackatones />} />
@@ -76,6 +79,7 @@ const App = () => (
           <Route path="/cursor-ai-class" element={<CursorAIClass />} />
 
           <Route path="/post-aplicacion" element={<PostAplicacion />} />
+          <Route path="/post-aplicacion-organico" element={<PostAplicacionOrganico />} />
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
           <Route path="/clase-herramientas-app" element={<ClaseHerramientasApp />} />
