@@ -45,6 +45,8 @@ import BootcampAplicarTikTok from "./pages/tiktok/BootcampAplicarTikTok";
 import PostAplicacionTikTok from "./pages/tiktok/PostAplicacionTikTok";
 import ClaseGratuitaIATikTok from "./pages/tiktok/ClaseGratuitaIATikTok";
 import LinksTikTok from "./pages/tiktok/LinksTikTok";
+import { Analytics } from "@vercel/analytics/react";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -54,6 +56,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AnalyticsTracker />
+        <Analytics />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />

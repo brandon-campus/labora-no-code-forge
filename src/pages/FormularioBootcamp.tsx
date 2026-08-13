@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getStoredUtmsQueryString } from "@/hooks/useUtm";
 
 const FormularioBootcamp = () => {
+  const [tallyUrl, setTallyUrl] = useState("https://tally.so/embed/w49bBo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1");
+
+  useEffect(() => {
+    const utms = getStoredUtmsQueryString();
+    if (utms) {
+      setTallyUrl(`https://tally.so/embed/w49bBo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&${utms}`);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
       {/* Background Pattern */}
@@ -30,7 +40,7 @@ const FormularioBootcamp = () => {
             {/* Tally Form Embed */}
             <div className="w-full">
               <iframe
-                src="https://tally.so/embed/w49bBo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                src={tallyUrl}
                 width="100%"
                 height="650"
                 frameBorder="0"

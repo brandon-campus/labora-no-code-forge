@@ -1,7 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { getStoredUtmsQueryString } from "@/hooks/useUtm";
 
 const BootcampAplicar = () => {
+  const [tallyUrl, setTallyUrl] = useState("https://tally.so/r/w49bBo?transparentBackground=1");
+
   useEffect(() => {
+    // Agregar UTMs a la URL si existen
+    const utms = getStoredUtmsQueryString();
+    if (utms) {
+      setTallyUrl(`https://tally.so/r/w49bBo?transparentBackground=1&${utms}`);
+    }
+
     // Ensure Tally script is loaded
     const script = document.createElement("script");
     script.src = "https://tally.so/widgets/embed.js";
@@ -18,7 +27,7 @@ const BootcampAplicar = () => {
   return (
     <div style={{ width: "100vw", height: "100vh", margin: 0, padding: 0, overflow: "hidden", background: "#0a0b0d" }}>
       <iframe
-        data-tally-src="https://tally.so/r/w49bBo?transparentBackground=1"
+        data-tally-src={tallyUrl}
         width="100%"
         height="100%"
         frameBorder="0"
