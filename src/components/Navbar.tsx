@@ -7,7 +7,7 @@ import { analytics } from "@/lib/analytics";
 
 
 
-const Navbar = ({ funnelPath = '' }: { funnelPath?: string }) => {
+const Navbar = ({ funnelPath = '', applyUrl }: { funnelPath?: string, applyUrl?: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,7 +22,7 @@ const Navbar = ({ funnelPath = '' }: { funnelPath?: string }) => {
     });
 
     // Redirigir a formulario de bootcamp
-    window.location.href = `${funnelPath}/bootcamp/aplicar`;
+    window.location.href = applyUrl || `${funnelPath}/bootcamp/aplicar`;
   };
 
   const navItems = [{

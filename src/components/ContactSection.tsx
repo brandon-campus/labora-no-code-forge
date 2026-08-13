@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 
-const ContactSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
+const ContactSection = ({ funnelPath = '', applyUrl }: { funnelPath?: string, applyUrl?: string }) => {
   return (
     <section id="contacto" className="bg-[#f5f0ec] text-[#141414] py-[52px] px-6 sm:py-16 md:py-20 text-center">
       <div className="container mx-auto max-w-2xl">
@@ -9,7 +9,7 @@ const ContactSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
           ¿LISTO PARA INICIAR CON IA Y NO CODE?
         </h2>
         
-        <a href={`${funnelPath}/bootcamp/aplicar`} className="block w-full sm:w-auto mt-[28px] sm:mt-10">
+        <a href={applyUrl || `${funnelPath}/bootcamp/aplicar`} className="block w-full sm:w-auto mt-[28px] sm:mt-10">
           <Button className="w-full bg-[#aaff00] hover:bg-[#99e600] text-[#0a0a0a] font-extrabold text-[16px] px-8 py-[28px] rounded-[40px] uppercase tracking-[0.3px] shadow-[0_8px_24px_rgba(170,255,0,0.35)] transition-transform hover:-translate-y-1">
             APLICAR AHORA
           </Button>

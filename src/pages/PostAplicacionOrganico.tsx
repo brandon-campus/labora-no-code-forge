@@ -29,13 +29,13 @@ const PostAplicacionOrganico = () => {
   // Manejo de eventos de Facebook Pixel
   const handleInscribirse = (planName: string) => {
     fbqTrack('ClickInscribirseWhatsApp');
-    const message = encodeURIComponent(`Apliqué al Bootcamp de IA y No Code y quiero inscribirme. En "${planName}" y soy del País: ${selectedCountry}`);
+    const message = encodeURIComponent(`Apliqué al Bootcamp de IA y No Code (desde el Link en Bio) y quiero inscribirme. En "${planName}" y soy del País: ${selectedCountry}`);
     window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
   };
 
   const handleInfo = () => {
     fbqTrack('ClickInfoWhatsApp');
-    const message = encodeURIComponent("Quiero más info del Bootcamp de IA y No Code");
+    const message = encodeURIComponent("Quiero más info del Bootcamp de IA y No Code (desde el Link en Bio)");
     window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
   };
 

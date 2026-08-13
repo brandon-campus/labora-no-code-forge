@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-const HeroSectionV3 = ({ funnelPath = '' }: { funnelPath?: string }) => {
+const HeroSectionV3 = ({ funnelPath = '', applyUrl }: { funnelPath?: string, applyUrl?: string }) => {
   const handleComenzarClick = () => {
     fbqTrack('AplicarAhoraClick');
     if (window.gtag) {
@@ -19,7 +19,7 @@ const HeroSectionV3 = ({ funnelPath = '' }: { funnelPath?: string }) => {
         value: 1
       });
     }
-    window.location.href = `${funnelPath}/bootcamp/aplicar`;
+    window.location.href = applyUrl || `${funnelPath}/bootcamp/aplicar`;
   };
 
   return (

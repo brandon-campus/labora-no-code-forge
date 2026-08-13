@@ -18,20 +18,20 @@ const Bootcamp2 = () => {
   return (
     <div className="min-h-screen bg-white">
       {cohorte?.promocion_texto_banner && (
-        <a href="/bootcamp/aplicar" className="block bg-labora-neon text-black text-center py-2 px-4 font-bold text-sm md:text-base z-50 relative w-full hover:bg-labora-neon/80 transition-colors cursor-pointer">
+        <a href="/aplicar" className="block bg-labora-neon text-black text-center py-2 px-4 font-bold text-sm md:text-base z-50 relative w-full hover:bg-labora-neon/80 transition-colors cursor-pointer">
           {cohorte.promocion_texto_banner}
         </a>
       )}
-      <Navbar />
-      <HeroSectionV3 />
+      <Navbar applyUrl="/aplicar" />
+      <HeroSectionV3 applyUrl="/aplicar" />
       {/* <AboutSection /> */}
       <ProcessSection />
-      <DatesSection />
+      <DatesSection applyUrl="/aplicar" whatsappText="¡Hola Labora! Quiero obtener más información sobre el bootcamp de IA y No Code (Vengo de tu Link en Bio/Orgánico)" />
       <CurriculumSection />
       <DemoSection />
       <TestimonialsSection />
-      <ContactSection />
-      <WhatsAppButton />
+      <ContactSection applyUrl="/aplicar" />
+      <WhatsAppButton whatsappText="¡Hola Labora! Quiero obtener más información sobre el bootcamp de IA y No Code (Vengo de tu Link en Bio/Orgánico)" />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Calendar, Clock, Users, Loader2 } from 'lucide-react';
 import { useActiveCohorte } from '@/hooks/useActiveCohorte';
 
-const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
+const DatesSection = ({ funnelPath = '', applyUrl, whatsappText = "¡Hola Labora! Quiero obtener más información sobre el bootcamp de IA y No Code" }: { funnelPath?: string, applyUrl?: string, whatsappText?: string }) => {
   const { data: cohorte, isLoading } = useActiveCohorte();
   return (
     <section id="dates" className="py-20 bg-gradient-to-b from-gray-900 to-black">
@@ -127,10 +127,10 @@ const DatesSection = ({ funnelPath = '' }: { funnelPath?: string }) => {
         {/* Call to Action Buttons */}
         <div className="max-w-4xl mx-auto mt-8">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={`${funnelPath}/bootcamp/aplicar`} className="bg-labora-neon text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-labora-neon/80 transition-all duration-200 transform hover:scale-105 shadow-lg inline-block text-center">
+            <a href={applyUrl || `${funnelPath}/bootcamp/aplicar`} className="bg-labora-neon text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-labora-neon/80 transition-all duration-200 transform hover:scale-105 shadow-lg inline-block text-center">
               APLICAR AHORA
             </a>
-            <a href="https://wa.me/5491138142899?text=%C2%A1Hola%20Labora!%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20bootcamp%20de%20IA%20y%20No%20Code" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-200 transform hover:scale-105 inline-block text-center">
+            <a href={`https://wa.me/5491138142899?text=${encodeURIComponent(whatsappText)}`} target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-200 transform hover:scale-105 inline-block text-center">
               HABLAR POR WHATSAPP
             </a>
           </div>
