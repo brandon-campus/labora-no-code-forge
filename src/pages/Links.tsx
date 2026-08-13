@@ -30,7 +30,7 @@ const Links = () => {
         {/* Links Container */}
         <div className="w-full flex flex-col gap-4 mb-10">
           <Link 
-            to="/bootcamp" 
+            to="/bootcamp-2" 
             className="group relative flex flex-col items-center justify-center p-5 bg-gradient-to-b from-gray-800 to-black backdrop-blur-md border-2 border-labora-neon rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(205,255,100,0.25)] hover:shadow-[0_0_30px_rgba(205,255,100,0.4)] hover:-translate-y-1 overflow-hidden"
           >
             <div className="absolute inset-0 bg-labora-neon/5 group-hover:bg-labora-neon/10 transition-colors duration-500"></div>
@@ -39,7 +39,7 @@ const Links = () => {
               🚀 Bootcamp de IA y No Code
             </span>
             <span className="text-black bg-labora-neon px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase relative z-10 mt-3 shadow-[0_0_10px_rgba(205,255,100,0.5)]">
-              Próxima Cohorte: 01 de julio
+              Próxima edición: 05 de Septiembre
             </span>
           </Link>
 
