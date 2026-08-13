@@ -9,9 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Bootcamp from "./pages/Bootcamp";
 import BootcampOferta from "./pages/BootcampOferta";
-import BootcampV3 from "./pages/BootcampV3";
-import BootcampLanding from "./pages/BootcampLanding";
-import BootcampIA from "./pages/BootcampIA";
+import Bootcamp2 from "./pages/Bootcamp2";
 import Masterclass from "./pages/Masterclass";
 import MasterclassGratuita from "./pages/MasterclassGratuita";
 import CursorAIClass from "./pages/CursorAIClass";
@@ -63,9 +61,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/bootcamp" element={<Bootcamp />} />
           <Route path="/bootcamp-oferta" element={<BootcampOferta />} />
-          <Route path="/bootcamp-v3" element={<BootcampV3 />} />
-          <Route path="/bootcamp-landing" element={<BootcampLanding />} />
-          <Route path="/bootcamp-ia" element={<BootcampIA />} />
+          <Route path="/bootcamp-2" element={<Bootcamp2 />} />
           <Route path="/ia-para-todos" element={<IaParaTodos />} />
           <Route path="/ia-para-todos/gracias" element={<IaParaTodosGracias />} />
           <Route path="/ia-para-todos/entrada/:id" element={<IaParaTodosEntrada />} />
