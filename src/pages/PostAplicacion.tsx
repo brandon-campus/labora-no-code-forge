@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { CheckCircle, MessageCircle, MapPin, Calendar, Clock } from 'lucide-react';
+import { CheckCircle, MessageCircle, MapPin, Calendar, Clock, CreditCard, Landmark } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { fbqTrack } from "@/lib/fbqTrack";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 import { useActiveCohorte } from '@/hooks/useActiveCohorte';
 import { Loader2 } from 'lucide-react';
@@ -18,19 +25,54 @@ const fallbackPricing = {
 
 type Country = keyof typeof fallbackPricing;
 
-type Country = keyof typeof pricingByCountry;
+type PaymentMethod = {
+  name: string;
+  url: string;
+  icon?: React.ReactNode;
+};
+
+const getPaymentMethods = (country: Country, planName: string, usdAmount: number): PaymentMethod[] => {
+  const paypalUrl = `https://paypal.me/academialabora/${usdAmount}`;
+
+  // TODO: Reemplazar los '#' con los links reales de pago
+  if (country === 'Argentina') {
+    return [
+      { name: 'Mercado Pago', url: '#', icon: <CreditCard className="w-5 h-5 text-blue-400" /> },
+      { name: 'Transferencia', url: '#', icon: <Landmark className="w-5 h-5 text-green-400" /> }
+    ];
+  }
+  if (country === 'Perú') {
+    return [
+      { name: 'Transferencia BCP', url: '#', icon: <Landmark className="w-5 h-5 text-orange-400" /> },
+      { name: 'Transferencia Interbancaria', url: '#', icon: <Landmark className="w-5 h-5 text-green-400" /> },
+      { name: 'PayPal', url: paypalUrl, icon: <CreditCard className="w-5 h-5 text-blue-500" /> }
+    ];
+  }
+  // Default for Colombia, México, Chile, Otro
+  return [
+    { name: 'PayPal', url: paypalUrl, icon: <CreditCard className="w-5 h-5 text-blue-500" /> },
+    { name: 'Global 66', url: `/pago-global66?amount=${usdAmount}`, icon: <Landmark className="w-5 h-5 text-purple-400" /> }
+  ];
+};
 
 const PostAplicacion = () => {
   const [selectedCountry, setSelectedCountry] = useState<Country>('Otro');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const { data: cohorte, isLoading } = useActiveCohorte();
 
   const currentPricing = cohorte?.precios_regionales || fallbackPricing;
 
+  const usdPricing = currentPricing['Otro'] || fallbackPricing['Otro'];
+  let usdAmount = usdPricing.unico;
+  if (selectedPlan === '3 cuotas') usdAmount = usdPricing.cuotas3;
+  else if (selectedPlan === '2 cuotas') usdAmount = usdPricing.cuotas2;
+
   // Manejo de eventos de Facebook Pixel
-  const handleInscribirse = (planName: string) => {
-    fbqTrack('ClickInscribirseWhatsApp');
-    const message = encodeURIComponent(`Apliqué al Bootcamp de IA y No Code y quiero inscribirme. En "${planName}" y soy del País: ${selectedCountry}`);
-    window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
+  const handleOpenPayment = (planName: string) => {
+    fbqTrack('ClickInscribirsePaymentModal');
+    setSelectedPlan(planName);
+    setIsModalOpen(true);
   };
 
   const handleInfo = () => {
@@ -139,7 +181,7 @@ const PostAplicacion = () => {
                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-gray-500 shrink-0" /> Soporte de la comunidad</li>
                </ul>
 
-               <Button onClick={() => handleInscribirse('3 cuotas')} variant="outline" className="w-full bg-transparent border-gray-600 text-gray-300 hover:text-white hover:border-white font-semibold py-6 rounded-xl transition-all">
+               <Button onClick={() => handleOpenPayment('3 cuotas')} variant="outline" className="w-full bg-transparent border-gray-600 text-gray-300 hover:text-white hover:border-white font-semibold py-6 rounded-xl transition-all">
                  Elegir 3 cuotas
                </Button>
              </div>
@@ -163,7 +205,7 @@ const PostAplicacion = () => {
                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-gray-500 shrink-0" /> Soporte de la comunidad</li>
                </ul>
 
-               <Button onClick={() => handleInscribirse('2 cuotas')} variant="outline" className="w-full bg-transparent border-gray-600 text-gray-300 hover:text-white hover:border-white font-semibold py-6 rounded-xl transition-all">
+               <Button onClick={() => handleOpenPayment('2 cuotas')} variant="outline" className="w-full bg-transparent border-gray-600 text-gray-300 hover:text-white hover:border-white font-semibold py-6 rounded-xl transition-all">
                  Elegir 2 cuotas
                </Button>
              </div>
@@ -190,7 +232,7 @@ const PostAplicacion = () => {
                  <li className="flex items-start gap-3"><CheckCircle className="w-5 h-5 text-labora-neon shrink-0" /> Soporte de la comunidad</li>
                </ul>
 
-               <Button onClick={() => handleInscribirse('Pago Único')} className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold py-6 text-lg rounded-xl shadow-[0_0_15px_rgba(205,255,100,0.3)] transform hover:-translate-y-1 transition-all mt-auto">
+               <Button onClick={() => handleOpenPayment('Pago Único')} className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold py-6 text-lg rounded-xl shadow-[0_0_15px_rgba(205,255,100,0.3)] transform hover:-translate-y-1 transition-all mt-auto">
                  Elegir pago único
                </Button>
              </div>
@@ -211,10 +253,52 @@ const PostAplicacion = () => {
         </div>
 
         <div className="mt-12 text-sm text-gray-500 animate-fade-in-up delay-500">
-          <p>Al hacer clic serás redirigido a WhatsApp para continuar.</p>
+          <p>Los pagos son procesados de forma 100% segura.</p>
         </div>
 
       </div>
+
+      {/* Modal de Pago */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="bg-[#141824] border-gray-800 text-white sm:max-w-md w-[95vw] rounded-2xl p-6">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center mb-1">Elige tu medio de pago</DialogTitle>
+            <DialogDescription className="text-center text-gray-400 text-base">
+              Estás a punto de inscribirte con <strong className="text-white">{selectedPlan}</strong> desde <strong className="text-white">{selectedCountry}</strong>.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="flex flex-col gap-3 mt-4">
+            {selectedPlan && getPaymentMethods(selectedCountry, selectedPlan, usdAmount).map((method, idx) => {
+              const isInternal = method.url.startsWith('/');
+              if (isInternal) {
+                // Link interno usando <a> para forzar recarga o <Link> si quisieras (acá usamos <a> regular por consistencia en la prop)
+                return (
+                  <a key={idx} href={method.url} className="w-full">
+                    <Button className="w-full bg-gray-800/50 border border-gray-700 hover:bg-gray-800 hover:border-labora-neon text-white py-8 text-lg transition-all flex items-center justify-start px-6 gap-4 rounded-xl">
+                      {method.icon}
+                      <span className="font-semibold">{method.name}</span>
+                    </Button>
+                  </a>
+                );
+              }
+              // Link externo
+              return (
+                <a key={idx} href={method.url} target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="w-full bg-gray-800/50 border border-gray-700 hover:bg-gray-800 hover:border-labora-neon text-white py-8 text-lg transition-all flex items-center justify-start px-6 gap-4 rounded-xl">
+                    {method.icon}
+                    <span className="font-semibold">{method.name}</span>
+                  </Button>
+                </a>
+              );
+            })}
+          </div>
+          
+          <div className="mt-5 text-center">
+             <p className="text-sm text-gray-500">¿Problemas con el pago? <a href={`https://wa.me/5491138142899?text=${encodeURIComponent('Hola, tengo problemas para pagar el ' + selectedPlan)}`} target="_blank" rel="noopener noreferrer" className="text-labora-neon hover:underline font-medium">Contáctanos por WhatsApp</a></p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

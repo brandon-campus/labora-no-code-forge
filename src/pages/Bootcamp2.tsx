@@ -6,6 +6,7 @@ import DatesSection from '@/components/DatesSection';
 import CurriculumSection from '@/components/CurriculumSection';
 import ProcessSection from '@/components/ProcessSection';
 import DemoSection from '@/components/DemoSection';
+import PricingSection from '@/components/PricingSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -29,6 +30,7 @@ const Bootcamp2 = () => {
       <DatesSection applyUrl="/aplicar" whatsappText="¡Hola Labora! Quiero obtener más información sobre el bootcamp de IA y No Code (Vengo de tu Link en Bio/Orgánico)" />
       <CurriculumSection />
       <DemoSection />
+      <PricingSection applyUrl="/aplicar" />
       <TestimonialsSection />
       <ContactSection applyUrl="/aplicar" />
       <WhatsAppButton whatsappText="¡Hola Labora! Quiero obtener más información sobre el bootcamp de IA y No Code (Vengo de tu Link en Bio/Orgánico)" />

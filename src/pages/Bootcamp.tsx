@@ -6,6 +6,7 @@ import DatesSection from '@/components/DatesSection';
 import CurriculumSection from '@/components/CurriculumSection';
 import ProcessSection from '@/components/ProcessSection';
 import DemoSection from '@/components/DemoSection';
+import PricingSection from '@/components/PricingSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -29,6 +30,7 @@ const Bootcamp = () => {
       <DatesSection />
       <CurriculumSection />
       <DemoSection />
+      <PricingSection />
       <TestimonialsSection />
       <ContactSection />
       <WhatsAppButton />

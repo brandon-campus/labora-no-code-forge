@@ -1,178 +1,107 @@
-
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  BookOpen, 
-  Users, 
-  Clock, 
-  DollarSign, 
-  Zap, 
-  Target, 
-  Calendar,
-  Briefcase,
-  ArrowRight,
-  CheckCircle,
-  Star,
-  Play
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+import ProcessSection from '@/components/ProcessSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import TestimonialsSection from '@/components/TestimonialsSection';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Map, MapPin, Zap, Star, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
-  const products = [
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const programs = [
     {
       id: 'bootcamp',
       title: 'Bootcamp de IA y No Code',
-      subtitle: '100% en vivo',
-      price: '250 USD',
-      duration: '4 semanas',
-      frequency: '1 clase por semana (Sábados)',
-      students: '10-25 personas',
-      description: 'Programa intensivo para crear tu primer proyecto con IA y No-Code desde cero hasta el lanzamiento.',
-      features: [
-        'Clases en vivo con mentores expertos',
-        'Proyecto real funcionando al finalizar',
-        'Cohortes reducidas para atención personalizada',
-        'Acceso al campus virtual exclusivo'
-      ],
-      badge: 'Más Popular',
-      color: 'bg-labora-red',
+      subtitle: 'El programa más completo de LATAM',
+      features: ['Clases 100% en vivo', 'Proyectos Reales y Funcionales', 'Sin experiencia previa'],
+      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80',
       link: '/bootcamp',
-      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80', // Bootcamp
-      trialLink: '/bootcamp-landing'
+      badge: 'Más Popular',
+      size: 'large'
     },
     {
-      id: 'inicia',
-      title: 'Curso "Inicia"',
-      subtitle: 'On-Demand',
-      price: '65 USD',
-      duration: 'A tu ritmo',
-      frequency: 'Acceso permanente',
-      students: 'Individual',
-      description: 'Curso asincrónico perfecto para principiantes absolutos que quieren una base sólida sin horarios.',
-      features: [
-        'Contenido esencial de IA y No-Code',
-        'Casos prácticos paso a paso',
-        'Ejercicios interactivos',
-        'Acceso de por vida'
-      ],
-      badge: 'Principiantes',
-      color: 'bg-labora-neon',
-      link: '/curso-inicia',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80' // Online Course
+      id: 'avanzado',
+      title: 'Bootcamp Avanzado',
+      subtitle: 'Lleva tus habilidades al siguiente nivel',
+      features: ['Arquitecturas Complejas', 'Integraciones Avanzadas'],
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80',
+      link: '/bootcamp',
+      badge: 'Próximamente',
+      size: 'small'
     },
     {
-      id: 'hackatones',
-      title: 'Hackatones Mensuales',
-      subtitle: 'Presencial',
-      price: '35 USD',
-      duration: 'Fin de semana',
-      frequency: 'Cada mes',
-      students: 'Equipos',
-      description: 'Resuelve desafíos reales usando IA y No-Code. Ideal para afianzar conocimientos y sumar al portfolio.',
-      features: [
-        'Desafíos reales del mercado',
-        'Trabajo en equipo colaborativo',
-        'Mentorías durante el evento',
-        'Certificado de participación'
-      ],
-      badge: 'Networking',
-      color: 'bg-purple-600',
-      link: '/hackatones',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80' // Hackathon
-    }
-  ];
-
-  // Definir el producto de Estudio Labora aparte
-  const estudioLabora = {
-      id: 'estudio',
-      title: 'Estudio Labora',
-    subtitle: 'Servicios para empresas',
-      price: '500-2000 USD',
-      duration: '2-8 semanas',
-      frequency: 'Por proyecto',
-      students: 'Empresas',
-      description: 'Soluciones ágiles de desarrollo para empresas usando IA, No-Code y automatizaciones.',
-      features: [
-        'Equipo de egresados y mentores',
-        'Soluciones empresariales ágiles',
-        'IA, No-Code y automatizaciones',
-        'Soporte post-lanzamiento'
-      ],
+      id: 'cowork',
+      title: 'Labora Cowork',
+      subtitle: 'Programas Personalizados para Empresas',
+      features: ['Capacitación In-Company', 'Soluciones a Medida'],
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
+      link: '/bootcamp',
       badge: 'Empresas',
-      color: 'bg-gray-700',
-      link: '/estudio-labora',
-      image: 'https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80' // Teamwork
-  };
-
-  const testimonials = [
-    {
-      name: 'María González',
-      role: 'Bootcamp Graduate',
-      content: 'En 4 semanas lancé mi primera app con IA. Los mentores son increíbles y el formato en vivo hace toda la diferencia.',
-      rating: 5
-    },
-    {
-      name: 'Carlos Rodríguez',
-      role: 'Freelancer',
-      content: 'Gracias al curso Inicia pude empezar desde cero. Ahora trabajo como freelancer creando automatizaciones.',
-      rating: 5
-    },
-    {
-      name: 'Ana Martínez',
-      role: 'Startup Founder',
-      content: 'Los hackatones me ayudaron a validar mi idea y conocer a mi co-founder. Ambiente súper colaborativo.',
-      rating: 5
+      size: 'small'
     }
   ];
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const countries = [
+    'Argentina', 'Colombia', 'Perú', 'Chile', 'Venezuela', 'Bolivia', 'Costa Rica', 'México', 'Uruguay'
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100" role="main">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Navigation */}
-      <nav className="bg-gray-900/90 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+      <nav className="w-full bg-[#0a0a0a]/95 backdrop-blur-md z-50 border-b border-white/10 fixed top-0">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
-              <Link to="/">
-                <img src="/lovable-uploads/logolabora.webp" alt="Logo Labora AI" className="h-8" />
+              <Link to="/" className="flex-shrink-0">
+                <img src="/lovable-uploads/logolabora.webp" alt="Labora" className="h-8" />
               </Link>
             </div>
-            <div className="hidden md:flex items-center space-x-6">
-              <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon transition-colors">Bootcamp</Link>
-              <Link to="/campus" className="text-gray-300 hover:text-labora-neon transition-colors">Campus</Link>
-              <Link to="/bootcamp">
-                <Button className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
-                  Comenzar Ahora
+
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#programas" className="text-gray-300 hover:text-labora-neon text-sm font-bold uppercase transition-colors tracking-wide">
+                Programas
+              </a>
+              <a href="#clases-gratis" className="text-gray-300 hover:text-labora-neon text-sm font-bold uppercase transition-colors tracking-wide">
+                Clases Gratis
+              </a>
+              <a href="#empresas" className="text-gray-300 hover:text-labora-neon text-sm font-bold uppercase transition-colors tracking-wide">
+                Empresas
+              </a>
+              <Link to="/campus">
+                <Button className="bg-labora-neon hover:bg-labora-neon/80 text-black font-black uppercase tracking-wider rounded-full px-8 py-6 text-sm transition-all shadow-[0_0_15px_rgba(170,255,0,0.2)]">
+                  Campus
                 </Button>
               </Link>
             </div>
-            {/* Botón menú hamburguesa para mobile */}
+
             <div className="md:hidden">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white focus:outline-none">
-                {isMenuOpen ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-                )}
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
         </div>
-        {/* Menú móvil */}
+
+        {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-gray-900 border-b border-gray-800">
-            <div className="px-4 py-4 flex flex-col space-y-4">
-              <Link to="/bootcamp" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Bootcamp</Link>
-              <Link to="/campus" className="text-gray-300 hover:text-labora-neon text-lg" onClick={() => setIsMenuOpen(false)}>Campus</Link>
-              <Link to="/bootcamp" onClick={() => setIsMenuOpen(false)}>
-                <Button className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow mt-2">
-                  Comenzar Ahora
+          <div className="md:hidden bg-[#12151a] border-b border-white/10 absolute w-full left-0">
+            <div className="px-4 pt-4 pb-6 space-y-4">
+              <a href="#programas" className="block px-3 py-2 text-base font-bold text-gray-300 hover:text-labora-neon uppercase" onClick={() => setIsMenuOpen(false)}>
+                Programas
+              </a>
+              <a href="#clases-gratis" className="block px-3 py-2 text-base font-bold text-gray-300 hover:text-labora-neon uppercase" onClick={() => setIsMenuOpen(false)}>
+                Clases Gratis
+              </a>
+              <a href="#empresas" className="block px-3 py-2 text-base font-bold text-gray-300 hover:text-labora-neon uppercase" onClick={() => setIsMenuOpen(false)}>
+                Empresas
+              </a>
+              <Link to="/campus" onClick={() => setIsMenuOpen(false)}>
+                <Button className="w-full bg-labora-neon hover:bg-labora-neon/80 text-black font-black rounded-full px-10 py-6 text-base transition-all shadow-lg uppercase mt-2">
+                  Campus
                 </Button>
               </Link>
             </div>
@@ -181,269 +110,175 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950" data-aos="fade-up">
-        <div className="absolute inset-0 bg-[url('/tech-grid.svg')] bg-repeat opacity-10 pointer-events-none"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-labora-neon/10 text-labora-neon border-labora-neon">
-              Academia de IA y No-Code
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Crea proyectos con{' '}
-              <span className="text-labora-neon">Inteligencia Artificial</span>
-              {' '}sin programar
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Formamos creadores digitales desde cero. Aprende a lanzar tus propios proyectos al mercado 
-              usando IA, herramientas No-Code y dinámicas colaborativas.
-            </p>
-            <div className="flex justify-center">
-              <Link to="/bootcamp">
-                <Button size="lg" className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
-                  <Play className="mr-2 h-5 w-5" />
-                  Ver Bootcamp
-                </Button>
-              </Link>
+      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden bg-[#0a0a0a]">
+        {/* Grid background sutil */}
+        <div className="absolute inset-0 bg-[url('/tech-grid.svg')] bg-repeat opacity-[0.03] pointer-events-none"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            {/* Lado izquierdo: Textos */}
+            <div className="flex-1 text-center lg:text-left">
+              <Badge className="mb-6 bg-labora-neon/10 text-labora-neon border-labora-neon/30 hover:bg-labora-neon/20 px-4 py-1.5 text-sm font-bold uppercase tracking-wider">
+                N°1 EN EDUCACIÓN TECH
+              </Badge>
+              <h1 className="text-[2.5rem] sm:text-5xl lg:text-[4rem] font-black text-white mb-6 leading-[1.05] uppercase tracking-[-1px]">
+                La mejor academia de <span className="text-labora-neon">IA y No Code</span> de Latinoamérica
+              </h1>
+              <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 font-medium">
+                Únete a la revolución digital. Aprende a crear productos de software reales sin escribir código y potencia tu carrera profesional.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link to="/bootcamp">
+                  <Button size="lg" className="bg-labora-neon text-[#0a0a0a] hover:bg-labora-neon/90 shadow-[0_0_20px_rgba(170,255,0,0.3)] font-black uppercase tracking-wider px-8 py-7 text-base rounded-[40px] w-full sm:w-auto transition-transform hover:-translate-y-1">
+                    Conocer Programas
+                  </Button>
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Products Section */}
-      <section id="productos" className="py-20 bg-gray-900/80 backdrop-blur-md" data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Elige el programa que se adapte a ti
-            </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Desde principiante hasta experto, tenemos el programa perfecto para tu nivel y objetivos
-            </p>
-          </div>
+            {/* Lado derecho: Mapa representativo */}
+            <div className="flex-1 w-full max-w-xl mx-auto relative">
+              <div className="relative aspect-[4/3] rounded-[32px] bg-[#12151a] border border-white/5 p-8 overflow-hidden shadow-2xl flex flex-col items-center justify-center group">
+                <div className="absolute inset-0 bg-gradient-to-br from-labora-neon/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                {/* Gráfico de Mapa */}
+                <div className="relative z-10 text-center mb-6 w-full">
+                  <Map className="w-24 h-24 sm:w-32 sm:h-32 text-labora-neon mx-auto mb-6 opacity-90" strokeWidth={1} />
+                  <h3 className="text-2xl font-bold text-white mb-2">Presencia en LATAM</h3>
+                  <p className="text-sm text-gray-400 mb-6">Impactando a estudiantes en toda la región</p>
+                </div>
 
-          <div className="max-w-4xl mx-auto">
-            {(() => {
-              // Filtrar productos activos (excluir 'inicia')
-              const activeProducts = products.filter(p => p.id !== 'inicia');
-              const bootcamp = activeProducts.find(p => p.id === 'bootcamp');
-              const hackatones = activeProducts.find(p => p.id === 'hackatones');
-
-              return (
-                <>
-                  {/* Bootcamp - Grande y destacado arriba */}
-                  {bootcamp && (
-                    <div
-                      className="relative group rounded-3xl overflow-visible shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border-4 border-labora-neon p-8 md:p-10 flex flex-col items-center mb-12"
-                      data-aos="zoom-in"
-                    >
-                      {/* Etiqueta flotante */}
-                      {bootcamp.badge && (
-                        <span className={`absolute -top-4 left-6 z-10 px-4 py-1 rounded-full text-xs font-bold shadow-neon-glow ${bootcamp.color} text-white border-2 border-white/20`}>
-                          {bootcamp.badge}
-                        </span>
-                      )}
-                      {/* Imagen circular superpuesta - más grande */}
-                      <div className="relative -mt-20 mb-6 z-10">
-                        <img
-                          src={bootcamp.image}
-                          alt={`Imagen representativa de ${bootcamp.title}`}
-                          className="w-36 h-36 md:w-40 md:h-40 rounded-full object-cover border-4 border-labora-neon shadow-lg bg-white"
-                        />
-                      </div>
-                      <div className="flex-1 flex flex-col items-center text-center">
-                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">{bootcamp.title}</h3>
-                        <span className="text-labora-neon mb-3 font-semibold text-lg">{bootcamp.subtitle}</span>
-                        <div className="flex items-center justify-center gap-4 mb-3 text-gray-400">
-                          <span>{bootcamp.duration}</span>
-                        </div>
-                        <div className="flex items-center justify-center gap-2 mb-4 text-gray-400">
-                          <Users className="h-5 w-5 text-labora-neon" />
-                          <span>{bootcamp.students}</span>
-                        </div>
-                        <p className="text-gray-300 mb-6 text-lg max-w-2xl">{bootcamp.description}</p>
-                        <ul className="list-disc list-inside text-gray-400 mb-6 text-left max-w-md space-y-2">
-                          {bootcamp.features.map((feature, i) => (
-                            <li key={i} className="text-base">{feature}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="w-full max-w-md mt-auto">
-                        <Link to={bootcamp.link}>
-                          <Button
-                            className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105 text-lg py-6"
-                          >
-                            Conocer más
-                          </Button>
-                        </Link>
-                      </div>
+                {/* Etiquetas de Países */}
+                <div className="flex flex-wrap gap-2.5 justify-center relative z-10">
+                  {countries.map((country) => (
+                    <div key={country} className="flex items-center gap-1.5 bg-black/60 border border-white/10 rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold text-gray-300 hover:text-labora-neon hover:border-labora-neon/50 transition-colors cursor-default">
+                      <MapPin className="w-3.5 h-3.5 text-labora-neon" />
+                      {country}
                     </div>
-                  )}
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                  {/* Hackatones - Más pequeño abajo */}
-                  {hackatones && (
-                    <div className="max-w-md mx-auto">
-                      <div
-                        className="relative group rounded-3xl overflow-visible shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-labora-neon/10 p-6 flex flex-col items-center"
-                        data-aos="fade-up"
-                      >
-                        {/* Etiqueta flotante */}
-                        {hackatones.badge && (
-                          <span className={`absolute -top-4 left-6 z-10 px-4 py-1 rounded-full text-xs font-bold shadow-neon-glow ${hackatones.color} text-white border-2 border-white/20`}>
-                            {hackatones.badge}
-                          </span>
-                        )}
-                        {/* Imagen circular superpuesta */}
-                        <div className="relative -mt-16 mb-4 z-10">
-                          <img
-                            src={hackatones.image}
-                            alt={`Imagen representativa de ${hackatones.title}`}
-                            className="w-24 h-24 rounded-full object-cover border-4 border-labora-neon shadow-lg bg-white"
-                          />
-                        </div>
-                        <div className="flex-1 flex flex-col items-center text-center">
-                          <h3 className="text-xl font-bold text-white mb-2">{hackatones.title}</h3>
-                          <span className="text-labora-neon mb-2 font-semibold">{hackatones.subtitle}</span>
-                          <div className="flex items-center justify-center gap-4 mb-2 text-gray-400 text-sm">
-                            <span>{hackatones.duration}</span>
+      {/* Metodología Labora (Lo que nos hace únicos) */}
+      <ProcessSection />
+
+      {/* Programas */}
+      <section id="programas" className="py-24 bg-[#0a0a0a] relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-[2rem] sm:text-4xl md:text-5xl font-black mb-4 text-white uppercase leading-[1.2]">
+              Rutas de <span className="text-labora-neon">Formación</span>
+            </h2>
+            <p className="text-[#a0a0a0] text-[15px] sm:text-[16px] max-w-2xl mx-auto">
+              Programas diseñados para cada etapa de tu carrera profesional y objetivos empresariales.
+            </p>
+          </div>
+
+          {/* Grid de Programas */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* Tarjeta Principal (Ocupa 2 columnas en desktop) */}
+            {programs.filter(p => p.size === 'large').map((program) => (
+              <div key={program.id} className="md:col-span-2 relative group overflow-hidden rounded-[24px] border border-white/10 bg-[#12151a] hover:border-labora-neon/30 transition-all duration-300">
+                <div className="flex flex-col md:flex-row h-full">
+                  <div className="p-8 sm:p-12 md:w-3/5 flex flex-col justify-center">
+                    {program.badge && (
+                      <span className="inline-block bg-labora-neon text-black text-xs font-black uppercase px-3 py-1 rounded-full w-fit mb-5">
+                        {program.badge}
+                      </span>
+                    )}
+                    <h3 className="text-3xl md:text-4xl font-black text-white mb-3">{program.title}</h3>
+                    <p className="text-labora-neon font-bold text-lg mb-8">{program.subtitle}</p>
+                    
+                    <ul className="space-y-4 mb-10">
+                      {program.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-3 text-gray-300 font-medium">
+                          <div className="bg-white/5 p-1.5 rounded-full">
+                            <Zap className="w-5 h-5 text-labora-neon fill-labora-neon/20" />
                           </div>
-                          <div className="flex items-center justify-center gap-2 mb-2 text-gray-400 text-sm">
-                            <Users className="h-4 w-4 text-labora-neon" />
-                            <span>{hackatones.students}</span>
-                          </div>
-                          <p className="text-gray-300 mb-4 min-h-[60px] text-sm">{hackatones.description}</p>
-                          <ul className="list-disc list-inside text-gray-400 text-sm mb-4 text-left mx-auto max-w-xs">
-                            {hackatones.features.map((feature, i) => (
-                              <li key={i}>{feature}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="w-full mt-auto space-y-3">
-                          <Link to={hackatones.link}>
-                            <Button
-                              className="w-full bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow font-bold transition-all duration-200 group-hover:scale-105"
-                              disabled={hackatones.id === 'hackatones'}
-                            >
-                              {hackatones.id === 'hackatones' ? 'Próximamente' : 'Conocer más'}
-                            </Button>
-                          </Link>
-                        </div>
-                      </div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-auto">
+                      <Link to={program.link}>
+                        <Button className="bg-labora-neon text-[#0a0a0a] hover:bg-labora-neon/90 font-black uppercase px-8 py-6 rounded-[40px] w-fit shadow-[0_4px_14px_rgba(170,255,0,0.25)] transition-transform hover:-translate-y-1">
+                          Ver Detalles
+                        </Button>
+                      </Link>
                     </div>
+                  </div>
+                  <div className="md:w-2/5 relative min-h-[300px] md:min-h-full">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#12151a] via-[#12151a]/50 to-transparent z-10 hidden md:block"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#12151a] via-[#12151a]/50 to-transparent z-10 md:hidden"></div>
+                    <img src={program.image} alt={program.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Tarjetas Pequeñas */}
+            {programs.filter(p => p.size === 'small').map((program) => (
+              <div key={program.id} className="relative group overflow-hidden rounded-[24px] border border-white/10 bg-[#12151a] hover:border-white/30 transition-all duration-300 flex flex-col">
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12151a] via-transparent to-transparent z-10"></div>
+                  <img src={program.image} alt={program.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  {program.badge && (
+                    <span className="absolute top-5 left-5 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full">
+                      {program.badge}
+                    </span>
                   )}
-                </>
-              );
-            })()}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <TestimonialsSection data-aos="fade-up" />
-
-      {/* About Section */}
-      <section id="nosotros" className="py-20 bg-gray-900/80 backdrop-blur-md" data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-              Sobre Labora AI
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Somos una academia enfocada en educación <strong>divertida, experimental y accesible</strong>. 
-              Nuestra misión es formar creadores digitales desde cero, ayudándolos a lanzar sus propios 
-              proyectos al mercado o trabajar para clientes mediante el uso de Inteligencia Artificial, 
-              herramientas No-Code y dinámicas colaborativas de aprendizaje.
-            </p>
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center">
-                <div className="bg-labora-neon/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-8 w-8 text-labora-neon" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Práctico y Real</h3>
-                <p className="text-gray-300">Proyectos reales que puedes lanzar al mercado</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-labora-neon/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Zap className="h-8 w-8 text-labora-neon" />
+                
+                <div className="p-8 flex-1 flex flex-col">
+                  <h3 className="text-2xl font-black text-white mb-2">{program.title}</h3>
+                  <p className="text-gray-400 font-medium mb-6">{program.subtitle}</p>
+                  
+                  <ul className="space-y-3 mb-8">
+                    {program.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-gray-400 text-sm">
+                        <Star className="w-4 h-4 text-white/50" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto pt-4">
+                    <Link to={program.link}>
+                      <Button variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black font-bold uppercase w-full py-6 rounded-[40px] transition-colors">
+                        Más Información
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Innovador</h3>
-                <p className="text-gray-300">Las últimas tecnologías de IA y No-Code</p>
               </div>
-              <div className="text-center">
-                <div className="bg-purple-900/30 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-labora-neon" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Colaborativo</h3>
-                <p className="text-gray-300">Aprende en comunidad con otros creadores</p>
-              </div>
-            </div>
+            ))}
+
           </div>
         </div>
       </section>
 
-      {/* Nueva sección para Estudio Labora */}
-      <section id="estudio-labora" className="py-20 bg-gray-950 border-t border-gray-800" data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-          {/* Imagen a la izquierda */}
-          <div className="flex-1 flex justify-center">
-            <img
-              src={estudioLabora.image}
-              alt="Equipo Estudio Labora trabajando en soluciones digitales"
-              className="rounded-3xl w-full max-w-md object-cover shadow-lg border border-labora-neon/20"
-            />
-          </div>
-          {/* Contenido a la derecha */}
-          <div className="flex-1 max-w-xl">
-            <span className="text-labora-neon font-semibold text-lg mb-2 block">Para empresas</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              ¿Tu <span className="bg-labora-neon text-gray-900 px-2 rounded">empresa</span><br />necesita soluciones tech?
-            </h2>
-            <p className="text-lg text-gray-300 mb-8">
-              Impulsa tu negocio con productos digitales hechos a medida usando IA, No-Code y automatizaciones. Nuestro equipo de expertos y egresados te ayuda a innovar rápido y sin complicaciones técnicas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://wa.me/5491138142899?text=Hola%20Labora%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20poder%20construir%20junto%20a%20ustedes."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button size="lg" variant="outline" className="border-labora-neon text-gray-900 hover:bg-labora-neon/10 font-bold">
-                  Transforma tu empresa
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Casos de Éxito (Testimonials) */}
+      <TestimonialsSection />
 
-      {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 text-white" data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-labora-neon">
-            ¿Listo para crear tu primer proyecto con IA?
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto text-gray-200">
-            Únete a cientos de estudiantes que ya están construyendo el futuro con Inteligencia Artificial y No-Code
-          </p>
-          <div className="flex justify-center">
-            <Link to="/bootcamp">
-              <Button size="lg" className="bg-labora-neon text-gray-900 hover:bg-labora-neon/80 shadow-neon-glow">
-                <Calendar className="mr-2 h-5 w-5" />
-                Ver Próximas Fechas
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Contacto */}
+      <ContactSection />
 
       <Footer />
       <WhatsAppButton />
+      
       <style>{`
-  a:focus, button:focus {
-    outline: 2px solid #00FFD0;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 2px #00FFD033;
-  }
-`}</style>
+        a:focus, button:focus {
+          outline: 2px solid #aaff00;
+          outline-offset: 2px;
+          box-shadow: 0 0 0 2px rgba(170, 255, 0, 0.3);
+        }
+      `}</style>
     </div>
   );
 };
