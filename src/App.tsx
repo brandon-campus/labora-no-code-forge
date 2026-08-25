@@ -22,6 +22,8 @@ import PostAplicacion from './pages/PostAplicacion';
 import PostAplicacionOrganico from './pages/PostAplicacionOrganico';
 import FormularioBootcamp from './pages/FormularioBootcamp';
 import PagoGlobal66 from './pages/PagoGlobal66';
+import PagoTransferenciaArg from './pages/PagoTransferenciaArg';
+import PagoTransferenciaPeru from './pages/PagoTransferenciaPeru';
 import Checkout from "./pages/Checkout";
 import IaParaTodos from "./pages/IaParaTodos";
 import IaParaTodosGracias from "./pages/IaParaTodosGracias";
@@ -79,6 +81,8 @@ const App = () => (
           <Route path="/post-aplicacion-organico" element={<PostAplicacionOrganico />} />
           <Route path="/formulario-bootcamp" element={<FormularioBootcamp />} />
           <Route path="/pago-global66" element={<PagoGlobal66 />} />
+          <Route path="/pago-transferencia-arg" element={<PagoTransferenciaArg />} />
+          <Route path="/pago-transferencia-peru" element={<PagoTransferenciaPeru />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
           <Route path="/clase-herramientas-app" element={<ClaseHerramientasApp />} />
           <Route path="/guia-prd" element={<GuiaPrd />} />

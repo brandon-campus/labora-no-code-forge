@@ -27,13 +27,19 @@ const PagoGlobal66 = () => {
       </div>
 
       <div className="w-full max-w-4xl mx-auto relative z-10">
-        <Button variant="ghost" onClick={() => navigate(-1)} className="text-gray-400 hover:text-white mb-6">
-          <ArrowLeft className="mr-2 h-4 w-4" /> Volver
-        </Button>
+        <div className="flex justify-between items-center mb-6">
+          <Button variant="ghost" onClick={() => navigate(-1)} className="text-gray-400 hover:text-white">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Volver
+          </Button>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="h-4 w-4 text-green-400" />
+            <span className="text-xs text-gray-400 font-medium tracking-widest uppercase">Pago seguro</span>
+          </div>
+        </div>
         
-        <div className="flex items-center gap-3 mb-8">
-           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center font-black text-purple-600 text-xl overflow-hidden p-2">
-             <span className="text-[12px] leading-tight text-center">G66</span>
+        <div className="flex items-center gap-4 mb-8">
+           <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center font-black text-purple-600 text-xl overflow-hidden shadow-lg p-2">
+             <span className="text-[14px] leading-tight text-center">G66</span>
            </div>
            <h1 className="text-2xl md:text-3xl font-bold">Pago con Global66</h1>
         </div>
@@ -137,7 +143,7 @@ const PagoGlobal66 = () => {
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Confirmá con tu PIN y listo. Una vez realizado el pago, envíanos el comprobante a nuestro equipo para activar tu plan e inscripción.
                 </p>
-                <a href={`https://wa.me/5491138142899?text=${encodeURIComponent('Hola, ya realicé el pago por Global66. Te adjunto el comprobante:')}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-gray-800 hover:bg-gray-700 text-white font-medium mt-4 py-2 px-4 rounded-lg text-sm transition-colors">
+                <a href={`https://wa.me/5491138142899?text=${encodeURIComponent('Hola Labora, ya hice el pago del programa por Global66. Adjunto mi comprobante:')}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white font-medium py-3 px-5 rounded-xl text-sm transition-colors shadow-lg mt-4">
                   <Mail className="mr-2 h-4 w-4" /> Enviar comprobante por WhatsApp
                 </a>
               </div>
