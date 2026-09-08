@@ -31,7 +31,16 @@
 - Es totalmente dinámica (usando `useActiveCohorte`) y responsiva, ajustando automáticamente la tipografía para que monedas de muchas cifras (ARS, COP, etc.) no rompan el diseño de las tarjetas.
 - Clonación exacta de estilos y layout de la grilla de `/post-aplicacion` para consistencia en la plataforma.
 
-### 8. Pasarela de Pago Directa en `/post-aplicacion`
-- Se transformó la página post-formulario en un verdadero checkout dinámico para aumentar la conversión inmediata.
-- En lugar de enviar los leads directamente a WhatsApp al hacer clic en un plan, se abre un **Modal de Pago**.
-- El modal muestra los medios de pago configurados específicamente según el país seleccionado (Ej: Mercado Pago y Transferencia en Argentina; BCP e Interbancaria en Perú; Global 66 y PayPal para otros países).
+### 8. Rediseño Total del Checkout (`/post-aplicacion`)
+- Se eliminó el "Modal de Pago" introducido anteriormente y se transformó la página en un flujo de **Checkout Single Page** optimizado para móviles, similar a un e-commerce real.
+- Se integró un formulario de datos obligatorios para captar Nombre, Email y WhatsApp del prospecto antes del pago.
+- Se implementaron elementos visuales de urgencia y escasez (precio original tachado y banner fijo de "Últimos 3 cupos").
+- **Horarios Dinámicos:** El resumen de la compra adapta automáticamente la hora de las clases según el país que seleccione el usuario en el checkout.
+- **Flujo de Confirmación Pendiente:** Al pagar mediante enlaces externos (Mercado Pago o PayPal), estos se abren en una pestaña nueva. La pestaña original muta instantáneamente a una vista inmersiva de "Confirmación Pendiente" (con animación, diseño premium y un gran CTA de WhatsApp verde) para asegurar que el usuario siempre envíe su comprobante como paso final.
+
+### 9. Páginas Nativas de Pago Manual / Transferencias
+- Se construyó un ecosistema de páginas dedicadas para mostrar paso a paso las instrucciones de transferencias, usando una interfaz estética y consistente, con el objetivo de retener al usuario en la web:
+  - **`/pago-global66`**: Optimizada para cobros en USD desde el exterior, explicando de manera sencilla cómo usar la plataforma de Global66.
+  - **`/pago-transferencia-arg`**: Configurada con los datos de Naranja X (CBU, Alias, CUIL) calculando los montos en Pesos Argentinos (ARS).
+  - **`/pago-transferencia-peru`**: Configurada con la cuenta BCP en Soles y CCI calculando los montos en PEN.
+- Todas incluyen botones para copiar la información bancaria con 1 clic (lanzando notificaciones de *Toast*) y un botón final enlazado a WhatsApp con un mensaje pre-armado indicando el método usado.
