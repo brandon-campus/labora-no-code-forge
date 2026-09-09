@@ -32,6 +32,7 @@ import ClaseGratuitaIA from "./pages/ClaseGratuitaIA";
 import ClaseHerramientasApp from "./pages/ClaseHerramientasApp";
 import GuiaPrd from "./pages/GuiaPrd";
 import SeguridadIA from "./pages/SeguridadIA";
+import ClaseEnVivo from "./pages/ClaseEnVivo";
 
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -88,6 +89,7 @@ const App = () => (
           <Route path="/clase-herramientas-app" element={<ClaseHerramientasApp />} />
           <Route path="/guia-prd" element={<GuiaPrd />} />
           <Route path="/seguridad-ia" element={<SeguridadIA />} />
+          <Route path="/clase-en-vivo" element={<ClaseEnVivo />} />
           <Route path="/clase/:slug" element={<DynamicLeadMagnet />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/links" element={<Links />} />

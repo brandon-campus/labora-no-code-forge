@@ -45,28 +45,31 @@ const DynamicLeadMagnet = () => {
     const isNeon = data.theme_color_primary === 'labora-neon';
     const isFuchsia = data.theme_color_primary === 'fuchsia-500';
     const isIndigo = data.theme_color_primary === 'indigo-500';
+    const isRed = data.theme_color_primary === 'labora-red';
 
     const getBgBlob = () => {
         if (isFuchsia) return 'bg-fuchsia-500/20';
         if (isIndigo) return 'bg-indigo-500/20';
+        if (isRed) return 'bg-red-500/20';
         return 'bg-labora-neon/20';
     };
     const getBgBlob2 = () => {
         if (isFuchsia) return 'bg-indigo-500/20';
         if (isIndigo) return 'bg-fuchsia-500/20';
-        return 'bg-labora-red/10';
+        if (isRed) return 'bg-orange-500/20';
+        return 'bg-labora-red/10'; // for neon
     };
     
-    const getTagBg = () => isFuchsia ? 'bg-fuchsia-500/10 border-fuchsia-500/20 text-fuchsia-400' : isIndigo ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' : 'bg-labora-neon/10 border-labora-neon/20 text-labora-neon';
-    const getStarFill = () => isFuchsia ? 'fill-fuchsia-400' : isIndigo ? 'fill-indigo-400' : 'fill-labora-neon';
-    const getTitleGradient = () => isFuchsia ? 'from-fuchsia-400 to-indigo-400' : isIndigo ? 'from-indigo-400 to-purple-400' : 'from-labora-neon to-green-400';
-    const getTimelineBorder = () => isFuchsia ? 'border-fuchsia-500/30' : isIndigo ? 'border-indigo-500/30' : 'border-labora-neon/30';
-    const getCircleGlow = () => isFuchsia ? 'bg-fuchsia-500 shadow-[0_0_10px_rgba(217,70,239,0.5)]' : isIndigo ? 'bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]' : 'bg-labora-neon shadow-[0_0_10px_rgba(45,212,191,0.5)]';
-    const getTextColor = () => isFuchsia ? 'text-fuchsia-400' : isIndigo ? 'text-indigo-400' : 'text-labora-neon';
-    const getCardGradient = () => isFuchsia ? 'to-fuchsia-500/10 border-fuchsia-500/30 shadow-fuchsia-500/5 hover:shadow-fuchsia-500/10' : isIndigo ? 'to-indigo-500/10 border-indigo-500/30 shadow-indigo-500/5 hover:shadow-indigo-500/10' : 'to-labora-neon/10 border-labora-neon/30 shadow-labora-neon/5 hover:shadow-labora-neon/10';
-    const getButtonClass = () => isFuchsia ? 'bg-fuchsia-500 hover:bg-fuchsia-600 text-white' : isIndigo ? 'bg-indigo-500 hover:bg-indigo-600 text-white' : 'bg-labora-neon hover:bg-labora-neon/90 text-black';
-    const getPulseBorder = () => isFuchsia ? 'border-fuchsia-500' : isIndigo ? 'border-indigo-500' : 'border-labora-neon';
-    const getScreenBg = () => isFuchsia || isIndigo ? 'from-indigo-950 via-slate-900 to-indigo-950' : 'from-gray-950 via-gray-900 to-gray-950';
+    const getTagBg = () => isFuchsia ? 'bg-fuchsia-500/10 border-fuchsia-500/20 text-fuchsia-400' : isIndigo ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' : isRed ? 'bg-red-500/10 border-red-500/20 text-red-400' : 'bg-labora-neon/10 border-labora-neon/20 text-labora-neon';
+    const getStarFill = () => isFuchsia ? 'fill-fuchsia-400' : isIndigo ? 'fill-indigo-400' : isRed ? 'fill-red-400' : 'fill-labora-neon';
+    const getTitleGradient = () => isFuchsia ? 'from-fuchsia-400 to-indigo-400' : isIndigo ? 'from-indigo-400 to-purple-400' : isRed ? 'from-red-400 to-orange-400' : 'from-labora-neon to-green-400';
+    const getTimelineBorder = () => isFuchsia ? 'border-fuchsia-500/30' : isIndigo ? 'border-indigo-500/30' : isRed ? 'border-red-500/30' : 'border-labora-neon/30';
+    const getCircleGlow = () => isFuchsia ? 'bg-fuchsia-500 shadow-[0_0_10px_rgba(217,70,239,0.5)]' : isIndigo ? 'bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]' : isRed ? 'bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]' : 'bg-labora-neon shadow-[0_0_10px_rgba(45,212,191,0.5)]';
+    const getTextColor = () => isFuchsia ? 'text-fuchsia-400' : isIndigo ? 'text-indigo-400' : isRed ? 'text-red-400' : 'text-labora-neon';
+    const getCardGradient = () => isFuchsia ? 'to-fuchsia-500/10 border-fuchsia-500/30 shadow-fuchsia-500/5 hover:shadow-fuchsia-500/10' : isIndigo ? 'to-indigo-500/10 border-indigo-500/30 shadow-indigo-500/5 hover:shadow-indigo-500/10' : isRed ? 'to-red-900/20 border-red-500/30 shadow-red-500/5 hover:shadow-red-500/10' : 'to-labora-neon/10 border-labora-neon/30 shadow-labora-neon/5 hover:shadow-labora-neon/10';
+    const getButtonClass = () => isFuchsia ? 'bg-fuchsia-500 hover:bg-fuchsia-600 text-white' : isIndigo ? 'bg-indigo-500 hover:bg-indigo-600 text-white' : isRed ? 'bg-red-600 hover:bg-red-700 text-white' : 'bg-labora-neon hover:bg-labora-neon/90 text-black';
+    const getPulseBorder = () => isFuchsia ? 'border-fuchsia-500' : isIndigo ? 'border-indigo-500' : isRed ? 'border-red-500' : 'border-labora-neon';
+    const getScreenBg = () => isFuchsia || isIndigo ? 'from-indigo-950 via-slate-900 to-indigo-950' : isRed ? 'from-red-950 via-zinc-900 to-red-950' : 'from-gray-950 via-gray-900 to-gray-950';
 
     const isYoutube = data.video_url.includes('youtube.com') || data.video_url.includes('youtu.be');
 
