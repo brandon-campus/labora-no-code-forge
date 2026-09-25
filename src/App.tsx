@@ -50,6 +50,11 @@ import BootcampAplicarTikTok from "./pages/tiktok/BootcampAplicarTikTok";
 import PostAplicacionTikTok from "./pages/tiktok/PostAplicacionTikTok";
 import ClaseGratuitaIATikTok from "./pages/tiktok/ClaseGratuitaIATikTok";
 import LinksTikTok from "./pages/tiktok/LinksTikTok";
+
+// Ads Funnel Pages
+import BootcampAds from "./pages/ads/BootcampAds";
+import BootcampAplicarAds from "./pages/ads/BootcampAplicarAds";
+import PostAplicacionAds from "./pages/ads/PostAplicacionAds";
 import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
@@ -100,6 +105,11 @@ const App = () => (
           <Route path="/tiktok/bootcamp/aplicar" element={<BootcampAplicarTikTok />} />
           <Route path="/tiktok/post-aplicacion" element={<PostAplicacionTikTok />} />
           <Route path="/tiktok/links" element={<LinksTikTok />} />
+
+          {/* Ads Funnel Routes */}
+          <Route path="/ads/bootcamp" element={<BootcampAds />} />
+          <Route path="/ads/bootcamp/aplicar" element={<BootcampAplicarAds />} />
+          <Route path="/ads/post-aplicacion" element={<PostAplicacionAds />} />
 
 
           {/* Admin Routes */}
