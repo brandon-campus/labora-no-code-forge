@@ -39,7 +39,7 @@ const Links = () => {
               🚀 Bootcamp de IA y No Code
             </span>
             <span className="text-black bg-labora-neon px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase relative z-10 mt-3 shadow-[0_0_10px_rgba(205,255,100,0.5)]">
-              Próxima edición: 05 de Septiembre
+              Próxima edición: Sábado 03 de Octubre
             </span>
           </Link>
 

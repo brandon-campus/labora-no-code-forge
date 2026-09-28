@@ -31,7 +31,7 @@ const HeroSectionAds = ({ funnelPath = '/ads', applyUrl }: { funnelPath?: string
         value: 1
       });
     }
-    const message = encodeURIComponent("¡Hola Labora! Quiero obtener más información sobre el bootcamp de IA y No Code");
+    const message = encodeURIComponent("¡Hola Labora! (Vengo desde los anuncios) Quiero obtener más información sobre el bootcamp de IA y No Code");
     window.open(`https://wa.me/5491138142899?text=${message}`, '_blank');
   };
 

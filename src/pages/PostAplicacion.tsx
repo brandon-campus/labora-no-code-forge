@@ -198,7 +198,7 @@ const PostAplicacion = () => {
              </div>
              <div>
                <h3 className="font-bold text-lg leading-tight mb-1">Bootcamp de IA y No Code</h3>
-               <p className="text-sm text-gray-400 flex items-center gap-1.5 mt-1.5"><Calendar className="w-3.5 h-3.5 text-gray-500" /> Inicia {cohorte?.fecha_inicio || '05 de Septiembre'}</p>
+               <p className="text-sm text-gray-400 flex items-center gap-1.5 mt-1.5"><Calendar className="w-3.5 h-3.5 text-gray-500" /> Inicia {cohorte?.fecha_inicio || 'Sábado 03 de Octubre'}</p>
                <p className="text-sm text-gray-400 flex items-center gap-1.5 mt-1"><Clock className="w-3.5 h-3.5 text-gray-500" /> {cohorte?.semanas_duracion || '7 Semanas'} • {getDisplaySchedule()} • Online</p>
              </div>
            </div>

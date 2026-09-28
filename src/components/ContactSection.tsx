@@ -16,7 +16,7 @@ const ContactSection = ({ funnelPath = '', applyUrl }: { funnelPath?: string, ap
         </a>
         
         <p className="mt-[22px] text-[15px] text-[#4a4a4a]">
-          Fecha límite de inscripción: <span className="border-b-[1.5px] border-dashed border-[#b8b8b0] px-1 py-0.5 text-[#8a8a80] italic">05 de Septiembre</span>
+          Fecha límite de inscripción: <span className="border-b-[1.5px] border-dashed border-[#b8b8b0] px-1 py-0.5 text-[#8a8a80] italic">Sábado 03 de Octubre</span>
         </p>
         
         <hr className="border-t border-[#ddd8d0] my-[30px]" />
