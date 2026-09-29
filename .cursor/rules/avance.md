@@ -44,3 +44,15 @@
   - **`/pago-transferencia-arg`**: Configurada con los datos de Naranja X (CBU, Alias, CUIL) calculando los montos en Pesos Argentinos (ARS).
   - **`/pago-transferencia-peru`**: Configurada con la cuenta BCP en Soles y CCI calculando los montos en PEN.
 - Todas incluyen botones para copiar la información bancaria con 1 clic (lanzando notificaciones de *Toast*) y un botón final enlazado a WhatsApp con un mensaje pre-armado indicando el método usado.
+
+### 10. Implementación del Embudo de Ads (Estrategia High-Ticket)
+- Se creó una estructura de rutas y páginas totalmente independientes para Facebook Ads (`/ads/bootcamp`, `/ads/bootcamp/aplicar`, `/ads/post-aplicacion`) para aislar y medir el tráfico pago de forma precisa.
+- **Pivote Estratégico:** Se adaptó la landing principal (`HeroSectionAds.tsx`) para enfocarla 100% en conseguir que agenden una llamada (Agendar Llamada) en lugar de una venta directa/aplicación tradicional.
+- **UX Above The Fold (Mobile):** Se rediseñó la parte superior de la landing comprimiendo espacios e íconos, e integrando dos botones principales a la vista del usuario: "Agendar Llamada" y "Hablemos por WhatsApp".
+- **Oferta Única Prominente:** Se implementó `PricingSingleAds.tsx` para mostrar de forma contundente la oferta a un precio único de $250 USD, generando expectativa previa a la llamada.
+- **Filtro de Calificación:** En `/ads/bootcamp/aplicar` se incrustó el Tally form específico de Ads (`w49bBo`) para pre-calificar.
+- **Integración Nativa de Calendly:** La página `/ads/post-aplicacion` se rediseñó totalmente. Ahora actúa como página de reserva incrustando Calendly en un layout tipo *side-by-side* en Desktop. Se sumó texto persuasivo enfocado al compromiso y un botón de contingencia de WhatsApp ("Quiero hablar con alguien").
+- **Trazabilidad por WhatsApp:** Se ajustaron los mensajes predefinidos de este embudo para incluir siempre el texto `(Vengo desde los anuncios)`.
+
+### 11. Actualización Masiva de Fechas de Inicio
+- Se actualizaron todos los *fallbacks* estáticos en los distintos embudos del proyecto (`DatesSection.tsx`, `Links.tsx`, `PostAplicacion.tsx`, etc.) para reflejar la fecha del próximo inicio: **"Sábado 03 de Octubre"**.

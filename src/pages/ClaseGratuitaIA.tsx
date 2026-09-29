@@ -6,7 +6,7 @@ const ClaseGratuitaIA = () => {
     const [showVideo, setShowVideo] = useState(false);
 
     const handleBootcampClick = () => {
-        window.location.href = '/bootcamp';
+        window.location.href = '/ads/bootcamp';
     };
 
     return (
