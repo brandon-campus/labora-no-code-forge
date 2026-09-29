@@ -18,8 +18,6 @@ const fallbackPricing = {
 
 type Country = keyof typeof fallbackPricing;
 
-type Country = keyof typeof pricingByCountry;
-
 const PostAplicacionOrganico = () => {
   const [selectedCountry, setSelectedCountry] = useState<Country>('Otro');
   const { data: cohorte, isLoading } = useActiveCohorte();
