@@ -6,10 +6,10 @@ import DatesSection from '@/components/DatesSection';
 import CurriculumSection from '@/components/CurriculumSection';
 import ProcessSection from '@/components/ProcessSection';
 import DemoSection from '@/components/DemoSection';
-import PricingSection from '@/components/PricingSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import PricingSingleAds from '@/components/PricingSingleAds';
 
 import { useActiveCohorte } from '@/hooks/useActiveCohorte';
 
@@ -25,13 +25,12 @@ const Bootcamp = () => {
       )}
       <Navbar />
       <HeroSectionV3 />
-      {/* <AboutSection /> */}
       <ProcessSection />
       <DatesSection />
       <CurriculumSection />
       <DemoSection />
-      <PricingSection />
       <TestimonialsSection />
+      <PricingSingleAds applyUrl="/bootcamp/aplicar" />
       <ContactSection />
       <WhatsAppButton />
     </div>
