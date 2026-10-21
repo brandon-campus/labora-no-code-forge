@@ -1,38 +1,7 @@
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import HeroSectionOferta from '@/components/HeroSectionOferta';
-import AboutSection from '@/components/AboutSection';
-import DatesSection from '@/components/DatesSection';
-import CurriculumSection from '@/components/CurriculumSection';
-import ProcessSection from '@/components/ProcessSection';
-import DemoSection from '@/components/DemoSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import ContactSection from '@/components/ContactSection';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import BootcampLanding from '@/components/bootcamp/BootcampLanding';
+import { LANDINGS } from '@/components/bootcamp/landing';
 
-import { useActiveCohorte } from '@/hooks/useActiveCohorte';
-
-const BootcampOferta = () => {
-  const { data: cohorte, isLoading } = useActiveCohorte();
-
-  return (
-    <div className="min-h-screen bg-white">
-      {cohorte?.promocion_texto_banner && (
-        <a href="/bootcamp/aplicar" className="block bg-labora-neon text-black text-center py-2 px-4 font-bold text-sm md:text-base z-50 relative w-full hover:bg-labora-neon/80 transition-colors cursor-pointer">
-          {cohorte.promocion_texto_banner}
-        </a>
-      )}
-      <Navbar />
-      <HeroSectionOferta />
-      <ProcessSection />
-      <DatesSection />
-      <CurriculumSection />
-      <DemoSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <WhatsAppButton />
-    </div>
-  );
-};
+// Diseño v2. Destinos y eventos de tracking de esta página: ver LANDINGS.oferta
+const BootcampOferta = () => <BootcampLanding config={LANDINGS.oferta} hero="oferta" />;
 
 export default BootcampOferta;

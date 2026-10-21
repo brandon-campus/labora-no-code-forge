@@ -22,7 +22,7 @@ interface ModuleData {
   sessions: SessionProps[];
 }
 
-const fallbackModules: ModuleData[] = [
+export const fallbackModules: ModuleData[] = [
   {
     title: "FASE 1: DE CERO A APP",
     description: "Fundamentos esenciales para crear tu primera aplicación funcional",

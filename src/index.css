@@ -250,3 +250,15 @@ html {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Landings v2 (home, bootcamp) (docs/DESIGN.md): tokens y tipografía aislados para no afectar otras páginas */
+.site-v2 {
+  --primary: 351 95% 71%;
+  --secondary: 351 95% 82%;
+  font-family: 'Inter', sans-serif;
+}
+
+.site-v2 :is(h1, h2, h3, h4, h5) {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  text-transform: none;
+}

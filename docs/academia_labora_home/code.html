@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#ff9da8", "surface-container-lowest": "#190a0b", "surface-dim": "#1f0f10", "surface-container-low": "#281718", "outline-variant": "#5c3f40", "on-secondary-fixed-variant": "#910130", "primary": "#ffb3b6", "surface-bright": "#483435", "on-primary-container": "#fffaf9", "surface-container-high": "#382526", "on-background": "#fbdbdb", "tertiary": "#ffb2b9", "tertiary-fixed-dim": "#ffb2b9", "error": "#ffb4ab", "inverse-primary": "#be0037", "on-primary-fixed": "#40000c", "primary-container": "#e11d48", "on-primary-fixed-variant": "#920028", "surface-container-highest": "#443030", "on-surface-variant": "#e5bdbe", "on-surface": "#fbdbdb", "surface-variant": "#443030", "surface": "#1f0f10", "on-error-container": "#ffdad6", "surface-container": "#2c1b1c", "on-tertiary": "#67001f", "on-error": "#690005", "on-tertiary-container": "#fffaf9", "inverse-on-surface": "#3f2b2c", "error-container": "#93000a", "on-secondary-fixed": "#400010", "on-tertiary-fixed": "#400010", "on-secondary": "#670020", "surface-tint": "#ffb3b6", "background": "#1f0f10", "secondary-container": "#940532", "inverse-surface": "#fbdbdb", "outline": "#ac8889", "on-primary": "#68001a", "tertiary-fixed": "#ffdadc", "tertiary-container": "#c5485d", "primary-fixed-dim": "#ffb3b6", "secondary-fixed-dim": "#ffb2ba", "secondary-fixed": "#ffd9dc", "primary-fixed": "#ffdada", "secondary": "#ffb2ba", "on-tertiary-fixed-variant": "#891933" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-xs": "0.25rem", "margin-mobile": "1.25rem", "margin": "2rem", "space-md": "1rem", "space-xl": "2.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-mobile": "1rem" }, "fontFamily": { "badge-caps": [ "Plus Jakarta Sans" ], "label-sm": [ "Plus Jakarta Sans" ], "body-md": [ "Inter" ], "headline-xl": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "body-lg": [ "Inter" ], "headline-sm": [ "Plus Jakarta Sans" ], "headline-lg": [ "Plus Jakarta Sans" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "body-sm": [ "Inter" ], "display-hero-mobile": [ "Plus Jakarta Sans" ], "label-md": [ "Plus Jakarta Sans" ], "display-hero": [ "Plus Jakarta Sans" ] }, "fontSize": { "badge-caps": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" } ], "label-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "headline-xl": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "headline-md": [ "22px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "headline-sm": [ "18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-xl-mobile": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "display-hero-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "label-md": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" } ], "display-hero": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" } ] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img alt="logo Labora.png" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA__UEF292i0iMz5HvSdQ-yXs00HPrzATHC3b3PMT7nOoRhPa9zlwPcIFNoa9YlwQAy1zurN9Fonj5ZyaklIzP9DvKkAnGTs1SbJBm5G-StdS4fI7SguMeHVQpm9A3CFEPkJGylgeCEbhIiwUq4F0yjBFO0njpOEbtj-8vkNXXFPE5DeBhp8t6K_yJVDu7MR7beAZnQCTIPAZSFuxr03lIKzD_1aJJq_bq5Rh0VT7CWgd1kV3AX5Cl-XGR_pgRFUb4MPQ"/><span class="font-headline-sm text-headline-sm text-on-surface hidden sm:inline-block tracking-tight">Labora</span></a><nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="text-on-surface bg-surface-container-high rounded-full px-space-md py-space-xs font-semibold"><div class="relative group"><button class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm rounded-lg" type="button"><span>Programas</span><span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">expand_more</span></button><div class="absolute left-0 top-full pt-space-xs hidden group-hover:block z-50"><div class="w-72 bg-surface-container-low shadow-[0_12px_32px_-8px_rgba(0,0,0,0.5)] rounded-xl p-space-sm flex flex-col gap-1"><a class="block px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="bootcamp-ia-y-no-code" href="#"><span class="font-semibold block text-on-surface">Bootcamp IA y No-Code</span><span class="font-body-sm text-body-sm text-on-surface-variant">De cero a MVP funcional y validado</span></a><a class="block px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="bootcamp-avanzado" href="#"><span class="font-semibold block text-on-surface">Bootcamp Avanzado</span><span class="font-body-sm text-body-sm text-on-surface-variant">Arquitecturas de agentes y flujos autónomos</span></a><a class="block px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="labora-startup" href="#"><span class="font-semibold block text-on-surface">Labora-Startup</span><span class="font-body-sm text-body-sm text-on-surface-variant">Incubación y aceleración con IA</span></a><a class="block px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="labora-agency" href="#"><span class="font-semibold block text-on-surface">Labora-Agency</span><span class="font-body-sm text-body-sm text-on-surface-variant">Escala servicios de desarrollo No-Code &amp; IA</span></a></div></div></div><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="empresas" href="#">Empresas</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="agencia" href="#">Agencia</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="casos" href="#">Casos</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="recursos" href="#">Recursos</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="nosotros" href="#">Nosotros</a></nav></div><div class="flex items-center gap-space-sm md:gap-space-md"><div class="relative hidden lg:flex items-center bg-surface-container-low rounded-full px-space-sm py-1"><span class="font-badge-caps text-badge-caps text-primary px-1">MONEDA</span><select aria-label="Seleccionar Moneda" class="bg-transparent font-label-sm text-label-sm text-on-surface focus:outline-none cursor-pointer pr-1"><option class="bg-surface-container-low text-on-surface" value="USD">USD</option><option class="bg-surface-container-low text-on-surface" value="ARS">ARS</option><option class="bg-surface-container-low text-on-surface" value="PEN">PEN</option><option class="bg-surface-container-low text-on-surface" value="COP">COP</option><option class="bg-surface-container-low text-on-surface" value="MXN">MXN</option><option class="bg-surface-container-low text-on-surface" value="CLP">CLP</option></select></div><a class="hidden md:inline-flex items-center justify-center font-label-md text-label-md text-on-surface bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-full px-space-md py-space-xs" data-path="campus" href="#">Campus</a><a class="hidden sm:inline-flex items-center justify-center font-label-md text-label-md text-on-primary-container bg-primary-container hover:bg-secondary-container transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] rounded-full px-space-md py-space-xs font-semibold" data-path="agenda-tu-llamada" href="#">Agenda tu llamada</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button aria-label="Abrir Menú" class="xl:hidden p-space-xs text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- 1. HERO SECTION -->
+<section class="relative w-full overflow-hidden pb-space-xl pt-6 md:pt-12">
+<!-- Ambient Radial Ruby Glow -->
+<div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-gradient-to-b from-primary-container/20 via-secondary-container/10 to-transparent blur-3xl opacity-60"></div>
+<div class="pointer-events-none absolute -top-10 -right-20 w-96 h-96 bg-primary-container/15 rounded-full blur-3xl"></div>
+<div class="relative w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Column: Copy & CTAs -->
+<div class="lg:col-span-7 flex flex-col gap-space-md z-10">
+<!-- Pill Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/70 w-fit shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary">Convocatoria abierta · Cupos limitados por cohorte</span>
+</div>
+<!-- Main H1 Headline -->
+<h1 class="font-display-hero text-headline-xl md:text-display-hero text-on-surface tracking-tight leading-tight">
+            Del cero al lanzamiento de tu producto con <span class="bg-gradient-to-r from-primary via-primary-container to-secondary bg-clip-text text-transparent">IA</span>. Paso a paso y acompañado.
+          </h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Labora ordena la sobreinformación en un camino claro. Aprende las bases técnicas y el dominio de las herramientas para construir y lanzar tu producto digital con acompañamiento real, sin perderte en tutoriales aislados.
+          </p>
+<!-- CTAs -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center gap-space-xs font-label-md text-label-md text-on-primary-container bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 active:scale-[0.99] transition-all rounded-full px-space-xl py-space-sm font-semibold shadow-lg shadow-primary-container/20" data-path="agenda-tu-llamada" href="#">
+<span>Agenda tu llamada</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs font-label-md text-label-md text-on-surface bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-full px-space-lg py-space-sm" href="#programas-section">
+<span class="material-symbols-outlined text-[18px] text-primary">school</span>
+<span>Ver programas</span>
+</a>
+</div>
+<!-- Micro-Trust Note -->
+<div class="flex items-center gap-space-xs pt-1">
+<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sin costos ocultos · Llamada 1 a 1 de diagnóstico y orientación de proyecto</span>
+</div>
+</div>
+<!-- Right Column: Interactive Product & Workflow Canvas -->
+<div class="lg:col-span-5 relative mt-6 lg:mt-0">
+<div class="relative bg-surface-container-low rounded-2xl p-space-md shadow-2xl overflow-hidden">
+<!-- Window Titlebar -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error-container/80"></div>
+<div class="w-3 h-3 rounded-full bg-surface-bright"></div>
+<div class="w-3 h-3 rounded-full bg-surface-bright"></div>
+<span class="ml-2 font-badge-caps text-badge-caps text-on-surface-variant">MVP-STUDIO // LIVE INSTANCE</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-badge-caps text-badge-caps">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>En producción</span>
+</div>
+</div>
+<!-- Dashboard Mini Mockup -->
+<div class="space-y-space-sm">
+<!-- Top Metrics Bar -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded-xl">
+<div class="font-body-sm text-body-sm text-on-surface-variant">Usuarios Activos</div>
+<div class="font-headline-md text-headline-md text-on-surface font-semibold flex items-baseline gap-2">
+<span>1,842</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center">
+<span class="material-symbols-outlined text-xs">trending_up</span> +34%
+                    </span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl">
+<div class="font-body-sm text-body-sm text-on-surface-variant">Agente IA Runs</div>
+<div class="font-headline-md text-headline-md text-on-surface font-semibold flex items-baseline gap-2">
+<span>14.9k</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center">
+<span class="material-symbols-outlined text-xs">bolt</span> 99.4%
+                    </span>
+</div>
+</div>
+</div>
+<!-- Interactive Workflow / Pipeline Visualization -->
+<div class="bg-surface-container p-space-sm rounded-xl space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Workflow de Agentes: n8n &amp; Claude 3.7</span>
+<span class="font-badge-caps text-badge-caps text-primary px-2 py-0.5 bg-primary-container/20 rounded">Activo</span>
+</div>
+<!-- Pipeline Nodes -->
+<div class="grid grid-cols-3 gap-2 text-center pt-1">
+<div class="p-2 bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+<div class="font-badge-caps text-[10px] text-on-surface">Claude Reason</div>
+<div class="text-[9px] text-on-surface-variant">Analiza PRD</div>
+</div>
+<div class="p-2 bg-surface-container-high rounded-lg relative">
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 text-primary font-bold">›</div>
+<span class="material-symbols-outlined text-secondary text-[18px]">account_tree</span>
+<div class="font-badge-caps text-[10px] text-on-surface">Supabase DB</div>
+<div class="text-[9px] text-on-surface-variant">RLS Auth OK</div>
+</div>
+<div class="p-2 bg-surface-container-high rounded-lg relative">
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 text-primary font-bold">›</div>
+<span class="material-symbols-outlined text-on-primary-container text-[18px]">rocket_launch</span>
+<div class="font-badge-caps text-[10px] text-on-surface">Vercel Edge</div>
+<div class="text-[9px] text-on-surface-variant">Deploy 1.2s</div>
+</div>
+</div>
+</div>
+<!-- Floating Live Tags -->
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-primary">check_circle</span> Deploy exitoso en Vercel
+                </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-primary">database</span> Supabase conectada
+                </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-primary">terminal</span> Antigravity Engine
+                </span>
+</div>
+</div>
+<!-- Dynamic SVG Sparkline Underneath -->
+<div class="pt-space-sm">
+<svg class="w-full h-12 text-primary-container opacity-70" fill="none" preserveaspectratio="none" viewbox="0 0 300 60">
+<path d="M0 45 C 50 40, 80 50, 120 25 C 160 5, 200 35, 240 18 C 270 5, 290 12, 300 8" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 45 C 50 40, 80 50, 120 25 C 160 5, 200 35, 240 18 C 270 5, 290 12, 300 8 L 300 60 L 0 60 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. TRUST BAR -->
+<section class="w-full py-space-lg bg-surface-container-lowest">
+<div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin text-center">
+<p class="font-badge-caps text-badge-caps uppercase tracking-widest text-on-surface-variant mb-space-md opacity-80">
+        PROFESIONALES Y EMPRESAS QUE YA LANZARON SUS PROYECTOS CON NOSOTROS
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-sm items-center justify-items-center">
+<!-- Logo 1 -->
+<div class="w-full p-space-sm bg-surface-container-low rounded-xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">BERTOLÍN</span>
+<span class="font-badge-caps text-[10px] text-on-surface-variant">E-COMMERCE B2B</span>
+</div>
+<!-- Logo 2 -->
+<div class="w-full p-space-sm bg-surface-container-low rounded-xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">ditobanx</span>
+<span class="font-badge-caps text-[10px] text-on-surface-variant">FINTECH &amp; PAYMENTS</span>
+</div>
+<!-- Logo 3 -->
+<div class="w-full p-space-sm bg-surface-container-low rounded-xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">ChocoPlaza</span>
+<span class="font-badge-caps text-[10px] text-on-surface-variant">MARKETPLACE RETAIL</span>
+</div>
+<!-- Logo 4 -->
+<div class="w-full p-space-sm bg-surface-container-low rounded-xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">SERVANT</span>
+<span class="font-badge-caps text-[10px] text-on-surface-variant">SERVICIOS DIGITALES</span>
+</div>
+<!-- Logo 5 -->
+<div class="w-full p-space-sm bg-surface-container-low rounded-xl flex flex-col items-center justify-center hover:bg-surface-container transition-colors col-span-2 sm:col-span-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">LAMANNA</span>
+<span class="font-badge-caps text-[10px] text-on-surface-variant">CONSULTORÍA ESTRATÉGICA</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. EL PROBLEMA -->
+<section class="w-full py-space-xl bg-surface"><div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin"><div class="max-w-2xl mx-auto text-center mb-space-lg"><span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary px-space-sm py-1 rounded-full bg-primary-container/10 inline-block mb-space-xs">EL DESAFÍO ACTUAL</span><h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface tracking-tight">Menos tutoriales sueltos.<br/><span class="bg-gradient-to-r from-primary via-primary-container to-secondary bg-clip-text text-transparent">Más software en producción.</span></h2><p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">El mercado satura con teoría rápida. En Labora construyes productos reales con método.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-space-md"><div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center gap-space-sm mb-2"><div class="w-10 h-10 rounded-xl bg-secondary-container/30 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">video_library</span></div><span class="font-badge-caps text-badge-caps text-primary tracking-wider uppercase">01 · DISPERSIÓN</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Sobrecarga de tutoriales</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Videos aislados de 10 minutos sin arquitectura, sin estándares y sin modelo de negocio aplicable.</p><div class="mt-space-sm pt-space-xs text-[11px] font-label-sm text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">close</span> Pierdes semanas sin código real</div></div><div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center gap-space-sm mb-2"><div class="w-10 h-10 rounded-xl bg-secondary-container/30 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">alt_route</span></div><span class="font-badge-caps text-badge-caps text-primary tracking-wider uppercase">02 · PARÁLISIS</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Bloqueo por falta de stack</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Dudas constantes en base de datos, APIs y lógica. Saltos continuos de herramienta sin publicar nada.</p><div class="mt-space-sm pt-space-xs text-[11px] font-label-sm text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">close</span> Cero proyectos concluidos</div></div><div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center gap-space-sm mb-2"><div class="w-10 h-10 rounded-xl bg-secondary-container/30 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">person_off</span></div><span class="font-badge-caps text-badge-caps text-primary tracking-wider uppercase">03 · SOLEDAD</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Desarrollo sin validación</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Quedar atrapado en bugs técnicos sin mentores senior que revisen y aprueben tu arquitectura en vivo.</p><div class="mt-space-sm pt-space-xs text-[11px] font-label-sm text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">close</span> Frustración y abandono</div></div></div></div></section>
+<!-- 4. LA SOLUCIÓN / METODOLOGÍA -->
+<section class="w-full py-space-xl bg-surface-container-lowest"><div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin"><div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md"><div><span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary px-space-sm py-1 rounded-full bg-primary-container/10 inline-block mb-space-xs">METODOLOGÍA LABORA</span><h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface tracking-tight">Claude piensa, Antigravity ejecuta, <span class="text-primary">tú diriges</span>.</h2><p class="font-body-md text-body-md text-on-surface-variant mt-1">El entorno de trabajo moderno: agentes autónomos, prompts de alta ingeniería y control humano estratégico.</p></div><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary font-badge-caps text-badge-caps"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> WORKSPACE REAL CON AGENTES</span></div></div><div class="mb-space-lg rounded-2xl overflow-hidden bg-surface-container-low border border-surface-container-high/60 shadow-2xl"><div class="grid grid-cols-1 lg:grid-cols-12 items-center"><div class="lg:col-span-7 relative h-64 sm:h-80 lg:h-96 w-full overflow-hidden"><img alt="Entorno de trabajo con agentes IA y workflows automatizados" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASijCQlGg1JVcWUOYEA6MazxAmScMVCaGUC6g8dFRqQbMcM2oMhVY3czPCc8hjh62KAj0KrjSgPJTzIckhO-1p3dL15zkQwoCcLGrYPDWgCs_eXHAGKMXk9Pr1bQ5F8K3uaaADT6HnNTZEq4oQptKTsEd6QmOCxQvoTiuxoB2fLQddp_LjAt2f31gr9a0a_hCHhHe_SHQGUxDQZ_HyBZkOSqtmP7hUUQuISbulCXebV4xKBKQQPO33"/><div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-surface-container-low/10 via-surface-container-low/40 to-surface-container-low pointer-events-none"></div></div><div class="lg:col-span-5 p-space-md lg:p-space-lg flex flex-col gap-space-sm"><div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-badge-caps text-[10px]">INSPECCIÓN EN VIVO</span><span class="text-on-surface-variant text-[11px] font-body-sm">Claude 3.7 + Antigravity Engine</span></div><h3 class="font-headline-md text-headline-sm lg:text-headline-md text-on-surface font-semibold">Así es un día construyendo en Labora</h3><ul class="space-y-2 text-on-surface-variant font-body-sm text-[13px]"><li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0">bolt</span><span><strong>Especificación con Claude:</strong> Redacción de PRD completo, models y endpoints sin ambigüedades.</span></li><li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0">schema</span><span><strong>Backend &amp; DB:</strong> Supabase conectado con autenticación RLS y lógica reactiva.</span></li><li class="flex items-start gap-2"><span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0">rocket_launch</span><span><strong>Deploy inmediato:</strong> Integraciones n8n, frontend en Vercel y feedback en tiempo real.</span></li></ul><div class="pt-2"><a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary hover:text-on-surface transition-colors" href="#programas-section"><span>Conoce el temario técnico paso a paso</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div></div><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2.5"><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">01</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">Idea &amp; PRD</span><span class="text-[10px] text-on-surface-variant block">Claude</span></div><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">02</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">DB &amp; Schema</span><span class="text-[10px] text-on-surface-variant block">Supabase</span></div><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">03</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">Diseño UI</span><span class="text-[10px] text-on-surface-variant block">Design System</span></div><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">04</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">Fullstack</span><span class="text-[10px] text-on-surface-variant block">Antigravity</span></div><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">05</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">Automations</span><span class="text-[10px] text-on-surface-variant block">n8n Flows</span></div><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">06</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">QA Testing</span><span class="text-[10px] text-on-surface-variant block">Unit &amp; E2E</span></div><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">07</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">Deploy</span><span class="text-[10px] text-on-surface-variant block">Vercel Edge</span></div><div class="p-space-sm bg-surface-container-low rounded-xl text-center hover:bg-surface-container transition-all"><span class="font-headline-sm text-[16px] font-bold text-primary block">08</span><span class="font-label-sm text-[12px] font-semibold text-on-surface block mt-1">Lanzamiento</span><span class="text-[10px] text-on-surface-variant block">GTM &amp; Tracción</span></div></div></div></section>
+<!-- 5. PROGRAMAS DE FORMACIÓN -->
+<section class="w-full py-space-xl bg-surface" id="programas-section">
+<div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary px-space-sm py-1 rounded-full bg-primary-container/10 inline-block mb-space-xs">
+            RUTAS DE APRENDIZAJE
+          </span>
+<h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface tracking-tight">
+            Programas formativos para cada etapa
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Desde la primera línea de lógica hasta la creación de una agencia o startup con IA.
+          </p>
+</div>
+<!-- Currency switcher trigger synced with shell -->
+<div class="flex items-center gap-2 bg-surface-container-low px-space-md py-space-xs rounded-full">
+<span class="font-badge-caps text-badge-caps text-on-surface-variant">MONEDA VISUALIZADA:</span>
+<span class="font-label-md text-label-md text-primary font-bold currency-label">USD</span>
+</div>
+</div>
+<!-- 4 Programs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Programa 1: Bootcamp IA y No-Code (Featured) -->
+<div class="relative bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-xl">
+<div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-primary-container text-on-primary-container font-badge-caps text-badge-caps uppercase tracking-wider shadow-sm">
+            ✦ Más popular
+          </div>
+<div class="pt-2">
+<span class="font-badge-caps text-badge-caps text-primary uppercase">COHORTE EN VIVO</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Bootcamp IA y No-Code</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Construye y lanza un MVP completo y validado en 7 sábados intensivos. Tu propio proyecto de punta a punta.
+            </p>
+<div class="my-space-md py-space-sm bg-surface-container-high rounded-xl px-space-sm space-y-1">
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span> 7 sábados (10 a 14 h Arg)
+              </div>
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">videocam</span> En vivo con grabaciones
+              </div>
+</div>
+<div class="mb-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Inversión cohorte</span>
+<div class="font-headline-xl text-headline-xl text-on-surface font-bold">
+<span class="price-val" data-base="250">USD 250</span>
+</div>
+</div>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 font-label-md text-label-md text-on-primary-container bg-primary-container hover:bg-secondary-container transition-all py-space-sm rounded-full font-semibold shadow-md" data-path="bootcamp-ia-y-no-code" href="#">
+<span>Ver programa y temario</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Programa 2: Bootcamp Avanzado -->
+<div class="bg-surface-container-low p-space-lg rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<span class="font-badge-caps text-badge-caps text-on-surface-variant uppercase">NIVEL PROFUNDIZACIÓN</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Bootcamp Avanzado</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Arquitecturas complejas, RAG, Claude Code, automatización multiagente y backend escalable a nivel producción.
+            </p>
+<div class="my-space-md py-space-sm bg-surface-container-high/60 rounded-xl px-space-sm space-y-1">
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">schedule</span> 4 semanas (Mar y Jue 20-22h)
+              </div>
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">neurology</span> Agentes y RAG avanzado
+              </div>
+</div>
+<div class="mb-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Inversión programa</span>
+<div class="font-headline-xl text-headline-xl text-on-surface font-bold">
+<span class="price-val" data-base="250">USD 250</span>
+</div>
+</div>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface bg-surface-container-high hover:bg-surface-container-highest transition-colors py-space-sm rounded-full font-semibold" data-path="bootcamp-avanzado" href="#">
+<span>Ver detalles</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Programa 3: Labora-Startup -->
+<div class="bg-surface-container-low p-space-lg rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<span class="font-badge-caps text-badge-caps text-on-surface-variant uppercase">MENTORÍA PRIVADA 1:1</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Labora-Startup</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Asesoría individual semanal de 7 semanas orientada a validación de mercado, estrategia comercial y primeros clientes.
+            </p>
+<div class="my-space-md py-space-sm bg-surface-container-high/60 rounded-xl px-space-sm space-y-1">
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">support_agent</span> Asesoría 1:1 semanal
+              </div>
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">group_add</span> Tracción y Go-To-Market
+              </div>
+</div>
+<div class="mb-space-md">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold price-val" data-base="300">USD 300</span>
+<span class="font-body-sm text-[12px] text-primary">(USD 175 alumnos)</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Precio preferencial para graduados</span>
+</div>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface bg-surface-container-high hover:bg-surface-container-highest transition-colors py-space-sm rounded-full font-semibold" data-path="labora-startup" href="#">
+<span>Postular a Startup</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Programa 4: Labora-Agency -->
+<div class="bg-surface-container-low p-space-lg rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<span class="font-badge-caps text-badge-caps text-on-surface-variant uppercase">INCUBACIÓN DE AGENCIA</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Labora-Agency</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Crea y escala tu agencia de soluciones de software e IA. Propuestas de alto ticket, contratos y captación B2B.
+            </p>
+<div class="my-space-md py-space-sm bg-surface-container-high/60 rounded-xl px-space-sm space-y-1">
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">business_center</span> 7 semanas de coaching 1:1
+              </div>
+<div class="flex items-center gap-2 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">payments</span> Pricing y contratos B2B
+              </div>
+</div>
+<div class="mb-space-md">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold price-val" data-base="300">USD 300</span>
+<span class="font-body-sm text-[12px] text-primary">(USD 175 alumnos)</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Precio preferencial para graduados</span>
+</div>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface bg-surface-container-high hover:bg-surface-container-highest transition-colors py-space-sm rounded-full font-semibold" data-path="labora-agency" href="#">
+<span>Postular a Agency</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="mt-space-lg text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Precios de referencia en USD convertibles. El monto final y facilidades de pago en moneda local se confirman en la llamada de admisión.
+        </p>
+</div>
+</div>
+</section>
+<!-- 6. PARA QUIÉN ES -->
+<section class="w-full py-space-xl bg-surface-container-lowest"><div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin"><div class="max-w-2xl mx-auto text-center mb-space-lg"><span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary px-space-sm py-1 rounded-full bg-primary-container/10 inline-block mb-space-xs">PERFILES &amp; AUDIENCIA</span><h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface tracking-tight">Diseñado para constructores de impacto</h2><p class="font-body-md text-body-md text-on-surface-variant mt-1">No requieres título de ingeniería: construyes sobre bases sólidas con IA.</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm"><div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center justify-between mb-2"><div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">domain</span></div><span class="font-badge-caps text-[10px] text-primary px-2 py-0.5 rounded bg-primary-container/15">NO TÉCNICO</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Profesional de Industria</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Finanzas, salud, legal o retail: crea tu propio software sin depender de agencias.</p></div><div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center justify-between mb-2"><div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">lightbulb</span></div><span class="font-badge-caps text-[10px] text-primary px-2 py-0.5 rounded bg-primary-container/15">FOUNDER</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Emprendedor con Idea</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Materializa tu MVP en 7 semanas, valida con clientes de pago y lanza con confianza.</p></div><div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center justify-between mb-2"><div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">build_circle</span></div><span class="font-badge-caps text-[10px] text-primary px-2 py-0.5 rounded bg-primary-container/15">MAKER</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Constructor desde Cero</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Aprende el stack moderno guiado por mentores sin frustrarte con sintaxis tradicional.</p></div><div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center justify-between mb-2"><div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">developer_mode</span></div><span class="font-badge-caps text-[10px] text-primary px-2 py-0.5 rounded bg-primary-container/15">TECH 10X</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Dev en Reconversión</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Integra agentes autónomos de código y reduce semanas de trabajo a días de despliegue.</p></div></div></div></section>
+<!-- 7. RESULTADOS Y CASOS DE ÉXITO -->
+<section class="w-full py-space-xl bg-surface"><div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin"><div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md"><div><span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary px-space-sm py-1 rounded-full bg-primary-container/10 inline-block mb-space-xs">ECOSISTEMA DE PRODUCTOS</span><h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface tracking-tight">Software real creado por alumnos en Labora</h2><p class="font-body-md text-body-md text-on-surface-variant mt-1">Dashboards, SaaS de analítica, portales B2B y motores de automatización construidos con IA.</p></div><div class="flex items-center gap-2"><span class="font-badge-caps text-badge-caps text-on-surface-variant uppercase">+40 PRODUCTOS ACTIVOS</span></div></div><div class="relative mb-space-lg rounded-3xl overflow-hidden bg-surface-container-low border border-surface-container-high shadow-2xl group"><div class="relative h-72 sm:h-96 md:h-[420px] w-full overflow-hidden"><img alt="Collage de SaaS dashboards e interfaces creadas por alumnos de Labora" class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.01]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2D0UOOP-f08uCjiGk8rJ2hMmepGyxjnX_YrVGzRxR3kGA6nR9yWG0zm8qRTx-595cRHxjOEBXxzQbQShcyjp1N0vr5kopQ3BdV_Ew5ZlwavzppmktWDCBljFEEYKIKPqQYwsb36ED_Yk_Zd4pxBnKeR1rOKA76-DRrJBlRGn3l3l5LRto8ohBEEAEje0aRuY-2_8DTHWlmDEoEwPHXyknQdiuR9pksCBWKTZAO4hCNnk_6kMnWlDK"/><div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent pointer-events-none"></div><div class="absolute bottom-0 left-0 right-0 p-space-md md:p-space-lg flex flex-col sm:flex-row items-start sm:items-end justify-between gap-space-sm"><div class="max-w-xl"><span class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-badge-caps text-[11px] uppercase tracking-wider inline-block mb-1">SHOWCASE 2025</span><h3 class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface font-bold">De la primera idea a clientes reales</h3><p class="font-body-sm text-body-sm text-on-surface-variant hidden sm:block">Todos los paneles, bases de datos y flujos fueron construidos por personas no programadoras y developers acelerados.</p></div><a class="inline-flex items-center gap-2 font-label-md text-label-md text-on-primary-container bg-primary-container hover:bg-secondary-container transition-all px-space-lg py-space-sm rounded-full font-semibold shadow-md" data-path="casos" href="#"><span>Explorar casos de alumnos</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-space-md"><div class="bg-surface-container-low rounded-2xl p-space-md flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center justify-between mb-2"><span class="font-badge-caps text-badge-caps text-primary uppercase">SAAS LOGÍSTICO</span><span class="font-badge-caps text-[10px] text-primary bg-primary-container/20 px-2 py-0.5 rounded">Lanzado</span></div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Plataforma de Despacho</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Reduce 70% de tiempos manuales orquestando agentes de verificación en Supabase.</p><div class="pt-space-xs flex items-center justify-between border-t border-surface-container-high/60"><span class="font-label-sm text-[12px] text-on-surface font-semibold">Manuel G.</span><span class="text-[11px] text-on-surface-variant">Supply Chain</span></div></div><div class="bg-surface-container-low rounded-2xl p-space-md flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center justify-between mb-2"><span class="font-badge-caps text-badge-caps text-primary uppercase">MARKETPLACE</span><span class="font-badge-caps text-[10px] text-primary bg-primary-container/20 px-2 py-0.5 rounded">+40 Clientes</span></div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Servicios Especializados</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Diseño interactivo, auth con roles y pasarela de pago operativa en su primera semana.</p><div class="pt-space-xs flex items-center justify-between border-t border-surface-container-high/60"><span class="font-label-sm text-[12px] text-on-surface font-semibold">Lucía R.</span><span class="text-[11px] text-on-surface-variant">Founder no técnica</span></div></div><div class="bg-surface-container-low rounded-2xl p-space-md flex flex-col justify-between hover:bg-surface-container transition-all"><div class="flex items-center justify-between mb-2"><span class="font-badge-caps text-badge-caps text-primary uppercase">AGENCIA IA</span><span class="font-badge-caps text-[10px] text-primary bg-primary-container/20 px-2 py-0.5 rounded">2 Clientes B2B</span></div><h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Automatización Corporativa</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Empaquetó servicios de IA para empresas, logrando contratos antes de graduarse.</p><div class="pt-space-xs flex items-center justify-between border-t border-surface-container-high/60"><span class="font-label-sm text-[12px] text-on-surface font-semibold">Esteban V.</span><span class="text-[11px] text-on-surface-variant">Consultor B2B</span></div></div></div></div></section>
+<!-- 8. LABORA EMPRESAS Y LABORA AGENCIA (DOUBLE COLUMN) -->
+<section class="w-full py-space-xl bg-surface-container-lowest">
+<div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Tarjeta Empresas -->
+<div class="bg-surface-container-low p-space-lg md:p-space-xl rounded-3xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-badge-caps text-badge-caps text-primary uppercase">SOLUCIONES CORPORATIVAS</span>
+<span class="font-badge-caps text-badge-caps text-on-surface px-space-sm py-0.5 rounded-full bg-surface-container-high">Cotización a medida</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">Labora Empresas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Capacitación in-company, remota o híbrida para equipos que necesitan desarrollar soluciones internas con IA. Diseñamos planes formativos a la medida exacta de tus flujos de trabajo.
+            </p>
+<ul class="space-y-2 mb-space-lg">
+<li class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Diagnóstico técnico inicial de tu equipo
+              </li>
+<li class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Casos de uso reales de tu industria
+              </li>
+<li class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Mentoría de entrega de MVPs internos
+              </li>
+</ul>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface bg-surface-container-high hover:bg-surface-container-highest transition-colors py-space-sm rounded-full font-semibold" data-path="empresas" href="#">
+<span>Consultar para mi empresa</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Tarjeta Agencia -->
+<div class="bg-surface-container-low p-space-lg md:p-space-xl rounded-3xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-badge-caps text-badge-caps text-primary uppercase">DESARROLLO DE PRODUCTO</span>
+<span class="font-badge-caps text-badge-caps text-on-surface px-space-sm py-0.5 rounded-full bg-surface-container-high">Cotización a medida</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">Labora Agencia</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Desarrollo de software a medida ejecutado por nuestro equipo senior. Sprints ágiles, entrega con código propio, capacitación a tu equipo y soporte garantizado.
+            </p>
+<ul class="space-y-2 mb-space-lg">
+<li class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Casos probados: Bertolín, Ditobanx, Servant
+              </li>
+<li class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Entrega de código fuente y propiedad intelectual
+              </li>
+<li class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Transferencia tecnológica a tu equipo
+              </li>
+</ul>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface bg-surface-container-high hover:bg-surface-container-highest transition-colors py-space-sm rounded-full font-semibold" data-path="agencia" href="#">
+<span>Cotizar proyecto</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. PREGUNTAS FRECUENTES (ACCORDION) -->
+<section class="w-full py-space-xl bg-surface">
+<div class="w-full max-w-[900px] mx-auto px-margin-mobile md:px-margin">
+<div class="text-center mb-space-xl">
+<span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary px-space-sm py-1 rounded-full bg-primary-container/10 inline-block mb-space-xs">
+          RESOLVEMOS TUS DUDAS
+        </span>
+<h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface tracking-tight">
+          Preguntas frecuentes
+        </h2>
+</div>
+<!-- Accordion Container -->
+<div class="space-y-space-sm" id="faq-accordion">
+<!-- Q1 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Necesito saber programar?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            No. El programa enseña las bases lógicas, la arquitectura y cómo orquestar herramientas de IA para que construyas software funcional sin experiencia previa en código tradicional.
+          </div>
+</div>
+<!-- Q2 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Qué pasa si no puedo conectarme en vivo?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            Todas las sesiones se graban en alta definición y quedan disponibles en el Campus al finalizar la clase, junto con los materiales, prompts, guías y recursos complementarios.
+          </div>
+</div>
+<!-- Q3 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Cuánto tiempo a la semana necesito dedicarle?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            Aproximadamente 4 a 6 horas semanales además de la clase en vivo para avanzar en tu proyecto personal con nuestras guías paso a paso y soporte en comunidad.
+          </div>
+</div>
+<!-- Q4 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Qué herramientas tengo que pagar?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            Utilizamos herramientas con planes gratuitos o de costo mínimo para prototipado como Claude, Vercel, Supabase y n8n. Detallamos las opciones más convenientes en la primera semana para optimizar tus gastos.
+          </div>
+</div>
+<!-- Q5 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Puedo pagar en cuotas o con moneda local?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            Sí, disponemos de facilidades y medios de pago locales para diversos países de Latinoamérica (Argentina, Perú, Colombia, México, Chile), los cuales se coordinan durante la llamada de admisión.
+          </div>
+</div>
+<!-- Q6 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Qué diferencia hay entre el Bootcamp y el Bootcamp Avanzado?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            El Bootcamp base te lleva desde cero al lanzamiento de tu primer producto completo y validado. El Avanzado profundiza en Claude Code, RAG (Retrieval-Augmented Generation), arquitecturas multiagente y backend escalable a nivel de producción.
+          </div>
+</div>
+<!-- Q7 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Qué es Labora-Startup y Labora-Agency?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            Son programas de asesoría 1:1 intensiva de 7 semanas enfocados en go-to-market, primeros usuarios y validación de modelo (Startup) o en ventas, pricing y captación de clientes de desarrollo (Agency).
+          </div>
+</div>
+<!-- Q8 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden transition-colors">
+<button class="faq-toggle w-full px-space-lg py-space-md text-left flex items-center justify-between font-headline-sm text-headline-sm text-on-surface focus:outline-none" type="button">
+<span>¿Cómo es la llamada y qué se habla?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
+            Es una sesión de 20 minutos con nuestro equipo académico donde evaluamos tu idea o perfil, resolvemos dudas puntuales y definimos si el programa se adapta a tu objetivo profesional o de negocio.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. CTA FINAL DE CONVERSIÓN -->
+<section class="w-full py-space-xl bg-surface-container-lowest">
+<div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin">
+<div class="relative bg-surface-container-low rounded-3xl p-space-lg md:p-space-xl overflow-hidden text-center flex flex-col items-center">
+<!-- Ambient Background Glow -->
+<div class="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-primary-container/20 rounded-full blur-3xl"></div>
+<span class="font-badge-caps text-badge-caps uppercase tracking-wider text-primary px-space-sm py-1 rounded-full bg-primary-container/10 inline-block mb-space-xs">
+          ORIENTACIÓN 1 A 1
+        </span>
+<h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface tracking-tight max-w-xl">
+          Hablemos de tu proyecto
+        </h2>
+<p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-2xl mt-space-sm mb-space-lg">
+          Cuéntanos qué quieres construir. Te orientamos sobre el mejor camino, resolvemos tus dudas y vemos juntos si Labora es el lugar indicado para tu proyecto.
+        </p>
+<a class="inline-flex items-center justify-center gap-space-xs font-label-md text-label-md text-on-primary-container bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 active:scale-[0.99] transition-all rounded-full px-space-xl py-space-md font-semibold shadow-xl shadow-primary-container/25" data-path="agenda-tu-llamada" href="#">
+<span>Agenda tu llamada con nuestro equipo</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<div class="flex items-center gap-2 mt-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span>Llamada 1 a 1 de 20 minutos · Sin compromiso · Cupos reducidos por cohorte</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. FAQ Accordion Interaction
+      const toggles = document.querySelectorAll('.faq-toggle');
+      toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          const icon = toggle.querySelector('.material-symbols-outlined');
+          const isExpanded = !content.classList.contains('hidden');
+
+          // Close all other accordions
+          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+          document.querySelectorAll('.faq-toggle .material-symbols-outlined').forEach(i => i.classList.remove('rotate-180'));
+
+          if (!isExpanded) {
+            content.classList.remove('hidden');
+            if (icon) icon.classList.add('rotate-180');
+          }
+        });
+      });
+
+      // 2. Synced Currency Handling with Shell Select
+      const shellSelect = document.querySelector('select[aria-label="Seleccionar Moneda"]');
+      const currencyLabels = document.querySelectorAll('.currency-label');
+      const priceVals = document.querySelectorAll('.price-val');
+
+      // Conversion reference approximations
+      const rates = {
+        USD: { rate: 1, prefix: 'USD ' },
+        ARS: { rate: 1100, prefix: 'ARS ' },
+        PEN: { rate: 3.75, prefix: 'PEN ' },
+        COP: { rate: 4200, prefix: 'COP ' },
+        MXN: { rate: 19.8, prefix: 'MXN ' },
+        CLP: { rate: 940, prefix: 'CLP ' }
+      };
+
+      function updatePrices(currency) {
+        const conf = rates[currency] || rates.USD;
+        currencyLabels.forEach(el => el.textContent = currency);
+        priceVals.forEach(el => {
+          const base = parseFloat(el.getAttribute('data-base') || '250');
+          if (currency === 'USD') {
+            el.textContent = `USD ${base}`;
+          } else {
+            const converted = Math.round(base * conf.rate);
+            el.textContent = `${conf.prefix}${converted.toLocaleString()}`;
+          }
+        });
+      }
+
+      if (shellSelect) {
+        shellSelect.addEventListener('change', (e) => {
+          updatePrices(e.target.value);
+        });
+      }
+    });
+  </script>
+</div></main><div class="fixed bottom-0 left-0 right-0 z-40 p-space-sm bg-surface-container-lowest/90 backdrop-blur-xl sm:hidden shadow-[0_-4px_16px_rgba(0,0,0,0.4)]"><a class="w-full flex items-center justify-center gap-space-xs font-label-md text-label-md text-on-primary-container bg-primary-container active:bg-secondary-container transition-all rounded-full py-space-sm font-semibold shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]" data-path="agenda-tu-llamada" href="#"><span>Agenda tu llamada</span><span class="material-symbols-outlined text-sm">arrow_forward</span></a></div><footer class="w-full bg-surface-container-lowest py-space-xl pb-24 sm:pb-space-xl"><div class="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-xl mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="logo Labora.png" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA__UEF292i0iMz5HvSdQ-yXs00HPrzATHC3b3PMT7nOoRhPa9zlwPcIFNoa9YlwQAy1zurN9Fonj5ZyaklIzP9DvKkAnGTs1SbJBm5G-StdS4fI7SguMeHVQpm9A3CFEPkJGylgeCEbhIiwUq4F0yjBFO0njpOEbtj-8vkNXXFPE5DeBhp8t6K_yJVDu7MR7beAZnQCTIPAZSFuxr03lIKzD_1aJJq_bq5Rh0VT7CWgd1kV3AX5Cl-XGR_pgRFUb4MPQ"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Labora</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">La mejor academia para desarrollar productos con IA. Del cero al lanzamiento de tu producto con IA, paso a paso y acompañado.</p><div class="flex items-center gap-space-sm pt-space-xs"><a class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" href="https://instagram.com/labora.ar" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a><a class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" href="https://tiktok.com/@labora.ai" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">play_circle</span></a></div></div><div class="flex flex-col gap-space-sm"><h2 class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Programas</h2><ul class="flex flex-col gap-space-xs"><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="bootcamp-ia-y-no-code" href="#">Bootcamp IA y No-Code</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="bootcamp-avanzado" href="#">Bootcamp Avanzado</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="labora-startup" href="#">Labora-Startup</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="labora-agency" href="#">Labora-Agency</a></li></ul></div><div class="flex flex-col gap-space-sm"><h2 class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Academia</h2><ul class="flex flex-col gap-space-xs"><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="nosotros" href="#">Nosotros</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="metodologia" href="#">Metodología</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="casos" href="#">Casos de Alumnos</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="empresas" href="#">Empresas</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="agencia" href="#">Agencia</a></li></ul></div><div class="flex flex-col gap-space-sm"><h2 class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Recursos</h2><ul class="flex flex-col gap-space-xs"><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="guia-prd" href="#">Guía PRD gratuita</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="blog" href="#">Blog &amp; Artículos</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="clase-gratuita" href="#">Clase Gratuita</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="link-in-bio" href="#">Link in Bio</a></li></ul></div><div class="flex flex-col gap-space-sm"><h2 class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Legal</h2><ul class="flex flex-col gap-space-xs"><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terminos-y-condiciones" href="#">Términos y Condiciones</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="politica-de-privacidad" href="#">Política de Privacidad</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-lowest"><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">Precios de referencia. El monto final se confirma en la llamada.</p><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-right">© 2025 Academia Labora (labora.ar). Todos los derechos reservados.</p></div></div></footer></body></html>

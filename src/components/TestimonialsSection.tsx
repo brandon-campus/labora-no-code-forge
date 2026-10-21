@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
-interface Testimonial {
+export interface Testimonial {
   name: string;
   country: string;
   flag: string;
@@ -10,7 +10,7 @@ interface Testimonial {
   quote: string;
 }
 
-const testimonials: Testimonial[] = [
+export const testimonials: Testimonial[] = [
   {
     name: "Agustin Gonzalez",
     country: "Argentina",
