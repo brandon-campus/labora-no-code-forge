@@ -2,10 +2,15 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/lib/supabaseClient';
 
-const ALLOWED_EMAILS = [
-  'brandoncandia99@gmail.com',
-  // TODO: Add Briguit's email here
-];
+// El acceso al panel lo decide profiles.role = 'admin' (mismo criterio que las políticas RLS vía is_admin()).
+async function isAdmin(userId: string) {
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', userId)
+    .maybeSingle();
+  return !error && data?.role === 'admin';
+}
 
 export function useAdminAuth() {
   const [user, setUser] = useState<any>(null);
@@ -14,20 +19,17 @@ export function useAdminAuth() {
   const location = useLocation();
 
   useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      
+    const handleSession = async (session: any) => {
       if (!session) {
-        setLoading(false);
+        setUser(null);
         if (location.pathname !== '/admin/login') {
           navigate('/admin/login');
         }
-        return;
-      }
-
-      const email = session.user.email;
-      if (email && ALLOWED_EMAILS.includes(email)) {
+      } else if (await isAdmin(session.user.id)) {
         setUser(session.user);
+        if (location.pathname === '/admin/login') {
+          navigate('/admin');
+        }
       } else {
         // Log out unauthorized user
         await supabase.auth.signOut();
@@ -36,27 +38,11 @@ export function useAdminAuth() {
       setLoading(false);
     };
 
-    checkAuth();
+    supabase.auth.getSession().then(({ data: { session } }) => handleSession(session));
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      if (!session) {
-        setUser(null);
-        if (location.pathname !== '/admin/login') {
-          navigate('/admin/login');
-        }
-      } else {
-        const email = session.user.email;
-        if (email && ALLOWED_EMAILS.includes(email)) {
-          setUser(session.user);
-          if (location.pathname === '/admin/login') {
-            navigate('/admin');
-          }
-        } else {
-          await supabase.auth.signOut();
-          navigate('/admin/login');
-        }
-      }
-      setLoading(false);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      // Diferido para no llamar a Supabase dentro del callback de auth (evita deadlocks del cliente)
+      setTimeout(() => handleSession(session), 0);
     });
 
     return () => {
