@@ -31,7 +31,7 @@ const HomeHero = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm pt-space-xs">
               <SiteLink to={APPLY_PATH} track="hero_apply" className="inline-flex items-center justify-center gap-space-xs text-label-md text-on-primary-container bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 active:scale-[0.99] transition-all rounded-full px-space-xl py-space-sm shadow-lg shadow-primary-container/20">
-                <span>Aplicar al Bootcamp</span>
+                <span>Agendar llamada gratuita</span>
                 <ArrowRight className="w-[18px] h-[18px]" />
               </SiteLink>
               <SiteLink to={FREE_CLASS_PATH} track="hero_free_class" className="inline-flex items-center justify-center gap-space-xs text-label-md text-on-surface bg-white/[0.03] border border-white/10 hover:border-primary-container transition-colors rounded-full px-space-lg py-space-sm">
@@ -41,7 +41,7 @@ const HomeHero = () => {
             </div>
             <div className="flex items-center gap-space-xs pt-1">
               <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-              <span className="text-body-sm text-on-surface-variant">Aplicar no tiene costo · Te orientamos según tu proyecto</span>
+              <span className="text-body-sm text-on-surface-variant">Completa un formulario breve y elige tu horario · 15 min, gratis y sin compromiso</span>
             </div>
           </div>
 

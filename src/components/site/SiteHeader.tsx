@@ -60,7 +60,7 @@ const SiteHeader = ({ applyPath = APPLY_PATH, onApplyClick, variant = 'site', an
             Campus
           </SiteLink>}
           <SiteLink to={applyPath} track="header_apply" onClick={onApplyClick} className="hidden sm:inline-flex items-center justify-center text-label-md text-on-primary-container bg-primary-container hover:bg-secondary-container transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] rounded-full px-space-md py-space-xs">
-            Aplicar ahora
+            Agendar llamada
           </SiteLink>
           <button type="button" aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} onClick={() => setOpen(!open)} className={`${funnel ? 'lg:hidden' : 'xl:hidden'} p-2.5 -mr-2.5 text-on-surface-variant hover:text-on-surface`}>
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -85,7 +85,7 @@ const SiteHeader = ({ applyPath = APPLY_PATH, onApplyClick, variant = 'site', an
             ))}
             {funnel ? (
               <SiteLink to={applyPath} onClick={() => { onApplyClick?.(); close(); }} track="menu_apply" className="mt-space-sm text-center text-label-md text-on-primary-container bg-primary-container rounded-full py-space-sm">
-                Aplicar ahora
+                Agendar llamada
               </SiteLink>
             ) : (
               <SiteLink to="/campus" onClick={close} className="mt-space-sm text-center text-label-md text-on-surface bg-surface-container-high rounded-full py-space-sm">

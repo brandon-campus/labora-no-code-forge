@@ -5,7 +5,7 @@ import { fallbackModules } from '@/components/CurriculumSection';
 import { Container, Eyebrow, GradientText, H2 } from '@/components/site/primitives';
 import { SiteLink } from '@/components/site/SiteLink';
 import LiteVideo, { YOUTUBE_PRESENTATION } from '@/components/site/LiteVideo';
-import BootcampPriceBox, { formatPrice, useBootcampPrice } from '@/components/site/BootcampPriceBox';
+import BootcampPriceBox from '@/components/site/BootcampPriceBox';
 import { facts, heroChips, includes } from './data';
 import { useLanding } from './landing';
 import { FALLBACK_START_DATE } from '@/components/site/siteData';
@@ -23,8 +23,7 @@ export const PromoBanner = () => {
 
 export const BootcampHero = () => {
   const { data: cohorte } = useActiveCohorte();
-  const { applyPath, whatsappUrl, trackApply, trackWhatsapp, showPricing } = useLanding();
-  const price = useBootcampPrice();
+  const { applyPath, whatsappUrl, trackApply, trackWhatsapp } = useLanding();
   const badge = cohorte
     ? `Cohorte #${cohorte.numero} · Inscripción abierta · Inicio ${cohorte.fecha_inicio || FALLBACK_START_DATE}`
     : `Inscripción abierta · Inicio ${FALLBACK_START_DATE}`;
@@ -54,17 +53,13 @@ export const BootcampHero = () => {
             </ul>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
               <SiteLink to={applyPath} onClick={() => trackApply('HeroV2')} className="inline-flex items-center justify-center gap-space-xs text-label-md text-on-primary-container bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 active:scale-[0.99] transition-all rounded-full px-space-xl py-space-sm shadow-lg shadow-primary-container/20">
-                <span>Aplicar al Bootcamp</span><ArrowRight className="w-[18px] h-[18px]" />
+                <span>Agendar llamada gratuita</span><ArrowRight className="w-[18px] h-[18px]" />
               </SiteLink>
               <SiteLink to={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsapp('HeroV2')} className="inline-flex items-center justify-center gap-space-xs text-label-md text-on-surface bg-white/[0.03] border border-white/10 hover:border-primary-container transition-colors rounded-full px-space-lg py-space-sm">
                 <MessageCircle className="w-[18px] h-[18px] text-primary" /><span>Hablemos por WhatsApp</span>
               </SiteLink>
             </div>
-            {showPricing && (
-              <a href="#precio" className="text-body-sm text-on-surface-variant hover:text-on-surface transition-colors w-fit">
-                Inversión: <strong className="text-on-surface">{formatPrice(price)}</strong> · ver precio en tu país →
-              </a>
-            )}
+            <p className="text-body-sm text-on-surface-variant -mt-space-xs">Completa un formulario breve y elige tu horario · 15 min, gratis y sin compromiso</p>
           </div>
           <div className="lg:col-span-6">
             <LiteVideo {...YOUTUBE_PRESENTATION} className="shadow-2xl" />
@@ -198,7 +193,7 @@ export const BootcampPricing = () => {
       </div>
       <p className="flex items-start justify-center gap-2 text-center text-body-sm text-on-surface-variant mt-space-md">
         <ShieldCheck className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-        Al aplicar coordinamos una llamada gratuita de 15 minutos para evaluar si el bootcamp es para ti.
+        Completa un formulario breve y elige tu horario: una llamada gratuita de 15 minutos para evaluar si el bootcamp es para ti.
       </p>
     </div>
   </section>

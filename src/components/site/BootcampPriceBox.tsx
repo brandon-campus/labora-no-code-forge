@@ -58,7 +58,7 @@ const BootcampPriceBox = ({ applyPath, track, onApplyClick, size = 'md', childre
       </div>
       {children}
       <SiteLink to={applyPath} track={track} onClick={onApplyClick} className="w-full inline-flex items-center justify-center gap-2 text-label-md text-on-primary-container bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 transition-all py-space-sm rounded-full shadow-md">
-        <span>Aplicar al Bootcamp</span><ArrowRight className="w-4 h-4" />
+        <span>Agendar llamada gratuita</span><ArrowRight className="w-4 h-4" />
       </SiteLink>
     </div>
   );

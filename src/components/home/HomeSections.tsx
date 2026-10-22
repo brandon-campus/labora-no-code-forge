@@ -4,6 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { testimonials } from '@/components/TestimonialsSection';
 import { SiteLink } from '@/components/site/SiteLink';
 import SnapRow from '@/components/site/SnapRow';
+import StepsCarousel from '@/components/site/StepsCarousel';
 import {
   APPLY_PATH, FREE_CLASS_PATH, WHATSAPP_URL, audiences, clients, enterpriseCards, featuredTestimonials,
   instructorFacts, instructorStats, methodBullets, methodSteps, problems, snapItem,
@@ -99,9 +100,6 @@ export const ProblemSection = () => (
   </section>
 );
 
-// La última etapa (Lanzamiento) es la meta: se resalta con el acento neón
-const isGoal = (i: number) => i === methodSteps.length - 1;
-
 export const MethodSection = ({ bg = 'bg-surface' }: BgProps) => (
   <section id="metodologia" className={`w-full py-space-xl ${bg} scroll-mt-20`}>
     <Container>
@@ -131,21 +129,7 @@ export const MethodSection = ({ bg = 'bg-surface' }: BgProps) => (
         </div>
       </div>
 
-      <ol className="relative grid grid-cols-1 md:grid-cols-4 gap-y-space-lg md:gap-x-space-md md:gap-y-space-xl">
-        {methodSteps.map(([n, title, desc], i) => (
-          <li key={n} className="relative pl-10 md:pl-0 md:pt-10 list-none">
-            {i < methodSteps.length - 1 && (
-              <span aria-hidden className={`absolute left-[11px] top-7 -bottom-6 w-px bg-white/10 md:top-[11px] md:left-8 md:-right-4 md:bottom-auto md:h-px md:w-auto ${i % 4 === 3 ? 'md:hidden' : ''}`} />
-            )}
-            <span aria-hidden className={`absolute left-0 top-0.5 md:top-0 w-6 h-6 rounded-full flex items-center justify-center ${isGoal(i) ? 'bg-labora-neon/20' : 'bg-primary-container/25'}`}>
-              <span className={`w-3 h-3 rounded-full ${isGoal(i) ? 'bg-labora-neon shadow-[0_0_10px_rgba(193,255,114,0.8)]' : 'bg-primary-container'}`} />
-            </span>
-            <span className={`text-label-sm block font-jakarta ${isGoal(i) ? 'text-labora-neon' : 'text-primary'}`}>{n}</span>
-            <span className="text-label-md text-on-surface block mt-0.5">{title}</span>
-            <span className="text-body-sm text-on-surface-variant block mt-1">{desc}</span>
-          </li>
-        ))}
-      </ol>
+      <StepsCarousel steps={methodSteps} />
     </Container>
   </section>
 );
@@ -244,7 +228,7 @@ export const FinalCta = ({
   title = 'Hablemos de tu proyecto',
   text = 'Cuéntanos qué quieres construir. Te orientamos sobre el mejor camino y vemos juntos si Labora es el lugar indicado para tu proyecto.',
   applyPath = APPLY_PATH,
-  applyLabel = 'Aplicar al Bootcamp',
+  applyLabel = 'Agendar llamada gratuita',
   whatsappUrl = WHATSAPP_URL,
   onApplyClick,
   onWhatsappClick,

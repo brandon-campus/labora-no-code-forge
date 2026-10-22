@@ -115,7 +115,7 @@ export const faqs = [
   ['¿Puedo pagar en cuotas o con moneda local?', 'Sí. Hay pago único o en cuotas, y medios de pago locales para Argentina, Perú, Colombia, México y Chile. Los precios de la cohorte actual están en la sección de programas.'],
   ['¿Qué diferencia hay entre el Bootcamp y el Bootcamp Avanzado?', 'El Bootcamp te lleva desde cero al lanzamiento de tu primer producto completo. El Avanzado profundiza en Claude Code, RAG, arquitecturas multiagente y backend escalable a nivel de producción.'],
   ['¿Qué es Labora-Startup y Labora-Agency?', 'Son programas de asesoría 1:1 de 7 semanas enfocados en go-to-market, primeros usuarios y validación de modelo (Startup), o en ventas, pricing y captación de clientes de desarrollo (Agency).'],
-  ['¿Qué pasa después de aplicar?', 'Revisamos tu aplicación y nuestro equipo académico se comunica contigo para conocer tu idea o perfil, resolver dudas y definir si el programa se adapta a tu objetivo.'],
+  ['¿Cómo es la llamada?', 'Completas un formulario breve y eliges el día y horario que te quede mejor. Es una llamada gratuita de 15 minutos con nuestro equipo académico para conocer tu idea, resolver tus dudas y ver si el programa se adapta a tu objetivo.'],
 ] as const;
 
 

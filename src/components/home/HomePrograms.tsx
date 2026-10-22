@@ -90,7 +90,7 @@ const HomePrograms = () => (
         ))}
       </SnapRow>
       <p className="mt-space-lg text-center text-body-sm text-on-surface-variant">
-        Precios de los programas posteriores en USD, de referencia. Confirma el monto final y las facilidades de pago al aplicar.
+        Precios de los programas posteriores en USD, de referencia. Confirma el monto final y las facilidades de pago en la llamada.
       </p>
     </Container>
   </section>

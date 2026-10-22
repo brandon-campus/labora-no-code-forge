@@ -37,5 +37,5 @@ export const bootcampFaqs = [
   ['¿Qué me llevo al terminar?', 'Tu propio producto funcionando y publicado, que presentas en el Demo Day de la última semana, y el método para seguir creando por tu cuenta.'],
   ['¿Qué herramientas tengo que pagar?', 'Usamos herramientas con planes gratuitos o de costo mínimo para prototipar, como Claude, Supabase, n8n y Vercel. En la primera semana te mostramos las opciones más convenientes.'],
   ['¿Hay precios en mi moneda?', 'Sí. Hay precios en moneda local para Argentina, Perú, Colombia, México y Chile; puedes verlos en la sección de precio eligiendo tu país.'],
-  ['¿Qué pasa después de aplicar?', 'Coordinamos una llamada gratuita de 15 minutos para conocer tu idea, resolver tus dudas y ver si el bootcamp es para ti.'],
+  ['¿Cómo es la llamada?', 'Completas un formulario breve y eliges el día y horario que te quede mejor. Es una llamada gratuita de 15 minutos con nuestro equipo académico para conocer tu idea, resolver tus dudas y ver si el programa se adapta a tu objetivo.'],
 ] as const;

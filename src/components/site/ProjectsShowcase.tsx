@@ -1,5 +1,4 @@
 import { Container, Eyebrow, H2 } from './primitives';
-import LiteVideo from './LiteVideo';
 import SnapRow from './SnapRow';
 import { snapItem } from './siteData';
 
@@ -31,7 +30,17 @@ const ProjectsShowcase = ({ id = 'proyectos', className = 'bg-surface' }: { id?:
       <SnapRow className="md:grid-cols-2">
         {studentProjects.map((p) => (
           <article key={p.title} className={`${snapItem} bg-surface-container-low border border-white/[0.07] rounded-2xl p-space-sm flex flex-col gap-space-sm`}>
-            <LiteVideo embedUrl={p.embedUrl} title={p.title} showTitle={false} />
+            {/* Reproductor de Tella directo (sin portada propia) */}
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-surface-container-lowest border border-white/[0.07]">
+              <iframe
+                src={p.embedUrl}
+                title={p.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
             <div className="px-space-xs pb-space-xs">
               <h3 className="text-headline-sm text-on-surface normal-case">{p.title}</h3>
               <p className="text-body-sm text-on-surface-variant mt-1">{p.description}</p>

@@ -6,7 +6,7 @@ import { APPLY_PATH, LINKEDIN_URL, WHATSAPP_URL, footerColumns } from './siteDat
 type StickyProps = { to?: string; label?: string; detail?: string; onClick?: () => void };
 
 // Aparece al pasar el hero para no competir con el CTA principal en la primera pantalla
-export const StickyMobileCta = ({ to = APPLY_PATH, label = 'Aplicar al Bootcamp', detail, onClick }: StickyProps) => {
+export const StickyMobileCta = ({ to = APPLY_PATH, label = 'Agendar llamada', detail, onClick }: StickyProps) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 600);

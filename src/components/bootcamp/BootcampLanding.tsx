@@ -4,7 +4,6 @@ import SiteFooter, { StickyMobileCta } from '@/components/site/SiteFooter';
 import { SitePage } from '@/components/site/primitives';
 import FaqSection from '@/components/site/FaqSection';
 import ProjectsShowcase from '@/components/site/ProjectsShowcase';
-import { formatPrice, useBootcampPrice } from '@/components/site/BootcampPriceBox';
 import { AudienceSection, FinalCta, InstructorSection, MethodSection, TestimonialsBlock } from '@/components/home/HomeSections';
 import {
   BootcampCurriculum, BootcampFacts, BootcampHero, BootcampPricing, OfertaHero, PromoBanner,
@@ -16,7 +15,6 @@ type Props = { config: LandingConfig; hero?: 'default' | 'oferta' };
 
 const Landing = ({ hero }: Pick<Props, 'hero'>) => {
   const { title, applyPath, whatsappUrl, trackApply, trackWhatsapp, nav, showPricing, showPromoBanner } = useLanding();
-  const price = useBootcampPrice();
 
   useEffect(() => {
     const prev = document.title;
@@ -51,7 +49,7 @@ const Landing = ({ hero }: Pick<Props, 'hero'>) => {
         <FaqSection items={faqs} className={showPricing ? 'bg-surface-container-lowest' : 'bg-surface'} />
         <FinalCta
           title="Empieza a construir tu producto"
-          text="Aplica al bootcamp y coordinamos una llamada gratuita para ver si es para ti. Si tienes dudas, escríbenos por WhatsApp."
+          text="Agenda una llamada gratuita de 15 minutos para conocer tu idea y ver si el bootcamp es para ti. Si tienes dudas, escríbenos por WhatsApp."
           applyPath={applyPath}
           whatsappUrl={whatsappUrl}
           onApplyClick={() => trackApply('FinalCtaV2')}
@@ -61,8 +59,7 @@ const Landing = ({ hero }: Pick<Props, 'hero'>) => {
       </main>
       <StickyMobileCta
         to={applyPath}
-        label={showPricing ? 'Aplicar' : 'Aplicar al Bootcamp'}
-        detail={showPricing ? formatPrice(price) : undefined}
+        label="Agendar llamada"
         onClick={() => trackApply('StickyV2')}
       />
       <SiteFooter variant={nav} />
