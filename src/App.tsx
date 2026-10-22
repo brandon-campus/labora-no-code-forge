@@ -29,6 +29,7 @@ import IaParaTodos from "./pages/IaParaTodos";
 import IaParaTodosGracias from "./pages/IaParaTodosGracias";
 import IaParaTodosEntrada from "./pages/IaParaTodosEntrada";
 import ClaseGratuitaIA from "./pages/ClaseGratuitaIA";
+import ClaseGratuita from "./pages/ClaseGratuita";
 import ClaseHerramientasApp from "./pages/ClaseHerramientasApp";
 import GuiaPrd from "./pages/GuiaPrd";
 import SeguridadIA from "./pages/SeguridadIA";
@@ -91,6 +92,7 @@ const App = () => (
           <Route path="/pago-transferencia-arg" element={<PagoTransferenciaArg />} />
           <Route path="/pago-transferencia-peru" element={<PagoTransferenciaPeru />} />
           <Route path="/clase-gratuita-ia" element={<ClaseGratuitaIA />} />
+          <Route path="/clase-gratuita" element={<ClaseGratuita />} />
           <Route path="/clase-herramientas-app" element={<ClaseHerramientasApp />} />
           <Route path="/guia-prd" element={<GuiaPrd />} />
           <Route path="/seguridad-ia" element={<SeguridadIA />} />

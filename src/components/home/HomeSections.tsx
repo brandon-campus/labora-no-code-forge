@@ -233,6 +233,7 @@ type FinalCtaProps = {
   title?: string;
   text?: string;
   applyPath?: string;
+  applyLabel?: string;
   whatsappUrl?: string;
   onApplyClick?: () => void;
   onWhatsappClick?: () => void;
@@ -243,6 +244,7 @@ export const FinalCta = ({
   title = 'Hablemos de tu proyecto',
   text = 'Cuéntanos qué quieres construir. Te orientamos sobre el mejor camino y vemos juntos si Labora es el lugar indicado para tu proyecto.',
   applyPath = APPLY_PATH,
+  applyLabel = 'Aplicar al Bootcamp',
   whatsappUrl = WHATSAPP_URL,
   onApplyClick,
   onWhatsappClick,
@@ -257,7 +259,7 @@ export const FinalCta = ({
         <p className="text-body-md md:text-body-lg text-on-surface-variant max-w-2xl mt-space-sm mb-space-lg relative">{text}</p>
         <div className="relative w-full sm:w-auto flex flex-col sm:flex-row items-stretch gap-space-sm">
           <SiteLink to={applyPath} track="final_apply" onClick={onApplyClick} className="inline-flex items-center justify-center gap-space-xs text-label-md text-on-primary-container bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 active:scale-[0.99] transition-all rounded-full px-space-xl py-space-md shadow-xl shadow-primary-container/25">
-            <span>Aplicar al Bootcamp</span><ArrowRight className="w-5 h-5" />
+            <span>{applyLabel}</span><ArrowRight className="w-5 h-5" />
           </SiteLink>
           <SiteLink to={whatsappUrl} track="final_whatsapp" onClick={onWhatsappClick} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-space-xs text-label-md text-on-surface bg-white/[0.03] border border-white/10 hover:border-primary-container transition-colors rounded-full px-space-xl py-space-md">
             <MessageCircle className="w-5 h-5 text-primary" /><span>Escribir por WhatsApp</span>

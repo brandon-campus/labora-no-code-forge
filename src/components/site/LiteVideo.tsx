@@ -10,10 +10,12 @@ type Props = {
   className?: string;
   /** Mostrar el título sobre la portada cuando no hay imagen */
   showTitle?: boolean;
+  /** Se llama una vez al tocar play (p. ej. para registrar el evento) */
+  onPlay?: () => void;
 };
 
 // Muestra una portada liviana y recién al tocar carga el iframe: evita bajar el reproductor en mobile si nadie lo mira
-const LiteVideo = ({ embedUrl, title, poster, className = '', showTitle = true }: Props) => {
+const LiteVideo = ({ embedUrl, title, poster, className = '', showTitle = true, onPlay }: Props) => {
   const [playing, setPlaying] = useState(false);
   const src = embedUrl + (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1';
 
@@ -28,7 +30,7 @@ const LiteVideo = ({ embedUrl, title, poster, className = '', showTitle = true }
           allowFullScreen
         />
       ) : (
-        <button type="button" onClick={() => setPlaying(true)} aria-label={`Reproducir video: ${title}`} className="group absolute inset-0 w-full h-full">
+        <button type="button" onClick={() => { setPlaying(true); onPlay?.(); }} aria-label={`Reproducir video: ${title}`} className="group absolute inset-0 w-full h-full">
           {poster ? (
             <img src={poster} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           ) : (

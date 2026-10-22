@@ -2,7 +2,8 @@
 
 export const APPLY_PATH = '/aplicar';
 export const BOOTCAMP_APPLY_PATH = '/bootcamp/aplicar';
-export const FREE_CLASS_PATH = '/clase-gratuita-ia';
+// Versión orgánica de la clase gratuita (/clase-gratuita-ia es la de Meta Ads y lleva al embudo de anuncios)
+export const FREE_CLASS_PATH = '/clase-gratuita';
 export const WHATSAPP_NUMBER = '5491138142899';
 export const whatsappUrl = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 export const WHATSAPP_URL = whatsappUrl('Hola Labora, quiero más información.');
