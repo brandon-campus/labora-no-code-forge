@@ -128,8 +128,3 @@ export const faqs = [
 ] as const;
 
 
-// Iconos usados solo por el hero/otros
-export const heroChips: { icon: LucideIcon; text: string }[] = [
-  { icon: Brain, text: '8 etapas, de la idea al lanzamiento' },
-  { icon: Video, text: 'En vivo y con grabaciones' },
-];

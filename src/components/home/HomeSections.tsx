@@ -57,7 +57,7 @@ export const TestimonialsBlock = ({ bg = 'bg-surface' }: BgProps) => {
             {items.map((t) => (
               <CarouselItem key={t.name} className="basis-full md:basis-1/2 lg:basis-1/3">
                 <figure className="h-full bg-surface-container-low border border-white/[0.07] rounded-2xl p-space-lg flex flex-col gap-space-md">
-                  <Quote className="w-6 h-6 text-primary-container shrink-0" />
+                  <Quote className="w-6 h-6 text-labora-neon/80 shrink-0" />
                   <blockquote className="text-body-md text-on-surface-variant flex-1">{t.quote}</blockquote>
                   <figcaption className="flex items-center gap-3 pt-space-sm border-t border-white/[0.07]">
                     <img src={t.image} alt={t.name} loading="lazy" className="w-11 h-11 rounded-full object-cover bg-surface-container-high" />
@@ -160,7 +160,7 @@ export const InstructorSection = ({ bg = 'bg-surface-container-lowest' }: BgProp
           <div className="grid grid-cols-3 gap-space-sm">
             {instructorStats.map((s) => (
               <div key={s.label} className="bg-surface-container-low border border-white/[0.07] rounded-xl p-space-sm">
-                <div className="text-headline-lg text-on-surface font-jakarta">{s.value}</div>
+                <div className="text-headline-lg text-labora-neon font-jakarta">{s.value}</div>
                 <div className="text-body-sm text-on-surface-variant">{s.label}</div>
               </div>
             ))}
