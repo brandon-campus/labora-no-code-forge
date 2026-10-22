@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/lib/supabaseClient';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Loader2, Lock } from 'lucide-react';
 import { toast } from 'sonner';
+import { supabase } from '@/lib/supabaseClient';
+import { SitePage } from '@/components/site/primitives';
+import { Field, TextInput, primaryButton } from '@/components/admin/ui';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -14,25 +14,17 @@ export default function AdminLogin() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        navigate('/admin');
-      }
+      if (session) navigate('/admin');
     });
   }, [navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      
-      // On success, useAdminAuth hook in AdminLayout will handle authorized routing
+      // useAdminAuth (en AdminLayout) verifica el rol y redirige
       navigate('/admin');
     } catch (error: any) {
       toast.error(error.message || 'Error al iniciar sesión');
@@ -42,55 +34,33 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-labora-neon/10 rounded-full blur-[120px]"></div>
-      </div>
-      
-      <div className="w-full max-w-md bg-gray-900/80 backdrop-blur-xl border border-gray-800 p-8 rounded-2xl shadow-2xl relative z-10">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-black text-white mb-2">
-            LABORA <span className="text-labora-neon">ADMIN</span>
-          </h1>
-          <p className="text-gray-400">Acceso restringido al equipo</p>
+    <SitePage>
+      <div className="relative min-h-screen flex items-center justify-center px-margin-mobile py-space-xl overflow-hidden">
+        <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary-container/15 rounded-full blur-3xl" />
+        <div className="relative w-full max-w-md bg-surface-container-low/90 backdrop-blur-xl border border-white/[0.07] rounded-3xl p-space-lg md:p-space-xl shadow-2xl">
+          <div className="flex flex-col items-center text-center mb-space-lg">
+            <img src="/lovable-uploads/logolabora.webp" alt="Labora" className="h-8 w-auto object-contain mb-space-md" />
+            <span className="inline-flex items-center gap-1.5 text-badge-caps uppercase text-on-surface-variant border border-white/10 rounded-full px-2.5 py-1">
+              <Lock className="w-3 h-3 text-labora-neon" /> Panel de administración
+            </span>
+            <h1 className="text-headline-lg text-on-surface normal-case mt-space-sm">Ingresa al panel</h1>
+            <p className="text-body-sm text-on-surface-variant mt-1">Acceso restringido al equipo de Labora.</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="flex flex-col gap-space-md">
+            <Field label="Email">
+              <TextInput type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="tu@email.com" />
+            </Field>
+            <Field label="Contraseña">
+              <TextInput type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="••••••••" />
+            </Field>
+            <button type="submit" disabled={loading} className={`${primaryButton} w-full py-space-sm mt-space-xs`}>
+              {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+              {loading ? 'Ingresando…' : 'Ingresar'}
+            </button>
+          </form>
         </div>
-
-        <form onSubmit={handleLogin} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-gray-300">Email</Label>
-            <Input 
-              id="email" 
-              type="email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required 
-              className="bg-black/50 border-gray-700 text-white focus:border-labora-neon focus:ring-labora-neon"
-              placeholder="tu@email.com"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="password" className="text-gray-300">Contraseña</Label>
-            <Input 
-              id="password" 
-              type="password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required 
-              className="bg-black/50 border-gray-700 text-white focus:border-labora-neon focus:ring-labora-neon"
-              placeholder="••••••••"
-            />
-          </div>
-
-          <Button 
-            type="submit" 
-            disabled={loading}
-            className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold py-6 text-lg rounded-xl transition-all"
-          >
-            {loading ? 'Ingresando...' : 'Ingresar al panel'}
-          </Button>
-        </form>
       </div>
-    </div>
+    </SitePage>
   );
 }

@@ -1,9 +1,14 @@
-import React from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
+import { CalendarDays, ExternalLink, LayoutDashboard, Loader2, LogOut, Video } from 'lucide-react';
 import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { supabase } from '@/lib/supabaseClient';
-import { LayoutDashboard, Users, Video, LogOut, Loader2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { SitePage } from '@/components/site/primitives';
+
+const navItems = [
+  { name: 'Inicio', path: '/admin', icon: LayoutDashboard },
+  { name: 'Cohorte', path: '/admin/cohortes', icon: CalendarDays },
+  { name: 'Clases', path: '/admin/clases', icon: Video },
+];
 
 export default function AdminLayout() {
   const { user, loading } = useAdminAuth();
@@ -12,80 +17,80 @@ export default function AdminLayout() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-labora-neon" />
-      </div>
+      <SitePage>
+        <div className="min-h-screen flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary-container" />
+        </div>
+      </SitePage>
     );
   }
 
-  if (!user) return null; // handled by useAdminAuth redirect
+  if (!user) return null; // useAdminAuth redirige al login
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate('/admin/login');
   };
 
-  const navItems = [
-    { name: 'Hub', path: '/admin', icon: LayoutDashboard },
-    { name: 'Cohortes', path: '/admin/cohortes', icon: Users },
-    { name: 'Leads', path: '/admin/leads', icon: Users },
-    { name: 'Clases', path: '/admin/clases', icon: Video },
-  ];
+  const isActive = (path: string) => (path === '/admin' ? location.pathname === '/admin' : location.pathname.startsWith(path));
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
-      {/* Header */}
-      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/admin" className="flex items-center gap-2">
-            <span className="font-black text-xl text-labora-neon tracking-tight">LABORA</span>
-            <span className="text-gray-400 text-sm font-semibold tracking-widest uppercase">Admin</span>
+    <SitePage>
+      <header className="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-white/[0.06]">
+        <div className="w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin h-16 flex items-center justify-between gap-space-md">
+          <Link to="/admin" className="flex items-center gap-space-sm shrink-0">
+            <img src="/lovable-uploads/logolabora.webp" alt="Labora" className="h-7 w-auto object-contain" />
+            <span className="text-badge-caps uppercase text-on-surface-variant border border-white/10 rounded-full px-2 py-0.5">Admin</span>
           </Link>
-          
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-1 bg-gray-800 rounded-lg p-1">
-              {navItems.map((item) => {
-                const isActive = location.pathname === item.path;
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'bg-gray-700 text-white' 
-                        : 'text-gray-400 hover:text-white hover:bg-gray-800'
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {item.name}
-                  </Link>
-                );
-              })}
-            </div>
 
-            <div className="h-6 w-px bg-gray-700 mx-2 hidden sm:block"></div>
-            
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-400 hidden md:block">{user.email}</span>
-              <Button variant="ghost" size="sm" onClick={handleLogout} className="text-gray-400 hover:text-white hover:bg-gray-800">
-                <LogOut className="w-4 h-4 mr-2" />
-                Salir
-              </Button>
-            </div>
+          {/* Navegación de escritorio */}
+          <nav className="hidden md:flex items-center gap-1 bg-surface-container-low border border-white/[0.07] rounded-full p-1">
+            {navItems.map(({ name, path, icon: Icon }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`flex items-center gap-2 px-space-md py-1.5 rounded-full text-label-md transition-colors ${
+                  isActive(path) ? 'bg-surface-container-high text-on-surface' : 'text-on-surface-variant hover:text-on-surface'
+                }`}
+              >
+                <Icon className="w-4 h-4" /> {name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-space-sm">
+            <a href="/" target="_blank" rel="noreferrer" className="hidden lg:inline-flex items-center gap-1.5 text-label-sm text-on-surface-variant hover:text-on-surface">
+              Ver sitio <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <span className="hidden lg:block w-px h-5 bg-white/10" />
+            <span className="hidden lg:block text-body-sm text-on-surface-variant max-w-[200px] truncate">{user.email}</span>
+            <button type="button" onClick={handleLogout} className="inline-flex items-center gap-1.5 text-label-sm text-on-surface-variant hover:text-on-surface rounded-full px-space-sm py-1.5 hover:bg-surface-container-high transition-colors">
+              <LogOut className="w-4 h-4" /> <span className="hidden sm:inline">Salir</span>
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="flex-grow container mx-auto px-4 py-8 relative">
-        {/* Gradients */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
-          <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-labora-neon/5 rounded-full blur-[120px]"></div>
-        </div>
-        
+      <main className="relative w-full max-w-[1240px] mx-auto px-margin-mobile md:px-margin pt-space-lg pb-28 md:pb-space-xl">
+        <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-to-b from-primary-container/10 to-transparent blur-3xl -z-10" />
         <Outlet />
       </main>
-    </div>
+
+      {/* Navegación inferior en mobile (al alcance del pulgar) */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-xl border-t border-white/10 grid grid-cols-3">
+        {navItems.map(({ name, path, icon: Icon }) => (
+          <Link
+            key={path}
+            to={path}
+            className={`flex flex-col items-center gap-1 py-2.5 text-label-sm transition-colors ${isActive(path) ? 'text-on-surface' : 'text-on-surface-variant'}`}
+          >
+            <span className={`w-10 h-7 rounded-full flex items-center justify-center ${isActive(path) ? 'bg-primary-container/20 text-primary' : ''}`}>
+              <Icon className="w-5 h-5" />
+            </span>
+            {name}
+          </Link>
+        ))}
+      </nav>
+    </SitePage>
   );
 }

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabaseClient';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
+import React, { useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
-import { Loader2, Save, Plus, Pencil, Trash2, ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Lock, Pencil, Plus, Trash2, Video } from 'lucide-react';
+import { supabase } from '@/lib/supabaseClient';
+import { LEAD_MAGNETS } from '@/components/lead-magnet/config';
+import { Badge, Card, Field, Loading, PageHeader, SaveBar, TextArea, TextInput, iconButton, primaryButton, secondaryButton } from '@/components/admin/ui';
 
 interface LeadMagnet {
   id?: number;
   slug: string;
+  /** Ya no se usa en el diseño v2 (todas las clases usan rojo + neón); se conserva por compatibilidad */
   theme_color_primary: string;
   video_url: string;
   tag_text: string;
@@ -22,309 +21,247 @@ interface LeadMagnet {
 }
 
 const emptyForm: LeadMagnet = {
-  slug: '',
-  theme_color_primary: 'labora-neon',
-  video_url: '',
-  tag_text: 'Clase Gratuita',
-  title_main: '',
-  title_highlight: '',
-  description: '',
-  step1_title: '',
-  step1_bullet1: '',
-  step1_bullet2: ''
+  slug: '', theme_color_primary: 'labora-neon', video_url: '', tag_text: 'Clase gratuita',
+  title_main: '', title_highlight: '', description: '', step1_title: '', step1_bullet1: '', step1_bullet2: '',
+};
+
+// Rutas fijas (definidas en código, ver LEAD_MAGNETS) para mostrarlas como referencia
+const FIXED_PATHS: Record<string, string> = {
+  claseGratuitaAds: '/clase-gratuita-ia', claseGratuitaTikTok: '/tiktok/clase-gratuita-ia', claseGratuitaOrganica: '/clase-gratuita',
+  claseEnVivo: '/clase-en-vivo', claseHerramientasApp: '/clase-herramientas-app', guiaPrd: '/guia-prd', seguridadIA: '/seguridad-ia',
+};
+
+const toSlug = (v: string) => v.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9-]+/g, '-').replace(/-+/g, '-').replace(/^-/, '');
+
+// Acepta links normales de YouTube y los convierte al formato embebible
+const toEmbedUrl = (url: string) => {
+  const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{11})/);
+  return yt ? `https://www.youtube.com/embed/${yt[1]}` : url.trim();
 };
 
 export default function ClasesManager() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [landings, setLandings] = useState<LeadMagnet[]>([]);
-  
   const [editingId, setEditingId] = useState<number | null>(null);
   const [formData, setFormData] = useState<LeadMagnet>(emptyForm);
+  const [snapshot, setSnapshot] = useState('');
   const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const dirty = useMemo(() => JSON.stringify(formData) !== snapshot, [formData, snapshot]);
 
   const fetchLandings = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('lead_magnets')
-        .select('*')
-        .order('id', { ascending: false });
-        
+      const { data, error } = await supabase.from('lead_magnets').select('*').order('id', { ascending: false });
       if (error) throw error;
       setLandings(data || []);
     } catch (err: any) {
-      toast.error('Error al cargar landings: ' + err.message);
+      toast.error('Error al cargar las clases: ' + err.message);
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchLandings();
-  }, []);
+  useEffect(() => { fetchLandings(); }, []);
 
-  const handleEdit = (landing: LeadMagnet) => {
-    setFormData(landing);
-    setEditingId(landing.id!);
+  const openForm = (data: LeadMagnet, id: number | null) => {
+    setFormData(data);
+    setSnapshot(JSON.stringify(data));
+    setEditingId(id);
     setIsFormOpen(true);
+    window.scrollTo({ top: 0 });
   };
 
-  const handleCreateNew = () => {
-    setFormData(emptyForm);
-    setEditingId(null);
-    setIsFormOpen(true);
+  const closeForm = () => {
+    if (dirty && !window.confirm('Tienes cambios sin guardar. ¿Salir igual?')) return;
+    setIsFormOpen(false);
   };
 
   const handleDelete = async (id: number, slug: string) => {
-    if (!window.confirm(`¿Estás seguro de eliminar la landing /${slug}?`)) return;
-    
+    if (!window.confirm(`¿Eliminar la clase /clase/${slug}? La página dejará de existir.`)) return;
     try {
       const { error } = await supabase.from('lead_magnets').delete().eq('id', id);
       if (error) throw error;
-      
-      toast.success('Landing eliminada correctamente.');
+      toast.success('Clase eliminada.');
       await fetchLandings();
     } catch (err: any) {
       toast.error('Error al eliminar: ' + err.message);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: name === 'slug' ? toSlug(value) : value });
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
     try {
-      if (editingId) {
-        // Update
-        const { error } = await supabase
-          .from('lead_magnets')
-          .update(formData)
-          .eq('id', editingId);
-        if (error) throw error;
-        toast.success('Landing actualizada correctamente.');
-      } else {
-        // Insert
-        const { error } = await supabase
-          .from('lead_magnets')
-          .insert([formData]);
-        if (error) throw error;
-        toast.success('Landing creada correctamente.');
-      }
-      
+      const payload = { ...formData, slug: formData.slug.replace(/-$/, ''), video_url: toEmbedUrl(formData.video_url) };
+      const { error } = editingId
+        ? await supabase.from('lead_magnets').update(payload).eq('id', editingId)
+        : await supabase.from('lead_magnets').insert([payload]);
+      if (error) throw error;
+      toast.success(editingId ? 'Clase actualizada.' : 'Clase creada.');
       setIsFormOpen(false);
       await fetchLandings();
     } catch (err: any) {
-      toast.error('Error al guardar: ' + err.message);
+      toast.error(err.code === '23505' ? 'Ya existe una clase con esa URL.' : 'Error al guardar: ' + err.message);
     } finally {
       setSaving(false);
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-labora-neon" />
-      </div>
-    );
-  }
+  if (loading) return <Loading />;
 
   if (isFormOpen) {
+    const embed = toEmbedUrl(formData.video_url);
     return (
-      <div className="max-w-4xl mx-auto pb-20">
-        <div className="mb-8 flex items-center gap-4">
-          <Button variant="outline" onClick={() => setIsFormOpen(false)} className="bg-transparent text-gray-300 border-gray-700 hover:bg-gray-800">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Volver
-          </Button>
-          <div>
-            <h1 className="text-3xl font-bold text-white">
-              {editingId ? 'Editar Landing' : 'Nueva Landing'}
-            </h1>
-            <p className="text-gray-400">
-              {editingId ? `Editando ruta: /clase/${formData.slug}` : 'Configura los detalles de la nueva página dinámica.'}
-            </p>
+      <form onSubmit={handleSave}>
+        <button type="button" onClick={closeForm} className="inline-flex items-center gap-1.5 text-label-md text-on-surface-variant hover:text-on-surface mb-space-md">
+          <ArrowLeft className="w-4 h-4" /> Volver a clases
+        </button>
+        <PageHeader
+          title={editingId ? 'Editar clase' : 'Nueva clase'}
+          description={formData.slug ? `Se publica en /clase/${formData.slug}` : 'Completa los datos para crear la página.'}
+          actions={editingId && formData.slug ? (
+            <a href={`/clase/${formData.slug}`} target="_blank" rel="noreferrer" className={secondaryButton}>Ver página <ExternalLink className="w-4 h-4" /></a>
+          ) : undefined}
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+          <div className="lg:col-span-7 flex flex-col gap-space-md">
+            <Card title="Dirección y video">
+              <div className="flex flex-col gap-space-md">
+                <Field label="URL de la página" hint="Solo minúsculas, números y guiones.">
+                  <div className="flex items-center">
+                    <span className="text-body-md text-on-surface-variant bg-surface-container-high border border-r-0 border-white/10 rounded-l-xl px-space-sm py-2.5">/clase/</span>
+                    <TextInput name="slug" value={formData.slug} onChange={handleChange} required placeholder="seguridad-ia" className="rounded-l-none" />
+                  </div>
+                </Field>
+                <Field label="Link del video" hint="YouTube (cualquier link) o el link de embed de Tella.">
+                  <TextInput name="video_url" value={formData.video_url} onChange={handleChange} required placeholder="https://www.youtube.com/watch?v=..." />
+                </Field>
+              </div>
+            </Card>
+
+            <Card title="Textos de la página">
+              <div className="flex flex-col gap-space-md">
+                <Field label="Etiqueta superior">
+                  <TextInput name="tag_text" value={formData.tag_text} onChange={handleChange} required placeholder="Clase gratuita" />
+                </Field>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                  <Field label="Título (texto blanco)">
+                    <TextInput name="title_main" value={formData.title_main} onChange={handleChange} required placeholder="Te van a hackear si construiste tu app" />
+                  </Field>
+                  <Field label="Título (texto destacado en rojo)">
+                    <TextInput name="title_highlight" value={formData.title_highlight} onChange={handleChange} required placeholder="con IA (Lovable, Claude, etc.)" />
+                  </Field>
+                </div>
+                <Field label="Descripción">
+                  <TextArea name="description" value={formData.description} onChange={handleChange} required className="h-24" placeholder="Párrafo debajo del título…" />
+                </Field>
+              </div>
+            </Card>
+
+            <Card title="Paso 1 de la ruta de aprendizaje" description="El paso 2 siempre es el Bootcamp y lleva a /bootcamp-2.">
+              <div className="flex flex-col gap-space-md">
+                <Field label="Título del paso">
+                  <TextInput name="step1_title" value={formData.step1_title} onChange={handleChange} required placeholder="Identificar las vulnerabilidades" />
+                </Field>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                  <Field label="Punto 1">
+                    <TextInput name="step1_bullet1" value={formData.step1_bullet1} onChange={handleChange} required />
+                  </Field>
+                  <Field label="Punto 2">
+                    <TextInput name="step1_bullet2" value={formData.step1_bullet2} onChange={handleChange} required />
+                  </Field>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Vista previa en vivo */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24">
+            <Card title="Vista previa">
+              <div className="flex flex-col items-center text-center gap-space-sm">
+                <span className="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high/70 text-badge-caps uppercase text-primary">
+                  <span className="w-1.5 h-1.5 rounded-full bg-labora-neon" /> {formData.tag_text || 'Etiqueta'} · Gratis
+                </span>
+                <p className="text-headline-sm text-on-surface">
+                  {formData.title_main || 'Título'}{' '}
+                  <span className="bg-gradient-to-r from-primary via-primary-container to-secondary bg-clip-text text-transparent">{formData.title_highlight || 'destacado'}</span>
+                </p>
+                <div className="w-full aspect-video rounded-xl overflow-hidden bg-surface-container-lowest border border-white/[0.07] flex items-center justify-center">
+                  {embed ? (
+                    <iframe src={embed} title="Vista previa del video" className="w-full h-full" allow="encrypted-media; picture-in-picture" />
+                  ) : (
+                    <span className="flex flex-col items-center gap-1 text-body-sm text-on-surface-variant"><Video className="w-6 h-6" /> Pega el link del video</span>
+                  )}
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
 
-        <form onSubmit={handleSave} className="space-y-8 bg-gray-900/50 p-6 sm:p-8 rounded-2xl border border-gray-800">
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label className="text-gray-300">Slug (URL)</Label>
-              <Input name="slug" value={formData.slug} onChange={handleChange} required placeholder="ej: seguridad-ia" className="bg-black/50 border-gray-700 text-white" />
-              <p className="text-xs text-gray-500">La landing estará en: /clase/[slug]</p>
-            </div>
-            
-            <div className="space-y-2">
-              <Label className="text-gray-300">Tema (Color Principal)</Label>
-              <select 
-                name="theme_color_primary" 
-                value={formData.theme_color_primary} 
-                onChange={handleChange}
-                className="w-full flex h-10 rounded-md border border-gray-700 bg-black/50 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-labora-neon focus:border-transparent"
-              >
-                <option value="labora-neon">Verde Neón (Labora Clásico)</option>
-                <option value="fuchsia-500">Fucsia (Atractivo/Dinámico)</option>
-                <option value="indigo-500">Índigo (Profesional/Tech)</option>
-                <option value="labora-red">Rojo (Alertas/Seguridad)</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label className="text-gray-300">URL del Video (YouTube)</Label>
-            <Input name="video_url" value={formData.video_url} onChange={handleChange} required placeholder="https://www.youtube.com/embed/..." className="bg-black/50 border-gray-700 text-white" />
-          </div>
-
-          <div className="pt-4 border-t border-gray-800 space-y-6">
-            <h3 className="text-xl font-semibold text-white">Textos de Cabecera</h3>
-            
-            <div className="space-y-2">
-              <Label className="text-gray-300">Etiqueta (Badge Superior)</Label>
-              <Input name="tag_text" value={formData.tag_text} onChange={handleChange} required placeholder="Ej: Alerta de Seguridad" className="bg-black/50 border-gray-700 text-white" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label className="text-gray-300">Título Principal (Texto normal)</Label>
-                <Input name="title_main" value={formData.title_main} onChange={handleChange} required placeholder="Ej: Te van a hackear si construiste tu app" className="bg-black/50 border-gray-700 text-white" />
-              </div>
-              <div className="space-y-2">
-                <Label className="text-gray-300">Título Resaltado (Texto con gradiente)</Label>
-                <Input name="title_highlight" value={formData.title_highlight} onChange={handleChange} required placeholder="Ej: con IA (Lovable, Claude, etc)" className="bg-black/50 border-gray-700 text-white" />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label className="text-gray-300">Descripción</Label>
-              <Textarea 
-                name="description" 
-                value={formData.description} 
-                onChange={handleChange} 
-                required 
-                className="h-24 bg-black/50 border-gray-700 text-white"
-                placeholder="Párrafo descriptivo debajo del título..."
-              />
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-gray-800 space-y-6">
-            <h3 className="text-xl font-semibold text-white">Ruta de Aprendizaje (Paso 1)</h3>
-            
-            <div className="space-y-2">
-              <Label className="text-gray-300">Título del Paso 1</Label>
-              <Input name="step1_title" value={formData.step1_title} onChange={handleChange} required placeholder="Ej: Identificar las Vulnerabilidades" className="bg-black/50 border-gray-700 text-white" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label className="text-gray-300">Viñeta 1 (Check)</Label>
-                <Input name="step1_bullet1" value={formData.step1_bullet1} onChange={handleChange} required placeholder="Ej: Descubre los errores comunes..." className="bg-black/50 border-gray-700 text-white" />
-              </div>
-              <div className="space-y-2">
-                <Label className="text-gray-300">Viñeta 2 (Check)</Label>
-                <Input name="step1_bullet2" value={formData.step1_bullet2} onChange={handleChange} required placeholder="Ej: Aprende por qué ocurren..." className="bg-black/50 border-gray-700 text-white" />
-              </div>
-            </div>
-          </div>
-
-          <Button type="submit" disabled={saving} className="w-full bg-labora-neon hover:bg-labora-neon/90 text-black font-bold py-6 text-lg">
-            {saving ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <Save className="w-5 h-5 mr-2" />}
-            {editingId ? 'Guardar Cambios' : 'Crear Landing'}
-          </Button>
-        </form>
-      </div>
+        <SaveBar dirty={dirty} saving={saving} label={editingId ? 'Guardar cambios' : 'Crear clase'} />
+      </form>
     );
   }
 
   return (
-    <div className="max-w-5xl mx-auto pb-20">
-      <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Generador de Landings</h1>
-          <p className="text-gray-400">Administra las páginas dinámicas de captación de leads (Lead Magnets).</p>
-        </div>
-        <Button onClick={handleCreateNew} className="bg-labora-neon hover:bg-labora-neon/90 text-black font-bold">
-          <Plus className="w-5 h-5 mr-2" /> Nueva Landing
-        </Button>
-      </div>
+    <div>
+      <PageHeader
+        title="Clases gratuitas"
+        description="Páginas de clases en video para captar interesados. Las que crees aquí se publican en /clase/…"
+        actions={<button type="button" onClick={() => openForm(emptyForm, null)} className={primaryButton}><Plus className="w-4 h-4" /> Nueva clase</button>}
+      />
 
-      <div className="bg-gray-900/50 rounded-2xl border border-gray-800 overflow-hidden">
-        {landings.length === 0 ? (
-          <div className="p-8 text-center text-gray-400">
-            No hay landings creadas. Haz clic en "Nueva Landing" para empezar.
+      {landings.length === 0 ? (
+        <Card>
+          <div className="flex flex-col items-center text-center gap-space-sm py-space-lg">
+            <Video className="w-8 h-8 text-on-surface-variant" />
+            <p className="text-body-md text-on-surface-variant">Todavía no creaste clases desde el panel.</p>
+            <button type="button" onClick={() => openForm(emptyForm, null)} className={secondaryButton}><Plus className="w-4 h-4" /> Crear la primera</button>
           </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-black/40 border-b border-gray-800 text-gray-400 text-sm">
-                  <th className="p-4 font-medium">Slug / URL</th>
-                  <th className="p-4 font-medium">Título Principal</th>
-                  <th className="p-4 font-medium">Tema</th>
-                  <th className="p-4 font-medium text-right">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {landings.map(landing => (
-                  <tr key={landing.id} className="border-b border-gray-800/50 hover:bg-gray-800/20 transition-colors">
-                    <td className="p-4">
-                      <div className="flex flex-col">
-                        <span className="font-semibold text-white">/{landing.slug}</span>
-                        <a 
-                          href={`/clase/${landing.slug}`} 
-                          target="_blank" 
-                          rel="noreferrer"
-                          className="text-xs text-labora-neon flex items-center mt-1 hover:underline w-fit"
-                        >
-                          Ver en vivo <ExternalLink className="w-3 h-3 ml-1" />
-                        </a>
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <p className="text-gray-300 line-clamp-1">{landing.title_main} <span className="opacity-50">{landing.title_highlight}</span></p>
-                    </td>
-                    <td className="p-4">
-                      <span className={`px-2 py-1 rounded text-xs font-medium border ${
-                        landing.theme_color_primary === 'fuchsia-500' ? 'bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/20' :
-                        landing.theme_color_primary === 'indigo-500' ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' :
-                        landing.theme_color_primary === 'labora-red' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                        'bg-labora-neon/10 text-labora-neon border-labora-neon/20'
-                      }`}>
-                        {landing.theme_color_primary}
-                      </span>
-                    </td>
-                    <td className="p-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <Button 
-                          variant="ghost" 
-                          size="icon" 
-                          onClick={() => handleEdit(landing)}
-                          className="text-gray-400 hover:text-white hover:bg-gray-700"
-                        >
-                          <Pencil className="w-4 h-4" />
-                        </Button>
-                        <Button 
-                          variant="ghost" 
-                          size="icon" 
-                          onClick={() => handleDelete(landing.id!, landing.slug)}
-                          className="text-gray-400 hover:text-red-400 hover:bg-red-400/10"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
+        </Card>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+          {landings.map((l) => (
+            <article key={l.id} className="bg-surface-container-low border border-white/[0.07] hover:border-primary-container/35 transition-colors rounded-2xl p-space-md flex flex-col gap-space-sm">
+              <div className="flex items-start justify-between gap-space-sm">
+                <Badge>{l.tag_text}</Badge>
+                <div className="flex items-center -mr-2 -mt-2">
+                  <button type="button" aria-label="Editar" onClick={() => openForm(l, l.id!)} className={iconButton}><Pencil className="w-4 h-4" /></button>
+                  <button type="button" aria-label="Eliminar" onClick={() => handleDelete(l.id!, l.slug)} className={`${iconButton} hover:text-primary`}><Trash2 className="w-4 h-4" /></button>
+                </div>
+              </div>
+              <h2 className="text-headline-sm text-on-surface normal-case line-clamp-2">{l.title_main} <span className="text-primary">{l.title_highlight}</span></h2>
+              <a href={`/clase/${l.slug}`} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-1.5 text-body-sm text-on-surface-variant hover:text-primary w-fit">
+                /clase/{l.slug} <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </article>
+          ))}
+        </div>
+      )}
+
+      <Card className="mt-space-lg" title="Clases fijas del sitio" description="Están definidas en el código; para cambiarlas hay que pedir un ajuste.">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-space-lg">
+          {Object.entries(LEAD_MAGNETS).map(([key, c]) => (
+            <li key={key} className="list-none flex items-center justify-between gap-space-sm py-2 border-b border-white/[0.06]">
+              <span className="flex items-center gap-2 min-w-0">
+                <Lock className="w-3.5 h-3.5 text-on-surface-variant shrink-0" />
+                <span className="text-body-sm text-on-surface truncate">{c.titleMain} {c.titleHighlight}</span>
+              </span>
+              <a href={FIXED_PATHS[key]} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-body-sm text-on-surface-variant hover:text-primary shrink-0">
+                {FIXED_PATHS[key]} <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Card>
     </div>
   );
 }
