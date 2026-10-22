@@ -12,18 +12,28 @@ import {
 
 export { Container, Eyebrow } from '@/components/site/primitives';
 
+// Carrusel infinito de empresas (se pausa al pasar el mouse; con "reducir movimiento" queda una grilla estática)
 export const ClientsBar = () => (
-  <section className="w-full py-space-lg bg-surface-container-lowest">
+  <section className="w-full py-space-lg bg-surface-container-lowest overflow-hidden">
     <Container className="text-center">
       <p className="text-badge-caps uppercase tracking-widest text-on-surface-variant mb-space-md">
-        SOFTWARE Y CAPACITACIONES QUE HEMOS DESARROLLADO PARA
+        EMPRESAS CON LAS QUE HEMOS TRABAJADO
       </p>
-      <ul className="flex flex-wrap items-center justify-center gap-x-space-xl gap-y-space-sm">
-        {clients.map((c) => (
-          <li key={c} className="text-headline-sm text-on-surface/70 font-bold tracking-tight list-none">{c}</li>
-        ))}
-      </ul>
     </Container>
+    <div
+      className="group relative [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] motion-reduce:[mask-image:none]"
+      aria-label={`Empresas: ${clients.join(', ')}`}
+    >
+      <div className="flex w-max items-center motion-safe:animate-marquee group-hover:[animation-play-state:paused] motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:gap-y-space-sm">
+        {[0, 1].map((copy) => (
+          <ul key={copy} aria-hidden={copy === 1} className={`flex shrink-0 items-center motion-reduce:flex-wrap motion-reduce:justify-center ${copy === 1 ? "motion-reduce:hidden" : ""}`}>
+            {clients.map((c) => (
+              <li key={c} className="list-none px-space-lg md:px-space-xl whitespace-nowrap text-headline-sm text-on-surface/70 font-bold tracking-tight">{c}</li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </div>
   </section>
 );
 

@@ -183,6 +183,10 @@ export default {
 						transform: 'translateY(0)'
 					}
 				},
+				'marquee': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(-50%)' }
+				},
 				'fade-in': {
 					'0%': {
 						opacity: '0'
@@ -197,6 +201,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in-up': 'fade-in-up 0.5s ease-out',
 				'fade-in': 'fade-in 0.7s ease-out',
+				'marquee': 'marquee 35s linear infinite',
 			}
 		}
 	},

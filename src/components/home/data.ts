@@ -9,7 +9,10 @@ import { APPLY_PATH, FREE_CLASS_PATH } from '@/components/site/siteData';
 
 
 // Clientes reales de la agencia / capacitaciones (se pueden reemplazar por logos)
-export const clients = ['Papelera Bertolín', 'Ditobanx', 'ChocoPlaza', 'Servant', 'Servasa', 'IDCE Consulting'];
+export const clients = [
+  'Papelera Bertolín', 'Ditobanx', 'ChocoPlaza', 'Servant', 'Servasa', 'IDCE Consulting',
+  'Baufest', 'Truora', 'Founder Institute', 'Omnia Salud',
+];
 
 // Testimonios con experiencia concluida (los de "recién empiezo" se omiten a propósito)
 export const featuredTestimonials = ['Agustin Gonzalez', 'Gonzalo Carballo', 'Alirio Aguirre', 'Mauricio Madelat', 'Sebastián Acuña'];
@@ -48,14 +51,17 @@ export const instructorFacts = [
   'Bootcamp en español de IA y No-Code para emprendedores y profesionales no técnicos, desde fines de 2024. Antes fue un bootcamp de Golang para devs junior.',
   'AI Product Builder en Ditobanx.',
   'Con la agencia de Labora desarrolló software para Papelera Bertolín, Ditobanx, ChocoPlaza y Servant.',
-  'Diseñó programas de capacitación corporativa para Servasa, Hernán Lamanna e IDCE Consulting.',
+  'Diseñó programas de capacitación corporativa para Servasa, IDCE Consulting, Baufest, Truora, Founder Institute y Omnia Salud.',
   'Co-presentó con Hernán Lamanna en un congreso de relaciones laborales sobre IA, y juntos crearon El Club del Laburo.',
 ];
 
 export type SecondaryProgram = {
-  tag: string; title: string; text: string;
+  level: string; format: string; title: string; text: string;
+  /** Ícono grande de la cabecera visual de la tarjeta */
+  icon: LucideIcon;
+  keywords: string[];
   features: { icon: LucideIcon; text: string }[];
-  baseUsd: number; studentUsd?: number; priceNote?: string; cta: string; to: string;
+  cta: string; to: string;
 };
 
 export const bootcampFeatures = [
@@ -66,22 +72,25 @@ export const bootcampFeatures = [
 
 export const secondaryPrograms: SecondaryProgram[] = [
   {
-    tag: 'NIVEL PROFUNDIZACIÓN', title: 'Bootcamp Avanzado',
+    level: 'Nivel 2', format: 'Grupal · en vivo', title: 'Bootcamp Avanzado', icon: BrainCircuit,
     text: 'Arquitecturas complejas, RAG, Claude Code, automatización multiagente y backend escalable a nivel producción.',
+    keywords: ['Agentes', 'RAG', 'Claude Code'],
     features: [{ icon: Clock, text: '4 semanas (Mar y Jue 20-22h)' }, { icon: BrainCircuit, text: 'Agentes y RAG avanzado' }],
-    baseUsd: 250, cta: 'Ver detalles', to: '/bootcamp',
+    cta: 'Ver detalles', to: '/bootcamp',
   },
   {
-    tag: 'MENTORÍA PRIVADA 1:1', title: 'Labora-Startup',
+    level: 'Nivel 3', format: 'Mentoría 1:1', title: 'Labora-Startup', icon: Rocket,
     text: 'Asesoría individual semanal de 7 semanas orientada a validación de mercado, estrategia comercial y primeros clientes.',
-    features: [{ icon: Headset, text: 'Asesoría 1:1 semanal' }, { icon: UserPlus, text: 'Tracción y Go-To-Market' }],
-    baseUsd: 300, studentUsd: 175, priceNote: 'Precio preferencial para graduados', cta: 'Postular a Startup', to: APPLY_PATH,
+    keywords: ['Validación', 'Tracción', 'Go-To-Market'],
+    features: [{ icon: Headset, text: 'Asesoría 1:1 semanal' }, { icon: UserPlus, text: 'Primeros usuarios y clientes' }],
+    cta: 'Postular a Startup', to: APPLY_PATH,
   },
   {
-    tag: 'INCUBACIÓN DE AGENCIA', title: 'Labora-Agency',
+    level: 'Nivel 3', format: 'Mentoría 1:1', title: 'Labora-Agency', icon: Briefcase,
     text: 'Crea y escala tu agencia de soluciones de software e IA. Propuestas de alto ticket, contratos y captación B2B.',
+    keywords: ['Propuestas', 'Pricing', 'Clientes B2B'],
     features: [{ icon: Briefcase, text: '7 semanas de coaching 1:1' }, { icon: Banknote, text: 'Pricing y contratos B2B' }],
-    baseUsd: 300, studentUsd: 175, priceNote: 'Precio preferencial para graduados', cta: 'Postular a Agency', to: APPLY_PATH,
+    cta: 'Postular a Agency', to: APPLY_PATH,
   },
 ];
 
